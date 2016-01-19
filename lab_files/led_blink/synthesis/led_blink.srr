@@ -1,0 +1,321 @@
+#Build: Synplify Pro I-2014.03M-SP1, Build 097R, Oct  9 2014
+#install: C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1
+#OS: Windows 7 6.1
+#Hostname: EECS373-05
+
+#Implementation: synthesis
+
+Synopsys Verilog Compiler, version comp201403sp1p1, Build 095R, built Oct  9 2014
+@N|Running in 64-bit mode
+Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
+
+@I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\proasic\smartfusion.v"
+@I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\vlog\umr_capim.v"
+@I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\vlog\scemi_objects.v"
+@I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\vlog\scemi_pipes.svh"
+@I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\vlog\hypermods.v"
+@I::"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\mss_tshell.v"
+@I::"C:\Users\rpokeefe\led_blink\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.v"
+@I::"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v"
+@I::"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\led_blink_MSS.v"
+@I::"C:\Users\rpokeefe\led_blink\hdl\led_control.v"
+@I::"C:\Users\rpokeefe\led_blink\component\work\led_blink\led_blink.v"
+Verilog syntax check successful!
+Selecting top level module led_blink
+@N: CG364 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":101:7:101:17|Synthesizing module clk_div_25M
+
+@N: CG364 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\mss_tshell.v":1:7:1:13|Synthesizing module MSS_APB
+
+@N: CG364 :"C:\Users\rpokeefe\led_blink\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.v":151:7:151:13|Synthesizing module MSS_CCC
+
+@N: CG364 :"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\proasic\smartfusion.v":2620:7:2620:11|Synthesizing module RCOSC
+
+@N: CG364 :"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\proasic\smartfusion.v":1141:7:1141:9|Synthesizing module GND
+
+@N: CG364 :"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\proasic\smartfusion.v":1868:7:1868:9|Synthesizing module VCC
+
+@N: CG364 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":5:7:5:41|Synthesizing module led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC
+
+@N: CG364 :"C:\Users\rpokeefe\led_blink\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.v":23:7:23:15|Synthesizing module INBUF_MSS
+
+@N: CG364 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\led_blink_MSS.v":9:7:9:19|Synthesizing module led_blink_MSS
+
+@W: CL168 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\led_blink_MSS.v":334:0:334:22|Pruning instance MSS_RESET_0_MSS_RESET_N -- not in use ...
+
+@W: CL168 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\led_blink_MSS.v":76:0:76:13|Pruning instance MSS_ADLIB_INST -- not in use ...
+
+@N: CG364 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":20:7:20:17|Synthesizing module led_control
+
+@W: CG133 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":25:13:25:21|No assignment to direction
+@W: CL169 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Pruning register state[2:0] 
+
+@W: CL189 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Register bit LED[7] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Register bit LED[6] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Register bit LED[5] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Register bit LED[4] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Register bit LED[3] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Register bit LED[2] is always 1, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Register bit LED[1] is always 1, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":83:4:83:9|Register bit LED[0] is always 0, optimizing ...
+@N: CG364 :"C:\Users\rpokeefe\led_blink\component\work\led_blink\led_blink.v":9:7:9:15|Synthesizing module led_blink
+
+@W: CL159 :"C:\Users\rpokeefe\led_blink\hdl\led_control.v":21:15:21:19|Input clock is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\led_blink_MSS.v":19:7:19:17|Input MSS_RESET_N is unused
+@W: CL157 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":62:7:62:18|*Output RCOSC_CLKOUT has undriven bits -- simulation mismatch possible.
+@W: CL157 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":63:7:63:20|*Output MAINXIN_CLKOUT has undriven bits -- simulation mismatch possible.
+@W: CL157 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":64:7:64:18|*Output LPXIN_CLKOUT has undriven bits -- simulation mismatch possible.
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":36:7:36:10|Input CLKA is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":37:7:37:14|Input CLKA_PAD is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":38:7:38:15|Input CLKA_PADP is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":39:7:39:15|Input CLKA_PADN is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":40:7:40:10|Input CLKB is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":41:7:41:14|Input CLKB_PAD is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":42:7:42:15|Input CLKB_PADP is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":43:7:43:15|Input CLKB_PADN is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":44:7:44:10|Input CLKC is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":45:7:45:14|Input CLKC_PAD is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":46:7:46:15|Input CLKC_PADP is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":47:7:47:15|Input CLKC_PADN is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":48:7:48:13|Input MAINXIN is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":49:7:49:11|Input LPXIN is unused
+@W: CL159 :"C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\MSS_CCC_0\led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC.v":50:7:50:13|Input MAC_CLK is unused
+@END
+
+At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 72MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Tue Jan 12 14:56:18 2016
+
+###########################################################]
+Synopsys Netlist Linker, version comp201403sp1p1, Build 095R, built Oct  9 2014
+@N|Running in 64-bit mode
+File C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_comp.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Tue Jan 12 14:56:19 2016
+
+###########################################################]
+Pre-mapping Report
+
+Synopsys Microsemi Technology Pre-mapping, Version mapact, Build 1346R, Built Oct 10 2014 11:20:09
+Copyright (C) 1994-2014, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
+Product Version I-2014.03M-SP1
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 99MB)
+
+Reading constraint file: C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\mss_tshell_syn.sdc
+@L: C:\Users\rpokeefe\led_blink\synthesis\led_blink_scck.rpt 
+Printing clock  summary report in "C:\Users\rpokeefe\led_blink\synthesis\led_blink_scck.rpt" file 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled 
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 101MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 101MB)
+
+@N: BN115 :"c:\users\rpokeefe\led_blink\component\work\led_blink\led_blink.v":41:12:41:24|Removing instance clk_div_25M_0 of view:work.clk_div_25M(verilog) because there are no references to its outputs 
+@N: BN115 :"c:\users\rpokeefe\led_blink\component\work\led_blink\led_blink.v":49:14:49:28|Removing instance led_blink_MSS_0 of view:work.led_blink_MSS(verilog) because there are no references to its outputs 
+@N: BN115 :"c:\users\rpokeefe\led_blink\component\work\led_blink_mss\led_blink_mss.v":296:36:296:44|Removing instance MSS_CCC_0 of view:work.led_blink_MSS_tmp_MSS_CCC_0_MSS_CCC(verilog) because there are no references to its outputs 
+
+
+@S |Clock Summary
+****************
+
+Start       Requested     Requested     Clock        Clock      
+Clock       Frequency     Period        Type         Group      
+----------------------------------------------------------------
+FAB_CLK     100.0 MHz     10.000        declared     clk_group_0
+FCLK        100.0 MHz     10.000        declared     clk_group_0
+================================================================
+
+Finished Pre Mapping Phase.
+@N: BN225 |Writing default property annotation file C:\Users\rpokeefe\led_blink\synthesis\led_blink.sap.
+Pre-mapping successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 46MB peak: 110MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Tue Jan 12 14:56:20 2016
+
+###########################################################]
+Map & Optimize Report
+
+Synopsys Microsemi Technology Mapper, Version mapact, Build 1346R, Built Oct 10 2014 11:20:09
+Copyright (C) 1994-2014, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
+Product Version I-2014.03M-SP1
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 99MB)
+
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled 
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 100MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 100MB)
+
+
+
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+Available hyper_sources - for debug and ip models
+	None Found
+
+
+Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 109MB peak: 110MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 109MB peak: 110MB)
+
+
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+Finished preparing to map (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 109MB peak: 110MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+Added 0 Buffers
+Added 0 Cells via replication
+	Added 0 Sequential Cells via replication
+	Added 0 Combinational Cells via replication
+
+Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 108MB peak: 110MB)
+
+
+
+#### START OF CLOCK OPTIMIZATION REPORT #####[
+
+Clock optimization not enabled
+0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
+0 gated/generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
+0 instances converted, 0 sequential instances remain driven by gated/generated clocks
+
+
+
+##### END OF CLOCK OPTIMIZATION REPORT ######]
+
+Writing Analyst data base C:\Users\rpokeefe\led_blink\synthesis\led_blink.srm
+
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 109MB peak: 110MB)
+
+Writing Analyst data base C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_m.srm
+
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 109MB peak: 110MB)
+
+Writing EDIF Netlist and constraint files
+I-2014.03M-SP1
+
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 109MB peak: 110MB)
+
+
+
+@S |##### START OF TIMING REPORT #####[
+# Timing Report written on Tue Jan 12 14:56:21 2016
+#
+
+
+Top view:               led_blink
+Library name:           smartfusion
+Operating conditions:   COMWCSTD ( T = 70.0, V = 1.42, P = 1.74, tree_type = balanced_tree )
+Requested Frequency:    100.0 MHz
+Wire load mode:         top
+Wire load model:        smartfusion
+Paths requested:        5
+Constraint File(s):    C:\Users\rpokeefe\led_blink\component\work\led_blink_MSS\mss_tshell_syn.sdc
+                       
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+
+
+
+Performance Summary 
+*******************
+
+
+Worst slack in design: NA
+
+@W: MT548 :"c:/users/rpokeefe/led_blink/component/work/led_blink_mss/mss_tshell_syn.sdc":1:0:1:0|Source for clock FAB_CLK not found in netlist
+@W: MT548 :"c:/users/rpokeefe/led_blink/component/work/led_blink_mss/mss_tshell_syn.sdc":2:0:2:0|Source for clock FCLK not found in netlist
+
+
+
+
+
+Clock Relationships
+*******************
+
+Clocks            |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+--------------------------------------------------------------------------------------------------------
+Starting  Ending  |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
+--------------------------------------------------------------------------------------------------------
+========================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+Interface Information 
+*********************
+
+No IO constraint found
+
+
+##### END OF TIMING REPORT #####]
+
+--------------------------------------------------------------------------------
+Target Part: A2F200M3F_FBGA484_STD
+Report for cell led_blink.verilog
+  Core Cell usage:
+              cell count     area count*area
+               GND     1      0.0        0.0
+               VCC     1      0.0        0.0
+
+
+                   -----          ----------
+             TOTAL     2                 0.0
+
+
+  IO Cell usage:
+              cell count
+            OUTBUF     8
+                   -----
+             TOTAL     8
+
+
+Core Cells         : 0 of 4608 (0%)
+IO Cells           : 8
+
+  RAM/ROM Usage Summary
+Block Rams : 0 of 8 (0%)
+
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 47MB peak: 110MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Tue Jan 12 14:56:21 2016
+
+###########################################################]

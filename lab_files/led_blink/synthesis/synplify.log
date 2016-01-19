@@ -1,0 +1,94 @@
+
+Starting:    C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\win64\mbin\synbatch.exe
+Install:     C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1
+Date:        Tue Jan 12 14:56:18 2016
+Version:     I-2014.03M-SP1
+
+Arguments:   -product synplify_pro  -licensetype synplifypro_actel -batch -log synplify.log led_blink_syn.tcl
+ProductType: synplify_pro
+
+License checkout: synplifypro_actel
+License: synplifypro_actel node-locked 
+Licensed Vendor: actel
+License Option: actel_oem
+
+Running in Vendor Mode
+
+
+auto_infer_blackbox is not supported in current product.
+
+log file: "C:\Users\rpokeefe\led_blink\synthesis\led_blink.srr"
+
+
+
+Running led_blink_syn|synthesis
+
+
+Running: Compile on led_blink_syn|synthesis
+
+
+Running: Compile Process on led_blink_syn|synthesis
+
+
+Running: Compile Input on led_blink_syn|synthesis
+
+Copied C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_comp.srs to C:\Users\rpokeefe\led_blink\synthesis\led_blink.srs
+
+
+compiler Completed with warnings
+Return Code: 1
+Run Time:0h:00m:01s
+
+
+Running: Multi-srs Generator on led_blink_syn|synthesis
+
+Copied C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_comp.srs to C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_s.srs
+
+
+multi_srs_gen Completed
+Return Code: 0
+Run Time:0h:00m:00s
+
+Copied C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_mult.srs to C:\Users\rpokeefe\led_blink\synthesis\led_blink.srs
+
+Complete: Compile Process on led_blink_syn|synthesis
+
+
+Running: Pre-mapping on led_blink_syn|synthesis
+
+Copied C:\Users\rpokeefe\led_blink\synthesis\led_blink.sap to C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_s.sap
+
+Copied C:\Users\rpokeefe\led_blink\synthesis\led_blink.fse to C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_s.fse
+
+
+premap Completed
+Return Code: 0
+Run Time:0h:00m:01s
+
+Complete: Compile on led_blink_syn|synthesis
+
+
+Running: Map on led_blink_syn|synthesis
+
+
+Running: Map & Optimize on led_blink_syn|synthesis
+
+Copied C:\Users\rpokeefe\led_blink\synthesis\synwork\led_blink_m.srm to C:\Users\rpokeefe\led_blink\synthesis\led_blink.srm
+
+
+fpga_mapper Completed with warnings
+Return Code: 1
+Run Time:0h:00m:01s
+
+Complete: Map on led_blink_syn|synthesis
+
+Complete: Logic Synthesis on led_blink_syn|synthesis
+
+TCL script complete: "led_blink_syn.tcl"
+
+exit status=0
+
+exit status=0
+
+License checkin: synplifypro_actel
+

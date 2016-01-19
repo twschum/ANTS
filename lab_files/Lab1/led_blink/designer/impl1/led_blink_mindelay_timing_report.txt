@@ -1,0 +1,256 @@
+Timing Report Min Delay Analysis
+
+SmartTime Version v11.5 SP3
+Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
+Date: Tue Jan 12 17:12:25 2016
+
+
+Design: led_blink
+Family: SmartFusion
+Die: A2F200M3F
+Package: 484 FBGA
+Temperature: COM
+Voltage: COM
+Speed Grade: STD
+Design State: Post-Layout
+Data source: Silicon verified
+Min Operating Condition: BEST
+Max Operating Condition: WORST
+Using Enhanced Min Delay Analysis
+Scenario for Timing Analysis: Primary
+
+
+-----------------------------------------------------
+SUMMARY
+
+Clock Domain:               mss_ccc_gla1
+Period (ns):                8.969
+Frequency (MHz):            111.495
+Required Period (ns):       10.000
+Required Frequency (MHz):   100.000
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               led_blink_MSS_0/MSS_CCC_0/I_RCOSC:CLKOUT
+Period (ns):                N/A
+Frequency (MHz):            N/A
+Required Period (ns):       10.000
+Required Frequency (MHz):   100.000
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+                            Input to Output
+Min Delay (ns):             N/A
+Max Delay (ns):             N/A
+
+END SUMMARY
+-----------------------------------------------------
+
+Clock Domain mss_ccc_gla1
+
+SET Register to Register
+
+Path 1
+  From:                        clk_div_25M_0/count[9]:CLK
+  To:                          clk_div_25M_0/count[9]:D
+  Delay (ns):                  0.759
+  Slack (ns):                  0.741
+  Arrival (ns):                4.627
+  Required (ns):               3.886
+  Hold (ns):                   0.000
+
+Path 2
+  From:                        clk_div_25M_0/count[2]:CLK
+  To:                          clk_div_25M_0/count[2]:D
+  Delay (ns):                  0.789
+  Slack (ns):                  0.773
+  Arrival (ns):                4.646
+  Required (ns):               3.873
+  Hold (ns):                   0.000
+
+Path 3
+  From:                        clk_div_25M_0/count[24]:CLK
+  To:                          clk_div_25M_0/count[24]:D
+  Delay (ns):                  0.801
+  Slack (ns):                  0.786
+  Arrival (ns):                4.647
+  Required (ns):               3.861
+  Hold (ns):                   0.000
+
+Path 4
+  From:                        clk_div_25M_0/count[21]:CLK
+  To:                          clk_div_25M_0/count[21]:D
+  Delay (ns):                  0.801
+  Slack (ns):                  0.786
+  Arrival (ns):                4.644
+  Required (ns):               3.858
+  Hold (ns):                   0.000
+
+Path 5
+  From:                        clk_div_25M_0/count[4]:CLK
+  To:                          clk_div_25M_0/count[4]:D
+  Delay (ns):                  0.818
+  Slack (ns):                  0.801
+  Arrival (ns):                4.671
+  Required (ns):               3.870
+  Hold (ns):                   0.000
+
+
+Expanded Path 1
+  From: clk_div_25M_0/count[9]:CLK
+  To: clk_div_25M_0/count[9]:D
+  data arrival time                              4.627
+  data required time                         -   3.886
+  slack                                          0.741
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_ccc_gla1
+               +     0.000          Clock source
+  0.000                        led_blink_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     3.558          Clock generation
+  3.558
+               +     0.000          net: led_blink_MSS_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  3.558                        led_blink_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  3.558                        led_blink_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.310          net: FAB_CLK
+  3.868                        clk_div_25M_0/count[9]:CLK (r)
+               +     0.249          cell: ADLIB:DFN1
+  4.117                        clk_div_25M_0/count[9]:Q (r)
+               +     0.164          net: clk_div_25M_0/count[9]
+  4.281                        clk_div_25M_0/un3_count_1_I_26:C (r)
+               +     0.198          cell: ADLIB:AX1C
+  4.479                        clk_div_25M_0/un3_count_1_I_26:Y (f)
+               +     0.148          net: clk_div_25M_0/I_26
+  4.627                        clk_div_25M_0/count[9]:D (f)
+                                    
+  4.627                        data arrival time
+  ________________________________________________________
+  Data required time calculation
+  0.000                        mss_ccc_gla1
+               +     0.000          Clock source
+  0.000                        led_blink_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     3.558          Clock generation
+  3.558
+               +     0.000          net: led_blink_MSS_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  3.558                        led_blink_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  3.558                        led_blink_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.328          net: FAB_CLK
+  3.886                        clk_div_25M_0/count[9]:CLK (r)
+               +     0.000          Library hold time: ADLIB:DFN1
+  3.886                        clk_div_25M_0/count[9]:D
+                                    
+  3.886                        data required time
+
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+No Path
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain led_blink_MSS_0/MSS_CCC_0/I_RCOSC:CLKOUT
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+No Path
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Path set Pin to Pin
+
+SET Input to Output
+
+No Path
+
+END SET Input to Output
+
+----------------------------------------------------
+
+Path set User Sets
+
