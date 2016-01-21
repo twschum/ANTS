@@ -28,21 +28,42 @@ main:
 	and	r1, r2
 	str	r1, [r0, #0]
 
-	mov	r0, #24 @bits 24 - 31 are mapped to LEDS 0-7 respectively or D1-D8 on the kit
+	@ Initialize the 8 LEDs for GPIO
+	mov r5, #0  @ control flow reg
+	mov r6, #8  @ number of time to loop
+initloop:
+	add r0, r5, #24 @bits 24 - 31 are mapped to LEDS 0-7 respectively or D1-D8 on the kit
 	bl	initGPIO @ Call initGPIO in gpio.s to initalize GPIO 24
+	add r5, r5, #1
+	cmp r5, r6
+	blt initloop
 
-	mov	r0, #0
-	bl	setGPIO @ Call setGPIO in gpio.s to write 0 to GPIO output register
+	@ Call setGPIO in gpio.s to write 1s to GPIO output register
+	movw	r0, #0
+	movt	r0, #&fe00
+	bl	setGPIO
 
+	@ setting delay constant
 	movw r3, #:lower16:DELAY_CYCLES
 	movt r3, #:upper16:DELAY_CYCLES
-
+	@ the boundary value, for resetting the loop
+	movw r4, #0
+	movt r4, #&7f00
 loop:
+
+	bl setGPIO
+
+	lsl r0, #1
+
+	@ boundary condition
+	cmp r4, r0
+	beq loop
+
+	@ shift in a one at bit 24
 	mov	r1, #1
 	lsl	r1, #24
-	eor	r0, r1 @ Exclusive-OR (XOR)
-	bl	setGPIO
-	mov r2, #0
+	eor	r0, r1 @ XOR
+
 delay:
 	add r2, r2, #1
 	cmp r2, r3
