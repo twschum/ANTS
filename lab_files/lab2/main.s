@@ -40,7 +40,7 @@ initloop:
 
 	@ Call setGPIO in gpio.s to write 1s to GPIO output register
 	movw	r0, #0
-	movt	r0, #&fe00
+	movt	r0, #0xfe00
 	bl	setGPIO
 
 	@ setting delay constant
@@ -48,7 +48,7 @@ initloop:
 	movt r3, #:upper16:DELAY_CYCLES
 	@ the boundary value, for resetting the loop
 	movw r4, #0
-	movt r4, #&7f00
+	movt r4, #0x7f00
 loop:
 
 	bl setGPIO
