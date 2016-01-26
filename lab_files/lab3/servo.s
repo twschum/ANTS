@@ -41,11 +41,11 @@ poll:
     ldr r1, [r0]
     and r1, r1, #3
 
-    cmp r1, #0 @ both pressed
-    mov r6, #1 @ flag for posedge only (pressed)
-    beq poll
     cmp r1, #3 @ neither pressed
     mov r6, #0 @ flag for posedge only (not pressed)
+    beq poll
+    cmp r1, #0 @ both pressed
+    mov r6, #1 @ flag for posedge only (pressed)
     beq poll
 
     cmp r6, #1 @ only proceed if no buttons pressed
@@ -72,7 +72,7 @@ SW2: @ decrement position (unless min)
 
 write:
     mov r6, #1 @ flag for posedge only (pressed)
-    str r2, [r0, #4]
+    str r2, [r0]
     b poll
 
 	.end
