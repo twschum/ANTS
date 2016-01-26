@@ -55,14 +55,14 @@ poll:
     cmp r1, #1 @ SW2 pressed
     beq SW2
 
-SW1: @ increment position
+SW1: @ increment position (unless max)
     cmp r2, r5
     beq poll
 
     add r2, r2, r4
     b write
 
-SW2: @ decrement position
+SW2: @ decrement position (unless min)
     cmp r2, r3
     beq poll
 
