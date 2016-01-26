@@ -8,7 +8,8 @@
     .equ    PULSE_TOP, 210000
 
 	.section .int_vector,"a",%progbits @ First linker code section
-	.global	 _start                    @ Linker entry point _start: .word	STACK_TOP, main
+	.global	 _start                    @ Linker entry point
+_start: .word	STACK_TOP, main
 	@ End of int_vector section
 
 	@ Standard text section
