@@ -8,9 +8,7 @@
     .equ    PULSE_TOP, 210000
 
 	.section .int_vector,"a",%progbits @ First linker code section
-	.global	 _start                    @ Linker entry point
-_start:
-	.word	STACK_TOP, main
+	.global	 _start                    @ Linker entry point _start: .word	STACK_TOP, main
 	@ End of int_vector section
 
 	@ Standard text section
@@ -43,8 +41,13 @@ poll:
     and r1, r1, #3
 
     cmp r1, #0 @ both pressed
+    mov r6, #1 @ flag for posedge only (pressed)
     beq poll
     cmp r1, #3 @ neither pressed
+    mov r6, #0 @ flag for posedge only (not pressed)
+    beq poll
+
+    cmp r6, #1 @ only proceed if no buttons pressed
     beq poll
 
     cmp r1, #2 @ SW1 pressed
@@ -67,7 +70,8 @@ SW2: @ decrement position
     b write
 
 write:
-
-
+    mov r6, #1 @ flag for posedge only (pressed)
+    str r2, [r0, #4]
+    b poll
 
 	.end
