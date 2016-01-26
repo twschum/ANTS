@@ -1,6 +1,6 @@
 	.equ	STACK_TOP, 0x20000800
 
-	.equ	DEVICE_BASE_ADDR, 0x40050100
+	.equ	DEVICE_BASE_ADDR, 0x40050000
 
     .equ    PULSE_BASE, 90000
     .equ    PULSE_DELTA, 12000
@@ -26,6 +26,7 @@ main:
     @ r2 is the current pulse width
     movw    r2, #:lower16:PULSE_MIDDLE
     movt    r2, #:upper16:PULSE_MIDDLE
+    str r2, [r0]
 
     movw    r3, #:lower16:PULSE_BASE
     movt    r3, #:upper16:PULSE_BASE
