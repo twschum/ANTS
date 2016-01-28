@@ -42,11 +42,11 @@ poll:
     ldr r1, [r0]
     and r1, r1, #3
 
-    cmp r1, #3 @ neither pressed
-    beq SW_NONE
-
-    cmp r1, #0 @ both pressed
+    cmp r1, #3 @ both pressed
     beq poll
+
+    cmp r1, #0 @ neither pressed
+    beq SW_NONE
 
     cmp r6, #1 @ only proceed if no buttons pressed
     beq poll
