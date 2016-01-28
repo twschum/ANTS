@@ -43,10 +43,9 @@ poll:
     and r1, r1, #3
 
     cmp r1, #3 @ neither pressed
-    mov r6, #0 @ flag for posedge only (not pressed)
-    beq poll
+    beq SW_NONE
+
     cmp r1, #0 @ both pressed
-    mov r6, #1 @ flag for posedge only (pressed)
     beq poll
 
     cmp r6, #1 @ only proceed if no buttons pressed
@@ -56,6 +55,10 @@ poll:
     beq SW1
     cmp r1, #1 @ SW2 pressed
     beq SW2
+
+SW_NONE:
+    mov r6, #0 @ flag for posedge only (not pressed)
+    b poll
 
 SW1: @ increment position (unless max)
     cmp r2, r5
