@@ -3,7 +3,7 @@
 	.equ	DEVICE_BASE_ADDR, 0x40050000
 
     .equ    PULSE_BASE, 90000
-    .equ    PULSE_DELTA, 12000
+    .equ    PULSE_DELTA, 6667
     .equ    PULSE_MIDDLE, 150000
     .equ    PULSE_TOP, 210000
 
@@ -62,14 +62,14 @@ SW_NONE:
 
 SW1: @ increment position (unless max)
     cmp r2, r5
-    beq poll
+    bge poll
 
     add r2, r2, r4
     b write
 
 SW2: @ decrement position (unless min)
     cmp r2, r3
-    beq poll
+    ble poll
 
     sub r2, r2, r4
     b write
