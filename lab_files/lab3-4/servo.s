@@ -7,9 +7,12 @@
 
     @ Standard text section
     .text
-    strHello:    .asciz "Hello, my name in Inigo Montoya...\n\r"
-    strWFI:    .asciz "wait for interrupt\n\r"
+    strHello:  .asciz "Hello, my name in Inigo Montoya...\n\r"
+    strWFI:    .asciz "(busy) wait for interrupt\n\r"
     .align 2
+    enabled:   .word 0
+    direction: .word 0
+    position:  .word PULSE_MIDDLE
 
     .global main
     .syntax unified
@@ -17,113 +20,115 @@
     .type   main, %function
 
 main:
+    @ initialize the servo at middle, going up
+    movw    r0, #:lower16:DEVICE_BASE_ADDR
+    movt    r0, #:upper16:DEVICE_BASE_ADDR
+    movw    r1, #:lower16:PULSE_MIDDLE
+    movt    r1, #:upper16:PULSE_MIDDLE
+    str     r1, [r0]
+
     @ Initalize MSS UART 0
     movw    r0, #:lower16:g_mss_uart0
     movt    r0, #:upper16:g_mss_uart0
     movw    r1, #:lower16:57600         @ UART Baudrate
     movt    r1, #:upper16:57600
-    mov     r2, #3
+    mov     r2, #3                      @ COM3
     bl      MSS_UART_init
 
     @ print via the serial port
     movw    r0, #:lower16:strHello
     movt    r0, #:upper16:strHello
-    bl printf373
+    bl printf37
 
     @ enable FABINT
     mov r0, #31
     bl EnableIRQ
 
-    @ TODO
-    .word enabled
-    .word direction
 
-    @ initialize the servo at middle, going up
-    movw    r2, #:lower16:PULSE_MIDDLE
-    movt    r2, #:upper16:PULSE_MIDDLE
-    str     r2, [r0]
-
+@ main loop for the servo
 wfi_loop:
     movw    r0, #:lower16:strWFI
     movt    r0, #:upper16:strWFI
     bl printf373
-    wfi
+busy: b bysy
     b wfi_loop
 
 
-@ from button interrupt TODO
+@ called by button interrupt
 toggle_enable:
+    movw    r0, #:lower16:enable
+    movt    r0, #:upper16:enable
+    ldr     r1, [r0]
+    eor     r1, r1, #1
+    str     r1, [r0]
+    bx lr
 
 
 
-@ from FABINT TODO
+@ from FABINT (timer interrupt)
 timer_int_action:
 
-    @ Load DEVICE_BASE_ADDR
-    movw    r0, #:lower16:DEVICE_BASE_ADDR
-    movt    r0, #:upper16:DEVICE_BASE_ADDR
+    @ check enabled
+    movw    r0, #:lower16:enabled
+    movt    r0, #:upper16:enabled
+    ldr     r1, [r0]
+    cmp     r1, #0
+    beq     return
 
-    @ r2 is the current pulse width
-    movw    r2, #:lower16:PULSE_MIDDLE
-    movt    r2, #:upper16:PULSE_MIDDLE
-    str     r2, [r0]
+    @ determine direction
+    movw    r0, #:lower16:direction
+    movt    r0, #:upper16:direction
+    ldr     r1, [r0]
+    cmp     r1, #0
 
+    @ load current position
+    movw    r0, #:lower16:position
+    movt    r0, #:upper16:position
+    ldr     r2, [r0]
+
+    @ change position
+    beq     increment_pos
+
+decrement_pos: @ decrement position (unless min)
     movw    r3, #:lower16:PULSE_BASE
     movt    r3, #:upper16:PULSE_BASE
+    cmp     r2, r3
+    ble     toggle_direction
 
     movw    r4, #:lower16:PULSE_DELTA
     movt    r4, #:upper16:PULSE_DELTA
+    sub     r2, r2, r4
+    b       write
 
-    movw    r5, #:lower16:PULSE_TOP
-    movt    r5, #:upper16:PULSE_TOP
+increment_pos: @ increment position (unless max)
+    movw    r3, #:lower16:PULSE_TOP
+    movt    r3, #:upper16:PULSE_TOP
+    cmp     r2, r3
+    bge     toggle_direction
 
-poll:
-    mov r6, r0
-    movw    r0, #:lower16:strWFI
-    movt    r0, #:upper16:strWFI
-    bl printf373
-    mov r0, r6
-    wfi
+    movw    r4, #:lower16:PULSE_DELTA
+    movt    r4, #:upper16:PULSE_DELTA
+    add     r2, r2, r4
+    b       write
 
-    @ read the switches, mask bits
-    ldr r1, [r0]
-    and r1, r1, #3
+write: @ write pulse width to device AND memory
+    movw    r0, #:lower16:DEVICE_BASE_ADDR
+    movt    r0, #:upper16:DEVICE_BASE_ADDR
+    str     r2, [r0]
 
-    cmp r1, #3 @ both pressed
-    beq poll
+    movw    r0, #:lower16:position
+    movt    r0, #:upper16:position
+    str     r2, [r0]
+    b return
 
-    cmp r1, #0 @ neither pressed
-    beq SW_NONE
+toggle_direction:
+    movw    r0, #:lower16:direction
+    movt    r0, #:upper16:direction
+    ldr     r1, [r0]
+    eor     r1, r1, #1
+    str     r1, [r0]
 
-    cmp r6, #1 @ only proceed if no buttons pressed
-    beq poll
-
-    cmp r1, #2 @ SW1 pressed
-    beq SW1
-    cmp r1, #1 @ SW2 pressed
-    beq SW2
-
-SW_NONE:
-    mov r6, #0 @ flag for posedge only (not pressed)
-    b poll
-
-SW1: @ increment position (unless max)
-    cmp r2, r5
-    bge poll
-
-    add r2, r2, r4
-    b write
-
-SW2: @ decrement position (unless min)
-    cmp r2, r3
-    ble poll
-
-    sub r2, r2, r4
-    b write
-
-write:
-    mov r6, #1 @ flag for posedge only (pressed)
-    str r2, [r0]
-    b poll
+return:
+    bx lr
 
     .end
