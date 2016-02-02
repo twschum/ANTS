@@ -29,6 +29,10 @@ main:
     movt    r0, #:upper16:strHello
     bl printf373
 
+    @ enable FABINT
+    mov r0, #31
+    bl EnableIRQ
+
     @ Load DEVICE_BASE_ADDR
     movw    r0, #:lower16:DEVICE_BASE_ADDR
     movt    r0, #:upper16:DEVICE_BASE_ADDR
