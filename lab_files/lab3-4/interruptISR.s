@@ -21,6 +21,7 @@ count:  .word   0   @ The label count is the address to a 32 bit (word) memory l
 .type   Fabric_IRQHandler, %function
 
 Fabric_IRQHandler:
+    push    {lr}
     movw    r2, #:lower16:count
     movt    r2, #:upper16:count
     ldr     r1, [r2]
@@ -33,6 +34,7 @@ Fabric_IRQHandler:
 
     bl printf373
 
+    pop    {lr}
     bx lr
 
 @ Enable the IRQ
