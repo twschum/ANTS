@@ -6,13 +6,29 @@
     .equ    PULSE_TOP, 210000
 
     @ Standard text section
-    .global main
     .text
+    strHello:    .asciz "Hello, my name in Inigo Montoya..."
+    .align 2
+
+    .global main
     .syntax unified
     .thumb
     .type   main, %function
 
 main:
+    @ Initalize MSS UART 0
+    movw    r0, #:lower16:g_mss_uart0
+    movt    r0, #:upper16:g_mss_uart0
+    movw    r1, #:lower16:57600         @ UART Baudrate
+    movt    r1, #:upper16:57600
+    mov     r2, #3
+    bl      MSS_UART_init
+
+    @ print via the serial port
+    movw    r0, #:lower16:strHello
+    movt    r0, #:upper16:strHello
+    bl printf373
+
     @ Load DEVICE_BASE_ADDR
     movw    r0, #:lower16:DEVICE_BASE_ADDR
     movt    r0, #:upper16:DEVICE_BASE_ADDR
@@ -20,7 +36,7 @@ main:
     @ r2 is the current pulse width
     movw    r2, #:lower16:PULSE_MIDDLE
     movt    r2, #:upper16:PULSE_MIDDLE
-    str r2, [r0]
+    str     r2, [r0]
 
     movw    r3, #:lower16:PULSE_BASE
     movt    r3, #:upper16:PULSE_BASE
