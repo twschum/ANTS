@@ -7,7 +7,7 @@
 
     @ Standard text section
     .text
-    strHello:    .asciz "Hello, my name in Inigo Montoya..."
+    strHello:    .asciz "Hello, my name in Inigo Montoya...\n\r"
     .align 2
 
     .global main
