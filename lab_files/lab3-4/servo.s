@@ -8,6 +8,7 @@
     @ Standard text section
     .text
     strHello:    .asciz "Hello, my name in Inigo Montoya...\n\r"
+    strWFI:    .asciz "wait for interrupt\n\r"
     .align 2
 
     .global main
@@ -52,6 +53,13 @@ main:
     movt    r5, #:upper16:PULSE_TOP
 
 poll:
+    mov r6, r0
+    movw    r0, #:lower16:strWFI
+    movt    r0, #:upper16:strWFI
+    bl printf373
+    mov r0, r6
+    wfi
+
     @ read the switches, mask bits
     ldr r1, [r0]
     and r1, r1, #3
