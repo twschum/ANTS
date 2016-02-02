@@ -34,6 +34,31 @@ main:
     mov r0, #31
     bl EnableIRQ
 
+    @ TODO
+    .word enabled
+    .word direction
+
+    @ initialize the servo at middle, going up
+    movw    r2, #:lower16:PULSE_MIDDLE
+    movt    r2, #:upper16:PULSE_MIDDLE
+    str     r2, [r0]
+
+wfi_loop:
+    movw    r0, #:lower16:strWFI
+    movt    r0, #:upper16:strWFI
+    bl printf373
+    wfi
+    b wfi_loop
+
+
+@ from button interrupt TODO
+toggle_enable:
+
+
+
+@ from FABINT TODO
+timer_int_action:
+
     @ Load DEVICE_BASE_ADDR
     movw    r0, #:lower16:DEVICE_BASE_ADDR
     movt    r0, #:upper16:DEVICE_BASE_ADDR
