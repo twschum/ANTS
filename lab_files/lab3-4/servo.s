@@ -1,27 +1,21 @@
-	.equ	STACK_TOP, 0x20000800
-
-	.equ	DEVICE_BASE_ADDR, 0x40050000
+    .equ    DEVICE_BASE_ADDR, 0x40050000
 
     .equ    PULSE_BASE, 90000
     .equ    PULSE_DELTA, 6667
     .equ    PULSE_MIDDLE, 150000
     .equ    PULSE_TOP, 210000
 
-	.section .int_vector,"a",%progbits @ First linker code section
-	.global	 _start                    @ Linker entry point
-_start: .word	STACK_TOP, main
-	@ End of int_vector section
+    @ Standard text section
+    .global main
+    .text
+    .syntax unified
+    .thumb
+    .type   main, %function
 
-	@ Standard text section
-	.text
-	.syntax	unified
-	.thumb
-
-	.type	main, %function
 main:
-	@ Load DEVICE_BASE_ADDR
-	movw	r0, #:lower16:DEVICE_BASE_ADDR
-	movt	r0, #:upper16:DEVICE_BASE_ADDR
+    @ Load DEVICE_BASE_ADDR
+    movw    r0, #:lower16:DEVICE_BASE_ADDR
+    movt    r0, #:upper16:DEVICE_BASE_ADDR
 
     @ r2 is the current pulse width
     movw    r2, #:lower16:PULSE_MIDDLE
@@ -79,4 +73,4 @@ write:
     str r2, [r0]
     b poll
 
-	.end
+    .end
