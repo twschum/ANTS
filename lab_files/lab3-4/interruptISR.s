@@ -25,12 +25,13 @@ Fabric_IRQHandler:
     movt    r2, #:upper16:count
     ldr     r1, [r2]
 
+    add     r0, r1, #1
+    str     r0, [r2]
+
     movw    r0, #:lower16:waitStr
     movt    r0, #:upper16:waitStr
-    bl printf373
 
-    add     r1, r1, #1
-    str     r1, [r2]
+    bl printf373
 
     bx lr
 
