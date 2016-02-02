@@ -11,6 +11,7 @@ count:  .word   0   @ The label count is the address to a 32 bit (word) memory l
             @ The value of count must be passed to printf as separate argument (register)
 
     .text
+    GPIO1intStr: .asciz "Interrupt occurred - GPIO 1 \n"
     .syntax unified
     .thumb
 
@@ -34,6 +35,7 @@ Fabric_IRQHandler:
 
     bl printf373
 
+    bl timer_int_action
     pop    {lr}
     bx lr
 
@@ -62,4 +64,38 @@ EnableIRQ:
     lsl     r0, r3, r0
     str     r0, [r1]
 
+    bx  lr
+
+.global GPIO1_IRQHandler
+    .type   GPIO1_IRQHandler, %function
+
+
+
+GPIO1_IRQHandler:
+    @ Pulse GPIO0 output
+    push {lr}
+    mov r0, #0      @ MSS_GPIO_0
+    mov r1, #0x1    @ set GPIO0 output high
+    bl  MSS_GPIO_set_output
+
+    @ Print interrupt string
+    @ remember to initialize the UART in the main
+    movw    r0, #:lower16:GPIO1intStr @ "Interrupt occurred - GPIO 1 \n"
+    movt    r0, #:upper16:GPIO1intStr
+    bl  printf373
+
+    @enable/disable servo
+    bl toggle_enable
+
+    @ Clear MSS GPIO pending
+    @ While is not necessary to clear a pending interrupt in the NVIC,
+    @ it is necessary to clear the respective MSS GPIO interrupting source.
+    @ Be sure to do this or your interrupt will occur continuously.
+    mov r0, #1
+    bl  MSS_GPIO_clear_irq
+
+    mov r0, #0      @ MSS_GPIO_0
+    mov r1, #0x0    @ set GPIO0 output low
+    bl  MSS_GPIO_set_output
+    pop {lr}
     bx  lr

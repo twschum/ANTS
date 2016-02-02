@@ -1,4 +1,4 @@
-    .equ    DEVICE_BASE_ADDR, 0x40050000
+ .equ    DEVICE_BASE_ADDR, 0x40050000
 
     .equ    PULSE_BASE, 90000
     .equ    PULSE_DELTA, 6667
@@ -15,9 +15,13 @@
     position:  .word PULSE_MIDDLE
 
     .global main
+    .global timer_int_action
+    .global toggle_enable
     .syntax unified
     .thumb
     .type   main, %function
+    .type   timer_int_action, %function
+    .type   toggle_enable, %function
 
 main:
     @ initialize the servo at middle, going up
@@ -38,11 +42,27 @@ main:
     @ print via the serial port
     movw    r0, #:lower16:strHello
     movt    r0, #:upper16:strHello
-    bl printf37
+    bl printf373
 
     @ enable FABINT
     mov r0, #31
     bl EnableIRQ
+
+    @GPIO Setup
+    bl  MSS_GPIO_init   @no arguments
+
+    @ Config GPIO 0 as output
+    mov r0, #0  @ MSS_GPIO_0
+    mov r1, #0x000000005    @ MSS_GPIO_OUTPUT_MODE
+    bl  MSS_GPIO_config
+
+    @ Config GPIO 1 as input with interrupts
+    mov r0, #1  @ MSS_GPIO_1
+    mov r1, #0x000000042    @ MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE
+    bl  MSS_GPIO_config
+    bl  MSS_GPIO_enable_irq @ 1 argument, MSS_GPIO_1
+    mov r0, #33 @ GPIO1_IRQHandler
+    bl  EnableIRQ
 
 
 @ main loop for the servo
@@ -50,14 +70,14 @@ wfi_loop:
     movw    r0, #:lower16:strWFI
     movt    r0, #:upper16:strWFI
     bl printf373
-busy: b bysy
-    b wfi_loop
+busy: b busy
+  b wfi_loop
 
 
 @ called by button interrupt
 toggle_enable:
-    movw    r0, #:lower16:enable
-    movt    r0, #:upper16:enable
+    movw    r0, #:lower16:enabled
+    movt    r0, #:upper16:enabled
     ldr     r1, [r0]
     eor     r1, r1, #1
     str     r1, [r0]
