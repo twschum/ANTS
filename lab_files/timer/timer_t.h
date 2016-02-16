@@ -23,6 +23,11 @@ struct Timer {
   struct Timer* next;   // points to next timer
 };
 
+struct Handler {
+    handler_t handler;
+    struct Handler* next;
+};
+
 // used to initialize hardware
 // using MSS_TIM1
 void start_hardware_timer();
@@ -35,6 +40,6 @@ void add_timer_single(handler_t handler, uint32_t period);
 
 // update down count with elapsed time, call fnc if timer zero,
 // update continuous timers with new down count
-void update_timers(void);
+struct Handler* update_timers(void);
 
 #endif // TIMER_T_H

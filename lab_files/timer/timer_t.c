@@ -9,30 +9,33 @@ struct Timer* root = NULL;
 
 void Timer1_IRQHandler(void) {
 
-    handler_t handler = root->handler;
+    struct Handler* handlers = update_timers();
 
-    update_timers();
-
-    //MSS_TIM1_clear_irq();
+    MSS_TIM1_clear_irq();
 
     // if not empty, start the timer again
     if (root) {
-        //MSS_TIM1_load_immediate(root->time_left);
-        //MSS_TIM1_start();
+        MSS_TIM1_load_immediate(root->time_left);
+        MSS_TIM1_start();
     }
 
-    // call the timer's handler last
-    handler();
+    // call the timer handlers
+    while (handlers) {
+        handlers->handler();
+
+        struct Handler* tmp = handlers;
+        handlers = handlers->next;
+
+        free(tmp);
+    }
 }
 
 void start_hardware_timer() {
 
-    /*
     MSS_TIM1_init(MSS_TIMER_ONE_SHOT_MODE);
     MSS_TIM1_load_immediate(root->time_left);
     MSS_TIM1_start();
     MSS_TIM1_enable_irq();
-    */
 }
 
 // put new timer in list maintaining order least time remaining to most
@@ -88,7 +91,7 @@ void add_timer_single(handler_t handler, uint32_t period) {
 
 // update down count with elapsed time, call fnc if timer zero,
 // update continuous timers with new down count
-void update_timers(void) {
+struct Handler* update_timers(void) {
 
     // first, update all the time_left fields
     struct Timer* node = root;
@@ -99,18 +102,46 @@ void update_timers(void) {
         node = node->next;
     }
 
-    // second, deal with the root timer
-    struct Timer* head = root;
-    root = head->next;
+    struct Handler* handlers_root = NULL;
+    struct Handler* handlers_tail = NULL;
 
-    if (head->mode == ONE_SHOT) {
-        free(head);
+
+    // second, deal with the zeroed timer
+    while (root->time_left == 0) {
+
+        // handlers list tail insert
+        struct Handler* new_handler = malloc(sizeof(struct Handler));
+        new_handler->handler = NULL;
+        new_handler->next = NULL;
+
+        if (handlers_root == NULL) {
+            handlers_root = new_handler;
+            handlers_tail = new_handler;
+        }
+        else {
+            handlers_tail->next = new_handler;
+            handlers_tail = new_handler;
+        }
+        // list is set, now just use new_handler
+
+
+        // deal with the front timer in that list
+        struct Timer* head = root;
+        root = head->next;
+
+        new_handler->handler = head->handler;
+
+        if (head->mode == ONE_SHOT) {
+            free(head);
+        }
+
+        else {
+            head->time_left = head->period;
+            head->next = NULL;
+            insert_timer(head);
+        }
     }
 
-    else {
-        head->time_left = head->period;
-        head->next = NULL;
-        insert_timer(head);
-    }
+    return handlers_root;
 }
 
