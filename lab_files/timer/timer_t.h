@@ -25,7 +25,7 @@ struct Timer {
 
 // used to initialize hardware
 // using MSS_TIM1
-void start_hardware_timer(uint32_t period);
+void start_hardware_timer();
 
 // add a continuous (periodic) timer to linked list.
 void add_timer_periodic(handler_t handler, uint32_t period);
