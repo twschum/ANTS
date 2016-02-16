@@ -25,19 +25,12 @@ void Timer1_IRQHandler(void) {
     handler();
 }
 
-void start_hardware_timer(uint32_t period) {
+void start_hardware_timer() {
 
-    /*
     MSS_TIM1_init(MSS_TIMER_ONE_SHOT_MODE);
-    MSS_TIM1_load_immediate(period);
+    MSS_TIM1_load_immediate(root->time_left);
     MSS_TIM1_start();
     MSS_TIM1_enable_irq();
-    */
-
-    if (period) {
-        period = 0;
-    }
-
 }
 
 // put new timer in list maintaining order least time remaining to most
