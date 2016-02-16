@@ -13,12 +13,12 @@ void Timer1_IRQHandler(void) {
 
     update_timers();
 
-    MSS_TIM1_clear_irq();
+    //MSS_TIM1_clear_irq();
 
     // if not empty, start the timer again
     if (root) {
-        MSS_TIM1_load_immediate(root->time_left);
-        MSS_TIM1_start();
+        //MSS_TIM1_load_immediate(root->time_left);
+        //MSS_TIM1_start();
     }
 
     // call the timer's handler last
@@ -27,10 +27,12 @@ void Timer1_IRQHandler(void) {
 
 void start_hardware_timer() {
 
+    /*
     MSS_TIM1_init(MSS_TIMER_ONE_SHOT_MODE);
     MSS_TIM1_load_immediate(root->time_left);
     MSS_TIM1_start();
     MSS_TIM1_enable_irq();
+    */
 }
 
 // put new timer in list maintaining order least time remaining to most
@@ -45,6 +47,7 @@ void insert_timer(struct Timer* newtimer) {
     // front insert case
     if (newtimer->time_left < root->time_left) {
         newtimer->next = root;
+        root = newtimer;
         return;
     }
 
