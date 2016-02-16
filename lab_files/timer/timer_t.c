@@ -17,7 +17,7 @@ void Timer1_IRQHandler(void) {
 
     // if not empty, start the timer again
     if (root) {
-        MSS_TIM1_load_immeadiate(root->time_left);
+        MSS_TIM1_load_immediate(root->time_left);
         MSS_TIM1_start();
     }
 
