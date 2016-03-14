@@ -1,0 +1,1346 @@
+
+mytimer_MSS_MSS_CM3_0_app:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000930  20000000  20000000  00008000  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  20000930  20000930  00008930  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000004  20000934  20000934  00008934  2**0
+                  ALLOC
+  3 .stack        00003000  20000938  20000938  00008934  2**0
+                  ALLOC
+  4 .comment      000000ac  00000000  00000000  00008934  2**0
+                  CONTENTS, READONLY
+  5 .debug_aranges 000001c0  00000000  00000000  000089e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 000002a3  00000000  00000000  00008ba0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00002e58  00000000  00000000  00008e43  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 00000583  00000000  00000000  0000bc9b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00001043  00000000  00000000  0000c21e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000578  00000000  00000000  0000d264  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    0000189d  00000000  00000000  0000d7dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    000008fc  00000000  00000000  0000f079  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macinfo 00017a16  00000000  00000000  0000f975  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .ARM.attributes 00000025  00000000  00000000  0002738b  2**0
+                  CONTENTS, READONLY
+ 15 .debug_ranges 000001a0  00000000  00000000  000273b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+20000000 <__text_start>:
+20000000:	20010000 	.word	0x20010000
+20000004:	20000299 	.word	0x20000299
+20000008:	20000309 	.word	0x20000309
+2000000c:	2000030b 	.word	0x2000030b
+20000010:	2000030d 	.word	0x2000030d
+20000014:	2000030f 	.word	0x2000030f
+20000018:	20000311 	.word	0x20000311
+	...
+2000002c:	20000313 	.word	0x20000313
+20000030:	20000315 	.word	0x20000315
+20000034:	00000000 	.word	0x00000000
+20000038:	20000317 	.word	0x20000317
+2000003c:	20000319 	.word	0x20000319
+20000040:	2000031b 	.word	0x2000031b
+20000044:	2000031d 	.word	0x2000031d
+20000048:	2000031f 	.word	0x2000031f
+2000004c:	20000321 	.word	0x20000321
+20000050:	20000323 	.word	0x20000323
+20000054:	20000325 	.word	0x20000325
+20000058:	20000327 	.word	0x20000327
+2000005c:	20000329 	.word	0x20000329
+20000060:	2000032b 	.word	0x2000032b
+20000064:	2000032d 	.word	0x2000032d
+20000068:	2000032f 	.word	0x2000032f
+2000006c:	20000331 	.word	0x20000331
+20000070:	20000333 	.word	0x20000333
+20000074:	20000335 	.word	0x20000335
+20000078:	20000337 	.word	0x20000337
+2000007c:	20000339 	.word	0x20000339
+20000080:	2000033b 	.word	0x2000033b
+20000084:	2000033d 	.word	0x2000033d
+20000088:	2000033f 	.word	0x2000033f
+2000008c:	20000341 	.word	0x20000341
+20000090:	200006f1 	.word	0x200006f1
+20000094:	20000345 	.word	0x20000345
+20000098:	20000347 	.word	0x20000347
+2000009c:	20000349 	.word	0x20000349
+200000a0:	2000034b 	.word	0x2000034b
+	...
+200000bc:	2000034d 	.word	0x2000034d
+200000c0:	2000034f 	.word	0x2000034f
+200000c4:	20000351 	.word	0x20000351
+200000c8:	20000353 	.word	0x20000353
+200000cc:	20000355 	.word	0x20000355
+200000d0:	20000357 	.word	0x20000357
+200000d4:	20000359 	.word	0x20000359
+200000d8:	2000035b 	.word	0x2000035b
+200000dc:	2000035d 	.word	0x2000035d
+200000e0:	2000035f 	.word	0x2000035f
+200000e4:	20000361 	.word	0x20000361
+200000e8:	20000363 	.word	0x20000363
+200000ec:	20000365 	.word	0x20000365
+200000f0:	20000367 	.word	0x20000367
+200000f4:	20000369 	.word	0x20000369
+200000f8:	2000036b 	.word	0x2000036b
+200000fc:	2000036d 	.word	0x2000036d
+20000100:	2000036f 	.word	0x2000036f
+20000104:	20000371 	.word	0x20000371
+20000108:	20000373 	.word	0x20000373
+2000010c:	20000375 	.word	0x20000375
+20000110:	20000377 	.word	0x20000377
+20000114:	20000379 	.word	0x20000379
+20000118:	2000037b 	.word	0x2000037b
+2000011c:	2000037d 	.word	0x2000037d
+20000120:	2000037f 	.word	0x2000037f
+20000124:	20000381 	.word	0x20000381
+20000128:	20000383 	.word	0x20000383
+2000012c:	20000385 	.word	0x20000385
+20000130:	20000387 	.word	0x20000387
+20000134:	20000389 	.word	0x20000389
+20000138:	2000038b 	.word	0x2000038b
+2000013c:	2000038d 	.word	0x2000038d
+20000140:	2000038f 	.word	0x2000038f
+20000144:	20000391 	.word	0x20000391
+20000148:	20000393 	.word	0x20000393
+2000014c:	20000395 	.word	0x20000395
+20000150:	20000397 	.word	0x20000397
+20000154:	20000399 	.word	0x20000399
+20000158:	2000039b 	.word	0x2000039b
+2000015c:	2000039d 	.word	0x2000039d
+20000160:	2000039f 	.word	0x2000039f
+20000164:	200003a1 	.word	0x200003a1
+20000168:	200003a3 	.word	0x200003a3
+2000016c:	200003a5 	.word	0x200003a5
+20000170:	200003a7 	.word	0x200003a7
+20000174:	200003a9 	.word	0x200003a9
+20000178:	200003ab 	.word	0x200003ab
+2000017c:	200003ad 	.word	0x200003ad
+20000180:	200003af 	.word	0x200003af
+20000184:	200003b1 	.word	0x200003b1
+20000188:	200003b3 	.word	0x200003b3
+2000018c:	200003b5 	.word	0x200003b5
+20000190:	200003b7 	.word	0x200003b7
+20000194:	200003b9 	.word	0x200003b9
+20000198:	200003bb 	.word	0x200003bb
+2000019c:	200003bd 	.word	0x200003bd
+200001a0:	200003bf 	.word	0x200003bf
+200001a4:	200003c1 	.word	0x200003c1
+200001a8:	200003c3 	.word	0x200003c3
+200001ac:	200003c5 	.word	0x200003c5
+200001b0:	200003c7 	.word	0x200003c7
+200001b4:	200003c9 	.word	0x200003c9
+200001b8:	200003cb 	.word	0x200003cb
+200001bc:	200003cd 	.word	0x200003cd
+200001c0:	200003cf 	.word	0x200003cf
+200001c4:	200003d1 	.word	0x200003d1
+200001c8:	200003d3 	.word	0x200003d3
+200001cc:	200003d5 	.word	0x200003d5
+200001d0:	200003d7 	.word	0x200003d7
+200001d4:	200003d9 	.word	0x200003d9
+200001d8:	200003db 	.word	0x200003db
+200001dc:	200003dd 	.word	0x200003dd
+200001e0:	200003df 	.word	0x200003df
+200001e4:	200003e1 	.word	0x200003e1
+200001e8:	200003e3 	.word	0x200003e3
+200001ec:	200003e5 	.word	0x200003e5
+200001f0:	200003e7 	.word	0x200003e7
+200001f4:	200003e9 	.word	0x200003e9
+200001f8:	200003eb 	.word	0x200003eb
+200001fc:	200003ed 	.word	0x200003ed
+20000200:	200003ef 	.word	0x200003ef
+20000204:	200003f1 	.word	0x200003f1
+20000208:	200003f3 	.word	0x200003f3
+2000020c:	200003f5 	.word	0x200003f5
+20000210:	200003f7 	.word	0x200003f7
+20000214:	200003f9 	.word	0x200003f9
+20000218:	200003fb 	.word	0x200003fb
+2000021c:	200003fd 	.word	0x200003fd
+20000220:	200003ff 	.word	0x200003ff
+20000224:	20000401 	.word	0x20000401
+20000228:	20000403 	.word	0x20000403
+2000022c:	20000405 	.word	0x20000405
+20000230:	20000407 	.word	0x20000407
+20000234:	20000409 	.word	0x20000409
+20000238:	2000040b 	.word	0x2000040b
+2000023c:	2000040d 	.word	0x2000040d
+20000240:	2000040f 	.word	0x2000040f
+20000244:	20000411 	.word	0x20000411
+20000248:	20000413 	.word	0x20000413
+2000024c:	20000415 	.word	0x20000415
+20000250:	20000417 	.word	0x20000417
+20000254:	20000419 	.word	0x20000419
+20000258:	2000041b 	.word	0x2000041b
+2000025c:	2000041d 	.word	0x2000041d
+20000260:	2000041f 	.word	0x2000041f
+20000264:	20000421 	.word	0x20000421
+20000268:	20000423 	.word	0x20000423
+2000026c:	20000425 	.word	0x20000425
+20000270:	20000427 	.word	0x20000427
+20000274:	20000429 	.word	0x20000429
+20000278:	2000042b 	.word	0x2000042b
+2000027c:	2000042d 	.word	0x2000042d
+20000280:	2000042f 	.word	0x2000042f
+20000284:	20000431 	.word	0x20000431
+20000288:	20000433 	.word	0x20000433
+2000028c:	20000435 	.word	0x20000435
+20000290:	20000437 	.word	0x20000437
+20000294:	20000439 	.word	0x20000439
+
+20000298 <Reset_Handler>:
+20000298:	4868      	ldr	r0, [pc, #416]	; (2000043c <ACE_PPE_Flag31_IRQHandler+0x4>)
+2000029a:	4780      	blx	r0
+2000029c:	4868      	ldr	r0, [pc, #416]	; (20000440 <ACE_PPE_Flag31_IRQHandler+0x8>)
+2000029e:	2800      	cmp	r0, #0
+200002a0:	d10b      	bne.n	200002ba <copy_data>
+200002a2:	4868      	ldr	r0, [pc, #416]	; (20000444 <ACE_PPE_Flag31_IRQHandler+0xc>)
+200002a4:	4968      	ldr	r1, [pc, #416]	; (20000448 <ACE_PPE_Flag31_IRQHandler+0x10>)
+200002a6:	4a69      	ldr	r2, [pc, #420]	; (2000044c <ACE_PPE_Flag31_IRQHandler+0x14>)
+200002a8:	4288      	cmp	r0, r1
+200002aa:	d006      	beq.n	200002ba <copy_data>
+
+200002ac <copy_code_loop>:
+200002ac:	4291      	cmp	r1, r2
+200002ae:	bf1c      	itt	ne
+200002b0:	f850 3b04 	ldrne.w	r3, [r0], #4
+200002b4:	f841 3b04 	strne.w	r3, [r1], #4
+200002b8:	d1f8      	bne.n	200002ac <copy_code_loop>
+
+200002ba <copy_data>:
+200002ba:	4865      	ldr	r0, [pc, #404]	; (20000450 <ACE_PPE_Flag31_IRQHandler+0x18>)
+200002bc:	4965      	ldr	r1, [pc, #404]	; (20000454 <ACE_PPE_Flag31_IRQHandler+0x1c>)
+200002be:	4a66      	ldr	r2, [pc, #408]	; (20000458 <ACE_PPE_Flag31_IRQHandler+0x20>)
+200002c0:	4288      	cmp	r0, r1
+200002c2:	d006      	beq.n	200002d2 <clear_bss>
+
+200002c4 <copy_data_loop>:
+200002c4:	4291      	cmp	r1, r2
+200002c6:	bf1c      	itt	ne
+200002c8:	f850 3b04 	ldrne.w	r3, [r0], #4
+200002cc:	f841 3b04 	strne.w	r3, [r1], #4
+200002d0:	d1f8      	bne.n	200002c4 <copy_data_loop>
+
+200002d2 <clear_bss>:
+200002d2:	4862      	ldr	r0, [pc, #392]	; (2000045c <ACE_PPE_Flag31_IRQHandler+0x24>)
+200002d4:	4962      	ldr	r1, [pc, #392]	; (20000460 <ACE_PPE_Flag31_IRQHandler+0x28>)
+200002d6:	4a63      	ldr	r2, [pc, #396]	; (20000464 <ACE_PPE_Flag31_IRQHandler+0x2c>)
+
+200002d8 <clear_bss_loop>:
+200002d8:	4291      	cmp	r1, r2
+200002da:	bf18      	it	ne
+200002dc:	f841 0b04 	strne.w	r0, [r1], #4
+200002e0:	d1fa      	bne.n	200002d8 <clear_bss_loop>
+	...
+
+200002f0 <call_glob_ctor>:
+200002f0:	f8df 0174 	ldr.w	r0, [pc, #372]	; 20000468 <ACE_PPE_Flag31_IRQHandler+0x30>
+200002f4:	f20f 0e03 	addw	lr, pc, #3
+200002f8:	4700      	bx	r0
+
+200002fa <branch_to_main>:
+200002fa:	f04f 0000 	mov.w	r0, #0
+200002fe:	f04f 0100 	mov.w	r1, #0
+20000302:	f8df f168 	ldr.w	pc, [pc, #360]	; 2000046c <ACE_PPE_Flag31_IRQHandler+0x34>
+
+20000306 <ExitLoop>:
+20000306:	e7fe      	b.n	20000306 <ExitLoop>
+
+20000308 <NMI_Handler>:
+20000308:	e7fe      	b.n	20000308 <NMI_Handler>
+
+2000030a <HardFault_Handler>:
+2000030a:	e7fe      	b.n	2000030a <HardFault_Handler>
+
+2000030c <MemManage_Handler>:
+2000030c:	e7fe      	b.n	2000030c <MemManage_Handler>
+
+2000030e <BusFault_Handler>:
+2000030e:	e7fe      	b.n	2000030e <BusFault_Handler>
+
+20000310 <UsageFault_Handler>:
+20000310:	e7fe      	b.n	20000310 <UsageFault_Handler>
+
+20000312 <SVC_Handler>:
+20000312:	e7fe      	b.n	20000312 <SVC_Handler>
+
+20000314 <DebugMon_Handler>:
+20000314:	e7fe      	b.n	20000314 <DebugMon_Handler>
+
+20000316 <PendSV_Handler>:
+20000316:	e7fe      	b.n	20000316 <PendSV_Handler>
+
+20000318 <SysTick_Handler>:
+20000318:	e7fe      	b.n	20000318 <SysTick_Handler>
+
+2000031a <WdogWakeup_IRQHandler>:
+2000031a:	e7fe      	b.n	2000031a <WdogWakeup_IRQHandler>
+
+2000031c <BrownOut_1_5V_IRQHandler>:
+2000031c:	e7fe      	b.n	2000031c <BrownOut_1_5V_IRQHandler>
+
+2000031e <BrownOut_3_3V_IRQHandler>:
+2000031e:	e7fe      	b.n	2000031e <BrownOut_3_3V_IRQHandler>
+
+20000320 <RTC_Match_IRQHandler>:
+20000320:	e7fe      	b.n	20000320 <RTC_Match_IRQHandler>
+
+20000322 <RTCIF_Pub_IRQHandler>:
+20000322:	e7fe      	b.n	20000322 <RTCIF_Pub_IRQHandler>
+
+20000324 <EthernetMAC_IRQHandler>:
+20000324:	e7fe      	b.n	20000324 <EthernetMAC_IRQHandler>
+
+20000326 <IAP_IRQHandler>:
+20000326:	e7fe      	b.n	20000326 <IAP_IRQHandler>
+
+20000328 <ENVM0_IRQHandler>:
+20000328:	e7fe      	b.n	20000328 <ENVM0_IRQHandler>
+
+2000032a <ENVM1_IRQHandler>:
+2000032a:	e7fe      	b.n	2000032a <ENVM1_IRQHandler>
+
+2000032c <DMA_IRQHandler>:
+2000032c:	e7fe      	b.n	2000032c <DMA_IRQHandler>
+
+2000032e <UART0_IRQHandler>:
+2000032e:	e7fe      	b.n	2000032e <UART0_IRQHandler>
+
+20000330 <UART1_IRQHandler>:
+20000330:	e7fe      	b.n	20000330 <UART1_IRQHandler>
+
+20000332 <SPI0_IRQHandler>:
+20000332:	e7fe      	b.n	20000332 <SPI0_IRQHandler>
+
+20000334 <SPI1_IRQHandler>:
+20000334:	e7fe      	b.n	20000334 <SPI1_IRQHandler>
+
+20000336 <I2C0_IRQHandler>:
+20000336:	e7fe      	b.n	20000336 <I2C0_IRQHandler>
+
+20000338 <I2C0_SMBAlert_IRQHandler>:
+20000338:	e7fe      	b.n	20000338 <I2C0_SMBAlert_IRQHandler>
+
+2000033a <I2C0_SMBus_IRQHandler>:
+2000033a:	e7fe      	b.n	2000033a <I2C0_SMBus_IRQHandler>
+
+2000033c <I2C1_IRQHandler>:
+2000033c:	e7fe      	b.n	2000033c <I2C1_IRQHandler>
+
+2000033e <I2C1_SMBAlert_IRQHandler>:
+2000033e:	e7fe      	b.n	2000033e <I2C1_SMBAlert_IRQHandler>
+
+20000340 <I2C1_SMBus_IRQHandler>:
+20000340:	e7fe      	b.n	20000340 <I2C1_SMBus_IRQHandler>
+20000342:	e7fe      	b.n	20000342 <I2C1_SMBus_IRQHandler+0x2>
+
+20000344 <Timer2_IRQHandler>:
+20000344:	e7fe      	b.n	20000344 <Timer2_IRQHandler>
+
+20000346 <PLL_Lock_IRQHandler>:
+20000346:	e7fe      	b.n	20000346 <PLL_Lock_IRQHandler>
+
+20000348 <PLL_LockLost_IRQHandler>:
+20000348:	e7fe      	b.n	20000348 <PLL_LockLost_IRQHandler>
+
+2000034a <CommError_IRQHandler>:
+2000034a:	e7fe      	b.n	2000034a <CommError_IRQHandler>
+
+2000034c <Fabric_IRQHandler>:
+2000034c:	e7fe      	b.n	2000034c <Fabric_IRQHandler>
+
+2000034e <GPIO0_IRQHandler>:
+2000034e:	e7fe      	b.n	2000034e <GPIO0_IRQHandler>
+
+20000350 <GPIO1_IRQHandler>:
+20000350:	e7fe      	b.n	20000350 <GPIO1_IRQHandler>
+
+20000352 <GPIO2_IRQHandler>:
+20000352:	e7fe      	b.n	20000352 <GPIO2_IRQHandler>
+
+20000354 <GPIO3_IRQHandler>:
+20000354:	e7fe      	b.n	20000354 <GPIO3_IRQHandler>
+
+20000356 <GPIO4_IRQHandler>:
+20000356:	e7fe      	b.n	20000356 <GPIO4_IRQHandler>
+
+20000358 <GPIO5_IRQHandler>:
+20000358:	e7fe      	b.n	20000358 <GPIO5_IRQHandler>
+
+2000035a <GPIO6_IRQHandler>:
+2000035a:	e7fe      	b.n	2000035a <GPIO6_IRQHandler>
+
+2000035c <GPIO7_IRQHandler>:
+2000035c:	e7fe      	b.n	2000035c <GPIO7_IRQHandler>
+
+2000035e <GPIO8_IRQHandler>:
+2000035e:	e7fe      	b.n	2000035e <GPIO8_IRQHandler>
+
+20000360 <GPIO9_IRQHandler>:
+20000360:	e7fe      	b.n	20000360 <GPIO9_IRQHandler>
+
+20000362 <GPIO10_IRQHandler>:
+20000362:	e7fe      	b.n	20000362 <GPIO10_IRQHandler>
+
+20000364 <GPIO11_IRQHandler>:
+20000364:	e7fe      	b.n	20000364 <GPIO11_IRQHandler>
+
+20000366 <GPIO12_IRQHandler>:
+20000366:	e7fe      	b.n	20000366 <GPIO12_IRQHandler>
+
+20000368 <GPIO13_IRQHandler>:
+20000368:	e7fe      	b.n	20000368 <GPIO13_IRQHandler>
+
+2000036a <GPIO14_IRQHandler>:
+2000036a:	e7fe      	b.n	2000036a <GPIO14_IRQHandler>
+
+2000036c <GPIO15_IRQHandler>:
+2000036c:	e7fe      	b.n	2000036c <GPIO15_IRQHandler>
+
+2000036e <GPIO16_IRQHandler>:
+2000036e:	e7fe      	b.n	2000036e <GPIO16_IRQHandler>
+
+20000370 <GPIO17_IRQHandler>:
+20000370:	e7fe      	b.n	20000370 <GPIO17_IRQHandler>
+
+20000372 <GPIO18_IRQHandler>:
+20000372:	e7fe      	b.n	20000372 <GPIO18_IRQHandler>
+
+20000374 <GPIO19_IRQHandler>:
+20000374:	e7fe      	b.n	20000374 <GPIO19_IRQHandler>
+
+20000376 <GPIO20_IRQHandler>:
+20000376:	e7fe      	b.n	20000376 <GPIO20_IRQHandler>
+
+20000378 <GPIO21_IRQHandler>:
+20000378:	e7fe      	b.n	20000378 <GPIO21_IRQHandler>
+
+2000037a <GPIO22_IRQHandler>:
+2000037a:	e7fe      	b.n	2000037a <GPIO22_IRQHandler>
+
+2000037c <GPIO23_IRQHandler>:
+2000037c:	e7fe      	b.n	2000037c <GPIO23_IRQHandler>
+
+2000037e <GPIO24_IRQHandler>:
+2000037e:	e7fe      	b.n	2000037e <GPIO24_IRQHandler>
+
+20000380 <GPIO25_IRQHandler>:
+20000380:	e7fe      	b.n	20000380 <GPIO25_IRQHandler>
+
+20000382 <GPIO26_IRQHandler>:
+20000382:	e7fe      	b.n	20000382 <GPIO26_IRQHandler>
+
+20000384 <GPIO27_IRQHandler>:
+20000384:	e7fe      	b.n	20000384 <GPIO27_IRQHandler>
+
+20000386 <GPIO28_IRQHandler>:
+20000386:	e7fe      	b.n	20000386 <GPIO28_IRQHandler>
+
+20000388 <GPIO29_IRQHandler>:
+20000388:	e7fe      	b.n	20000388 <GPIO29_IRQHandler>
+
+2000038a <GPIO30_IRQHandler>:
+2000038a:	e7fe      	b.n	2000038a <GPIO30_IRQHandler>
+
+2000038c <GPIO31_IRQHandler>:
+2000038c:	e7fe      	b.n	2000038c <GPIO31_IRQHandler>
+
+2000038e <ACE_PC0_Flag0_IRQHandler>:
+2000038e:	e7fe      	b.n	2000038e <ACE_PC0_Flag0_IRQHandler>
+
+20000390 <ACE_PC0_Flag1_IRQHandler>:
+20000390:	e7fe      	b.n	20000390 <ACE_PC0_Flag1_IRQHandler>
+
+20000392 <ACE_PC0_Flag2_IRQHandler>:
+20000392:	e7fe      	b.n	20000392 <ACE_PC0_Flag2_IRQHandler>
+
+20000394 <ACE_PC0_Flag3_IRQHandler>:
+20000394:	e7fe      	b.n	20000394 <ACE_PC0_Flag3_IRQHandler>
+
+20000396 <ACE_PC1_Flag0_IRQHandler>:
+20000396:	e7fe      	b.n	20000396 <ACE_PC1_Flag0_IRQHandler>
+
+20000398 <ACE_PC1_Flag1_IRQHandler>:
+20000398:	e7fe      	b.n	20000398 <ACE_PC1_Flag1_IRQHandler>
+
+2000039a <ACE_PC1_Flag2_IRQHandler>:
+2000039a:	e7fe      	b.n	2000039a <ACE_PC1_Flag2_IRQHandler>
+
+2000039c <ACE_PC1_Flag3_IRQHandler>:
+2000039c:	e7fe      	b.n	2000039c <ACE_PC1_Flag3_IRQHandler>
+
+2000039e <ACE_PC2_Flag0_IRQHandler>:
+2000039e:	e7fe      	b.n	2000039e <ACE_PC2_Flag0_IRQHandler>
+
+200003a0 <ACE_PC2_Flag1_IRQHandler>:
+200003a0:	e7fe      	b.n	200003a0 <ACE_PC2_Flag1_IRQHandler>
+
+200003a2 <ACE_PC2_Flag2_IRQHandler>:
+200003a2:	e7fe      	b.n	200003a2 <ACE_PC2_Flag2_IRQHandler>
+
+200003a4 <ACE_PC2_Flag3_IRQHandler>:
+200003a4:	e7fe      	b.n	200003a4 <ACE_PC2_Flag3_IRQHandler>
+
+200003a6 <ACE_ADC0_DataValid_IRQHandler>:
+200003a6:	e7fe      	b.n	200003a6 <ACE_ADC0_DataValid_IRQHandler>
+
+200003a8 <ACE_ADC1_DataValid_IRQHandler>:
+200003a8:	e7fe      	b.n	200003a8 <ACE_ADC1_DataValid_IRQHandler>
+
+200003aa <ACE_ADC2_DataValid_IRQHandler>:
+200003aa:	e7fe      	b.n	200003aa <ACE_ADC2_DataValid_IRQHandler>
+
+200003ac <ACE_ADC0_CalDone_IRQHandler>:
+200003ac:	e7fe      	b.n	200003ac <ACE_ADC0_CalDone_IRQHandler>
+
+200003ae <ACE_ADC1_CalDone_IRQHandler>:
+200003ae:	e7fe      	b.n	200003ae <ACE_ADC1_CalDone_IRQHandler>
+
+200003b0 <ACE_ADC2_CalDone_IRQHandler>:
+200003b0:	e7fe      	b.n	200003b0 <ACE_ADC2_CalDone_IRQHandler>
+
+200003b2 <ACE_ADC0_CalStart_IRQHandler>:
+200003b2:	e7fe      	b.n	200003b2 <ACE_ADC0_CalStart_IRQHandler>
+
+200003b4 <ACE_ADC1_CalStart_IRQHandler>:
+200003b4:	e7fe      	b.n	200003b4 <ACE_ADC1_CalStart_IRQHandler>
+
+200003b6 <ACE_ADC2_CalStart_IRQHandler>:
+200003b6:	e7fe      	b.n	200003b6 <ACE_ADC2_CalStart_IRQHandler>
+
+200003b8 <ACE_Comp0_Fall_IRQHandler>:
+200003b8:	e7fe      	b.n	200003b8 <ACE_Comp0_Fall_IRQHandler>
+
+200003ba <ACE_Comp1_Fall_IRQHandler>:
+200003ba:	e7fe      	b.n	200003ba <ACE_Comp1_Fall_IRQHandler>
+
+200003bc <ACE_Comp2_Fall_IRQHandler>:
+200003bc:	e7fe      	b.n	200003bc <ACE_Comp2_Fall_IRQHandler>
+
+200003be <ACE_Comp3_Fall_IRQHandler>:
+200003be:	e7fe      	b.n	200003be <ACE_Comp3_Fall_IRQHandler>
+
+200003c0 <ACE_Comp4_Fall_IRQHandler>:
+200003c0:	e7fe      	b.n	200003c0 <ACE_Comp4_Fall_IRQHandler>
+
+200003c2 <ACE_Comp5_Fall_IRQHandler>:
+200003c2:	e7fe      	b.n	200003c2 <ACE_Comp5_Fall_IRQHandler>
+
+200003c4 <ACE_Comp6_Fall_IRQHandler>:
+200003c4:	e7fe      	b.n	200003c4 <ACE_Comp6_Fall_IRQHandler>
+
+200003c6 <ACE_Comp7_Fall_IRQHandler>:
+200003c6:	e7fe      	b.n	200003c6 <ACE_Comp7_Fall_IRQHandler>
+
+200003c8 <ACE_Comp8_Fall_IRQHandler>:
+200003c8:	e7fe      	b.n	200003c8 <ACE_Comp8_Fall_IRQHandler>
+
+200003ca <ACE_Comp9_Fall_IRQHandler>:
+200003ca:	e7fe      	b.n	200003ca <ACE_Comp9_Fall_IRQHandler>
+
+200003cc <ACE_Comp10_Fall_IRQHandler>:
+200003cc:	e7fe      	b.n	200003cc <ACE_Comp10_Fall_IRQHandler>
+
+200003ce <ACE_Comp11_Fall_IRQHandler>:
+200003ce:	e7fe      	b.n	200003ce <ACE_Comp11_Fall_IRQHandler>
+
+200003d0 <ACE_Comp0_Rise_IRQHandler>:
+200003d0:	e7fe      	b.n	200003d0 <ACE_Comp0_Rise_IRQHandler>
+
+200003d2 <ACE_Comp1_Rise_IRQHandler>:
+200003d2:	e7fe      	b.n	200003d2 <ACE_Comp1_Rise_IRQHandler>
+
+200003d4 <ACE_Comp2_Rise_IRQHandler>:
+200003d4:	e7fe      	b.n	200003d4 <ACE_Comp2_Rise_IRQHandler>
+
+200003d6 <ACE_Comp3_Rise_IRQHandler>:
+200003d6:	e7fe      	b.n	200003d6 <ACE_Comp3_Rise_IRQHandler>
+
+200003d8 <ACE_Comp4_Rise_IRQHandler>:
+200003d8:	e7fe      	b.n	200003d8 <ACE_Comp4_Rise_IRQHandler>
+
+200003da <ACE_Comp5_Rise_IRQHandler>:
+200003da:	e7fe      	b.n	200003da <ACE_Comp5_Rise_IRQHandler>
+
+200003dc <ACE_Comp6_Rise_IRQHandler>:
+200003dc:	e7fe      	b.n	200003dc <ACE_Comp6_Rise_IRQHandler>
+
+200003de <ACE_Comp7_Rise_IRQHandler>:
+200003de:	e7fe      	b.n	200003de <ACE_Comp7_Rise_IRQHandler>
+
+200003e0 <ACE_Comp8_Rise_IRQHandler>:
+200003e0:	e7fe      	b.n	200003e0 <ACE_Comp8_Rise_IRQHandler>
+
+200003e2 <ACE_Comp9_Rise_IRQHandler>:
+200003e2:	e7fe      	b.n	200003e2 <ACE_Comp9_Rise_IRQHandler>
+
+200003e4 <ACE_Comp10_Rise_IRQHandler>:
+200003e4:	e7fe      	b.n	200003e4 <ACE_Comp10_Rise_IRQHandler>
+
+200003e6 <ACE_Comp11_Rise_IRQHandler>:
+200003e6:	e7fe      	b.n	200003e6 <ACE_Comp11_Rise_IRQHandler>
+
+200003e8 <ACE_ADC0_FifoFull_IRQHandler>:
+200003e8:	e7fe      	b.n	200003e8 <ACE_ADC0_FifoFull_IRQHandler>
+
+200003ea <ACE_ADC0_FifoAFull_IRQHandler>:
+200003ea:	e7fe      	b.n	200003ea <ACE_ADC0_FifoAFull_IRQHandler>
+
+200003ec <ACE_ADC0_FifoEmpty_IRQHandler>:
+200003ec:	e7fe      	b.n	200003ec <ACE_ADC0_FifoEmpty_IRQHandler>
+
+200003ee <ACE_ADC1_FifoFull_IRQHandler>:
+200003ee:	e7fe      	b.n	200003ee <ACE_ADC1_FifoFull_IRQHandler>
+
+200003f0 <ACE_ADC1_FifoAFull_IRQHandler>:
+200003f0:	e7fe      	b.n	200003f0 <ACE_ADC1_FifoAFull_IRQHandler>
+
+200003f2 <ACE_ADC1_FifoEmpty_IRQHandler>:
+200003f2:	e7fe      	b.n	200003f2 <ACE_ADC1_FifoEmpty_IRQHandler>
+
+200003f4 <ACE_ADC2_FifoFull_IRQHandler>:
+200003f4:	e7fe      	b.n	200003f4 <ACE_ADC2_FifoFull_IRQHandler>
+
+200003f6 <ACE_ADC2_FifoAFull_IRQHandler>:
+200003f6:	e7fe      	b.n	200003f6 <ACE_ADC2_FifoAFull_IRQHandler>
+
+200003f8 <ACE_ADC2_FifoEmpty_IRQHandler>:
+200003f8:	e7fe      	b.n	200003f8 <ACE_ADC2_FifoEmpty_IRQHandler>
+
+200003fa <ACE_PPE_Flag0_IRQHandler>:
+200003fa:	e7fe      	b.n	200003fa <ACE_PPE_Flag0_IRQHandler>
+
+200003fc <ACE_PPE_Flag1_IRQHandler>:
+200003fc:	e7fe      	b.n	200003fc <ACE_PPE_Flag1_IRQHandler>
+
+200003fe <ACE_PPE_Flag2_IRQHandler>:
+200003fe:	e7fe      	b.n	200003fe <ACE_PPE_Flag2_IRQHandler>
+
+20000400 <ACE_PPE_Flag3_IRQHandler>:
+20000400:	e7fe      	b.n	20000400 <ACE_PPE_Flag3_IRQHandler>
+
+20000402 <ACE_PPE_Flag4_IRQHandler>:
+20000402:	e7fe      	b.n	20000402 <ACE_PPE_Flag4_IRQHandler>
+
+20000404 <ACE_PPE_Flag5_IRQHandler>:
+20000404:	e7fe      	b.n	20000404 <ACE_PPE_Flag5_IRQHandler>
+
+20000406 <ACE_PPE_Flag6_IRQHandler>:
+20000406:	e7fe      	b.n	20000406 <ACE_PPE_Flag6_IRQHandler>
+
+20000408 <ACE_PPE_Flag7_IRQHandler>:
+20000408:	e7fe      	b.n	20000408 <ACE_PPE_Flag7_IRQHandler>
+
+2000040a <ACE_PPE_Flag8_IRQHandler>:
+2000040a:	e7fe      	b.n	2000040a <ACE_PPE_Flag8_IRQHandler>
+
+2000040c <ACE_PPE_Flag9_IRQHandler>:
+2000040c:	e7fe      	b.n	2000040c <ACE_PPE_Flag9_IRQHandler>
+
+2000040e <ACE_PPE_Flag10_IRQHandler>:
+2000040e:	e7fe      	b.n	2000040e <ACE_PPE_Flag10_IRQHandler>
+
+20000410 <ACE_PPE_Flag11_IRQHandler>:
+20000410:	e7fe      	b.n	20000410 <ACE_PPE_Flag11_IRQHandler>
+
+20000412 <ACE_PPE_Flag12_IRQHandler>:
+20000412:	e7fe      	b.n	20000412 <ACE_PPE_Flag12_IRQHandler>
+
+20000414 <ACE_PPE_Flag13_IRQHandler>:
+20000414:	e7fe      	b.n	20000414 <ACE_PPE_Flag13_IRQHandler>
+
+20000416 <ACE_PPE_Flag14_IRQHandler>:
+20000416:	e7fe      	b.n	20000416 <ACE_PPE_Flag14_IRQHandler>
+
+20000418 <ACE_PPE_Flag15_IRQHandler>:
+20000418:	e7fe      	b.n	20000418 <ACE_PPE_Flag15_IRQHandler>
+
+2000041a <ACE_PPE_Flag16_IRQHandler>:
+2000041a:	e7fe      	b.n	2000041a <ACE_PPE_Flag16_IRQHandler>
+
+2000041c <ACE_PPE_Flag17_IRQHandler>:
+2000041c:	e7fe      	b.n	2000041c <ACE_PPE_Flag17_IRQHandler>
+
+2000041e <ACE_PPE_Flag18_IRQHandler>:
+2000041e:	e7fe      	b.n	2000041e <ACE_PPE_Flag18_IRQHandler>
+
+20000420 <ACE_PPE_Flag19_IRQHandler>:
+20000420:	e7fe      	b.n	20000420 <ACE_PPE_Flag19_IRQHandler>
+
+20000422 <ACE_PPE_Flag20_IRQHandler>:
+20000422:	e7fe      	b.n	20000422 <ACE_PPE_Flag20_IRQHandler>
+
+20000424 <ACE_PPE_Flag21_IRQHandler>:
+20000424:	e7fe      	b.n	20000424 <ACE_PPE_Flag21_IRQHandler>
+
+20000426 <ACE_PPE_Flag22_IRQHandler>:
+20000426:	e7fe      	b.n	20000426 <ACE_PPE_Flag22_IRQHandler>
+
+20000428 <ACE_PPE_Flag23_IRQHandler>:
+20000428:	e7fe      	b.n	20000428 <ACE_PPE_Flag23_IRQHandler>
+
+2000042a <ACE_PPE_Flag24_IRQHandler>:
+2000042a:	e7fe      	b.n	2000042a <ACE_PPE_Flag24_IRQHandler>
+
+2000042c <ACE_PPE_Flag25_IRQHandler>:
+2000042c:	e7fe      	b.n	2000042c <ACE_PPE_Flag25_IRQHandler>
+
+2000042e <ACE_PPE_Flag26_IRQHandler>:
+2000042e:	e7fe      	b.n	2000042e <ACE_PPE_Flag26_IRQHandler>
+
+20000430 <ACE_PPE_Flag27_IRQHandler>:
+20000430:	e7fe      	b.n	20000430 <ACE_PPE_Flag27_IRQHandler>
+
+20000432 <ACE_PPE_Flag28_IRQHandler>:
+20000432:	e7fe      	b.n	20000432 <ACE_PPE_Flag28_IRQHandler>
+
+20000434 <ACE_PPE_Flag29_IRQHandler>:
+20000434:	e7fe      	b.n	20000434 <ACE_PPE_Flag29_IRQHandler>
+
+20000436 <ACE_PPE_Flag30_IRQHandler>:
+20000436:	e7fe      	b.n	20000436 <ACE_PPE_Flag30_IRQHandler>
+
+20000438 <ACE_PPE_Flag31_IRQHandler>:
+20000438:	e7fe      	b.n	20000438 <ACE_PPE_Flag31_IRQHandler>
+2000043a:	0000      	.short	0x0000
+2000043c:	200007f5 	.word	0x200007f5
+20000440:	00000000 	.word	0x00000000
+20000444:	20000000 	.word	0x20000000
+20000448:	20000000 	.word	0x20000000
+2000044c:	20000930 	.word	0x20000930
+20000450:	20000930 	.word	0x20000930
+20000454:	20000930 	.word	0x20000930
+20000458:	20000934 	.word	0x20000934
+2000045c:	00000000 	.word	0x00000000
+20000460:	20000934 	.word	0x20000934
+20000464:	20000938 	.word	0x20000938
+20000468:	20000801 	.word	0x20000801
+2000046c:	200006c5 	.word	0x200006c5
+
+20000470 <__do_global_dtors_aux>:
+20000470:	f640 1334 	movw	r3, #2356	; 0x934
+20000474:	f2c2 0300 	movt	r3, #8192	; 0x2000
+20000478:	781a      	ldrb	r2, [r3, #0]
+2000047a:	b90a      	cbnz	r2, 20000480 <__do_global_dtors_aux+0x10>
+2000047c:	2001      	movs	r0, #1
+2000047e:	7018      	strb	r0, [r3, #0]
+20000480:	4770      	bx	lr
+20000482:	bf00      	nop
+
+20000484 <frame_dummy>:
+20000484:	f640 1030 	movw	r0, #2352	; 0x930
+20000488:	f2c2 0000 	movt	r0, #8192	; 0x2000
+2000048c:	b508      	push	{r3, lr}
+2000048e:	6803      	ldr	r3, [r0, #0]
+20000490:	b12b      	cbz	r3, 2000049e <frame_dummy+0x1a>
+20000492:	f240 0300 	movw	r3, #0
+20000496:	f2c0 0300 	movt	r3, #0
+2000049a:	b103      	cbz	r3, 2000049e <frame_dummy+0x1a>
+2000049c:	4798      	blx	r3
+2000049e:	bd08      	pop	{r3, pc}
+
+200004a0 <NVIC_EnableIRQ>:
+ *
+ * Enable a device specific interupt in the NVIC interrupt controller.
+ * The interrupt number cannot be a negative value.
+ */
+static __INLINE void NVIC_EnableIRQ(IRQn_Type IRQn)
+{
+200004a0:	b480      	push	{r7}
+200004a2:	b083      	sub	sp, #12
+200004a4:	af00      	add	r7, sp, #0
+200004a6:	4603      	mov	r3, r0
+200004a8:	80fb      	strh	r3, [r7, #6]
+  NVIC->ISER[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* enable interrupt */
+200004aa:	f24e 1300 	movw	r3, #57600	; 0xe100
+200004ae:	f2ce 0300 	movt	r3, #57344	; 0xe000
+200004b2:	f9b7 2006 	ldrsh.w	r2, [r7, #6]
+200004b6:	ea4f 1252 	mov.w	r2, r2, lsr #5
+200004ba:	88f9      	ldrh	r1, [r7, #6]
+200004bc:	f001 011f 	and.w	r1, r1, #31
+200004c0:	f04f 0001 	mov.w	r0, #1
+200004c4:	fa00 f101 	lsl.w	r1, r0, r1
+200004c8:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+}
+200004cc:	f107 070c 	add.w	r7, r7, #12
+200004d0:	46bd      	mov	sp, r7
+200004d2:	bc80      	pop	{r7}
+200004d4:	4770      	bx	lr
+200004d6:	bf00      	nop
+
+200004d8 <NVIC_DisableIRQ>:
+ * 
+ * Disable a device specific interupt in the NVIC interrupt controller.
+ * The interrupt number cannot be a negative value.
+ */
+static __INLINE void NVIC_DisableIRQ(IRQn_Type IRQn)
+{
+200004d8:	b480      	push	{r7}
+200004da:	b083      	sub	sp, #12
+200004dc:	af00      	add	r7, sp, #0
+200004de:	4603      	mov	r3, r0
+200004e0:	80fb      	strh	r3, [r7, #6]
+  NVIC->ICER[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* disable interrupt */
+200004e2:	f24e 1300 	movw	r3, #57600	; 0xe100
+200004e6:	f2ce 0300 	movt	r3, #57344	; 0xe000
+200004ea:	f9b7 2006 	ldrsh.w	r2, [r7, #6]
+200004ee:	ea4f 1252 	mov.w	r2, r2, lsr #5
+200004f2:	88f9      	ldrh	r1, [r7, #6]
+200004f4:	f001 011f 	and.w	r1, r1, #31
+200004f8:	f04f 0001 	mov.w	r0, #1
+200004fc:	fa00 f101 	lsl.w	r1, r0, r1
+20000500:	f102 0220 	add.w	r2, r2, #32
+20000504:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+}
+20000508:	f107 070c 	add.w	r7, r7, #12
+2000050c:	46bd      	mov	sp, r7
+2000050e:	bc80      	pop	{r7}
+20000510:	4770      	bx	lr
+20000512:	bf00      	nop
+
+20000514 <NVIC_ClearPendingIRQ>:
+ *
+ * Clear the pending bit for the specified interrupt. 
+ * The interrupt number cannot be a negative value.
+ */
+static __INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+{
+20000514:	b480      	push	{r7}
+20000516:	b083      	sub	sp, #12
+20000518:	af00      	add	r7, sp, #0
+2000051a:	4603      	mov	r3, r0
+2000051c:	80fb      	strh	r3, [r7, #6]
+  NVIC->ICPR[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* Clear pending interrupt */
+2000051e:	f24e 1300 	movw	r3, #57600	; 0xe100
+20000522:	f2ce 0300 	movt	r3, #57344	; 0xe000
+20000526:	f9b7 2006 	ldrsh.w	r2, [r7, #6]
+2000052a:	ea4f 1252 	mov.w	r2, r2, lsr #5
+2000052e:	88f9      	ldrh	r1, [r7, #6]
+20000530:	f001 011f 	and.w	r1, r1, #31
+20000534:	f04f 0001 	mov.w	r0, #1
+20000538:	fa00 f101 	lsl.w	r1, r0, r1
+2000053c:	f102 0260 	add.w	r2, r2, #96	; 0x60
+20000540:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+}
+20000544:	f107 070c 	add.w	r7, r7, #12
+20000548:	46bd      	mov	sp, r7
+2000054a:	bc80      	pop	{r7}
+2000054c:	4770      	bx	lr
+2000054e:	bf00      	nop
+
+20000550 <MSS_TIM1_init>:
+    one-shot mode. Allowed values for this parameter are:
+        - MSS_TIMER_PERIODIC_MODE
+        - MSS_TIMER_ONE_SHOT_MODE
+ */
+static __INLINE void MSS_TIM1_init( mss_timer_mode_t mode )
+{
+20000550:	b580      	push	{r7, lr}
+20000552:	b082      	sub	sp, #8
+20000554:	af00      	add	r7, sp, #0
+20000556:	4603      	mov	r3, r0
+20000558:	71fb      	strb	r3, [r7, #7]
+    NVIC_DisableIRQ( Timer1_IRQn );             /* Disable timer 1 irq in the Cortex-M3 NVIC */  
+2000055a:	f04f 0014 	mov.w	r0, #20
+2000055e:	f7ff ffbb 	bl	200004d8 <NVIC_DisableIRQ>
+    
+    SYSREG->SOFT_RST_CR &= ~SYSREG_TIMER_SOFTRESET_MASK; /* Take timer block out of reset */
+20000562:	f242 0300 	movw	r3, #8192	; 0x2000
+20000566:	f2ce 0304 	movt	r3, #57348	; 0xe004
+2000056a:	f242 0200 	movw	r2, #8192	; 0x2000
+2000056e:	f2ce 0204 	movt	r2, #57348	; 0xe004
+20000572:	6b12      	ldr	r2, [r2, #48]	; 0x30
+20000574:	f022 0240 	bic.w	r2, r2, #64	; 0x40
+20000578:	631a      	str	r2, [r3, #48]	; 0x30
+    
+    TIMER->TIM64_MODE = 0U;                     /* switch to 32 bits mode */
+2000057a:	f245 0300 	movw	r3, #20480	; 0x5000
+2000057e:	f2c4 0300 	movt	r3, #16384	; 0x4000
+20000582:	f04f 0200 	mov.w	r2, #0
+20000586:	655a      	str	r2, [r3, #84]	; 0x54
+    
+    TIMER_BITBAND->TIM1ENABLE = 0U;             /* disable timer */
+20000588:	f240 0300 	movw	r3, #0
+2000058c:	f2c4 230a 	movt	r3, #16906	; 0x420a
+20000590:	f04f 0200 	mov.w	r2, #0
+20000594:	f8c3 2180 	str.w	r2, [r3, #384]	; 0x180
+    TIMER_BITBAND->TIM1INTEN = 0U;              /* disable interrupt */
+20000598:	f240 0300 	movw	r3, #0
+2000059c:	f2c4 230a 	movt	r3, #16906	; 0x420a
+200005a0:	f04f 0200 	mov.w	r2, #0
+200005a4:	f8c3 2188 	str.w	r2, [r3, #392]	; 0x188
+    TIMER_BITBAND->TIM1MODE = (uint32_t)mode;   /* set mode (continuous/one-shot) */
+200005a8:	f240 0300 	movw	r3, #0
+200005ac:	f2c4 230a 	movt	r3, #16906	; 0x420a
+200005b0:	79fa      	ldrb	r2, [r7, #7]
+200005b2:	f8c3 2184 	str.w	r2, [r3, #388]	; 0x184
+    
+    TIMER->TIM1_RIS = 1U;                       /* clear timer 1 interrupt */
+200005b6:	f245 0300 	movw	r3, #20480	; 0x5000
+200005ba:	f2c4 0300 	movt	r3, #16384	; 0x4000
+200005be:	f04f 0201 	mov.w	r2, #1
+200005c2:	611a      	str	r2, [r3, #16]
+    NVIC_ClearPendingIRQ( Timer1_IRQn );        /* clear timer 1 interrupt within NVIC */
+200005c4:	f04f 0014 	mov.w	r0, #20
+200005c8:	f7ff ffa4 	bl	20000514 <NVIC_ClearPendingIRQ>
+}
+200005cc:	f107 0708 	add.w	r7, r7, #8
+200005d0:	46bd      	mov	sp, r7
+200005d2:	bd80      	pop	{r7, pc}
+
+200005d4 <MSS_TIM1_start>:
+  MSS_TIM1_load_immediate() or MSS_TIM1_load_background() functions. 
+  Note: The MSS_TIM1_start() function is also used to resume the down-counter
+        if previously stopped using MSS_TIM1_stop() function.
+ */
+static __INLINE void MSS_TIM1_start( void )
+{
+200005d4:	b480      	push	{r7}
+200005d6:	af00      	add	r7, sp, #0
+    TIMER_BITBAND->TIM1ENABLE = 1U;    /* enable timer */
+200005d8:	f240 0300 	movw	r3, #0
+200005dc:	f2c4 230a 	movt	r3, #16906	; 0x420a
+200005e0:	f04f 0201 	mov.w	r2, #1
+200005e4:	f8c3 2180 	str.w	r2, [r3, #384]	; 0x180
+}
+200005e8:	46bd      	mov	sp, r7
+200005ea:	bc80      	pop	{r7}
+200005ec:	4770      	bx	lr
+200005ee:	bf00      	nop
+
+200005f0 <MSS_TIM1_load_immediate>:
+  @param load_value
+    The load_value parameter specifies the value from which the Timer 1 
+    down-counter will start decrementing.
+ */
+static __INLINE void MSS_TIM1_load_immediate( uint32_t load_value )
+{
+200005f0:	b480      	push	{r7}
+200005f2:	b083      	sub	sp, #12
+200005f4:	af00      	add	r7, sp, #0
+200005f6:	6078      	str	r0, [r7, #4]
+    TIMER->TIM1_LOADVAL = load_value;
+200005f8:	f245 0300 	movw	r3, #20480	; 0x5000
+200005fc:	f2c4 0300 	movt	r3, #16384	; 0x4000
+20000600:	687a      	ldr	r2, [r7, #4]
+20000602:	605a      	str	r2, [r3, #4]
+}
+20000604:	f107 070c 	add.w	r7, r7, #12
+20000608:	46bd      	mov	sp, r7
+2000060a:	bc80      	pop	{r7}
+2000060c:	4770      	bx	lr
+2000060e:	bf00      	nop
+
+20000610 <MSS_TIM1_enable_irq>:
+  weak linkage, in the SmartFusion CMSIS-PAL. You must provide your own
+  implementation of the Timer1_IRQHandler() function, that will override the
+  default implementation, to suit your application.
+ */
+static __INLINE void MSS_TIM1_enable_irq( void )
+{
+20000610:	b580      	push	{r7, lr}
+20000612:	af00      	add	r7, sp, #0
+    TIMER_BITBAND->TIM1INTEN = 1U;
+20000614:	f240 0300 	movw	r3, #0
+20000618:	f2c4 230a 	movt	r3, #16906	; 0x420a
+2000061c:	f04f 0201 	mov.w	r2, #1
+20000620:	f8c3 2188 	str.w	r2, [r3, #392]	; 0x188
+    NVIC_EnableIRQ( Timer1_IRQn );
+20000624:	f04f 0014 	mov.w	r0, #20
+20000628:	f7ff ff3a 	bl	200004a0 <NVIC_EnableIRQ>
+}
+2000062c:	bd80      	pop	{r7, pc}
+2000062e:	bf00      	nop
+
+20000630 <MSS_TIM1_clear_irq>:
+  implementation of the Timer1_IRQHandler() Timer 1 interrupt service routine
+  (ISR) in order to prevent the same interrupt event retriggering a call to the
+  ISR.
+ */
+static __INLINE void MSS_TIM1_clear_irq( void )
+{
+20000630:	b480      	push	{r7}
+20000632:	af00      	add	r7, sp, #0
+    TIMER->TIM1_RIS = 1U;
+20000634:	f245 0300 	movw	r3, #20480	; 0x5000
+20000638:	f2c4 0300 	movt	r3, #16384	; 0x4000
+2000063c:	f04f 0201 	mov.w	r2, #1
+20000640:	611a      	str	r2, [r3, #16]
+    /*
+      To ensure all the previous instructions are completed, data barrier 
+      instruction is used. The “dsb” data barriers instruction completes,
+      only after all the previous instruction are completed. 
+     */
+    __ASM volatile ("dsb");
+20000642:	f3bf 8f4f 	dsb	sy
+}
+20000646:	46bd      	mov	sp, r7
+20000648:	bc80      	pop	{r7}
+2000064a:	4770      	bx	lr
+
+2000064c <MSS_GPIO_set_outputs>:
+static __INLINE void
+MSS_GPIO_set_outputs
+(
+   uint32_t value
+)
+{
+2000064c:	b480      	push	{r7}
+2000064e:	b083      	sub	sp, #12
+20000650:	af00      	add	r7, sp, #0
+20000652:	6078      	str	r0, [r7, #4]
+    GPIO->GPIO_OUT = value;
+20000654:	f243 0300 	movw	r3, #12288	; 0x3000
+20000658:	f2c4 0301 	movt	r3, #16385	; 0x4001
+2000065c:	687a      	ldr	r2, [r7, #4]
+2000065e:	f8c3 2088 	str.w	r2, [r3, #136]	; 0x88
+}
+20000662:	f107 070c 	add.w	r7, r7, #12
+20000666:	46bd      	mov	sp, r7
+20000668:	bc80      	pop	{r7}
+2000066a:	4770      	bx	lr
+
+2000066c <MSS_GPIO_get_outputs>:
+        gpio_outputs = MSS_GPIO_get_outputs();
+    @endcode
+ */
+static __INLINE uint32_t
+MSS_GPIO_get_outputs( void )
+{
+2000066c:	b480      	push	{r7}
+2000066e:	af00      	add	r7, sp, #0
+    return GPIO->GPIO_OUT;
+20000670:	f243 0300 	movw	r3, #12288	; 0x3000
+20000674:	f2c4 0301 	movt	r3, #16385	; 0x4001
+20000678:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+}
+2000067c:	4618      	mov	r0, r3
+2000067e:	46bd      	mov	sp, r7
+20000680:	bc80      	pop	{r7}
+20000682:	4770      	bx	lr
+
+20000684 <led0>:
+#include "mss_timer.h"
+#include "mss_gpio.h"
+#include <stdlib.h>
+
+//simple led toggle timer function
+void led0() { MSS_GPIO_set_outputs(MSS_GPIO_get_outputs( )^ MSS_GPIO_0_MASK);}
+20000684:	b580      	push	{r7, lr}
+20000686:	af00      	add	r7, sp, #0
+20000688:	f7ff fff0 	bl	2000066c <MSS_GPIO_get_outputs>
+2000068c:	4603      	mov	r3, r0
+2000068e:	f083 0301 	eor.w	r3, r3, #1
+20000692:	4618      	mov	r0, r3
+20000694:	f7ff ffda 	bl	2000064c <MSS_GPIO_set_outputs>
+20000698:	bd80      	pop	{r7, pc}
+2000069a:	bf00      	nop
+
+2000069c <start_hardware_timer>:
+
+//look in mss_timer.h for details
+void start_hardware_timer(uint32_t period){
+2000069c:	b580      	push	{r7, lr}
+2000069e:	b082      	sub	sp, #8
+200006a0:	af00      	add	r7, sp, #0
+200006a2:	6078      	str	r0, [r7, #4]
+
+		MSS_TIM1_init(MSS_TIMER_ONE_SHOT_MODE);
+200006a4:	f04f 0001 	mov.w	r0, #1
+200006a8:	f7ff ff52 	bl	20000550 <MSS_TIM1_init>
+		MSS_TIM1_load_immediate(period);
+200006ac:	6878      	ldr	r0, [r7, #4]
+200006ae:	f7ff ff9f 	bl	200005f0 <MSS_TIM1_load_immediate>
+		MSS_TIM1_start();
+200006b2:	f7ff ff8f 	bl	200005d4 <MSS_TIM1_start>
+		MSS_TIM1_enable_irq();
+200006b6:	f7ff ffab 	bl	20000610 <MSS_TIM1_enable_irq>
+}
+200006ba:	f107 0708 	add.w	r7, r7, #8
+200006be:	46bd      	mov	sp, r7
+200006c0:	bd80      	pop	{r7, pc}
+200006c2:	bf00      	nop
+
+200006c4 <main>:
+
+int main(){
+200006c4:	b580      	push	{r7, lr}
+200006c6:	af00      	add	r7, sp, #0
+
+	MSS_GPIO_init();
+200006c8:	f000 f840 	bl	2000074c <MSS_GPIO_init>
+	MSS_GPIO_config( MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
+200006cc:	f04f 0000 	mov.w	r0, #0
+200006d0:	f04f 0105 	mov.w	r1, #5
+200006d4:	f000 f870 	bl	200007b8 <MSS_GPIO_config>
+	MSS_GPIO_set_outputs(0xffff);
+200006d8:	f64f 70ff 	movw	r0, #65535	; 0xffff
+200006dc:	f7ff ffb6 	bl	2000064c <MSS_GPIO_set_outputs>
+	start_hardware_timer(100000000); //initialize to 1 second
+200006e0:	f24e 1000 	movw	r0, #57600	; 0xe100
+200006e4:	f2c0 50f5 	movt	r0, #1525	; 0x5f5
+200006e8:	f7ff ffd8 	bl	2000069c <start_hardware_timer>
+
+
+	while(1);
+200006ec:	e7fe      	b.n	200006ec <main+0x28>
+200006ee:	bf00      	nop
+
+200006f0 <Timer1_IRQHandler>:
+}
+//hardware timer down counting at 100MHz
+//should interrupt once a second.
+void Timer1_IRQHandler( void ){
+200006f0:	b580      	push	{r7, lr}
+200006f2:	af00      	add	r7, sp, #0
+
+	led0();
+200006f4:	f7ff ffc6 	bl	20000684 <led0>
+	MSS_TIM1_clear_irq();
+200006f8:	f7ff ff9a 	bl	20000630 <MSS_TIM1_clear_irq>
+	MSS_TIM1_load_immediate(100000000);
+200006fc:	f24e 1000 	movw	r0, #57600	; 0xe100
+20000700:	f2c0 50f5 	movt	r0, #1525	; 0x5f5
+20000704:	f7ff ff74 	bl	200005f0 <MSS_TIM1_load_immediate>
+	MSS_TIM1_start();
+20000708:	f7ff ff64 	bl	200005d4 <MSS_TIM1_start>
+}
+2000070c:	bd80      	pop	{r7, pc}
+2000070e:	bf00      	nop
+
+20000710 <NVIC_ClearPendingIRQ>:
+ *
+ * Clear the pending bit for the specified interrupt. 
+ * The interrupt number cannot be a negative value.
+ */
+static __INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+{
+20000710:	b480      	push	{r7}
+20000712:	b083      	sub	sp, #12
+20000714:	af00      	add	r7, sp, #0
+20000716:	4603      	mov	r3, r0
+20000718:	80fb      	strh	r3, [r7, #6]
+  NVIC->ICPR[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* Clear pending interrupt */
+2000071a:	f24e 1300 	movw	r3, #57600	; 0xe100
+2000071e:	f2ce 0300 	movt	r3, #57344	; 0xe000
+20000722:	f9b7 2006 	ldrsh.w	r2, [r7, #6]
+20000726:	ea4f 1252 	mov.w	r2, r2, lsr #5
+2000072a:	88f9      	ldrh	r1, [r7, #6]
+2000072c:	f001 011f 	and.w	r1, r1, #31
+20000730:	f04f 0001 	mov.w	r0, #1
+20000734:	fa00 f101 	lsl.w	r1, r0, r1
+20000738:	f102 0260 	add.w	r2, r2, #96	; 0x60
+2000073c:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+}
+20000740:	f107 070c 	add.w	r7, r7, #12
+20000744:	46bd      	mov	sp, r7
+20000746:	bc80      	pop	{r7}
+20000748:	4770      	bx	lr
+2000074a:	bf00      	nop
+
+2000074c <MSS_GPIO_init>:
+/*-------------------------------------------------------------------------*//**
+ * MSS_GPIO_init
+ * See "mss_gpio.h" for details of how to use this function.
+ */
+void MSS_GPIO_init( void )
+{
+2000074c:	b580      	push	{r7, lr}
+2000074e:	b082      	sub	sp, #8
+20000750:	af00      	add	r7, sp, #0
+    uint32_t i;
+    
+    /* reset MSS GPIO hardware */
+    SYSREG->SOFT_RST_CR |= SYSREG_GPIO_SOFTRESET_MASK;
+20000752:	f242 0300 	movw	r3, #8192	; 0x2000
+20000756:	f2ce 0304 	movt	r3, #57348	; 0xe004
+2000075a:	f242 0200 	movw	r2, #8192	; 0x2000
+2000075e:	f2ce 0204 	movt	r2, #57348	; 0xe004
+20000762:	6b12      	ldr	r2, [r2, #48]	; 0x30
+20000764:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+20000768:	631a      	str	r2, [r3, #48]	; 0x30
+    /* Clear any previously pended MSS GPIO interrupt */
+    for ( i = 0U; i < NB_OF_GPIO; ++i )
+2000076a:	f04f 0300 	mov.w	r3, #0
+2000076e:	607b      	str	r3, [r7, #4]
+20000770:	e00e      	b.n	20000790 <MSS_GPIO_init+0x44>
+    {
+        NVIC_ClearPendingIRQ( g_gpio_irqn_lut[i] );
+20000772:	687a      	ldr	r2, [r7, #4]
+20000774:	f640 03d0 	movw	r3, #2256	; 0x8d0
+20000778:	f2c2 0300 	movt	r3, #8192	; 0x2000
+2000077c:	f833 3012 	ldrh.w	r3, [r3, r2, lsl #1]
+20000780:	b21b      	sxth	r3, r3
+20000782:	4618      	mov	r0, r3
+20000784:	f7ff ffc4 	bl	20000710 <NVIC_ClearPendingIRQ>
+    uint32_t i;
+    
+    /* reset MSS GPIO hardware */
+    SYSREG->SOFT_RST_CR |= SYSREG_GPIO_SOFTRESET_MASK;
+    /* Clear any previously pended MSS GPIO interrupt */
+    for ( i = 0U; i < NB_OF_GPIO; ++i )
+20000788:	687b      	ldr	r3, [r7, #4]
+2000078a:	f103 0301 	add.w	r3, r3, #1
+2000078e:	607b      	str	r3, [r7, #4]
+20000790:	687b      	ldr	r3, [r7, #4]
+20000792:	2b1f      	cmp	r3, #31
+20000794:	d9ed      	bls.n	20000772 <MSS_GPIO_init+0x26>
+    {
+        NVIC_ClearPendingIRQ( g_gpio_irqn_lut[i] );
+    }
+    /* Take MSS GPIO hardware out of reset. */
+    SYSREG->SOFT_RST_CR &= ~SYSREG_GPIO_SOFTRESET_MASK;
+20000796:	f242 0300 	movw	r3, #8192	; 0x2000
+2000079a:	f2ce 0304 	movt	r3, #57348	; 0xe004
+2000079e:	f242 0200 	movw	r2, #8192	; 0x2000
+200007a2:	f2ce 0204 	movt	r2, #57348	; 0xe004
+200007a6:	6b12      	ldr	r2, [r2, #48]	; 0x30
+200007a8:	f422 4280 	bic.w	r2, r2, #16384	; 0x4000
+200007ac:	631a      	str	r2, [r3, #48]	; 0x30
+}
+200007ae:	f107 0708 	add.w	r7, r7, #8
+200007b2:	46bd      	mov	sp, r7
+200007b4:	bd80      	pop	{r7, pc}
+200007b6:	bf00      	nop
+
+200007b8 <MSS_GPIO_config>:
+void MSS_GPIO_config
+(
+    mss_gpio_id_t port_id,
+    uint32_t config
+)
+{
+200007b8:	b480      	push	{r7}
+200007ba:	b085      	sub	sp, #20
+200007bc:	af00      	add	r7, sp, #0
+200007be:	4603      	mov	r3, r0
+200007c0:	6039      	str	r1, [r7, #0]
+200007c2:	71fb      	strb	r3, [r7, #7]
+    uint32_t gpio_idx = (uint32_t)port_id;
+200007c4:	79fb      	ldrb	r3, [r7, #7]
+200007c6:	60fb      	str	r3, [r7, #12]
+    
+    ASSERT( gpio_idx < NB_OF_GPIO );
+200007c8:	68fb      	ldr	r3, [r7, #12]
+200007ca:	2b1f      	cmp	r3, #31
+200007cc:	d900      	bls.n	200007d0 <MSS_GPIO_config+0x18>
+200007ce:	be00      	bkpt	0x0000
+
+    if ( gpio_idx < NB_OF_GPIO )
+200007d0:	68fb      	ldr	r3, [r7, #12]
+200007d2:	2b1f      	cmp	r3, #31
+200007d4:	d808      	bhi.n	200007e8 <MSS_GPIO_config+0x30>
+    {
+        *(g_config_reg_lut[gpio_idx]) = config;
+200007d6:	68fa      	ldr	r2, [r7, #12]
+200007d8:	f640 0350 	movw	r3, #2128	; 0x850
+200007dc:	f2c2 0300 	movt	r3, #8192	; 0x2000
+200007e0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+200007e4:	683a      	ldr	r2, [r7, #0]
+200007e6:	601a      	str	r2, [r3, #0]
+    }
+}
+200007e8:	f107 0714 	add.w	r7, r7, #20
+200007ec:	46bd      	mov	sp, r7
+200007ee:	bc80      	pop	{r7}
+200007f0:	4770      	bx	lr
+200007f2:	bf00      	nop
+
+200007f4 <SystemInit>:
+
+/***************************************************************************//**
+ * See system_a2fxxxm3f.h for details.
+ */
+void SystemInit(void)
+{
+200007f4:	b480      	push	{r7}
+200007f6:	af00      	add	r7, sp, #0
+    /*
+     * Do not make use of global variables or make any asumptions regarding
+     * memory content if modifying this function. The memory content has not been
+     * initialised by the time this function is called by the start-up code.
+     */
+}
+200007f8:	46bd      	mov	sp, r7
+200007fa:	bc80      	pop	{r7}
+200007fc:	4770      	bx	lr
+200007fe:	bf00      	nop
+
+20000800 <__libc_init_array>:
+20000800:	b570      	push	{r4, r5, r6, lr}
+20000802:	f640 1628 	movw	r6, #2344	; 0x928
+20000806:	f640 1528 	movw	r5, #2344	; 0x928
+2000080a:	f2c2 0600 	movt	r6, #8192	; 0x2000
+2000080e:	f2c2 0500 	movt	r5, #8192	; 0x2000
+20000812:	1b76      	subs	r6, r6, r5
+20000814:	10b6      	asrs	r6, r6, #2
+20000816:	d006      	beq.n	20000826 <__libc_init_array+0x26>
+20000818:	2400      	movs	r4, #0
+2000081a:	f855 3024 	ldr.w	r3, [r5, r4, lsl #2]
+2000081e:	3401      	adds	r4, #1
+20000820:	4798      	blx	r3
+20000822:	42a6      	cmp	r6, r4
+20000824:	d8f9      	bhi.n	2000081a <__libc_init_array+0x1a>
+20000826:	f640 1528 	movw	r5, #2344	; 0x928
+2000082a:	f640 162c 	movw	r6, #2348	; 0x92c
+2000082e:	f2c2 0500 	movt	r5, #8192	; 0x2000
+20000832:	f2c2 0600 	movt	r6, #8192	; 0x2000
+20000836:	1b76      	subs	r6, r6, r5
+20000838:	f000 f86a 	bl	20000910 <_init>
+2000083c:	10b6      	asrs	r6, r6, #2
+2000083e:	d006      	beq.n	2000084e <__libc_init_array+0x4e>
+20000840:	2400      	movs	r4, #0
+20000842:	f855 3024 	ldr.w	r3, [r5, r4, lsl #2]
+20000846:	3401      	adds	r4, #1
+20000848:	4798      	blx	r3
+2000084a:	42a6      	cmp	r6, r4
+2000084c:	d8f9      	bhi.n	20000842 <__libc_init_array+0x42>
+2000084e:	bd70      	pop	{r4, r5, r6, pc}
+
+20000850 <g_config_reg_lut>:
+20000850:	3000 4001 3004 4001 3008 4001 300c 4001     .0.@.0.@.0.@.0.@
+20000860:	3010 4001 3014 4001 3018 4001 301c 4001     .0.@.0.@.0.@.0.@
+20000870:	3020 4001 3024 4001 3028 4001 302c 4001      0.@$0.@(0.@,0.@
+20000880:	3030 4001 3034 4001 3038 4001 303c 4001     00.@40.@80.@<0.@
+20000890:	3040 4001 3044 4001 3048 4001 304c 4001     @0.@D0.@H0.@L0.@
+200008a0:	3050 4001 3054 4001 3058 4001 305c 4001     P0.@T0.@X0.@\0.@
+200008b0:	3060 4001 3064 4001 3068 4001 306c 4001     `0.@d0.@h0.@l0.@
+200008c0:	3070 4001 3074 4001 3078 4001 307c 4001     p0.@t0.@x0.@|0.@
+
+200008d0 <g_gpio_irqn_lut>:
+200008d0:	0020 0021 0022 0023 0024 0025 0026 0027      .!.".#.$.%.&.'.
+200008e0:	0028 0029 002a 002b 002c 002d 002e 002f     (.).*.+.,.-.../.
+200008f0:	0030 0031 0032 0033 0034 0035 0036 0037     0.1.2.3.4.5.6.7.
+20000900:	0038 0039 003a 003b 003c 003d 003e 003f     8.9.:.;.<.=.>.?.
+
+20000910 <_init>:
+20000910:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+20000912:	bf00      	nop
+20000914:	bcf8      	pop	{r3, r4, r5, r6, r7}
+20000916:	bc08      	pop	{r3}
+20000918:	469e      	mov	lr, r3
+2000091a:	4770      	bx	lr
+
+2000091c <_fini>:
+2000091c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+2000091e:	bf00      	nop
+20000920:	bcf8      	pop	{r3, r4, r5, r6, r7}
+20000922:	bc08      	pop	{r3}
+20000924:	469e      	mov	lr, r3
+20000926:	4770      	bx	lr
+
+20000928 <__frame_dummy_init_array_entry>:
+20000928:	0485 2000                                   ... 
+
+2000092c <__do_global_dtors_aux_fini_array_entry>:
+2000092c:	0471 2000                                   q.. 

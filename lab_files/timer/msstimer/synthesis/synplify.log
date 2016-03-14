@@ -1,0 +1,94 @@
+
+Starting:    C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\win64\mbin\synbatch.exe
+Install:     C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1
+Date:        Tue Sep 29 16:26:30 2015
+Version:     I-2014.03M-SP1
+
+Arguments:   -product synplify_pro  -licensetype synplifypro_actel -batch -log synplify.log mytimer_syn.tcl
+ProductType: synplify_pro
+
+License checkout: synplifypro_actel
+License: synplifypro_actel node-locked 
+Licensed Vendor: actel
+License Option: actel_oem
+
+Running in Vendor Mode
+
+
+Implementation not found: synthesis
+
+log file: "C:\Actelprj\msstimer\msstimer\synthesis\mytimer.srr"
+
+
+
+Running mytimer_syn|synthesis
+
+
+Running: Compile on mytimer_syn|synthesis
+
+
+Running: Compile Process on mytimer_syn|synthesis
+
+
+Running: Compile Input on mytimer_syn|synthesis
+
+Copied C:\Actelprj\msstimer\msstimer\synthesis\synwork\mytimer_comp.srs to C:\Actelprj\msstimer\msstimer\synthesis\mytimer.srs
+
+
+compiler Completed with warnings
+Return Code: 1
+Run Time:0h:00m:03s
+
+
+Running: Multi-srs Generator on mytimer_syn|synthesis
+
+Copied C:\Actelprj\msstimer\msstimer\synthesis\synwork\mytimer_comp.srs to C:\Actelprj\msstimer\msstimer\synthesis\synwork\mytimer_s.srs
+
+
+multi_srs_gen Completed
+Return Code: 0
+Run Time:0h:00m:01s
+
+Copied C:\Actelprj\msstimer\msstimer\synthesis\synwork\mytimer_mult.srs to C:\Actelprj\msstimer\msstimer\synthesis\mytimer.srs
+
+Complete: Compile Process on mytimer_syn|synthesis
+
+
+Running: Pre-mapping on mytimer_syn|synthesis
+
+Copied C:\Actelprj\msstimer\msstimer\synthesis\mytimer.sap to C:\Actelprj\msstimer\msstimer\synthesis\synwork\mytimer_s.sap
+
+
+premap Completed
+Return Code: 0
+Run Time:0h:00m:05s
+
+Complete: Compile on mytimer_syn|synthesis
+
+
+Running: Map on mytimer_syn|synthesis
+
+
+Running: Map & Optimize on mytimer_syn|synthesis
+
+Copied C:\Actelprj\msstimer\msstimer\synthesis\synwork\mytimer_m.srm to C:\Actelprj\msstimer\msstimer\synthesis\mytimer.srm
+
+
+fpga_mapper Completed with warnings
+Return Code: 1
+Run Time:0h:00m:02s
+
+Complete: Map on mytimer_syn|synthesis
+
+Complete: Logic Synthesis on mytimer_syn|synthesis
+
+Copied C:\Actelprj\msstimer\msstimer\synthesis\mytimer.srr to C:\Actelprj\msstimer\msstimer\synthesis\backup\mytimer.srr
+
+TCL script complete: "mytimer_syn.tcl"
+
+exit status=0
+
+exit status=0
+
+License checkin: synplifypro_actel
+
