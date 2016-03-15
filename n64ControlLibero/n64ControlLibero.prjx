@@ -1,6 +1,7 @@
 KEY LIBERO "11.5"
 KEY CAPTURE "11.5.3.10"
 KEY DEFAULT_IMPORT_LOC "C:\Libero_projects\test_fabric2\hdl"
+KEY DEFAULT_OPEN_LOC ""
 KEY ProjectID "0"
 KEY HDLTechnology "VERILOG"
 KEY VendorTechnology_Family "SmartFusion"
@@ -8,9 +9,14 @@ KEY VendorTechnology_Die "IP4X3M1"
 KEY VendorTechnology_Package "fg484"
 KEY VendorTechnology_Speed "STD"
 KEY VendorTechnology_DieVoltage "1.5"
+KEY VendorTechnology_DSW_VCCA_VOLTAGE_RAMP_RATE ""
 KEY VendorTechnology_IO_DEFT_STD "LVTTL"
+KEY VendorTechnology_OPCONR ""
 KEY VendorTechnology_PART_RANGE "COM"
+KEY VendorTechnology_PLL_SUPPLY ""
+KEY VendorTechnology_RAD_EXPOSURE ""
 KEY VendorTechnology_RESTRICTPROBEPINS "1"
+KEY VendorTechnology_SYSTEM_CONTROLLER_SUSPEND_MODE ""
 KEY VendorTechnology_TEMPR "COM"
 KEY VendorTechnology_UNUSED_MSS_IO_RESISTOR_PULL "None"
 KEY VendorTechnology_VCCI_1.5_VOLTR "COM"
@@ -31,13 +37,33 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\work\n64ControlLibero\n64ControlLibero.cxf,actgen_cxf"
 STATE="utd"
-TIME="1458066213"
-SIZE="14266"
+TIME="1458080693"
+SIZE="2437"
 ENDFILE
 VALUE "<project>\component\work\n64ControlLibero_MSS\n64ControlLibero_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1458066212"
-SIZE="18008"
+TIME="1458076149"
+SIZE="8960"
+ENDFILE
+VALUE "<project>\component\work\n64_magic_box\n64_magic_box.cxf,actgen_cxf"
+STATE="utd"
+TIME="1458080887"
+SIZE="4224"
+ENDFILE
+VALUE "<project>\designer\impl1\n64ControlLibero.ide_des,ide_des"
+STATE="utd"
+TIME="1458066213"
+SIZE="212"
+ENDFILE
+VALUE "<project>\hdl\n64_apb_interface.v,hdl"
+STATE="utd"
+TIME="1458080870"
+SIZE="2070"
+ENDFILE
+VALUE "<project>\hdl\n64_serial_interface.v,hdl"
+STATE="utd"
+TIME="1458082063"
+SIZE="1807"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -155,9 +181,15 @@ Reports;Reports;0
 ReportsCurrentItem;Project Summary:n64ControlLibero.log
 StartPage;StartPage;0
 SmartDesign;n64ControlLibero;0
-ACTIVEVIEW;n64ControlLibero
+SmartDesign;n64_magic_box;0
+HDL;hdl\n64_serial_interface.v;0
+HDL;hdl\n64_apb_interface.v;0
+SmartDesign;n64ControlLibero_MSS;0
+ACTIVEVIEW;hdl\n64_serial_interface.v
 ENDLIST
 LIST ModuleSubBlockList
+LIST "CoreAPB3::work","","FALSE","FALSE"
+ENDLIST
 LIST "MSS_ACE::work","","FALSE","FALSE"
 ENDLIST
 LIST "MSS_CCC::work","","FALSE","FALSE"
@@ -198,8 +230,18 @@ LIST "MSS_UFROM::work","","FALSE","FALSE"
 ENDLIST
 LIST "MSS_WATCHDOG::work","","FALSE","FALSE"
 ENDLIST
+LIST "n64_apb_interface::work","hdl\n64_apb_interface.v","FALSE","FALSE"
+ENDLIST
+LIST "n64_magic_box::work","component\work\n64_magic_box\n64_magic_box.cxf","TRUE","FALSE"
+SUBBLOCK "n64_apb_interface::work","hdl\n64_apb_interface.v","FALSE","FALSE"
+SUBBLOCK "n64_serial_interface::work","hdl\n64_serial_interface.v","FALSE","FALSE"
+ENDLIST
+LIST "n64_serial_interface::work","hdl\n64_serial_interface.v","FALSE","FALSE"
+ENDLIST
 LIST "n64ControlLibero::work","component\work\n64ControlLibero\n64ControlLibero.cxf","TRUE","FALSE"
+SUBBLOCK "CoreAPB3::work","","FALSE","FALSE"
 SUBBLOCK "n64ControlLibero_MSS::work","component\work\n64ControlLibero_MSS\n64ControlLibero_MSS.cxf","TRUE","FALSE"
+SUBBLOCK "n64_magic_box::work","component\work\n64_magic_box\n64_magic_box.cxf","TRUE","FALSE"
 ENDLIST
 LIST "n64ControlLibero_MSS::work","component\work\n64ControlLibero_MSS\n64ControlLibero_MSS.cxf","TRUE","FALSE"
 SUBBLOCK "MSS_ACE::work","","FALSE","FALSE"
