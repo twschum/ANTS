@@ -38,7 +38,7 @@ typedef struct {
     uint8_t Y_axis;
 } n64_state_t;
 
-// Read the current state
+// read the current state
 void n64_get_state(n64_state_t* state);
 
 // send a reset signal
@@ -46,7 +46,3 @@ void n64_reset();
 
 // enable button polling
 void n64_enable();
-
-// disable button polling
-void n64_disable();
-
