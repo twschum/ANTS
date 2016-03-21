@@ -1,10 +1,10 @@
 
 module n64_write_command(
     input reg [7:0] command_byte,
-    input reg en;
-    input clk;
-    output reg data_out;
-    output reg writing_data;
+    input reg en,
+    input clk,
+    output reg data_out,
+    output reg writing_data
 );
 
 reg enabled;
