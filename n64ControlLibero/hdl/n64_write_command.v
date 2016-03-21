@@ -1,6 +1,6 @@
 
 module n64_write_command(
-    input reg [7:0] command_byte;
+    input reg [7:0] command_byte,
     input reg en;
     input clk;
     output reg data_out;
