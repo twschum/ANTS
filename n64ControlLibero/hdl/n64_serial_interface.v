@@ -21,7 +21,7 @@ input clk,
 input polling_enable,
 input controller_reset,
 input gpio_in,
-output reg gpio_out,
+output wire gpio_out,
 output reg [31:0] button_data
 );
 
@@ -32,6 +32,10 @@ reg [8:0] short_count; // for manchester bits
 
 reg prev_reset = 0;
 reg send_reset = 0;
+
+reg [1:0] state = 0;
+reg [1:0] prev_state = 0;
+'define STOP = 3'b0;
 
 // open collector output circuit
 reg enable_data_write = 0;
@@ -66,9 +70,8 @@ end
 
 // Request stage
 always @ (posedge clk) begin
-    if ~(polling_enable & (long_count == 0))
+    if (~(polling_enable & (long_count == 0)))
         // do nothing
-    else
         
 end
 
