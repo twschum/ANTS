@@ -7,14 +7,14 @@
 //      <Revision number>: <Date>: <Comments>
 //      <Revision number>: <Date>: <Comments>
 //
-// Description: 
+// Description:
 //
 // <Description here>
 //
 // Targeted device: <Family::SmartFusion> <Die::A2F200M3F> <Package::484 FBGA>
 // Author: <Name>
 //
-/////////////////////////////////////////////////////////////////////////////////////////////////// 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 module n64_apb_interface(
 /*** APB3 BUS INTERFACE ***/
@@ -41,18 +41,19 @@ wire read = (PSEL && !PWRITE && PENABLE && (PADDR[7:0] == 8'h00));
 
 
 always @ (posedge PCLK) begin
-    if (PRESERN) begin//go to reset state
-        polling_enable <= 1'b0;//no polling
-        controller_reset <= 1'b1;//send one 'FF' reset to controller
+
+    if (PRESERN) begin            // go to reset state
+        polling_enable <= 1'b0;   // no polling
+        controller_reset <= 1'b1; // send one 'FF' reset to controller
     end
     else if (write) begin
         if (PWDATA == 32'hFF) begin
-            polling_enable <= 1'b0;//no polling
-            controller_reset <= 1'b1;//send 'FF' reset
+            polling_enable <= 1'b0;   // no polling
+            controller_reset <= 1'b1; // send 'FF' reset
         end
         else if (PWDATA == 32'h01) begin
-            polling_enable <= 1'b1;//poll controller continuously
-            controller_reset <= 1'b0;//no reset byte
+            polling_enable <= 1'b1;   // poll controller continuously
+            controller_reset <= 1'b0; // no reset byte
         end
     end
     else if (read) begin
