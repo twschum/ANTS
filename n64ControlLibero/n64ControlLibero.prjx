@@ -37,33 +37,38 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\work\n64ControlLibero\n64ControlLibero.cxf,actgen_cxf"
 STATE="utd"
-TIME="1458080693"
+TIME="1458595522"
 SIZE="2437"
 ENDFILE
 VALUE "<project>\component\work\n64ControlLibero_MSS\n64ControlLibero_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1458076149"
+TIME="1458595522"
 SIZE="8960"
 ENDFILE
 VALUE "<project>\component\work\n64_magic_box\n64_magic_box.cxf,actgen_cxf"
 STATE="utd"
-TIME="1458080887"
+TIME="1458595522"
 SIZE="4224"
 ENDFILE
 VALUE "<project>\designer\impl1\n64ControlLibero.ide_des,ide_des"
 STATE="utd"
-TIME="1458066213"
+TIME="1458595522"
 SIZE="212"
 ENDFILE
 VALUE "<project>\hdl\n64_apb_interface.v,hdl"
 STATE="utd"
-TIME="1458080870"
+TIME="1458595522"
 SIZE="2070"
+ENDFILE
+VALUE "<project>\hdl\n64_read_controller.v,hdl"
+STATE="utd"
+TIME="1458599658"
+SIZE="1813"
 ENDFILE
 VALUE "<project>\hdl\n64_serial_interface.v,hdl"
 STATE="utd"
-TIME="1458082063"
-SIZE="1807"
+TIME="1458597198"
+SIZE="1873"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -185,7 +190,8 @@ SmartDesign;n64_magic_box;0
 HDL;hdl\n64_serial_interface.v;0
 HDL;hdl\n64_apb_interface.v;0
 SmartDesign;n64ControlLibero_MSS;0
-ACTIVEVIEW;hdl\n64_serial_interface.v
+HDL;hdl\n64_read_controller.v;0
+ACTIVEVIEW;hdl\n64_read_controller.v
 ENDLIST
 LIST ModuleSubBlockList
 LIST "CoreAPB3::work","","FALSE","FALSE"
@@ -235,6 +241,8 @@ ENDLIST
 LIST "n64_magic_box::work","component\work\n64_magic_box\n64_magic_box.cxf","TRUE","FALSE"
 SUBBLOCK "n64_apb_interface::work","hdl\n64_apb_interface.v","FALSE","FALSE"
 SUBBLOCK "n64_serial_interface::work","hdl\n64_serial_interface.v","FALSE","FALSE"
+ENDLIST
+LIST "n64_read_controller::work","hdl\n64_read_controller.v","FALSE","FALSE"
 ENDLIST
 LIST "n64_serial_interface::work","hdl\n64_serial_interface.v","FALSE","FALSE"
 ENDLIST
