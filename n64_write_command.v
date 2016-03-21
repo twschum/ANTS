@@ -8,7 +8,9 @@ module n64_write_command(
 );
 
 reg enabled;
+reg [3:0] index;
 reg [8:0] count;
+reg [8:0] command_byte_plus_stop;
 
 parameter START = 100;
 parameter DATA = 300;
@@ -23,16 +25,17 @@ always @ (posedge clk) begin
         enabled <= 1;
         index <= 0
         count <= 0;
+        command_byte_plus_stop <= { 1'b1, command_byte };
     end
 
     // counter & reset logic
     if (enabled & count < STOP) begin
         count <= count + 1;
 
-    else if (enabled & count == STOP & index == 8)
+    else if (enabled & count == STOP & index == 9)
         enabled <= 0;
 
-    else if (enabled & count == STOP)
+    else if (enabled & count == STOP & index != 9)
         count <= 0;
         index <= index + 1;
     end
@@ -43,16 +46,18 @@ always @ (posedge clk) begin
         if (count < START) begin
             data_out <= 0;
         else if (count < DATA)
-            data_out <= command_byte[index];
+            data_out <= command_byte_plus_stop[index];
         else if (count < STOP)
             data_out <= 1;
         end
 
-    else
+    else // idle / disabled state
         index <= 0;
         data_out <= 1;
+        count <= 0;
     end
 
 end
 
 endmodule
+
