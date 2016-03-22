@@ -43,7 +43,8 @@ n64_write_command write_module(
     command_byte,
     write_module_active,
     data_out,
-    read_module_begin);
+    read_module_begin
+);
 
 // read module
 n64_read_controller read_module(
@@ -52,7 +53,8 @@ n64_read_controller read_module(
     data_in,
     read_module_error,
     read_module_active,
-    button_data_raw);
+    button_data_raw
+);
 
 // open collector output circuit
 //assign fab_pin = (write_module_set_enabled & ~data_out) ? 1'b0 : 1'bZ;

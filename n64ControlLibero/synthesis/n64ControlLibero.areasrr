@@ -4,13 +4,13 @@ Report for cell n64ControlLibero.verilog
                                cell       count     area    count*area
                         CoreAPB3_Z1         1      36.0       36.0
                                 GND         1       0.0        0.0
-                             OUTBUF         4       0.0        0.0
+                             OUTBUF         3       0.0        0.0
                             TRIBUFF         1       0.0        0.0
                                 VCC         1       0.0        0.0
                n64ControlLibero_MSS         1       0.0        0.0
-                      n64_magic_box         1     251.0      251.0
+                      n64_magic_box         1     246.0      246.0
                             
-                         TOTAL             10                287.0
+                         TOTAL              9                282.0
 ----------------------------------------------------------------------
 Report for cell n64ControlLibero_MSS.netlist
      Instance path:  n64ControlLibero_MSS_0
@@ -43,9 +43,9 @@ Report for cell n64_magic_box.netlist
                                 GND         1       0.0        0.0
                                 VCC         1       0.0        0.0
                   n64_apb_interface         1      70.0       70.0
-               n64_serial_interface         1     181.0      181.0
+               n64_serial_interface         1     176.0      176.0
                             
-                         TOTAL              4                251.0
+                         TOTAL              4                246.0
 ----------------------------------------------------------------------
 Report for cell n64_serial_interface.netlist
      Instance path:  n64_magic_box_0.n64_serial_interface_0
@@ -53,26 +53,25 @@ Report for cell n64_serial_interface.netlist
                                cell       count     area    count*area
                                AND2         4       1.0        4.0
                                AND3        18       1.0       18.0
-                               AO1A         1       1.0        1.0
-                               DFN1        21       1.0       21.0
+                                AO1         2       1.0        2.0
+                               AOI1         1       1.0        1.0
+                              AOI1B         6       1.0        6.0
+                               DFN1        20       1.0       20.0
                              DFN1E1         1       1.0        1.0
                                 GND         1       0.0        0.0
-                                MX2         1       1.0        1.0
-                               NOR2         7       1.0        7.0
+                               NOR2         3       1.0        3.0
                               NOR2A         1       1.0        1.0
-                              NOR2B         4       1.0        4.0
+                              NOR2B         6       1.0        6.0
                               NOR3A         3       1.0        3.0
                               NOR3B         1       1.0        1.0
-                              NOR3C         3       1.0        3.0
-                                OA1         6       1.0        6.0
-                               OA1B         1       1.0        1.0
-                               OAI1         1       1.0        1.0
-                               OR2B         2       1.0        2.0
+                              NOR3C         1       1.0        1.0
+                                OR2         2       1.0        2.0
+                                OR3         1       1.0        1.0
                                 VCC         1       0.0        0.0
                                XOR2        16       1.0       16.0
                   n64_write_command         1      90.0       90.0
                             
-                         TOTAL             94                181.0
+                         TOTAL             89                176.0
 ----------------------------------------------------------------------
 Report for cell n64_write_command.netlist
      Instance path:  n64_magic_box_0.n64_serial_interface_0.write_module
