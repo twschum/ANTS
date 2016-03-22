@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Mar 22 14:57:37 2016
+// Created by SmartDesign Tue Mar 22 17:06:32 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -21,6 +21,8 @@ module n64_magic_box(
     PSLVERR_1,
     data_out,
     enable_data_write_wire,
+    enable_write_mod_wire,
+    write_module_active,
     // Inouts
     fab_pin
 );
@@ -43,6 +45,8 @@ output        PREADY_1;
 output        PSLVERR_1;
 output        data_out;
 output        enable_data_write_wire;
+output        enable_write_mod_wire;
+output        write_module_active;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -61,16 +65,20 @@ wire          PWRITE_1;
 wire          controller_reset;
 wire          data_out_net_0;
 wire          enable_data_write_wire_net_0;
+wire          enable_write_mod_wire_net_0;
 wire          fab_pin;
 wire   [31:0] n64_serial_interface_0_button_data;
 wire          PCLK;
 wire          polling_enable;
 wire          PRESERN;
+wire          write_module_active_net_0;
 wire          BIF_1_1_PREADY_net_0;
 wire          BIF_1_1_PSLVERR_net_0;
-wire   [31:0] BIF_1_1_PRDATA_net_0;
 wire          enable_data_write_wire_net_1;
 wire          data_out_net_1;
+wire   [31:0] BIF_1_1_PRDATA_net_0;
+wire          enable_write_mod_wire_net_1;
+wire          write_module_active_net_1;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
@@ -78,12 +86,16 @@ assign BIF_1_1_PREADY_net_0         = BIF_1_1_PREADY;
 assign PREADY_1                     = BIF_1_1_PREADY_net_0;
 assign BIF_1_1_PSLVERR_net_0        = BIF_1_1_PSLVERR;
 assign PSLVERR_1                    = BIF_1_1_PSLVERR_net_0;
-assign BIF_1_1_PRDATA_net_0         = BIF_1_1_PRDATA;
-assign PRDATA_1[31:0]               = BIF_1_1_PRDATA_net_0;
 assign enable_data_write_wire_net_1 = enable_data_write_wire_net_0;
 assign enable_data_write_wire       = enable_data_write_wire_net_1;
 assign data_out_net_1               = data_out_net_0;
 assign data_out                     = data_out_net_1;
+assign BIF_1_1_PRDATA_net_0         = BIF_1_1_PRDATA;
+assign PRDATA_1[31:0]               = BIF_1_1_PRDATA_net_0;
+assign enable_write_mod_wire_net_1  = enable_write_mod_wire_net_0;
+assign enable_write_mod_wire        = enable_write_mod_wire_net_1;
+assign write_module_active_net_1    = write_module_active_net_0;
+assign write_module_active          = write_module_active_net_1;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -101,9 +113,9 @@ n64_apb_interface n64_apb_interface_0(
         // Outputs
         .PREADY           ( BIF_1_1_PREADY ),
         .PSLVERR          ( BIF_1_1_PSLVERR ),
-        .PRDATA           ( BIF_1_1_PRDATA ),
         .polling_enable   ( polling_enable ),
-        .controller_reset ( controller_reset ) 
+        .controller_reset ( controller_reset ),
+        .PRDATA           ( BIF_1_1_PRDATA ) 
         );
 
 //--------n64_serial_interface
@@ -116,6 +128,8 @@ n64_serial_interface n64_serial_interface_0(
         .button_data            ( n64_serial_interface_0_button_data ),
         .enable_data_write_wire ( enable_data_write_wire_net_0 ),
         .data_out               ( data_out_net_0 ),
+        .enable_write_mod_wire  ( enable_write_mod_wire_net_0 ),
+        .write_module_active    ( write_module_active_net_0 ),
         // Inouts
         .fab_pin                ( fab_pin ) 
         );
