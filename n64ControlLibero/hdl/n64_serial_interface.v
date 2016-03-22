@@ -81,7 +81,7 @@ always @ (posedge clk) begin
             command_byte <= 8'hFF; // reset controller
         else
             command_byte <= 8'h01; // get buttons
-        end
+    end
 
     // write/request state underway
     else if (write_module_active)
@@ -91,12 +91,11 @@ always @ (posedge clk) begin
     else if (enable_data_write & ~write_module_active & ~send_reset) begin
         enable_read_module <= 1; // enabled the read module to take do its thing
         read_module_set_active <= 1;
-        end
+    end
     else begin
         enable_data_write <= 0;
         enable_read_module <= 0;
         enable_write_module <= 0;
-        end
     end
 
     // read module got started up above, just check for errors and ending
@@ -105,9 +104,8 @@ always @ (posedge clk) begin
     if (~read_module_active & read_module_set_active) begin
         read_module_set_active <= 0;
         if (~read_module_error)
-            button_data <= button_data_raw; 
+            button_data <= button_data_raw;
     end
-
 end
 
 
