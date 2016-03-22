@@ -15,8 +15,8 @@ Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated document
 @I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\vlog\scemi_pipes.svh"
 @I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\vlog\hypermods.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_apb_interface.v"
-@I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v"
+@I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64_magic_box\n64_magic_box.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\mss_tshell.v"
@@ -213,9 +213,6 @@ Selecting top level module n64ControlLibero
 @W: CL279 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v":44:0:44:5|Pruning register bits 31 to 1 of con_data[31:0] 
 
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v":21:6:21:11|Input enable is unused
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v":22:0:22:5|Register bit enabled is always 1, optimizing ...
-@W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v":3:16:3:30|Input command_byte_in is unused
-@W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v":4:10:4:11|Input en is unused
 @W: CL246 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_apb_interface.v":28:13:28:17|Input port bits 31 to 8 of PADDR[31:0] are unused
 
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":72:36:72:40|Input IADDR is unused
@@ -271,7 +268,7 @@ Selecting top level module n64ControlLibero
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 77MB peak: 81MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Mar 22 18:15:24 2016
+# Tue Mar 22 18:26:20 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403sp1p1, Build 095R, built Oct  9 2014
@@ -281,7 +278,7 @@ File C:\Users\rpokeefe\repos\373\n64ControlLibero\synthesis\synwork\n64ControlLi
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Mar 22 18:15:25 2016
+# Tue Mar 22 18:26:21 2016
 
 ###########################################################]
 Pre-mapping Report
@@ -303,10 +300,7 @@ Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s
 
 Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 104MB peak: 106MB)
 
-@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":77:0:77:5|Removing sequential instance command_byte[1] of view:PrimLib.dffe(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
-@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":53:0:53:5|Removing sequential instance send_reset of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
-@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":53:0:53:5|Removing sequential instance prev_reset of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
-@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_apb_interface.v":47:0:47:5|Removing sequential instance controller_reset of view:PrimLib.sdffse(prim) in hierarchy view:work.n64_apb_interface(verilog) because there are no references to its outputs 
+@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_write_command.v":22:0:22:5|Removing sequential instance begin_read of view:PrimLib.sdffse(prim) in hierarchy view:work.n64_write_command(verilog) because there are no references to its outputs 
 
 
 @S |Clock Summary
@@ -323,10 +317,10 @@ Finished Pre Mapping Phase.
 @N: BN225 |Writing default property annotation file C:\Users\rpokeefe\repos\373\n64ControlLibero\synthesis\n64ControlLibero.sap.
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 50MB peak: 114MB)
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 49MB peak: 114MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Mar 22 18:15:26 2016
+# Tue Mar 22 18:26:22 2016
 
 ###########################################################]
 Map & Optimize Report
@@ -357,7 +351,6 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapse
 Available hyper_sources - for debug and ip models
 	None Found
 
-@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_write_command.v":22:0:22:5|Removing sequential instance begin_read of view:PrimLib.dff(prim) in hierarchy view:work.n64_write_command(verilog) because there are no references to its outputs 
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
 
@@ -367,6 +360,7 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 @N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":62:0:62:5|Removing sequential instance sync_reg[1] of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
 @N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":62:0:62:5|Removing sequential instance sync_reg[0] of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
 @N:"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_write_command.v":22:0:22:5|Found counter in view:work.n64_write_command(verilog) inst index[3:0]
+@W: MO161 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_write_command.v":22:0:22:5|Register bit command_byte[0] is always 1, optimizing ...
 
 Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
 
@@ -406,13 +400,13 @@ Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; M
 Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
 
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 112MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 113MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 113MB)
 
 
 Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
@@ -449,14 +443,14 @@ Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
 Clock optimization not enabled
-1 non-gated/non-generated clock tree(s) driving 74 clock pin(s) of sequential element(s)
+1 non-gated/non-generated clock tree(s) driving 78 clock pin(s) of sequential element(s)
 0 gated/generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
 0 instances converted, 0 sequential instances remain driven by gated/generated clocks
 
 ======================================================= Non-Gated/Non-Generated Clocks ========================================================
 Clock Tree ID     Driving Element            Drive Element Type                Fanout     Sample Instance                                      
 -----------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       n64ControlLibero_MSS_0     clock definition on hierarchy     74         n64_magic_box_0.n64_serial_interface_0.long_count[16]
+@K:CKID0001       n64ControlLibero_MSS_0     clock definition on hierarchy     78         n64_magic_box_0.n64_serial_interface_0.long_count[16]
 ===============================================================================================================================================
 
 
@@ -480,7 +474,7 @@ Found clock FCLK with period 10.00ns
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Tue Mar 22 18:15:28 2016
+# Timing Report written on Tue Mar 22 18:26:23 2016
 #
 
 
@@ -503,12 +497,12 @@ Performance Summary
 *******************
 
 
-Worst slack in design: -0.415
+Worst slack in design: -3.952
 
                    Requested     Estimated     Requested     Estimated                Clock        Clock          
 Starting Clock     Frequency     Frequency     Period        Period        Slack      Type         Group          
 ------------------------------------------------------------------------------------------------------------------
-FAB_CLK            100.0 MHz     96.0 MHz      10.000        10.415        -0.415     declared     clk_group_0    
+FAB_CLK            100.0 MHz     71.7 MHz      10.000        13.952        -3.952     declared     clk_group_0    
 FCLK               100.0 MHz     NA            10.000        NA            NA         declared     clk_group_0    
 System             100.0 MHz     198.8 MHz     10.000        5.030         4.970      system       system_clkgroup
 ==================================================================================================================
@@ -525,9 +519,9 @@ Clocks             |    rise  to  rise    |    fall  to  fall   |    rise  to  f
 Starting  Ending   |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
 ----------------------------------------------------------------------------------------------------------
 System    System   |  10.000      4.970   |  No paths    -      |  No paths    -      |  No paths    -    
-System    FAB_CLK  |  10.000      1.698   |  No paths    -      |  No paths    -      |  No paths    -    
+System    FAB_CLK  |  10.000      1.615   |  No paths    -      |  No paths    -      |  No paths    -    
 FAB_CLK   System   |  10.000      8.041   |  No paths    -      |  No paths    -      |  No paths    -    
-FAB_CLK   FAB_CLK  |  10.000      -0.415  |  No paths    -      |  No paths    -      |  No paths    -    
+FAB_CLK   FAB_CLK  |  10.000      -3.952  |  No paths    -      |  No paths    -      |  No paths    -    
 ==========================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
@@ -550,40 +544,40 @@ Detailed Report for Clock: FAB_CLK
 Starting Points with Worst Slack
 ********************************
 
-                                                                 Starting                                         Arrival           
-Instance                                                         Reference     Type     Pin     Net               Time        Slack 
-                                                                 Clock                                                              
-------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_serial_interface_0.write_module.count[4]     FAB_CLK       DFN1     Q       count[4]          0.580       -0.415
-n64_magic_box_0.n64_serial_interface_0.write_module.count[5]     FAB_CLK       DFN1     Q       count[5]          0.580       -0.229
-n64_magic_box_0.n64_serial_interface_0.write_module.count[7]     FAB_CLK       DFN1     Q       count[7]          0.580       -0.214
-n64_magic_box_0.n64_serial_interface_0.write_module.count[6]     FAB_CLK       DFN1     Q       count[6]          0.737       -0.142
-n64_magic_box_0.n64_serial_interface_0.write_module.count[8]     FAB_CLK       DFN1     Q       count[8]          0.580       -0.090
-n64_magic_box_0.n64_serial_interface_0.long_count[0]             FAB_CLK       DFN1     Q       long_count[0]     0.580       1.083 
-n64_magic_box_0.n64_serial_interface_0.long_count[1]             FAB_CLK       DFN1     Q       long_count[1]     0.737       1.111 
-n64_magic_box_0.n64_serial_interface_0.long_count[2]             FAB_CLK       DFN1     Q       long_count[2]     0.737       1.171 
-n64_magic_box_0.n64_serial_interface_0.long_count[3]             FAB_CLK       DFN1     Q       long_count[3]     0.737       1.309 
-n64_magic_box_0.n64_serial_interface_0.long_count[4]             FAB_CLK       DFN1     Q       long_count[4]     0.737       1.310 
-====================================================================================================================================
+                                                                 Starting                                                   Arrival           
+Instance                                                         Reference     Type       Pin     Net                       Time        Slack 
+                                                                 Clock                                                                        
+----------------------------------------------------------------------------------------------------------------------------------------------
+n64_magic_box_0.n64_serial_interface_0.write_module.count[4]     FAB_CLK       DFN1       Q       count[4]                  0.580       -3.952
+n64_magic_box_0.n64_serial_interface_0.write_module.count[5]     FAB_CLK       DFN1       Q       count[5]                  0.580       -3.808
+n64_magic_box_0.n64_serial_interface_0.write_module.count[6]     FAB_CLK       DFN1       Q       count[6]                  0.580       -3.628
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]     FAB_CLK       DFN1       Q       count[7]                  0.580       -3.543
+n64_magic_box_0.n64_serial_interface_0.write_module.count[8]     FAB_CLK       DFN1       Q       count[8]                  0.580       -3.371
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled      FAB_CLK       DFN1       Q       write_module_active_c     0.737       -1.680
+n64_magic_box_0.n64_serial_interface_0.write_module.count[0]     FAB_CLK       DFN1       Q       count[0]                  0.737       0.195 
+n64_magic_box_0.n64_serial_interface_0.write_module.index[0]     FAB_CLK       DFN1E0     Q       index[0]                  0.737       0.537 
+n64_magic_box_0.n64_serial_interface_0.long_count[0]             FAB_CLK       DFN1       Q       long_count[0]             0.580       0.815 
+n64_magic_box_0.n64_serial_interface_0.long_count[1]             FAB_CLK       DFN1       Q       long_count[1]             0.737       0.843 
+==============================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
                                                                  Starting                                            Required           
-Instance                                                         Reference     Type     Pin     Net                  Time         Slack 
+Instance                                                         Reference     Type       Pin     Net                Time         Slack 
                                                                  Clock                                                                  
 ----------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_serial_interface_0.write_module.count[3]     FAB_CLK       DFN1     D       I_37                 9.461        -0.415
-n64_magic_box_0.n64_serial_interface_0.write_module.count[2]     FAB_CLK       DFN1     D       I_35                 9.461        0.405 
-n64_magic_box_0.n64_serial_interface_0.write_module.count[4]     FAB_CLK       DFN1     D       count_6[4]           9.427        0.567 
-n64_magic_box_0.n64_serial_interface_0.write_module.count[7]     FAB_CLK       DFN1     D       count_6[7]           9.427        0.608 
-n64_magic_box_0.n64_serial_interface_0.write_module.count[8]     FAB_CLK       DFN1     D       count_6[8]           9.427        0.608 
-n64_magic_box_0.n64_serial_interface_0.long_count[15]            FAB_CLK       DFN1     D       long_count_3[15]     9.461        1.083 
-n64_magic_box_0.n64_serial_interface_0.long_count[16]            FAB_CLK       DFN1     D       long_count_3[16]     9.461        1.083 
-n64_magic_box_0.n64_serial_interface_0.write_module.count[5]     FAB_CLK       DFN1     D       G_0                  9.461        1.246 
-n64_magic_box_0.n64_serial_interface_0.write_module.count[6]     FAB_CLK       DFN1     D       G_2                  9.461        1.246 
-n64_magic_box_0.n64_serial_interface_0.write_module.count[1]     FAB_CLK       DFN1     D       I_33                 9.461        1.279 
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]     FAB_CLK       DFN1       D       count_6[7]         9.461        -3.952
+n64_magic_box_0.n64_serial_interface_0.write_module.count[6]     FAB_CLK       DFN1       D       count_6[6]         9.461        -3.116
+n64_magic_box_0.n64_serial_interface_0.write_module.count[5]     FAB_CLK       DFN1       D       count_6[5]         9.461        -3.052
+n64_magic_box_0.n64_serial_interface_0.write_module.count[8]     FAB_CLK       DFN1       D       count_6[8]         9.461        -3.052
+n64_magic_box_0.n64_serial_interface_0.write_module.count[4]     FAB_CLK       DFN1       D       count_6[4]         9.461        -2.216
+n64_magic_box_0.n64_serial_interface_0.write_module.count[3]     FAB_CLK       DFN1       D       I_37               9.461        -0.544
+n64_magic_box_0.n64_serial_interface_0.write_module.count[2]     FAB_CLK       DFN1       D       count_6[2]         9.461        -0.518
+n64_magic_box_0.n64_serial_interface_0.write_module.count[0]     FAB_CLK       DFN1       D       count_6[0]         9.427        -0.174
+n64_magic_box_0.n64_serial_interface_0.write_module.index[0]     FAB_CLK       DFN1E0     E       index_0_sqmuxa     9.392        0.740 
+n64_magic_box_0.n64_serial_interface_0.write_module.index[1]     FAB_CLK       DFN1E0     E       index_0_sqmuxa     9.392        0.740 
 ========================================================================================================================================
 
 
@@ -598,13 +592,13 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.461
 
-    - Propagation time:                      9.877
+    - Propagation time:                      13.413
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -0.415
+    = Slack (critical) :                     -3.952
 
-    Number of logic level(s):                6
+    Number of logic level(s):                10
     Starting point:                          n64_magic_box_0.n64_serial_interface_0.write_module.count[4] / Q
-    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[3] / D
+    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[7] / D
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
@@ -612,28 +606,40 @@ Instance / Net                                                                  
 Name                                                                      Type      Name     Dir     Delay     Time        Fan Out(s)
 -------------------------------------------------------------------------------------------------------------------------------------
 n64_magic_box_0.n64_serial_interface_0.write_module.count[4]              DFN1      Q        Out     0.580     0.580       -         
-count[4]                                                                  Net       -        -       1.423     -           6         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     OR3       C        In      -         2.004       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     OR3       Y        Out     0.683     2.687       -         
-N_2                                                                       Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      A        In      -         3.008       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      Y        Out     0.537     3.545       -         
-count17                                                                   Net       -        -       1.184     -           4         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     B        In      -         4.729       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     Y        Out     0.627     5.356       -         
-DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       1.526     -           7         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     A        In      -         6.882       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     Y        Out     0.514     7.397       -         
-DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.386     -           2         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     A        In      -         7.782       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     Y        Out     0.514     8.297       -         
-DWACT_ADD_CI_0_g_array_12[0]                                              Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      B        In      -         8.618       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      Y        Out     0.937     9.555       -         
-I_37                                                                      Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count[3]              DFN1      D        In      -         9.877       -         
+count[4]                                                                  Net       -        -       1.526     -           7         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     NOR3      C        In      -         2.106       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     NOR3      Y        Out     0.683     2.789       -         
+count17lt8                                                                Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       B        In      -         3.111       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       Y        Out     0.646     3.757       -         
+count17                                                                   Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     B        In      -         4.564       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     Y        Out     0.627     5.191       -         
+count_0_sqmuxa                                                            Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      B        In      -         5.577       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      Y        Out     0.627     6.204       -         
+DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     A        In      -         6.590       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     Y        Out     0.514     7.105       -         
+DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     A        In      -         7.911       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     Y        Out     0.514     8.425       -         
+DWACT_ADD_CI_0_g_array_2[0]                                               Net       -        -       1.184     -           4         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     A        In      -         9.609       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     Y        Out     0.514     10.123      -         
+DWACT_ADD_CI_0_g_array_11[0]                                              Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     A        In      -         10.509      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     Y        Out     0.514     11.024      -         
+DWACT_ADD_CI_0_g_array_12_2[0]                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      B        In      -         11.345      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      Y        Out     0.937     12.282      -         
+un1_count_7[7]                                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     A        In      -         12.603      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     Y        Out     0.488     13.092      -         
+count_6[7]                                                                Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              DFN1      D        In      -         13.413      -         
 =====================================================================================================================================
-Total path delay (propagation time + setup) of 10.415 is 4.932(47.4%) logic and 5.483(52.6%) route.
+Total path delay (propagation time + setup) of 13.952 is 7.186(51.5%) logic and 6.766(48.5%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -643,13 +649,13 @@ Path information for path number 2:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.461
 
-    - Propagation time:                      9.691
+    - Propagation time:                      13.269
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -0.229
+    = Slack (non-critical) :                 -3.808
 
-    Number of logic level(s):                6
+    Number of logic level(s):                10
     Starting point:                          n64_magic_box_0.n64_serial_interface_0.write_module.count[5] / Q
-    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[3] / D
+    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[7] / D
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
@@ -657,28 +663,40 @@ Instance / Net                                                                  
 Name                                                                      Type      Name     Dir     Delay     Time        Fan Out(s)
 -------------------------------------------------------------------------------------------------------------------------------------
 n64_magic_box_0.n64_serial_interface_0.write_module.count[5]              DFN1      Q        Out     0.580     0.580       -         
-count[5]                                                                  Net       -        -       1.279     -           5         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     OR3       B        In      -         1.860       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     OR3       Y        Out     0.641     2.501       -         
-N_2                                                                       Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      A        In      -         2.822       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      Y        Out     0.537     3.359       -         
-count17                                                                   Net       -        -       1.184     -           4         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     B        In      -         4.543       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     Y        Out     0.627     5.170       -         
-DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       1.526     -           7         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     A        In      -         6.696       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     Y        Out     0.514     7.211       -         
-DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.386     -           2         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     A        In      -         7.597       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     Y        Out     0.514     8.111       -         
-DWACT_ADD_CI_0_g_array_12[0]                                              Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      B        In      -         8.432       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      Y        Out     0.937     9.369       -         
-I_37                                                                      Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count[3]              DFN1      D        In      -         9.691       -         
+count[5]                                                                  Net       -        -       1.423     -           6         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     NOR3      B        In      -         2.004       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     NOR3      Y        Out     0.641     2.645       -         
+count17lt8                                                                Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       B        In      -         2.967       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       Y        Out     0.646     3.613       -         
+count17                                                                   Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     B        In      -         4.420       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     Y        Out     0.627     5.047       -         
+count_0_sqmuxa                                                            Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      B        In      -         5.433       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      Y        Out     0.627     6.060       -         
+DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     A        In      -         6.446       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     Y        Out     0.514     6.960       -         
+DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     A        In      -         7.767       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     Y        Out     0.514     8.281       -         
+DWACT_ADD_CI_0_g_array_2[0]                                               Net       -        -       1.184     -           4         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     A        In      -         9.465       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     Y        Out     0.514     9.979       -         
+DWACT_ADD_CI_0_g_array_11[0]                                              Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     A        In      -         10.365      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     Y        Out     0.514     10.879      -         
+DWACT_ADD_CI_0_g_array_12_2[0]                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      B        In      -         11.201      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      Y        Out     0.937     12.137      -         
+un1_count_7[7]                                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     A        In      -         12.459      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     Y        Out     0.488     12.947      -         
+count_6[7]                                                                Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              DFN1      D        In      -         13.269      -         
 =====================================================================================================================================
-Total path delay (propagation time + setup) of 10.229 is 4.890(47.8%) logic and 5.339(52.2%) route.
+Total path delay (propagation time + setup) of 13.808 is 7.144(51.7%) logic and 6.663(48.3%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -688,42 +706,54 @@ Path information for path number 3:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.461
 
-    - Propagation time:                      9.675
+    - Propagation time:                      13.090
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -0.214
+    = Slack (non-critical) :                 -3.629
 
-    Number of logic level(s):                6
-    Starting point:                          n64_magic_box_0.n64_serial_interface_0.write_module.count[7] / Q
-    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[3] / D
+    Number of logic level(s):                10
+    Starting point:                          n64_magic_box_0.n64_serial_interface_0.write_module.count[6] / Q
+    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[7] / D
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
 Instance / Net                                                                      Pin      Pin               Arrival     No. of    
 Name                                                                      Type      Name     Dir     Delay     Time        Fan Out(s)
 -------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              DFN1      Q        Out     0.580     0.580       -         
-count[7]                                                                  Net       -        -       1.279     -           5         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIFSUR[8]      OR2B      B        In      -         1.860       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIFSUR[8]      OR2B      Y        Out     0.516     2.376       -         
-G_2_0                                                                     Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      B        In      -         2.697       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      Y        Out     0.646     3.344       -         
-count17                                                                   Net       -        -       1.184     -           4         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     B        In      -         4.527       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     Y        Out     0.627     5.155       -         
-DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       1.526     -           7         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     A        In      -         6.681       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     Y        Out     0.514     7.195       -         
-DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.386     -           2         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     A        In      -         7.581       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     Y        Out     0.514     8.095       -         
-DWACT_ADD_CI_0_g_array_12[0]                                              Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      B        In      -         8.417       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      Y        Out     0.937     9.354       -         
-I_37                                                                      Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count[3]              DFN1      D        In      -         9.675       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count[6]              DFN1      Q        Out     0.580     0.580       -         
+count[6]                                                                  Net       -        -       1.526     -           7         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     NOR3      A        In      -         2.106       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     NOR3      Y        Out     0.360     2.466       -         
+count17lt8                                                                Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       B        In      -         2.788       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       Y        Out     0.646     3.434       -         
+count17                                                                   Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     B        In      -         4.240       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     Y        Out     0.627     4.868       -         
+count_0_sqmuxa                                                            Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      B        In      -         5.254       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      Y        Out     0.627     5.881       -         
+DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     A        In      -         6.267       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     Y        Out     0.514     6.781       -         
+DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     A        In      -         7.588       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     Y        Out     0.514     8.102       -         
+DWACT_ADD_CI_0_g_array_2[0]                                               Net       -        -       1.184     -           4         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     A        In      -         9.286       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     Y        Out     0.514     9.800       -         
+DWACT_ADD_CI_0_g_array_11[0]                                              Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     A        In      -         10.186      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     Y        Out     0.514     10.700      -         
+DWACT_ADD_CI_0_g_array_12_2[0]                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      B        In      -         11.022      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      Y        Out     0.937     11.959      -         
+un1_count_7[7]                                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     A        In      -         12.280      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     Y        Out     0.488     12.768      -         
+count_6[7]                                                                Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              DFN1      D        In      -         13.090      -         
 =====================================================================================================================================
-Total path delay (propagation time + setup) of 10.214 is 4.875(47.7%) logic and 5.339(52.3%) route.
+Total path delay (propagation time + setup) of 13.629 is 6.863(50.4%) logic and 6.766(49.6%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -733,42 +763,54 @@ Path information for path number 4:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.461
 
-    - Propagation time:                      9.604
+    - Propagation time:                      13.005
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -0.142
+    = Slack (non-critical) :                 -3.543
 
-    Number of logic level(s):                6
-    Starting point:                          n64_magic_box_0.n64_serial_interface_0.write_module.count[6] / Q
-    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[3] / D
+    Number of logic level(s):                10
+    Starting point:                          n64_magic_box_0.n64_serial_interface_0.write_module.count[7] / Q
+    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[7] / D
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
 Instance / Net                                                                      Pin      Pin               Arrival     No. of    
 Name                                                                      Type      Name     Dir     Delay     Time        Fan Out(s)
 -------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_serial_interface_0.write_module.count[6]              DFN1      Q        Out     0.737     0.737       -         
-count[6]                                                                  Net       -        -       1.423     -           6         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     OR3       A        In      -         2.160       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIV2U91[5]     OR3       Y        Out     0.488     2.649       -         
-N_2                                                                       Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      A        In      -         2.970       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      Y        Out     0.466     3.436       -         
-count17                                                                   Net       -        -       1.184     -           4         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     B        In      -         4.619       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     Y        Out     0.516     5.136       -         
-DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       1.526     -           7         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     A        In      -         6.662       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     Y        Out     0.488     7.150       -         
-DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.386     -           2         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     A        In      -         7.536       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     Y        Out     0.488     8.024       -         
-DWACT_ADD_CI_0_g_array_12[0]                                              Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      B        In      -         8.345       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      Y        Out     0.937     9.282       -         
-I_37                                                                      Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count[3]              DFN1      D        In      -         9.604       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              DFN1      Q        Out     0.580     0.580       -         
+count[7]                                                                  Net       -        -       1.423     -           6         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIFSUR[8]      OR2B      B        In      -         2.004       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIFSUR[8]      OR2B      Y        Out     0.516     2.520       -         
+count17lto8_0                                                             Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       A        In      -         2.841       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       Y        Out     0.507     3.349       -         
+count17                                                                   Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     B        In      -         4.155       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     Y        Out     0.627     4.783       -         
+count_0_sqmuxa                                                            Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      B        In      -         5.168       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      Y        Out     0.627     5.796       -         
+DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     A        In      -         6.182       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     Y        Out     0.514     6.696       -         
+DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     A        In      -         7.502       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     Y        Out     0.514     8.017       -         
+DWACT_ADD_CI_0_g_array_2[0]                                               Net       -        -       1.184     -           4         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     A        In      -         9.200       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     Y        Out     0.514     9.715       -         
+DWACT_ADD_CI_0_g_array_11[0]                                              Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     A        In      -         10.101      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     Y        Out     0.514     10.615      -         
+DWACT_ADD_CI_0_g_array_12_2[0]                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      B        In      -         10.937      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      Y        Out     0.937     11.873      -         
+un1_count_7[7]                                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     A        In      -         12.195      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     Y        Out     0.488     12.683      -         
+count_6[7]                                                                Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              DFN1      D        In      -         13.005      -         
 =====================================================================================================================================
-Total path delay (propagation time + setup) of 10.142 is 4.659(45.9%) logic and 5.483(54.1%) route.
+Total path delay (propagation time + setup) of 13.543 is 6.880(50.8%) logic and 6.663(49.2%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -778,13 +820,13 @@ Path information for path number 5:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.461
 
-    - Propagation time:                      9.552
+    - Propagation time:                      12.833
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -0.090
+    = Slack (non-critical) :                 -3.371
 
-    Number of logic level(s):                6
+    Number of logic level(s):                10
     Starting point:                          n64_magic_box_0.n64_serial_interface_0.write_module.count[8] / Q
-    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[3] / D
+    Ending point:                            n64_magic_box_0.n64_serial_interface_0.write_module.count[7] / D
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
@@ -792,28 +834,40 @@ Instance / Net                                                                  
 Name                                                                      Type      Name     Dir     Delay     Time        Fan Out(s)
 -------------------------------------------------------------------------------------------------------------------------------------
 n64_magic_box_0.n64_serial_interface_0.write_module.count[8]              DFN1      Q        Out     0.580     0.580       -         
-count[8]                                                                  Net       -        -       1.184     -           4         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIFSUR[8]      OR2B      A        In      -         1.764       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIFSUR[8]      OR2B      Y        Out     0.488     2.252       -         
-G_2_0                                                                     Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      B        In      -         2.574       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2A      Y        Out     0.646     3.220       -         
-count17                                                                   Net       -        -       1.184     -           4         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     B        In      -         4.404       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_1       NOR2B     Y        Out     0.627     5.031       -         
-DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       1.526     -           7         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     A        In      -         6.557       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.G_7       NOR2B     Y        Out     0.514     7.072       -         
-DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.386     -           2         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     A        In      -         7.457       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_46      NOR2B     Y        Out     0.514     7.972       -         
-DWACT_ADD_CI_0_g_array_12[0]                                              Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      B        In      -         8.293       -         
-n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_1.I_37      XOR2      Y        Out     0.937     9.230       -         
-I_37                                                                      Net       -        -       0.322     -           1         
-n64_magic_box_0.n64_serial_interface_0.write_module.count[3]              DFN1      D        In      -         9.552       -         
+count[8]                                                                  Net       -        -       1.279     -           5         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIFSUR[8]      OR2B      A        In      -         1.860       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIFSUR[8]      OR2B      Y        Out     0.488     2.348       -         
+count17lto8_0                                                             Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       A        In      -         2.669       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNIEVS52[5]     OR2       Y        Out     0.507     3.177       -         
+count17                                                                   Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     B        In      -         3.983       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled_RNIOTNI2      NOR2B     Y        Out     0.627     4.611       -         
+count_0_sqmuxa                                                            Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      B        In      -         4.996       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_1       AND2      Y        Out     0.627     5.624       -         
+DWACT_ADD_CI_0_TMP[0]                                                     Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     A        In      -         6.010       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_44      NOR2B     Y        Out     0.514     6.524       -         
+DWACT_ADD_CI_0_g_array_1[0]                                               Net       -        -       0.806     -           3         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     A        In      -         7.330       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_43      NOR2B     Y        Out     0.514     7.845       -         
+DWACT_ADD_CI_0_g_array_2[0]                                               Net       -        -       1.184     -           4         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     A        In      -         9.028       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_42      NOR2B     Y        Out     0.514     9.543       -         
+DWACT_ADD_CI_0_g_array_11[0]                                              Net       -        -       0.386     -           2         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     A        In      -         9.929       -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_45      NOR2B     Y        Out     0.514     10.443      -         
+DWACT_ADD_CI_0_g_array_12_2[0]                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      B        In      -         10.765      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.un1_count_7.I_36      XOR2      Y        Out     0.937     11.701      -         
+un1_count_7[7]                                                            Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     A        In      -         12.023      -         
+n64_magic_box_0.n64_serial_interface_0.write_module.count_RNO[7]          NOR2B     Y        Out     0.488     12.511      -         
+count_6[7]                                                                Net       -        -       0.322     -           1         
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              DFN1      D        In      -         12.833      -         
 =====================================================================================================================================
-Total path delay (propagation time + setup) of 10.090 is 4.847(48.0%) logic and 5.244(52.0%) route.
+Total path delay (propagation time + setup) of 13.371 is 6.852(51.2%) logic and 6.519(48.8%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -832,37 +886,37 @@ Starting Points with Worst Slack
 Instance                                  Reference     Type        Pin               Net                                                 Time        Slack
                                           Clock                                                                                                            
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]       n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]      0.000       1.698
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[11]     0.000       1.740
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL           n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx         0.000       1.750
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[10]     0.000       1.879
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]       n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[9]      0.000       1.926
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[15]     CoreAPB3_0_APBmslave0_PWDATA[15]                    0.000       2.480
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[14]     CoreAPB3_0_APBmslave0_PWDATA[14]                    0.000       2.619
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[12]     CoreAPB3_0_APBmslave0_PWDATA[12]                    0.000       3.396
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[9]      CoreAPB3_0_APBmslave0_PWDATA[9]                     0.000       3.507
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[23]     CoreAPB3_0_APBmslave0_PWDATA[23]                    0.000       3.509
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]       n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]      0.000       1.615
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[11]     0.000       1.656
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL           n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx         0.000       1.667
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[10]     0.000       1.796
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]       n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[9]      0.000       1.842
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[11]     CoreAPB3_0_APBmslave0_PWDATA[11]                    0.000       2.458
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[31]     CoreAPB3_0_APBmslave0_PWDATA[31]                    0.000       2.499
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[10]     CoreAPB3_0_APBmslave0_PWDATA[10]                    0.000       2.597
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[23]     CoreAPB3_0_APBmslave0_PWDATA[23]                    0.000       2.599
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[30]     CoreAPB3_0_APBmslave0_PWDATA[30]                    0.000       2.639
 ===========================================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                                       Starting                                                                                         Required          
-Instance                                               Reference     Type        Pin               Net                                                  Time         Slack
-                                                       Clock                                                                                                              
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_apb_interface_0.polling_enable     System        DFN1        D                 polling_enable_RNO                                   9.427        1.698
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[10]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[10]     10.000       4.970
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[11]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[11]     10.000       4.970
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[12]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[12]     10.000       4.970
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[13]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[13]     10.000       4.970
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[14]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[14]     10.000       4.970
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[15]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[15]     10.000       4.970
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[16]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[16]     10.000       4.970
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[17]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[17]     10.000       4.970
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                  System        MSS_APB     MSSPRDATA[18]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[18]     10.000       4.970
-==========================================================================================================================================================================
+                                                         Starting                                                                                         Required          
+Instance                                                 Reference     Type        Pin               Net                                                  Time         Slack
+                                                         Clock                                                                                                              
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+n64_magic_box_0.n64_apb_interface_0.controller_reset     System        DFN1        D                 controller_reset_RNO                                 9.427        1.615
+n64_magic_box_0.n64_apb_interface_0.polling_enable       System        DFN1        D                 polling_enable_RNO                                   9.427        1.634
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[10]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[10]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[11]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[11]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[12]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[12]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[13]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[13]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[14]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[14]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[15]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[15]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[16]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[16]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[17]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[17]     10.000       4.970
+============================================================================================================================================================================
 
 
 
@@ -876,43 +930,43 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.427
 
-    - Propagation time:                      7.728
+    - Propagation time:                      7.812
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (non-critical) :                 1.698
+    = Slack (non-critical) :                 1.615
 
     Number of logic level(s):                6
     Starting point:                          n64ControlLibero_MSS_0.MSS_ADLIB_INST / MSSPADDR[8]
-    Ending point:                            n64_magic_box_0.n64_apb_interface_0.polling_enable / D
+    Ending point:                            n64_magic_box_0.n64_apb_interface_0.controller_reset / D
     The start point is clocked by            System [rising]
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
-Instance / Net                                                           Pin             Pin               Arrival     No. of    
-Name                                                         Type        Name            Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------------------------------------------------
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                        MSS_APB     MSSPADDR[8]     Out     0.000     0.000       -         
-n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]               Net         -               -       0.322     -           1         
-CoreAPB3_0.iPSELS_2[0]                                       NOR3A       C               In      -         0.322       -         
-CoreAPB3_0.iPSELS_2[0]                                       NOR3A       Y               Out     0.716     1.038       -         
-iPSELS_2[0]                                                  Net         -               -       0.386     -           2         
-CoreAPB3_0.iPSELS_0[0]                                       NOR2B       A               In      -         1.423       -         
-CoreAPB3_0.iPSELS_0[0]                                       NOR2B       Y               Out     0.488     1.912       -         
-CoreAPB3_0_APBmslave0_PSELx_0                                Net         -               -       2.218     -           17        
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_7     NOR3B       A               In      -         4.129       -         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_7     NOR3B       Y               Out     0.666     4.795       -         
-write_5                                                      Net         -               -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_2     NOR3C       B               In      -         5.116       -         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_2     NOR3C       Y               Out     0.624     5.740       -         
-write                                                        Net         -               -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0     MX2         S               In      -         6.062       -         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0     MX2         Y               Out     0.396     6.458       -         
-polling_enable_RNO_0                                         Net         -               -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO       NOR2B       B               In      -         6.779       -         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO       NOR2B       Y               Out     0.627     7.407       -         
-polling_enable_RNO                                           Net         -               -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.polling_enable           DFN1        D               In      -         7.728       -         
-=================================================================================================================================
-Total path delay (propagation time + setup) of 8.302 is 4.091(49.3%) logic and 4.211(50.7%) route.
+Instance / Net                                                             Pin             Pin               Arrival     No. of    
+Name                                                           Type        Name            Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------------------------
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                          MSS_APB     MSSPADDR[8]     Out     0.000     0.000       -         
+n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]                 Net         -               -       0.322     -           1         
+CoreAPB3_0.iPSELS_2[0]                                         NOR3A       C               In      -         0.322       -         
+CoreAPB3_0.iPSELS_2[0]                                         NOR3A       Y               Out     0.716     1.038       -         
+iPSELS_2[0]                                                    Net         -               -       0.386     -           2         
+CoreAPB3_0.iPSELS_0[0]                                         NOR2B       A               In      -         1.423       -         
+CoreAPB3_0.iPSELS_0[0]                                         NOR2B       Y               Out     0.488     1.912       -         
+CoreAPB3_0_APBmslave0_PSELx_0                                  Net         -               -       2.218     -           17        
+n64_magic_box_0.n64_apb_interface_0.write_5                    NOR3B       A               In      -         4.129       -         
+n64_magic_box_0.n64_apb_interface_0.write_5                    NOR3B       Y               Out     0.666     4.795       -         
+write_5                                                        Net         -               -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.write                      NOR3C       B               In      -         5.116       -         
+n64_magic_box_0.n64_apb_interface_0.write                      NOR3C       Y               Out     0.624     5.740       -         
+write                                                          Net         -               -       0.386     -           2         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         S               In      -         6.126       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         Y               Out     0.396     6.522       -         
+controller_reset_RNO_0                                         Net         -               -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        B               In      -         6.844       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        Y               Out     0.646     7.490       -         
+controller_reset_RNO                                           Net         -               -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset           DFN1        D               In      -         7.812       -         
+===================================================================================================================================
+Total path delay (propagation time + setup) of 8.385 is 4.110(49.0%) logic and 4.275(51.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -924,42 +978,42 @@ Target Part: A2F200M3F_FBGA484_STD
 Report for cell n64ControlLibero.verilog
   Core Cell usage:
               cell count     area count*area
-              AND2     8      1.0        8.0
+              AND2     9      1.0        9.0
               AND3    18      1.0       18.0
-               AO1     2      1.0        2.0
               AO1A     1      1.0        1.0
-              AOI1     2      1.0        2.0
-             AOI1B     7      1.0        7.0
-               AX1     2      1.0        2.0
+              AO1B     1      1.0        1.0
+              AO1C     1      1.0        1.0
+             AOI1B     1      1.0        1.0
               AX1C     1      1.0        1.0
                GND     9      0.0        0.0
-               INV     1      1.0        1.0
            MSS_APB     1      0.0        0.0
            MSS_CCC     1      0.0        0.0
-               MX2     9      1.0        9.0
-              NOR2    21      1.0       21.0
-             NOR2B    47      1.0       47.0
-              NOR3     1      1.0        1.0
-             NOR3A     9      1.0        9.0
-             NOR3B     4      1.0        4.0
-             NOR3C     7      1.0        7.0
-              OA1A     1      1.0        1.0
-               OR2     3      1.0        3.0
+               MX2    10      1.0       10.0
+              NOR2    23      1.0       23.0
+             NOR2A     6      1.0        6.0
+             NOR2B    60      1.0       60.0
+              NOR3     3      1.0        3.0
+             NOR3A    11      1.0       11.0
+             NOR3B     6      1.0        6.0
+             NOR3C    13      1.0       13.0
+               OA1     6      1.0        6.0
+              OA1B     2      1.0        2.0
+              OAI1     1      1.0        1.0
+               OR2     2      1.0        2.0
               OR2A     1      1.0        1.0
-              OR2B     2      1.0        2.0
-               OR3     2      1.0        2.0
-              OR3B     3      1.0        3.0
-              OR3C     4      1.0        4.0
+              OR2B     4      1.0        4.0
+              OR3B     2      1.0        2.0
              RCOSC     1      0.0        0.0
                VCC     9      0.0        0.0
-              XA1C     3      1.0        3.0
-              XOR2    23      1.0       23.0
+               XA1     1      1.0        1.0
+              XOR2    26      1.0       26.0
 
 
-              DFN1    71      1.0       71.0
-            DFN1E1     3      1.0        3.0
+              DFN1    66      1.0       66.0
+            DFN1E0     4      1.0        4.0
+            DFN1E1     8      1.0        8.0
                    -----          ----------
-             TOTAL   277               256.0
+             TOTAL   308               287.0
 
 
   IO Cell usage:
@@ -972,7 +1026,7 @@ Report for cell n64ControlLibero.verilog
              TOTAL     8
 
 
-Core Cells         : 256 of 4608 (6%)
+Core Cells         : 287 of 4608 (6%)
 IO Cells           : 8
 
   RAM/ROM Usage Summary
@@ -983,6 +1037,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 49MB peak: 113MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Mar 22 18:15:28 2016
+# Tue Mar 22 18:26:24 2016
 
 ###########################################################]

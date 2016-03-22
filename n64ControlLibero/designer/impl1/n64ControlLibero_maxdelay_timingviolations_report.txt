@@ -2,7 +2,7 @@ Timing Violation Report Max Delay Analysis
 
 SmartTime Version v11.5 SP3
 Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
-Date: Tue Mar 22 18:16:27 2016
+Date: Tue Mar 22 18:27:22 2016
 
 
 Design: n64ControlLibero
@@ -21,10 +21,50 @@ Scenario for Timing Analysis: Primary
 
 
 Path 1
+  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[6]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
+  Delay (ns):                  10.085
+  Slack (ns):                  -0.596
+  Arrival (ns):                15.316
+  Required (ns):               14.720
+
+Path 2
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
-  Delay (ns):                  11.654
-  Slack (ns):                  -0.421
-  Arrival (ns):                15.209
-  Required (ns):               14.788
+  Delay (ns):                  11.619
+  Slack (ns):                  -0.425
+  Arrival (ns):                15.174
+  Required (ns):               14.749
+
+Path 3
+  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[6]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[8]:D
+  Delay (ns):                  9.815
+  Slack (ns):                  -0.342
+  Arrival (ns):                15.046
+  Required (ns):               14.704
+
+Path 4
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
+  Delay (ns):                  11.426
+  Slack (ns):                  -0.232
+  Arrival (ns):                14.981
+  Required (ns):               14.749
+
+Path 5
+  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[4]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
+  Delay (ns):                  9.604
+  Slack (ns):                  -0.115
+  Arrival (ns):                14.835
+  Required (ns):               14.720
+
+Path 6
+  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[5]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
+  Delay (ns):                  9.571
+  Slack (ns):                  -0.082
+  Arrival (ns):                14.802
+  Required (ns):               14.720
 

@@ -8,8 +8,8 @@ Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated document
 @I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\vlog\scemi_pipes.svh"
 @I::"C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\lib\vlog\hypermods.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_apb_interface.v"
-@I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v"
+@I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64_magic_box\n64_magic_box.v"
 @I::"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\mss_tshell.v"
@@ -206,9 +206,6 @@ Selecting top level module n64ControlLibero
 @W: CL279 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v":44:0:44:5|Pruning register bits 31 to 1 of con_data[31:0] 
 
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v":21:6:21:11|Input enable is unused
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v":22:0:22:5|Register bit enabled is always 1, optimizing ...
-@W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v":3:16:3:30|Input command_byte_in is unused
-@W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v":4:10:4:11|Input en is unused
 @W: CL246 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_apb_interface.v":28:13:28:17|Input port bits 31 to 8 of PADDR[31:0] are unused
 
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":72:36:72:40|Input IADDR is unused
@@ -264,6 +261,6 @@ Selecting top level module n64ControlLibero
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 77MB peak: 81MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Mar 22 18:15:24 2016
+# Tue Mar 22 18:26:20 2016
 
 ###########################################################]

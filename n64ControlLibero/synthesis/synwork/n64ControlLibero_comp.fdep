@@ -6,9 +6,9 @@
 #CUR:"C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\lib\\vlog\\scemi_pipes.svh":1412907044
 #CUR:"C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\lib\\vlog\\hypermods.v":1412907044
 #CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\hdl\\n64_apb_interface.v":1458671205
-#CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\hdl\\n64_write_command.v":1458683827
 #CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\hdl\\n64_read_controller.v":1458613261
-#CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\hdl\\n64_serial_interface.v":1458684848
+#CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\hdl\\n64_write_command.v":1458685533
+#CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\hdl\\n64_serial_interface.v":1458685533
 #CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\component\\work\\n64_magic_box\\n64_magic_box.v":1458680792
 #CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\component\\work\\n64ControlLibero_MSS\\mss_tshell.v":1458671817
 #CUR:"C:\\Users\\rpokeefe\\repos\\373\\n64ControlLibero\\component\\Actel\\SmartFusionMSS\\MSS\\2.5.200\\mss_comps.v":1453750324
@@ -21,8 +21,8 @@
 #numinternalfiles:5
 #defaultlanguage:verilog
 0			"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_apb_interface.v" verilog
-1			"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v" verilog
-2			"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v" verilog
+1			"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v" verilog
+2			"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v" verilog
 3			"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v" verilog
 4			"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64_magic_box\n64_magic_box.v" verilog
 5			"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\mss_tshell.v" verilog
@@ -37,7 +37,7 @@
 0 -1
 1 -1
 2 -1
-3 1 2
+3 2 1
 4 0 3
 5 -1
 6 -1
@@ -63,8 +63,8 @@
 12 -1
 #Design Unit to File Association
 module work n64_apb_interface 0
-module work n64_write_command 1
-module work n64_read_controller 2
+module work n64_read_controller 1
+module work n64_write_command 2
 module work n64_serial_interface 3
 module work n64_magic_box 4
 module work MSS_APB 5
