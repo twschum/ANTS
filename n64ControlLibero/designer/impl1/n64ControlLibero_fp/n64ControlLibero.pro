@@ -9,7 +9,7 @@
         
     </LiberoTargetDevice>
     <LogFile>
-        C:/Users/rpokeefe/repos/373/n64ControlLibero/designer/impl1/n64ControlLibero_fp\n64ControlLibero.log
+        C:/Users/rpokeefe/repos/373/n64ControlLibero/designer/impl1/n64ControlLibero_fp/n64ControlLibero.log
     </LogFile>
     <SerializationOption>
         Skip
