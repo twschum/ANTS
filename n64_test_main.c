@@ -2,7 +2,8 @@
 //
 
 #include <stdio.h>
-#include "n64_driver.h"
+#include <unistd.h>
+#include "drivers/n64_driver.h"
 
 int main() {
 
@@ -14,7 +15,7 @@ int main() {
 
     while (1) {
         n64_get_state( &n64_buttons );
-        printf("A: %d\tB: %d\tZ: %d\tStart: %d\tUp: %d\tDown: %d\tLeft: %d\tRight: %d\tL: %d\tR: %d\tC_Up: %d\tC_Down: %d\tC_Left: %d\tC_Right: %d\tX_axis: %3d\tY_axis: %3d\r\n",
+        printf("A: %d    B: %d    Z: %d    Start: %d    Up: %d    Down: %d    Left: %d    Right: %d    L: %d    R: %d    C_Up: %d    C_Down: %d    C_Left: %d    C_Right: %d    X_axis: %3d    Y_axis: %3d\r\n",
                 n64_buttons.A,
                 n64_buttons.B,
                 n64_buttons.Z,
@@ -31,6 +32,7 @@ int main() {
                 n64_buttons.C_Right,
                 n64_buttons.X_axis,
                 n64_buttons.Y_axis );
+        sleep(1);
     }
 
 }
