@@ -7,11 +7,10 @@ module n64_serial_interface(
     output reg [31:0] button_data,
 // debug
     output enable_data_write_wire,
-    output data_out, 
+    output data_out,
     output enable_write_mod_wire,
     output write_module_active
 );
-
 
 // used by the sync and count block
 reg data_in;
@@ -22,10 +21,11 @@ reg [23:0] long_count; // for 1ms polling
 reg prev_reset = 0;
 reg send_reset = 0;
 
-// submodule instantiations
+// submodule variables
 reg [7:0] command_byte;
 reg enable_write_module;
 wire read_module_begin; // active signal to the read module, from write module(1 cycle)
+
 //(debug)wire write_module_active;
 n64_write_command write_module(
     command_byte, enable_write_module, clk,
@@ -85,7 +85,7 @@ always @ (posedge clk) begin
             command_byte <= 8'hFF; // reset controller
         else
             command_byte <= 8'h01; // get buttons
-    end    
+    end
 
     // detects falling edge of the write command module (also reset or not)
     if (enable_data_write & ~write_module_active) begin
