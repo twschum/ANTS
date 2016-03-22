@@ -1,29 +1,11 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Company: <Name>
-//
-// File: n64_read_controller.v
-// File history:
-//      <Revision number>: <Date>: <Comments>
-//      <Revision number>: <Date>: <Comments>
-//      <Revision number>: <Date>: <Comments>
-//
-// Description: 
-//
-// <Description here>
-//
-// Targeted device: <Family::SmartFusion> <Die::A2F200M3F> <Package::484 FBGA>
-// Author: <Name>
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////// 
-//`timescale <time_units> / <precision>
 
 module n64_read_controller(
-input enable,
-input wire clk,
-input gpio_line,
-output reg error,
-output reg working,
-output reg [31:0] con_data
+    input enable,
+    input clk,
+    input data_in,
+    output reg error,
+    output reg working,
+    output reg [31:0] con_data
 );
 
 parameter Wait = 3'b000;
@@ -96,27 +78,27 @@ end
 always @ (posedge clk) begin
     case(state)
     Wait: begin
-        if (gpio_line == 0)
+        if (data_in == 0)
             next_state <= Zero;
         else
             next_state <= Wait;
     end
     Zero: begin
-        if (gpio_line == 0)
+        if (data_in == 0)
             next_state <= Zero;
         else
             next_state <= One;
     end
     One: begin
-        if (gpio_line == 1 && ones <= 600)
+        if (data_in == 1 && ones <= 600)
             next_state <= One;
         else
             next_state <= Check;
     end
     Check: begin
-        if (bits >= 30) 
+        if (bits >= 30)
             next_state <= End;
-        else if (ones >= 600) 
+        else if (ones >= 600)
             next_state <= Error;
         else
             next_state <= Zero;
