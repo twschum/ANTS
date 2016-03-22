@@ -12,12 +12,12 @@ void n64_get_state(n64_state_t* state)
 void n64_reset()
 {
     volatile uint32_t* address = (volatile uint32_t*)N64_ADDR;
-    *address = N64_RESET;
+    *address = (uint32_t)N64_RESET;
 }
 
 // enable button polling
 void n64_enable()
 {
     volatile uint32_t* address = (volatile uint32_t*)N64_ADDR;
-    *address = N64_GET_BUTTONS;
+    *address = (uint32_t)N64_GET_BUTTONS;
 }

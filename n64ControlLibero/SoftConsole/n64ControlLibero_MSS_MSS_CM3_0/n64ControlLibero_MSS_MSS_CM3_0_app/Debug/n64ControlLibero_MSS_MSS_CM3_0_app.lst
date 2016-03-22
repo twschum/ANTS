@@ -1083,7 +1083,7 @@ void n64_reset()
 200005c2:	f240 0300 	movw	r3, #0
 200005c6:	f2c4 0305 	movt	r3, #16389	; 0x4005
 200005ca:	607b      	str	r3, [r7, #4]
-    *address = N64_RESET;
+    *address = (uint32_t)N64_RESET;
 200005cc:	687b      	ldr	r3, [r7, #4]
 200005ce:	f04f 02ff 	mov.w	r2, #255	; 0xff
 200005d2:	601a      	str	r2, [r3, #0]
@@ -1106,7 +1106,7 @@ void n64_enable()
 200005e6:	f240 0300 	movw	r3, #0
 200005ea:	f2c4 0305 	movt	r3, #16389	; 0x4005
 200005ee:	607b      	str	r3, [r7, #4]
-    *address = N64_GET_BUTTONS;
+    *address = (uint32_t)N64_GET_BUTTONS;
 200005f0:	687b      	ldr	r3, [r7, #4]
 200005f2:	f04f 0201 	mov.w	r2, #1
 200005f6:	601a      	str	r2, [r3, #0]
