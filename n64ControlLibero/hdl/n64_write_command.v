@@ -1,8 +1,8 @@
 
 module n64_write_command(
-    input [7:0] command_byte_in,
     input en,
     input clk,
+    input [7:0] command_byte_in,
     output writing_data,
     output reg data_out,
     output reg begin_read
