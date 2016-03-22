@@ -22,28 +22,14 @@ reg [23:0] long_count; // for 1ms polling
 reg prev_reset = 0;
 reg send_reset = 0;
 
-// main state
-reg [1:0] state = 0;
-reg [1:0] prev_state = 0;
-parameter STOP = 3'b0;
-
-// open collector output circuit
-reg enable_data_write = 0;
-assign enable_data_write_wire = enable_data_write;
-assign enable_write_mod_wire = enable_write_module;
-//wire data_out = 0;
-//assign fab_pin = (enable_data_write & ~data_out) ? 1'b0 : 1'bZ;
-assign fab_pin = (write_module_active & ~data_out) ? 1'b0 : 1'bZ;
-
 // submodule instantiations
 reg [7:0] command_byte;
 reg enable_write_module;
 wire read_module_begin; // active signal to the read module, from write module(1 cycle)
-//wire write_module_active;
+//(debug)wire write_module_active;
 n64_write_command write_module(
     command_byte, enable_write_module, clk,
     write_module_active, data_out, read_module_begin);
-
 
 wire [31:0] button_data_raw; // since this changes, needs to write to button_data atomically
 wire read_module_active;
@@ -53,7 +39,13 @@ n64_read_controller read_module(
     read_module_begin, clk, data_in,
     read_module_error, read_module_active, button_data_raw);
 
-
+// open collector output circuit
+reg enable_data_write = 0;
+assign enable_data_write_wire = enable_data_write;
+assign enable_write_mod_wire = enable_write_module;
+//wire data_out = 0;
+//assign fab_pin = (enable_data_write & ~data_out) ? 1'b0 : 1'bZ;
+assign fab_pin = (write_module_active & ~data_out) ? 1'b0 : 1'bZ;
 
 
 
