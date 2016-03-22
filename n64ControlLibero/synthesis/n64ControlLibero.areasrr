@@ -1,0 +1,92 @@
+----------------------------------------------------------------------
+Report for cell n64ControlLibero.verilog
+                                          Cell usage:
+                               cell       count     area    count*area
+                        CoreAPB3_Z1         1      36.0       36.0
+                                GND         1       0.0        0.0
+                                VCC         1       0.0        0.0
+               n64ControlLibero_MSS         1       0.0        0.0
+                      n64_magic_box         1      72.0       72.0
+                            
+                         TOTAL              5                108.0
+----------------------------------------------------------------------
+Report for cell n64ControlLibero_MSS.netlist
+     Instance path:  n64ControlLibero_MSS_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                                GND         1       0.0        0.0
+                          INBUF_MSS         2       0.0        0.0
+                             MSSINT         1       0.0        0.0
+                            MSS_APB         1       0.0        0.0
+                         OUTBUF_MSS         1       0.0        0.0
+                                VCC         1       0.0        0.0
+          n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC         1       0.0        0.0
+                            
+                         TOTAL              8                  0.0
+----------------------------------------------------------------------
+Report for cell n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC.netlist
+     Instance path:  n64ControlLibero_MSS_0.MSS_CCC_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                                GND         1       0.0        0.0
+                            MSS_CCC         1       0.0        0.0
+                              RCOSC         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL              4                  0.0
+----------------------------------------------------------------------
+Report for cell n64_magic_box.netlist
+     Instance path:  n64_magic_box_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                                GND         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                  n64_apb_interface         1      40.0       40.0
+               n64_serial_interface         1      32.0       32.0
+                            
+                         TOTAL              4                 72.0
+----------------------------------------------------------------------
+Report for cell n64_serial_interface.netlist
+     Instance path:  n64_magic_box_0.n64_serial_interface_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                               DFN1        32       1.0       32.0
+                                GND         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             34                 32.0
+----------------------------------------------------------------------
+Report for cell n64_apb_interface.netlist
+     Instance path:  n64_magic_box_0.n64_apb_interface_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                             DFN1E1        32       1.0       32.0
+                                GND         1       0.0        0.0
+                               NOR2         2       1.0        2.0
+                              NOR3A         3       1.0        3.0
+                              NOR3C         3       1.0        3.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             42                 40.0
+----------------------------------------------------------------------
+Report for cell CoreAPB3_Z1.netlist
+     Instance path:  CoreAPB3_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                  COREAPB3_MUXPTOB3         1      32.0       32.0
+                                GND         1       0.0        0.0
+                               NOR2         2       1.0        2.0
+                              NOR3A         2       1.0        2.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL              7                 36.0
+----------------------------------------------------------------------
+Report for cell COREAPB3_MUXPTOB3.netlist
+     Instance path:  CoreAPB3_0.u_mux_p_to_b3
+                                          Cell usage:
+                               cell       count     area    count*area
+                                GND         1       0.0        0.0
+                              NOR3C        32       1.0       32.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             34                 32.0

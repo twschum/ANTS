@@ -51,13 +51,12 @@ always @ (posedge clk) begin
             data_out <= 1;
 
     end
-    else // idle / disabled state
+    else begin// idle / disabled state
         index <= 0;
         data_out <= 1;
         count <= 0;
     end
 
 end
-
 endmodule
 

@@ -50,7 +50,7 @@ always @ (posedge clk) begin
         error <= 0;
         bits <= 0;
         working <= 1;
-        con_data [31:0] = 32'b0;
+        con_data [31:0] <= 32'b0;
     end
     Zero: begin
         zeros <= zeros + 1;

@@ -25,23 +25,23 @@ parameter STOP = 3'b0;
 
 // open collector output circuit
 reg enable_data_write = 0;
-reg data_out = 0;
+wire data_out = 0;
 assign gpio_out = (enable_data_write & ~data_out) ? 1'b0 : 1'bZ;
 
 
 // submodule instantiations
 reg [7:0] command_byte;
 reg enable_write_module;
-reg write_module_active;
+wire write_module_active;
 n64_write_command write_module(
     command_byte, enable_write_module, clk,
-    data_out, write_module_active);
+    write_module_active, data_out);
 
-reg [31:0] button_data_raw; // since this changes, needs to write to button_data atomically
+wire [31:0] button_data_raw; // since this changes, needs to write to button_data atomically
 reg enable_read_module;
-reg read_module_active; // active signal to the module (1 cycle)
+wire read_module_active; // active signal to the module (1 cycle)
 reg read_module_set_active; // stays high to check falling edge
-reg read_module_error;
+wire read_module_error;
 n64_read_controller read_module(
     enable_read_module, clk, data_in,
     read_module_error, read_module_active, button_data_raw);
