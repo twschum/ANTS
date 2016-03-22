@@ -8,22 +8,6 @@ module n64_serial_interface(
     output reg [31:0] button_data
 );
 
-// submodule instantiations
-reg [7:0] command_byte;
-reg enable_write_module;
-reg write_module_active;
-n64_write_command write_module(
-    command_byte, enable_write_module, clk,
-    data_out, write_module_active);
-
-reg [31:0] button_data_raw; // since this changes, needs to write to button_data atomically
-reg enable_read_module;
-reg read_module_active; // active signal to the module (1 cycle)
-reg read_module_set_active; // stays high to check falling edge
-reg read_module_error;
-n64_read_controller read_module(
-    enable_read_module, clk, data_in,
-    read_module_error, read_module_active, button_data_raw);
 
 // used by the sync and count block
 reg data_in;
@@ -43,6 +27,25 @@ parameter STOP = 3'b0;
 reg enable_data_write = 0;
 reg data_out = 0;
 assign gpio_out = (enable_data_write & ~data_out) ? 1'b0 : 1'bZ;
+
+
+// submodule instantiations
+reg [7:0] command_byte;
+reg enable_write_module;
+reg write_module_active;
+n64_write_command write_module(
+    command_byte, enable_write_module, clk,
+    data_out, write_module_active);
+
+reg [31:0] button_data_raw; // since this changes, needs to write to button_data atomically
+reg enable_read_module;
+reg read_module_active; // active signal to the module (1 cycle)
+reg read_module_set_active; // stays high to check falling edge
+reg read_module_error;
+n64_read_controller read_module(
+    enable_read_module, clk, data_in,
+    read_module_error, read_module_active, button_data_raw);
+
 
 // handles whether to write reset to controller or not
 always @ (posedge clk) begin
@@ -74,7 +77,7 @@ always @ (posedge clk) begin
     // enable the write module
     if (polling_enable & (long_count == 0)) begin
         enable_write_module <= 1;
-        if (send_reset) begin
+        if (send_reset)
             command_byte <= 8'hFF; // reset controller
         else
             command_byte <= 8'h01; // get buttons
@@ -85,24 +88,24 @@ always @ (posedge clk) begin
         enable_data_write <= 1; // enables the output to gpio
 
     // detects falling edge of the write command module (also reset or not)
-    else if (enable_data_write & ~write_module_active & ~send_reset)
+    else if (enable_data_write & ~write_module_active & ~send_reset) begin
         enable_read_module <= 1; // enabled the read module to take do its thing
         read_module_set_active <= 1;
-    else
+        end
+    else begin
         enable_data_write <= 0;
         enable_read_module <= 0;
         enable_write_module <= 0;
+        end
     end
 
     // read module got started up above, just check for errors and ending
 
     // falling edge of active, atomically change the output
-    if (~read_module_active & read_module_set_active & ~read_module_error) begin
-        button_data <= button_data_raw;
+    if (~read_module_active & read_module_set_active) begin
         read_module_set_active <= 0;
-
-    else if (~read_module_active & read_module_set_active)
-        read_module_set_active <= 0;
+        if (~read_module_error)
+            button_data <= button_data_raw; 
     end
 
 end
