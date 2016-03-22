@@ -19,7 +19,7 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapse
 @W: MO111 :"c:\users\rpokeefe\repos\373\n64controllibero\component\work\n64controllibero_mss\mss_ccc_0\n64controllibero_mss_tmp_mss_ccc_0_mss_ccc.v":64:7:64:18|Tristate driver LPXIN_CLKOUT on net LPXIN_CLKOUT has its enable tied to GND (module n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC) 
 @W: MO111 :"c:\users\rpokeefe\repos\373\n64controllibero\component\work\n64controllibero_mss\mss_ccc_0\n64controllibero_mss_tmp_mss_ccc_0_mss_ccc.v":63:7:63:20|Tristate driver MAINXIN_CLKOUT on net MAINXIN_CLKOUT has its enable tied to GND (module n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC) 
 @W: MO111 :"c:\users\rpokeefe\repos\373\n64controllibero\component\work\n64controllibero_mss\mss_ccc_0\n64controllibero_mss_tmp_mss_ccc_0_mss_ccc.v":62:7:62:18|Tristate driver RCOSC_CLKOUT on net RCOSC_CLKOUT has its enable tied to GND (module n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC) 
-@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":75:0:75:5|Removing sequential instance read_module_set_active of view:PrimLib.sdffre(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
+@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance read_module_set_active of view:PrimLib.sdffre(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
 
 Available hyper_sources - for debug and ip models
 	None Found
@@ -27,20 +27,52 @@ Available hyper_sources - for debug and ip models
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
 
-@N: BN115 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":45:20:45:30|Removing instance read_module of view:work.n64_read_controller(verilog) because there are no references to its outputs 
-@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":60:0:60:5|Removing sequential instance data_in of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
-@N: MF238 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":68:22:68:36|Found 17-bit incrementor, 'long_count_2[16:0]'
-@W: MO129 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":60:0:60:5|Sequential instance n64_magic_box_0.n64_serial_interface_0.sync_reg[0] reduced to a combinational gate by constant propagation
-@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":60:0:60:5|Removing sequential instance sync_reg[1] of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
+@N: BN115 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":46:20:46:30|Removing instance read_module of view:work.n64_read_controller(verilog) because there are no references to its outputs 
+@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":61:0:61:5|Removing sequential instance data_in of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
+@N: MF238 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":69:22:69:36|Found 17-bit incrementor, 'long_count_2[16:0]'
+@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":61:0:61:5|Removing sequential instance sync_reg[1] of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
+@N: BN362 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":61:0:61:5|Removing sequential instance sync_reg[0] of view:PrimLib.dff(prim) in hierarchy view:work.n64_serial_interface(verilog) because there are no references to its outputs 
 @N:"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_write_command.v":21:0:21:5|Found counter in view:work.n64_write_command(verilog) inst index[3:0]
 
 Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
 
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[0],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[0]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[1],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[1]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[2],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[2]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[3],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[3]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[4],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[4]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[5],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[5]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[6],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[6]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[7],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[7]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[8],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[8]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[9],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[9]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[10],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[10]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[11],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[11]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[12],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[12]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[13],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[13]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[14],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[14]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[15],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[15]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[16],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[16]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[17],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[17]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[18],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[18]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[19],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[19]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[20],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[20]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[21],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[21]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[22],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[22]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[23],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[23]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[24],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[24]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[25],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[25]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[26],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[26]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[27],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[27]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[28],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[28]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[29],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[29]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[30],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[30]
+@W: BN132 :"c:\users\rpokeefe\repos\373\n64controllibero\hdl\n64_serial_interface.v":76:0:76:5|Removing sequential instance n64_magic_box_0.n64_serial_interface_0.button_data[31],  because it is equivalent to instance n64_magic_box_0.n64_apb_interface_0.PRDATA[31]
 
 Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
 
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 112MB)
 
 
 Starting Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
@@ -61,24 +93,20 @@ Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 High Fanout Net Report
 **********************
 
-Driver Instance / Pin Name                                   Fanout, notes
---------------------------------------------------------------------------
-n64_magic_box_0.n64_apb_interface_0.polling_enable11 / Y     32           
-CoreAPB3_0.iPSELS_1[0] / Y                                   33           
-CoreAPB3_0.iPSELS_2[0] / Y                                   33           
-==========================================================================
+Driver Instance / Pin Name     Fanout, notes
+--------------------------------------------
+CoreAPB3_0.iPSELS[0] / Y       33           
+============================================
 
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
 
-Replicating Combinational Instance CoreAPB3_0.iPSELS_2[0], fanout 33 segments 2
-Replicating Combinational Instance CoreAPB3_0.iPSELS_1[0], fanout 33 segments 2
-Replicating Combinational Instance n64_magic_box_0.n64_apb_interface_0.polling_enable11, fanout 32 segments 2
+Replicating Combinational Instance CoreAPB3_0.iPSELS[0], fanout 33 segments 2
 
 Added 0 Buffers
-Added 3 Cells via replication
+Added 1 Cells via replication
 	Added 0 Sequential Cells via replication
-	Added 3 Combinational Cells via replication
+	Added 1 Combinational Cells via replication
 
 Finished restoring hierarchy (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
 
@@ -87,14 +115,14 @@ Finished restoring hierarchy (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
 Clock optimization not enabled
-1 non-gated/non-generated clock tree(s) driving 101 clock pin(s) of sequential element(s)
+1 non-gated/non-generated clock tree(s) driving 69 clock pin(s) of sequential element(s)
 0 gated/generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
 0 instances converted, 0 sequential instances remain driven by gated/generated clocks
 
 ======================================================= Non-Gated/Non-Generated Clocks ========================================================
 Clock Tree ID     Driving Element            Drive Element Type                Fanout     Sample Instance                                      
 -----------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       n64ControlLibero_MSS_0     clock definition on hierarchy     101        n64_magic_box_0.n64_serial_interface_0.long_count[16]
+@K:CKID0001       n64ControlLibero_MSS_0     clock definition on hierarchy     69         n64_magic_box_0.n64_serial_interface_0.long_count[16]
 ===============================================================================================================================================
 
 
@@ -118,7 +146,7 @@ Found clock FCLK with period 10.00ns
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Mon Mar 21 21:41:52 2016
+# Timing Report written on Tue Mar 22 14:57:56 2016
 #
 
 
@@ -141,14 +169,14 @@ Performance Summary
 *******************
 
 
-Worst slack in design: 0.539
+Worst slack in design: 0.565
 
                    Requested     Estimated     Requested     Estimated               Clock        Clock          
 Starting Clock     Frequency     Frequency     Period        Period        Slack     Type         Group          
 -----------------------------------------------------------------------------------------------------------------
 FAB_CLK            100.0 MHz     106.0 MHz     10.000        9.435         0.565     declared     clk_group_0    
 FCLK               100.0 MHz     NA            10.000        NA            NA        declared     clk_group_0    
-System             100.0 MHz     234.5 MHz     10.000        4.265         5.735     system       system_clkgroup
+System             100.0 MHz     198.8 MHz     10.000        5.030         4.970     system       system_clkgroup
 =================================================================================================================
 
 
@@ -162,9 +190,9 @@ Clocks             |    rise  to  rise   |    fall  to  fall   |    rise  to  fa
 ---------------------------------------------------------------------------------------------------------
 Starting  Ending   |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
 ---------------------------------------------------------------------------------------------------------
-System    System   |  10.000      5.735  |  No paths    -      |  No paths    -      |  No paths    -    
-System    FAB_CLK  |  10.000      0.539  |  No paths    -      |  No paths    -      |  No paths    -    
-FAB_CLK   System   |  10.000      7.979  |  No paths    -      |  No paths    -      |  No paths    -    
+System    System   |  10.000      4.970  |  No paths    -      |  No paths    -      |  No paths    -    
+System    FAB_CLK  |  10.000      1.615  |  No paths    -      |  No paths    -      |  No paths    -    
+FAB_CLK   System   |  10.000      8.041  |  No paths    -      |  No paths    -      |  No paths    -    
 FAB_CLK   FAB_CLK  |  10.000      0.565  |  No paths    -      |  No paths    -      |  No paths    -    
 =========================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
@@ -195,13 +223,13 @@ Instance                                                         Reference     T
 n64_magic_box_0.n64_serial_interface_0.write_module.count[6]     FAB_CLK       DFN1     Q       count[6]          0.737       0.565
 n64_magic_box_0.n64_serial_interface_0.write_module.count[5]     FAB_CLK       DFN1     Q       count[5]          0.737       0.697
 n64_magic_box_0.n64_serial_interface_0.write_module.count[7]     FAB_CLK       DFN1     Q       count[7]          0.737       0.735
+n64_magic_box_0.n64_serial_interface_0.long_count[0]             FAB_CLK       DFN1     Q       long_count[0]     0.580       0.815
 n64_magic_box_0.n64_serial_interface_0.write_module.count[4]     FAB_CLK       DFN1     Q       count[4]          0.737       0.828
-n64_magic_box_0.n64_serial_interface_0.long_count[0]             FAB_CLK       DFN1     Q       long_count[0]     0.580       1.083
-n64_magic_box_0.n64_serial_interface_0.long_count[1]             FAB_CLK       DFN1     Q       long_count[1]     0.737       1.111
-n64_magic_box_0.n64_serial_interface_0.long_count[2]             FAB_CLK       DFN1     Q       long_count[2]     0.737       1.171
-n64_magic_box_0.n64_serial_interface_0.write_module.count[8]     FAB_CLK       DFN1     Q       count[8]          0.580       1.198
-n64_magic_box_0.n64_serial_interface_0.long_count[3]             FAB_CLK       DFN1     Q       long_count[3]     0.737       1.309
-n64_magic_box_0.n64_serial_interface_0.long_count[4]             FAB_CLK       DFN1     Q       long_count[4]     0.737       1.310
+n64_magic_box_0.n64_serial_interface_0.long_count[1]             FAB_CLK       DFN1     Q       long_count[1]     0.737       0.843
+n64_magic_box_0.n64_serial_interface_0.long_count[2]             FAB_CLK       DFN1     Q       long_count[2]     0.737       0.904
+n64_magic_box_0.n64_serial_interface_0.long_count[5]             FAB_CLK       DFN1     Q       long_count[5]     0.737       1.008
+n64_magic_box_0.n64_serial_interface_0.long_count[3]             FAB_CLK       DFN1     Q       long_count[3]     0.737       1.041
+n64_magic_box_0.n64_serial_interface_0.long_count[4]             FAB_CLK       DFN1     Q       long_count[4]     0.737       1.043
 ===================================================================================================================================
 
 
@@ -213,15 +241,15 @@ Instance                                                         Reference     T
                                                                  Clock                                                                 
 ---------------------------------------------------------------------------------------------------------------------------------------
 n64_magic_box_0.n64_serial_interface_0.write_module.count[3]     FAB_CLK       DFN1     D       I_37                 9.461        0.565
-n64_magic_box_0.n64_serial_interface_0.long_count[15]            FAB_CLK       DFN1     D       long_count_3[15]     9.461        1.083
-n64_magic_box_0.n64_serial_interface_0.long_count[16]            FAB_CLK       DFN1     D       long_count_3[16]     9.461        1.083
+n64_magic_box_0.n64_serial_interface_0.long_count[15]            FAB_CLK       DFN1     D       long_count_3[15]     9.461        0.815
+n64_magic_box_0.n64_serial_interface_0.long_count[16]            FAB_CLK       DFN1     D       long_count_3[16]     9.461        0.815
 n64_magic_box_0.n64_serial_interface_0.write_module.count[4]     FAB_CLK       DFN1     D       count_5[4]           9.461        1.258
 n64_magic_box_0.n64_serial_interface_0.write_module.count[7]     FAB_CLK       DFN1     D       count_5[7]           9.461        1.300
 n64_magic_box_0.n64_serial_interface_0.write_module.count[8]     FAB_CLK       DFN1     D       count_5[8]           9.461        1.300
 n64_magic_box_0.n64_serial_interface_0.write_module.count[2]     FAB_CLK       DFN1     D       I_35                 9.461        1.375
 n64_magic_box_0.n64_serial_interface_0.write_module.count[0]     FAB_CLK       DFN1     D       count_5[0]           9.427        1.432
 n64_magic_box_0.n64_serial_interface_0.long_count[12]            FAB_CLK       DFN1     D       long_count_2[12]     9.461        1.665
-n64_magic_box_0.n64_serial_interface_0.long_count[11]            FAB_CLK       DFN1     D       long_count_2[11]     9.461        1.802
+n64_magic_box_0.n64_serial_interface_0.long_count[9]             FAB_CLK       DFN1     D       long_count_3[9]      9.461        1.715
 =======================================================================================================================================
 
 
@@ -238,7 +266,7 @@ Path information for path number 1:
 
     - Propagation time:                      8.896
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 0.565
+    = Slack (critical) :                     0.565
 
     Number of logic level(s):                6
     Starting point:                          n64_magic_box_0.n64_serial_interface_0.write_module.count[6] / Q
@@ -290,37 +318,37 @@ Starting Points with Worst Slack
 Instance                                  Reference     Type        Pin               Net                                                 Time        Slack
                                           Clock                                                                                                            
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[11]     0.000       0.539
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL           n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx         0.000       0.591
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]       n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]      0.000       0.707
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[10]     0.000       0.766
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]       n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[9]      0.000       0.847
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[25]     CoreAPB3_0_APBmslave0_PWDATA[25]                    0.000       0.901
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[24]     CoreAPB3_0_APBmslave0_PWDATA[24]                    0.000       1.040
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[26]     CoreAPB3_0_APBmslave0_PWDATA[26]                    0.000       1.817
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[31]     CoreAPB3_0_APBmslave0_PWDATA[31]                    0.000       1.928
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[21]     CoreAPB3_0_APBmslave0_PWDATA[21]                    0.000       1.929
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]       n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]      0.000       1.615
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[11]     0.000       1.656
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL           n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx         0.000       1.667
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[10]     0.000       1.796
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]       n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[9]      0.000       1.842
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[11]     CoreAPB3_0_APBmslave0_PWDATA[11]                    0.000       2.458
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[31]     CoreAPB3_0_APBmslave0_PWDATA[31]                    0.000       2.499
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[10]     CoreAPB3_0_APBmslave0_PWDATA[10]                    0.000       2.597
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[23]     CoreAPB3_0_APBmslave0_PWDATA[23]                    0.000       2.599
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[30]     CoreAPB3_0_APBmslave0_PWDATA[30]                    0.000       2.639
 ===========================================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                                         Starting                                                  Required          
-Instance                                                 Reference     Type       Pin     Net                      Time         Slack
-                                                         Clock                                                                       
--------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_apb_interface_0.polling_enable       System        DFN1       D       polling_enable_RNO       9.427        0.539
-n64_magic_box_0.n64_apb_interface_0.controller_reset     System        DFN1       D       controller_reset_RNO     9.427        0.659
-n64_magic_box_0.n64_apb_interface_0.PRDATA[0]            System        DFN1E1     E       polling_enable11_0       9.392        0.679
-n64_magic_box_0.n64_apb_interface_0.PRDATA[1]            System        DFN1E1     E       polling_enable11_0       9.392        0.679
-n64_magic_box_0.n64_apb_interface_0.PRDATA[2]            System        DFN1E1     E       polling_enable11_0       9.392        0.679
-n64_magic_box_0.n64_apb_interface_0.PRDATA[3]            System        DFN1E1     E       polling_enable11_0       9.392        0.679
-n64_magic_box_0.n64_apb_interface_0.PRDATA[4]            System        DFN1E1     E       polling_enable11_0       9.392        0.679
-n64_magic_box_0.n64_apb_interface_0.PRDATA[5]            System        DFN1E1     E       polling_enable11_0       9.392        0.679
-n64_magic_box_0.n64_apb_interface_0.PRDATA[6]            System        DFN1E1     E       polling_enable11_0       9.392        0.679
-n64_magic_box_0.n64_apb_interface_0.PRDATA[7]            System        DFN1E1     E       polling_enable11_0       9.392        0.679
-=====================================================================================================================================
+                                                         Starting                                                                                         Required          
+Instance                                                 Reference     Type        Pin               Net                                                  Time         Slack
+                                                         Clock                                                                                                              
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+n64_magic_box_0.n64_apb_interface_0.controller_reset     System        DFN1        D                 controller_reset_RNO                                 9.427        1.615
+n64_magic_box_0.n64_apb_interface_0.polling_enable       System        DFN1        D                 polling_enable_RNO                                   9.427        1.634
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[10]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[10]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[11]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[11]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[12]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[12]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[13]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[13]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[14]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[14]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[15]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[15]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[16]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[16]     10.000       4.970
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                    System        MSS_APB     MSSPRDATA[17]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[17]     10.000       4.970
+============================================================================================================================================================================
 
 
 
@@ -334,43 +362,43 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.427
 
-    - Propagation time:                      8.888
+    - Propagation time:                      7.812
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (critical) :                     0.539
+    = Slack (non-critical) :                 1.615
 
     Number of logic level(s):                6
-    Starting point:                          n64ControlLibero_MSS_0.MSS_ADLIB_INST / MSSPADDR[11]
-    Ending point:                            n64_magic_box_0.n64_apb_interface_0.polling_enable / D
+    Starting point:                          n64ControlLibero_MSS_0.MSS_ADLIB_INST / MSSPADDR[8]
+    Ending point:                            n64_magic_box_0.n64_apb_interface_0.controller_reset / D
     The start point is clocked by            System [rising]
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
-Instance / Net                                                           Pin              Pin               Arrival     No. of    
-Name                                                         Type        Name             Dir     Delay     Time        Fan Out(s)
-----------------------------------------------------------------------------------------------------------------------------------
-n64ControlLibero_MSS_0.MSS_ADLIB_INST                        MSS_APB     MSSPADDR[11]     Out     0.000     0.000       -         
-n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[11]              Net         -                -       0.386     -           2         
-CoreAPB3_0.iPSELS_2_0[0]                                     NOR3A       C                In      -         0.386       -         
-CoreAPB3_0.iPSELS_2_0[0]                                     NOR3A       Y                Out     0.716     1.102       -         
-iPSELS_2_0[0]                                                Net         -                -       2.218     -           17        
-n64_magic_box_0.n64_apb_interface_0.write_1                  NOR3C       B                In      -         3.320       -         
-n64_magic_box_0.n64_apb_interface_0.write_1                  NOR3C       Y                Out     0.624     3.943       -         
-write_1                                                      Net         -                -       0.806     -           3         
-n64_magic_box_0.n64_apb_interface_0.write                    NOR3C       B                In      -         4.750       -         
-n64_magic_box_0.n64_apb_interface_0.write                    NOR3C       Y                Out     0.624     5.374       -         
-write                                                        Net         -                -       0.806     -           3         
-n64_magic_box_0.n64_apb_interface_0.un1_PRESERN_2            OAI1        C                In      -         6.180       -         
-n64_magic_box_0.n64_apb_interface_0.un1_PRESERN_2            OAI1        Y                Out     0.655     6.835       -         
-un1_PRESERN_2                                                Net         -                -       0.386     -           2         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0     MX2A        S                In      -         7.221       -         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0     MX2A        Y                Out     0.396     7.617       -         
-N_98                                                         Net         -                -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO       NOR2A       A                In      -         7.939       -         
-n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO       NOR2A       Y                Out     0.627     8.566       -         
-polling_enable_RNO                                           Net         -                -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.polling_enable           DFN1        D                In      -         8.888       -         
-==================================================================================================================================
-Total path delay (propagation time + setup) of 9.461 is 4.216(44.6%) logic and 5.245(55.4%) route.
+Instance / Net                                                             Pin             Pin               Arrival     No. of    
+Name                                                           Type        Name            Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------------------------
+n64ControlLibero_MSS_0.MSS_ADLIB_INST                          MSS_APB     MSSPADDR[8]     Out     0.000     0.000       -         
+n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]                 Net         -               -       0.322     -           1         
+CoreAPB3_0.iPSELS_2[0]                                         NOR3A       C               In      -         0.322       -         
+CoreAPB3_0.iPSELS_2[0]                                         NOR3A       Y               Out     0.716     1.038       -         
+iPSELS_2[0]                                                    Net         -               -       0.386     -           2         
+CoreAPB3_0.iPSELS_0[0]                                         NOR2B       A               In      -         1.423       -         
+CoreAPB3_0.iPSELS_0[0]                                         NOR2B       Y               Out     0.488     1.912       -         
+CoreAPB3_0_APBmslave0_PSELx_0                                  Net         -               -       2.218     -           17        
+n64_magic_box_0.n64_apb_interface_0.write_5                    NOR3B       A               In      -         4.129       -         
+n64_magic_box_0.n64_apb_interface_0.write_5                    NOR3B       Y               Out     0.666     4.795       -         
+write_5                                                        Net         -               -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.write                      NOR3C       B               In      -         5.116       -         
+n64_magic_box_0.n64_apb_interface_0.write                      NOR3C       Y               Out     0.624     5.740       -         
+write                                                          Net         -               -       0.386     -           2         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         S               In      -         6.126       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         Y               Out     0.396     6.522       -         
+controller_reset_RNO_0                                         Net         -               -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        B               In      -         6.844       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        Y               Out     0.646     7.490       -         
+controller_reset_RNO                                           Net         -               -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset           DFN1        D               In      -         7.812       -         
+===================================================================================================================================
+Total path delay (propagation time + setup) of 8.385 is 4.110(49.0%) logic and 4.275(51.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -384,29 +412,26 @@ Report for cell n64ControlLibero.verilog
               cell count     area count*area
               AND2     8      1.0        8.0
               AND3    18      1.0       18.0
-               AO1     4      1.0        4.0
-              AO1A     1      1.0        1.0
-              AOI1     1      1.0        1.0
-             AOI1B     6      1.0        6.0
+              AO1A     2      1.0        2.0
                AX1     2      1.0        2.0
               AX1C     1      1.0        1.0
                GND     9      0.0        0.0
            MSS_APB     1      0.0        0.0
            MSS_CCC     1      0.0        0.0
-               MX2     1      1.0        1.0
-              MX2A     1      1.0        1.0
-              NOR2    20      1.0       20.0
-             NOR2A     9      1.0        9.0
-             NOR2B    17      1.0       17.0
+               MX2     2      1.0        2.0
+              NOR2    23      1.0       23.0
+             NOR2A     5      1.0        5.0
+             NOR2B    50      1.0       50.0
              NOR3A    11      1.0       11.0
-             NOR3B     8      1.0        8.0
-             NOR3C    44      1.0       44.0
-               OA1     1      1.0        1.0
+             NOR3B     5      1.0        5.0
+             NOR3C    14      1.0       14.0
+               OA1     7      1.0        7.0
+              OA1B     1      1.0        1.0
               OAI1     1      1.0        1.0
-               OR2     3      1.0        3.0
-              OR2A     1      1.0        1.0
-              OR2B     2      1.0        2.0
-               OR3     2      1.0        2.0
+               OR2     1      1.0        1.0
+              OR2A     2      1.0        2.0
+              OR2B     4      1.0        4.0
+               OR3     1      1.0        1.0
               OR3B     2      1.0        2.0
               OR3C     4      1.0        4.0
              RCOSC     1      0.0        0.0
@@ -418,23 +443,22 @@ Report for cell n64ControlLibero.verilog
 
               DFN1    64      1.0       64.0
             DFN1E0     5      1.0        5.0
-            DFN1E1    32      1.0       32.0
                    -----          ----------
-             TOTAL   315               294.0
+             TOTAL   279               258.0
 
 
   IO Cell usage:
               cell count
-         BIBUF_MSS     1
          INBUF_MSS     2
+            OUTBUF     2
         OUTBUF_MSS     1
            TRIBUFF     1
                    -----
-             TOTAL     5
+             TOTAL     6
 
 
-Core Cells         : 294 of 4608 (6%)
-IO Cells           : 5
+Core Cells         : 258 of 4608 (6%)
+IO Cells           : 6
 
   RAM/ROM Usage Summary
 Block Rams : 0 of 8 (0%)
@@ -444,6 +468,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 49MB peak: 113MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Mar 21 21:41:52 2016
+# Tue Mar 22 14:57:56 2016
 
 ###########################################################]

@@ -35,14 +35,18 @@ input [31:0] button_data
 );
 assign PSLVERR = 0;
 assign PREADY = 1;
-wire write = (PSEL && PWRITE && PENABLE && (PADDR[7:0] == 8'h00));
-wire read = (PSEL && !PWRITE && PENABLE && (PADDR[7:0] == 8'h00));
+wire write;
+wire read;
+
+assign write = (PSEL && PWRITE && PENABLE && (PADDR[7:0] == 8'h00));
+assign read = (PSEL && !PWRITE && PENABLE && (PADDR[7:0] == 8'h00));
+
 /***END APB INTERFACE***/
 
 
 always @ (posedge PCLK) begin
 
-    if (PRESERN) begin            // go to reset state
+    if (~PRESERN) begin            // go to reset state
         polling_enable <= 1'b0;   // no polling
         controller_reset <= 1'b1; // send one 'FF' reset to controller
     end
@@ -55,10 +59,12 @@ always @ (posedge PCLK) begin
             polling_enable <= 1'b1;   // poll controller continuously
             controller_reset <= 1'b0; // no reset byte
         end
+        else begin
+            polling_enable <= 0;
+            controller_reset <= 0;
+        end
     end
-    else if (read) begin
-        PRDATA <= button_data;
-    end
+    PRDATA <= button_data;
 
 end
 endmodule

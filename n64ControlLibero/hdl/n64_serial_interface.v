@@ -3,9 +3,10 @@ module n64_serial_interface(
     input clk,
     input polling_enable,
     input controller_reset,
-    input gpio_in,
-    output wire gpio_out,
-    output reg [31:0] button_data
+    inout fab_pin,
+    output reg [31:0] button_data,
+    output enable_data_write_wire,
+    output data_out
 );
 
 
@@ -25,9 +26,9 @@ parameter STOP = 3'b0;
 
 // open collector output circuit
 reg enable_data_write = 0;
+assign enable_data_write_wire = enable_data_write;
 wire data_out = 0;
-assign gpio_out = (enable_data_write & ~data_out) ? 1'b0 : 1'bZ;
-
+assign fab_pin = (enable_data_write & ~data_out) ? 1'b0 : 1'bZ;
 
 // submodule instantiations
 reg [7:0] command_byte;
@@ -59,7 +60,7 @@ end
 // data input synchronization, long idle clock count
 always @ (posedge clk) begin
     // Sync the data in line
-    sync_reg[0] <= gpio_in;
+    sync_reg[0] <= fab_pin;
     sync_reg[1] <= sync_reg[0];
     data_in <= sync_reg[1];
 
@@ -91,6 +92,7 @@ always @ (posedge clk) begin
     else if (enable_data_write & ~write_module_active & ~send_reset) begin
         enable_read_module <= 1; // enabled the read module to take do its thing
         read_module_set_active <= 1;
+        enable_data_write <= 0;
     end
     else begin
         enable_data_write <= 0;

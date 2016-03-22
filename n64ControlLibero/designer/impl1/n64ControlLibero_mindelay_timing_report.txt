@@ -2,7 +2,7 @@ Timing Report Min Delay Analysis
 
 SmartTime Version v11.5 SP3
 Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
-Date: Mon Mar 21 21:42:51 2016
+Date: Tue Mar 22 15:00:13 2016
 
 
 Design: n64ControlLibero
@@ -34,8 +34,8 @@ Min Clock-To-Out (ns):      N/A
 Max Clock-To-Out (ns):      N/A
 
 Clock Domain:               mss_fabric_interface_clock
-Period (ns):                8.279
-Frequency (MHz):            120.788
+Period (ns):                8.528
+Frequency (MHz):            117.261
 Required Period (ns):       10.000
 Required Frequency (MHz):   100.000
 External Setup (ns):        N/A
@@ -48,20 +48,20 @@ Period (ns):                N/A
 Frequency (MHz):            N/A
 Required Period (ns):       10.000
 Required Frequency (MHz):   100.000
-External Setup (ns):        -1.996
-External Hold (ns):         2.949
-Min Clock-To-Out (ns):      5.777
-Max Clock-To-Out (ns):      12.355
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
 
 Clock Domain:               mss_ccc_gla1
-Period (ns):                7.795
-Frequency (MHz):            128.287
+Period (ns):                8.339
+Frequency (MHz):            119.918
 Required Period (ns):       10.000
 Required Frequency (MHz):   100.000
 External Setup (ns):        N/A
 External Hold (ns):         N/A
-Min Clock-To-Out (ns):      6.265
-Max Clock-To-Out (ns):      11.495
+Min Clock-To-Out (ns):      6.511
+Max Clock-To-Out (ns):      12.030
 
 Clock Domain:               mss_ccc_gla0
 Period (ns):                12.500
@@ -146,56 +146,56 @@ SET Register to Register
 
 Path 1
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[5]
-  Delay (ns):                  3.431
-  Slack (ns):                  2.051
-  Arrival (ns):                5.988
-  Required (ns):               3.937
-  Hold (ns):                   1.380
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[12]
+  Delay (ns):                  4.201
+  Slack (ns):                  2.815
+  Arrival (ns):                6.758
+  Required (ns):               3.943
+  Hold (ns):                   1.386
 
 Path 2
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[11]
-  Delay (ns):                  3.470
-  Slack (ns):                  2.089
-  Arrival (ns):                6.027
-  Required (ns):               3.938
-  Hold (ns):                   1.381
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[22]
+  Delay (ns):                  4.201
+  Slack (ns):                  2.818
+  Arrival (ns):                6.758
+  Required (ns):               3.940
+  Hold (ns):                   1.383
 
 Path 3
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[8]
-  Delay (ns):                  3.578
-  Slack (ns):                  2.196
-  Arrival (ns):                6.135
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20]
+  Delay (ns):                  4.217
+  Slack (ns):                  2.835
+  Arrival (ns):                6.774
   Required (ns):               3.939
   Hold (ns):                   1.382
 
 Path 4
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[13]
-  Delay (ns):                  3.597
-  Slack (ns):                  2.214
-  Arrival (ns):                6.154
-  Required (ns):               3.940
-  Hold (ns):                   1.383
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[14]
+  Delay (ns):                  4.216
+  Slack (ns):                  2.835
+  Arrival (ns):                6.773
+  Required (ns):               3.938
+  Hold (ns):                   1.381
 
 Path 5
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[14]
-  Delay (ns):                  3.603
-  Slack (ns):                  2.222
-  Arrival (ns):                6.160
-  Required (ns):               3.938
-  Hold (ns):                   1.381
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[9]
+  Delay (ns):                  4.242
+  Slack (ns):                  2.844
+  Arrival (ns):                6.799
+  Required (ns):               3.955
+  Hold (ns):                   1.398
 
 
 Expanded Path 1
   From: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[5]
-  data arrival time                              5.988
-  data required time                         -   3.937
-  slack                                          2.051
+  To: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[12]
+  data arrival time                              6.758
+  data required time                         -   3.943
+  slack                                          2.815
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_fabric_interface_clock
@@ -203,28 +203,32 @@ Expanded Path 1
   0.000                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
                +     2.557          Clock generation
   2.557
-               +     1.792          cell: ADLIB:MSS_APB_IP
-  4.349                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPADDR[10] (r)
-               +     0.060          net: n64ControlLibero_MSS_0/MSS_ADLIB_INST/MSSPADDR[10]INT_NET
-  4.409                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_33:PIN2INT (r)
-               +     0.045          cell: ADLIB:MSS_IF
-  4.454                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_33:PIN2 (r)
-               +     0.202          net: n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[10]
-  4.656                        CoreAPB3_0/iPSELS_2[0]:B (r)
+               +     1.677          cell: ADLIB:MSS_APB_IP
+  4.234                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPADDR[9] (r)
+               +     0.060          net: n64ControlLibero_MSS_0/MSS_ADLIB_INST/MSSPADDR[9]INT_NET
+  4.294                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_33:PIN1INT (r)
+               +     0.042          cell: ADLIB:MSS_IF
+  4.336                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_33:PIN1 (r)
+               +     0.165          net: n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[9]
+  4.501                        CoreAPB3_0/iPSELS_2[0]:B (r)
                +     0.157          cell: ADLIB:NOR3A
-  4.813                        CoreAPB3_0/iPSELS_2[0]:Y (f)
-               +     0.148          net: CoreAPB3_0/iPSELS_2[0]
-  4.961                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_5:B (f)
-               +     0.263          cell: ADLIB:NOR3C
-  5.224                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_5:Y (f)
-               +     0.511          net: n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[5]
-  5.735                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_38:PIN4 (f)
-               +     0.045          cell: ADLIB:MSS_IF
-  5.780                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_38:PIN4INT (f)
-               +     0.208          net: n64ControlLibero_MSS_0/MSS_ADLIB_INST/MSSPRDATA[5]INT_NET
-  5.988                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[5] (f)
+  4.658                        CoreAPB3_0/iPSELS_2[0]:Y (f)
+               +     0.569          net: CoreAPB3_0/iPSELS_2[0]
+  5.227                        CoreAPB3_0/iPSELS_0[0]:A (f)
+               +     0.224          cell: ADLIB:NOR2B
+  5.451                        CoreAPB3_0/iPSELS_0[0]:Y (f)
+               +     0.320          net: CoreAPB3_0_APBmslave0_PSELx_0
+  5.771                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_12:B (f)
+               +     0.274          cell: ADLIB:NOR2B
+  6.045                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_12:Y (f)
+               +     0.430          net: n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[12]
+  6.475                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_40:PIN6 (f)
+               +     0.083          cell: ADLIB:MSS_IF
+  6.558                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_40:PIN6INT (f)
+               +     0.200          net: n64ControlLibero_MSS_0/MSS_ADLIB_INST/MSSPRDATA[12]INT_NET
+  6.758                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[12] (f)
                                     
-  5.988                        data arrival time
+  6.758                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_fabric_interface_clock
@@ -232,10 +236,10 @@ Expanded Path 1
   0.000                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
                +     2.557          Clock generation
   2.557
-               +     1.380          Library hold time: ADLIB:MSS_APB_IP
-  3.937                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[5]
+               +     1.386          Library hold time: ADLIB:MSS_APB_IP
+  3.943                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[12]
                                     
-  3.937                        data required time
+  3.943                        data required time
 
 
 END SET Register to Register
@@ -285,57 +289,57 @@ END SET Asynchronous to Register
 SET mss_ccc_gla1 to mss_fabric_interface_clock
 
 Path 1
-  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[24]:CLK
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24]
-  Delay (ns):                  1.241
-  Slack (ns):                  1.182
-  Arrival (ns):                5.137
-  Required (ns):               3.955
-  Hold (ns):                   1.398
-
-Path 2
-  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[12]:CLK
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[12]
-  Delay (ns):                  1.264
-  Slack (ns):                  1.211
-  Arrival (ns):                5.171
-  Required (ns):               3.960
-  Hold (ns):                   1.403
-
-Path 3
-  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[8]:CLK
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[8]
-  Delay (ns):                  1.273
-  Slack (ns):                  1.224
-  Arrival (ns):                5.180
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[20]:CLK
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20]
+  Delay (ns):                  1.115
+  Slack (ns):                  1.035
+  Arrival (ns):                4.991
   Required (ns):               3.956
   Hold (ns):                   1.399
 
-Path 4
-  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[18]:CLK
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[18]
-  Delay (ns):                  1.285
-  Slack (ns):                  1.228
-  Arrival (ns):                5.181
+Path 2
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[31]:CLK
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[31]
+  Delay (ns):                  1.134
+  Slack (ns):                  1.057
+  Arrival (ns):                5.010
   Required (ns):               3.953
   Hold (ns):                   1.396
 
+Path 3
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[29]:CLK
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[29]
+  Delay (ns):                  1.140
+  Slack (ns):                  1.063
+  Arrival (ns):                5.016
+  Required (ns):               3.953
+  Hold (ns):                   1.396
+
+Path 4
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[6]:CLK
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[6]
+  Delay (ns):                  1.172
+  Slack (ns):                  1.067
+  Arrival (ns):                5.024
+  Required (ns):               3.957
+  Hold (ns):                   1.400
+
 Path 5
-  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[2]:CLK
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[2]
-  Delay (ns):                  1.376
-  Slack (ns):                  1.333
-  Arrival (ns):                5.283
-  Required (ns):               3.950
-  Hold (ns):                   1.393
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[23]:CLK
+  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[23]
+  Delay (ns):                  1.187
+  Slack (ns):                  1.079
+  Arrival (ns):                5.036
+  Required (ns):               3.957
+  Hold (ns):                   1.400
 
 
 Expanded Path 1
-  From: n64_magic_box_0/n64_apb_interface_0/PRDATA[24]:CLK
-  To: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24]
-  data arrival time                              5.137
-  data required time                         -   3.955
-  slack                                          1.182
+  From: n64_magic_box_0/n64_apb_interface_0/PRDATA[20]:CLK
+  To: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20]
+  data arrival time                              4.991
+  data required time                         -   3.956
+  slack                                          1.035
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_ccc_gla1
@@ -347,22 +351,22 @@ Expanded Path 1
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.338          net: FAB_CLK
-  3.896                        n64_magic_box_0/n64_apb_interface_0/PRDATA[24]:CLK (r)
-               +     0.249          cell: ADLIB:DFN1E1
-  4.145                        n64_magic_box_0/n64_apb_interface_0/PRDATA[24]:Q (r)
-               +     0.146          net: CoreAPB3_0_APBmslave0_PRDATA[24]
-  4.291                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_24:C (r)
-               +     0.322          cell: ADLIB:NOR3C
-  4.613                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_24:Y (r)
-               +     0.270          net: n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[24]
-  4.883                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_55:PIN6 (r)
-               +     0.036          cell: ADLIB:MSS_IF
-  4.919                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_55:PIN6INT (r)
-               +     0.218          net: n64ControlLibero_MSS_0/MSS_ADLIB_INST/MSSPRDATA[24]INT_NET
-  5.137                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24] (r)
+               +     0.318          net: FAB_CLK
+  3.876                        n64_magic_box_0/n64_apb_interface_0/PRDATA[20]:CLK (r)
+               +     0.249          cell: ADLIB:DFN1
+  4.125                        n64_magic_box_0/n64_apb_interface_0/PRDATA[20]:Q (r)
+               +     0.140          net: CoreAPB3_0_APBmslave0_PRDATA[20]
+  4.265                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_20:A (r)
+               +     0.174          cell: ADLIB:NOR2B
+  4.439                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_20:Y (r)
+               +     0.237          net: n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[20]
+  4.676                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_54:PIN4 (r)
+               +     0.102          cell: ADLIB:MSS_IF
+  4.778                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_54:PIN4INT (r)
+               +     0.213          net: n64ControlLibero_MSS_0/MSS_ADLIB_INST/MSSPRDATA[20]INT_NET
+  4.991                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20] (r)
                                     
-  5.137                        data arrival time
+  4.991                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_fabric_interface_clock
@@ -370,10 +374,10 @@ Expanded Path 1
   0.000                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
                +     2.557          Clock generation
   2.557
-               +     1.398          Library hold time: ADLIB:MSS_APB_IP
-  3.955                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24]
+               +     1.399          Library hold time: ADLIB:MSS_APB_IP
+  3.956                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20]
                                     
-  3.955                        data required time
+  3.956                        data required time
 
 
 END SET mss_ccc_gla1 to mss_fabric_interface_clock
@@ -392,44 +396,7 @@ END SET Register to Register
 
 SET External Hold
 
-Path 1
-  From:                        GPIO_0_BI
-  To:                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GPI[0]
-  Delay (ns):                  0.633
-  Slack (ns):
-  Arrival (ns):                0.633
-  Required (ns):
-  Hold (ns):                   1.025
-  External Hold (ns):          2.949
-
-
-Expanded Path 1
-  From: GPIO_0_BI
-  To: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GPI[0]
-  data arrival time                              0.633
-  data required time                         -   N/C
-  slack                                          N/C
-  ________________________________________________________
-  Data arrival time calculation
-  0.000                        GPIO_0_BI (f)
-               +     0.000          net: GPIO_0_BI
-  0.000                        n64ControlLibero_MSS_0/MSS_GPIO_0_GPIO_0_BI:PAD (f)
-               +     0.277          cell: ADLIB:IOPAD_BI
-  0.277                        n64ControlLibero_MSS_0/MSS_GPIO_0_GPIO_0_BI:Y (f)
-               +     0.356          net: n64ControlLibero_MSS_0/MSS_GPIO_0_GPIO_0_BI_Y
-  0.633                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GPI[0] (f)
-                                    
-  0.633                        data arrival time
-  ________________________________________________________
-  Data required time calculation
-  N/C                          mss_pclk1
-               +     0.000          Clock source
-  N/C                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1 (r)
-               +     2.557          Clock generation
-  N/C
-               +     1.025          Library hold time: ADLIB:MSS_APB_IP
-  N/C                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GPI[0]
-
+No Path
 
 END SET External Hold
 
@@ -437,49 +404,7 @@ END SET External Hold
 
 SET Clock to Output
 
-Path 1
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1
-  To:                          GPIO_0_BI
-  Delay (ns):                  3.220
-  Slack (ns):
-  Arrival (ns):                5.777
-  Required (ns):
-  Clock to Out (ns):           5.777
-
-
-Expanded Path 1
-  From: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1
-  To: GPIO_0_BI
-  data arrival time                              5.777
-  data required time                         -   N/C
-  slack                                          N/C
-  ________________________________________________________
-  Data arrival time calculation
-  0.000                        mss_pclk1
-               +     0.000          Clock source
-  0.000                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1 (r)
-               +     2.557          Clock generation
-  2.557
-               +     1.904          cell: ADLIB:MSS_APB_IP
-  4.461                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GPOE[0] (f)
-               +     0.370          net: n64ControlLibero_MSS_0/GPOE_net_0[0]
-  4.831                        n64ControlLibero_MSS_0/MSS_GPIO_0_GPIO_0_BI:E (f)
-               +     0.946          cell: ADLIB:IOPAD_BI
-  5.777                        n64ControlLibero_MSS_0/MSS_GPIO_0_GPIO_0_BI:PAD (r)
-               +     0.000          net: GPIO_0_BI
-  5.777                        GPIO_0_BI (r)
-                                    
-  5.777                        data arrival time
-  ________________________________________________________
-  Data required time calculation
-  N/C                          mss_pclk1
-               +     0.000          Clock source
-  N/C                          n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1 (r)
-               +     2.557          Clock generation
-  N/C
-                                    
-  N/C                          GPIO_0_BI (r)
-
+No Path
 
 END SET Clock to Output
 
@@ -514,57 +439,57 @@ Clock Domain mss_ccc_gla1
 SET Register to Register
 
 Path 1
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[21]:CLK
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:CLK
   To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:D
-  Delay (ns):                  0.395
-  Slack (ns):                  0.332
-  Arrival (ns):                4.252
-  Required (ns):               3.920
+  Delay (ns):                  0.505
+  Slack (ns):                  0.485
+  Arrival (ns):                4.381
+  Required (ns):               3.896
   Hold (ns):                   0.000
 
 Path 2
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[1]:CLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[1]:D
-  Delay (ns):                  0.395
-  Slack (ns):                  0.335
-  Arrival (ns):                4.268
-  Required (ns):               3.933
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[29]:CLK
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[29]:D
+  Delay (ns):                  0.505
+  Slack (ns):                  0.485
+  Arrival (ns):                4.381
+  Required (ns):               3.896
   Hold (ns):                   0.000
 
 Path 3
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[10]:CLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[10]:D
-  Delay (ns):                  0.395
-  Slack (ns):                  0.335
-  Arrival (ns):                4.268
-  Required (ns):               3.933
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[30]:CLK
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[30]:D
+  Delay (ns):                  0.505
+  Slack (ns):                  0.485
+  Arrival (ns):                4.381
+  Required (ns):               3.896
   Hold (ns):                   0.000
 
 Path 4
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[25]:CLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[25]:D
-  Delay (ns):                  0.395
-  Slack (ns):                  0.348
-  Arrival (ns):                4.268
-  Required (ns):               3.920
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[28]:CLK
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[28]:D
+  Delay (ns):                  0.505
+  Slack (ns):                  0.485
+  Arrival (ns):                4.381
+  Required (ns):               3.896
   Hold (ns):                   0.000
 
 Path 5
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[26]:CLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[26]:D
-  Delay (ns):                  0.395
-  Slack (ns):                  0.348
-  Arrival (ns):                4.268
-  Required (ns):               3.920
+  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[17]:CLK
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[17]:D
+  Delay (ns):                  0.505
+  Slack (ns):                  0.485
+  Arrival (ns):                4.381
+  Required (ns):               3.896
   Hold (ns):                   0.000
 
 
 Expanded Path 1
-  From: n64_magic_box_0/n64_serial_interface_0/button_data[21]:CLK
+  From: n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:CLK
   To: n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:D
-  data arrival time                              4.252
-  data required time                         -   3.920
-  slack                                          0.332
+  data arrival time                              4.381
+  data required time                         -   3.896
+  slack                                          0.485
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_ccc_gla1
@@ -576,14 +501,14 @@ Expanded Path 1
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.299          net: FAB_CLK
-  3.857                        n64_magic_box_0/n64_serial_interface_0/button_data[21]:CLK (r)
+               +     0.318          net: FAB_CLK
+  3.876                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:CLK (r)
                +     0.249          cell: ADLIB:DFN1
-  4.106                        n64_magic_box_0/n64_serial_interface_0/button_data[21]:Q (r)
-               +     0.146          net: n64_magic_box_0/n64_serial_interface_0_button_data[21]
-  4.252                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:D (r)
+  4.125                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:Q (r)
+               +     0.256          net: CoreAPB3_0_APBmslave0_PRDATA[21]
+  4.381                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:D (r)
                                     
-  4.252                        data arrival time
+  4.381                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_ccc_gla1
@@ -595,12 +520,12 @@ Expanded Path 1
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.362          net: FAB_CLK
-  3.920                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:CLK (r)
-               +     0.000          Library hold time: ADLIB:DFN1E1
-  3.920                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:D
+               +     0.338          net: FAB_CLK
+  3.896                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:CLK (r)
+               +     0.000          Library hold time: ADLIB:DFN1
+  3.896                        n64_magic_box_0/n64_apb_interface_0/PRDATA[21]:D
                                     
-  3.920                        data required time
+  3.896                        data required time
 
 
 END SET Register to Register
@@ -619,18 +544,27 @@ SET Clock to Output
 
 Path 1
   From:                        n64_magic_box_0/n64_serial_interface_0/enable_data_write:CLK
-  To:                          gpio_out
-  Delay (ns):                  2.420
+  To:                          fab_pin
+  Delay (ns):                  2.652
   Slack (ns):
-  Arrival (ns):                6.265
+  Arrival (ns):                6.511
   Required (ns):
-  Clock to Out (ns):           6.265
+  Clock to Out (ns):           6.511
+
+Path 2
+  From:                        n64_magic_box_0/n64_serial_interface_0/enable_data_write:CLK
+  To:                          enable_data_write_wire
+  Delay (ns):                  2.662
+  Slack (ns):
+  Arrival (ns):                6.521
+  Required (ns):
+  Clock to Out (ns):           6.521
 
 
 Expanded Path 1
   From: n64_magic_box_0/n64_serial_interface_0/enable_data_write:CLK
-  To: gpio_out
-  data arrival time                              6.265
+  To: fab_pin
+  data arrival time                              6.511
   data required time                         -   N/C
   slack                                          N/C
   ________________________________________________________
@@ -644,22 +578,22 @@ Expanded Path 1
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.287          net: FAB_CLK
-  3.845                        n64_magic_box_0/n64_serial_interface_0/enable_data_write:CLK (r)
+               +     0.301          net: FAB_CLK
+  3.859                        n64_magic_box_0/n64_serial_interface_0/enable_data_write:CLK (r)
                +     0.249          cell: ADLIB:DFN1E0
-  4.094                        n64_magic_box_0/n64_serial_interface_0/enable_data_write:Q (r)
-               +     0.869          net: n64_magic_box_0_n64_serial_interface_0_enable_data_write
-  4.963                        gpio_out_pad/U0/U1:E (r)
+  4.108                        n64_magic_box_0/n64_serial_interface_0/enable_data_write:Q (r)
+               +     1.101          net: enable_data_write_wire_c
+  5.209                        fab_pin_pad/U0/U1:E (r)
                +     0.183          cell: ADLIB:IOTRI_OB_EB
-  5.146                        gpio_out_pad/U0/U1:EOUT (r)
-               +     0.000          net: gpio_out_pad/U0/NET2
-  5.146                        gpio_out_pad/U0/U0:E (r)
+  5.392                        fab_pin_pad/U0/U1:EOUT (r)
+               +     0.000          net: fab_pin_pad/U0/NET2
+  5.392                        fab_pin_pad/U0/U0:E (r)
                +     1.119          cell: ADLIB:IOPAD_TRI
-  6.265                        gpio_out_pad/U0/U0:PAD (r)
-               +     0.000          net: gpio_out_0
-  6.265                        gpio_out (r)
+  6.511                        fab_pin_pad/U0/U0:PAD (r)
+               +     0.000          net: fab_pin_0
+  6.511                        fab_pin (r)
                                     
-  6.265                        data arrival time
+  6.511                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          mss_ccc_gla1
@@ -668,7 +602,7 @@ Expanded Path 1
                +     3.558          Clock generation
   N/C
                                     
-  N/C                          gpio_out (r)
+  N/C                          fab_pin (r)
 
 
 END SET Clock to Output
@@ -703,56 +637,29 @@ SET mss_fabric_interface_clock to mss_ccc_gla1
 
 Path 1
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[7]:E
-  Delay (ns):                  2.976
-  Slack (ns):                  1.600
-  Arrival (ns):                5.533
-  Required (ns):               3.933
+  To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
+  Delay (ns):                  3.503
+  Slack (ns):                  2.168
+  Arrival (ns):                6.060
+  Required (ns):               3.892
   Hold (ns):                   0.000
 
 Path 2
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[10]:E
-  Delay (ns):                  2.976
-  Slack (ns):                  1.600
-  Arrival (ns):                5.533
-  Required (ns):               3.933
-  Hold (ns):                   0.000
-
-Path 3
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[2]:E
-  Delay (ns):                  2.976
-  Slack (ns):                  1.600
-  Arrival (ns):                5.533
-  Required (ns):               3.933
-  Hold (ns):                   0.000
-
-Path 4
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[14]:E
-  Delay (ns):                  2.976
-  Slack (ns):                  1.600
-  Arrival (ns):                5.533
-  Required (ns):               3.933
-  Hold (ns):                   0.000
-
-Path 5
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
-  Delay (ns):                  3.139
-  Slack (ns):                  1.823
-  Arrival (ns):                5.696
-  Required (ns):               3.873
+  Delay (ns):                  3.666
+  Slack (ns):                  2.331
+  Arrival (ns):                6.223
+  Required (ns):               3.892
   Hold (ns):                   0.000
 
 
 Expanded Path 1
   From: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To: n64_magic_box_0/n64_apb_interface_0/PRDATA[7]:E
-  data arrival time                              5.533
-  data required time                         -   3.933
-  slack                                          1.600
+  To: n64_magic_box_0/n64_apb_interface_0/polling_enable:D
+  data arrival time                              6.060
+  data required time                         -   3.892
+  slack                                          2.168
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_fabric_interface_clock
@@ -760,24 +667,32 @@ Expanded Path 1
   0.000                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
                +     2.557          Clock generation
   2.557
-               +     1.481          cell: ADLIB:MSS_APB_IP
-  4.038                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPWRITE (f)
-               +     0.079          net: n64ControlLibero_MSS_0/MSS_ADLIB_INST/MSSPWRITEINT_NET
-  4.117                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_42:PIN3INT (f)
-               +     0.041          cell: ADLIB:MSS_IF
-  4.158                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_42:PIN3 (f)
-               +     0.508          net: CoreAPB3_0_APBmslave0_PWRITE
-  4.666                        n64_magic_box_0/n64_apb_interface_0/write:C (f)
-               +     0.279          cell: ADLIB:NOR3C
-  4.945                        n64_magic_box_0/n64_apb_interface_0/write:Y (f)
-               +     0.142          net: n64_magic_box_0/n64_apb_interface_0/write
-  5.087                        n64_magic_box_0/n64_apb_interface_0/polling_enable11_0:C (f)
-               +     0.209          cell: ADLIB:NOR3B
-  5.296                        n64_magic_box_0/n64_apb_interface_0/polling_enable11_0:Y (r)
-               +     0.237          net: n64_magic_box_0/n64_apb_interface_0/polling_enable11_0
-  5.533                        n64_magic_box_0/n64_apb_interface_0/PRDATA[7]:E (r)
+               +     1.663          cell: ADLIB:MSS_APB_IP
+  4.220                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPWDATA[0] (r)
+               +     0.059          net: n64ControlLibero_MSS_0/MSS_ADLIB_INST/MSSPWDATA[0]INT_NET
+  4.279                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_36:PIN3INT (r)
+               +     0.040          cell: ADLIB:MSS_IF
+  4.319                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_36:PIN3 (r)
+               +     0.169          net: CoreAPB3_0_APBmslave0_PWDATA[0]
+  4.488                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO_2:A (r)
+               +     0.285          cell: ADLIB:NOR3B
+  4.773                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO_2:Y (r)
+               +     0.144          net: n64_magic_box_0/n64_apb_interface_0/polling_enable7_5
+  4.917                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO_1:A (r)
+               +     0.225          cell: ADLIB:NOR3C
+  5.142                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO_1:Y (r)
+               +     0.150          net: n64_magic_box_0/n64_apb_interface_0/polling_enable7
+  5.292                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO_0:B (r)
+               +     0.251          cell: ADLIB:MX2
+  5.543                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO_0:Y (r)
+               +     0.150          net: n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO_0
+  5.693                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO:B (r)
+               +     0.221          cell: ADLIB:NOR2B
+  5.914                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO:Y (r)
+               +     0.146          net: n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO
+  6.060                        n64_magic_box_0/n64_apb_interface_0/polling_enable:D (r)
                                     
-  5.533                        data arrival time
+  6.060                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_ccc_gla1
@@ -789,12 +704,12 @@ Expanded Path 1
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.375          net: FAB_CLK
-  3.933                        n64_magic_box_0/n64_apb_interface_0/PRDATA[7]:CLK (r)
-               +     0.000          Library hold time: ADLIB:DFN1E1
-  3.933                        n64_magic_box_0/n64_apb_interface_0/PRDATA[7]:E
+               +     0.334          net: FAB_CLK
+  3.892                        n64_magic_box_0/n64_apb_interface_0/polling_enable:CLK (r)
+               +     0.000          Library hold time: ADLIB:DFN1
+  3.892                        n64_magic_box_0/n64_apb_interface_0/polling_enable:D
                                     
-  3.933                        data required time
+  3.892                        data required time
 
 
 END SET mss_fabric_interface_clock to mss_ccc_gla1
@@ -805,56 +720,29 @@ SET mss_ccc_gla0 to mss_ccc_gla1
 
 Path 1
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
-  Delay (ns):                  2.608
-  Slack (ns):                  1.232
-  Arrival (ns):                5.165
-  Required (ns):               3.933
+  To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
+  Delay (ns):                  2.612
+  Slack (ns):                  1.277
+  Arrival (ns):                5.169
+  Required (ns):               3.892
   Hold (ns):                   0.000
 
 Path 2
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
-  Delay (ns):                  2.615
-  Slack (ns):                  1.299
-  Arrival (ns):                5.172
-  Required (ns):               3.873
-  Hold (ns):                   0.000
-
-Path 3
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[7]:E
-  Delay (ns):                  3.164
-  Slack (ns):                  1.788
-  Arrival (ns):                5.721
-  Required (ns):               3.933
-  Hold (ns):                   0.000
-
-Path 4
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[10]:E
-  Delay (ns):                  3.164
-  Slack (ns):                  1.788
-  Arrival (ns):                5.721
-  Required (ns):               3.933
-  Hold (ns):                   0.000
-
-Path 5
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[2]:E
-  Delay (ns):                  3.164
-  Slack (ns):                  1.788
-  Arrival (ns):                5.721
-  Required (ns):               3.933
+  To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
+  Delay (ns):                  2.662
+  Slack (ns):                  1.327
+  Arrival (ns):                5.219
+  Required (ns):               3.892
   Hold (ns):                   0.000
 
 
 Expanded Path 1
   From: n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To: n64_magic_box_0/n64_apb_interface_0/polling_enable:D
-  data arrival time                              5.165
-  data required time                         -   3.933
-  slack                                          1.232
+  To: n64_magic_box_0/n64_apb_interface_0/controller_reset:D
+  data arrival time                              5.169
+  data required time                         -   3.892
+  slack                                          1.277
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_ccc_gla0
@@ -870,14 +758,14 @@ Expanded Path 1
   4.274                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_46:PIN2INT (f)
                +     0.045          cell: ADLIB:MSS_IF
   4.319                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_46:PIN2 (f)
-               +     0.526          net: n64ControlLibero_MSS_0_M2F_RESET_N
-  4.845                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO:B (f)
-               +     0.174          cell: ADLIB:NOR2A
-  5.019                        n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO:Y (r)
-               +     0.146          net: n64_magic_box_0/n64_apb_interface_0/polling_enable_RNO
-  5.165                        n64_magic_box_0/n64_apb_interface_0/polling_enable:D (r)
+               +     0.504          net: n64ControlLibero_MSS_0_M2F_RESET_N
+  4.823                        n64_magic_box_0/n64_apb_interface_0/controller_reset_RNO:A (f)
+               +     0.200          cell: ADLIB:OR2A
+  5.023                        n64_magic_box_0/n64_apb_interface_0/controller_reset_RNO:Y (r)
+               +     0.146          net: n64_magic_box_0/n64_apb_interface_0/controller_reset_RNO
+  5.169                        n64_magic_box_0/n64_apb_interface_0/controller_reset:D (r)
                                     
-  5.165                        data arrival time
+  5.169                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_ccc_gla1
@@ -889,12 +777,12 @@ Expanded Path 1
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.375          net: FAB_CLK
-  3.933                        n64_magic_box_0/n64_apb_interface_0/polling_enable:CLK (r)
+               +     0.334          net: FAB_CLK
+  3.892                        n64_magic_box_0/n64_apb_interface_0/controller_reset:CLK (r)
                +     0.000          Library hold time: ADLIB:DFN1
-  3.933                        n64_magic_box_0/n64_apb_interface_0/polling_enable:D
+  3.892                        n64_magic_box_0/n64_apb_interface_0/controller_reset:D
                                     
-  3.933                        data required time
+  3.892                        data required time
 
 
 END SET mss_ccc_gla0 to mss_ccc_gla1
