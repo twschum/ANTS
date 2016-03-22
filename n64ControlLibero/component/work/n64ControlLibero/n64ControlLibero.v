@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Mar 22 14:57:38 2016
+// Created by SmartDesign Tue Mar 22 17:06:34 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -14,6 +14,8 @@ module n64ControlLibero(
     UART_0_TXD,
     data_out,
     enable_data_write_wire,
+    enable_write_mod_wire,
+    write_module_active,
     // Inouts
     fab_pin
 );
@@ -29,6 +31,8 @@ input  UART_0_RXD;
 output UART_0_TXD;
 output data_out;
 output enable_data_write_wire;
+output enable_write_mod_wire;
+output write_module_active;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -46,6 +50,7 @@ wire   [31:0] CoreAPB3_0_APBmslave0_PWDATA;
 wire          CoreAPB3_0_APBmslave0_PWRITE;
 wire          data_out_net_0;
 wire          enable_data_write_wire_net_0;
+wire          enable_write_mod_wire_net_0;
 wire          fab_pin;
 wire          MSS_RESET_N;
 wire          n64ControlLibero_MSS_0_FAB_CLK;
@@ -59,9 +64,12 @@ wire   [31:0] n64ControlLibero_MSS_0_MSS_MASTER_APB_PWDATA;
 wire          n64ControlLibero_MSS_0_MSS_MASTER_APB_PWRITE;
 wire          UART_0_RXD;
 wire          UART_0_TXD_net_0;
+wire          write_module_active_net_0;
 wire          UART_0_TXD_net_1;
 wire          enable_data_write_wire_net_1;
 wire          data_out_net_1;
+wire          enable_write_mod_wire_net_1;
+wire          write_module_active_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -122,6 +130,10 @@ assign enable_data_write_wire_net_1 = enable_data_write_wire_net_0;
 assign enable_data_write_wire       = enable_data_write_wire_net_1;
 assign data_out_net_1               = data_out_net_0;
 assign data_out                     = data_out_net_1;
+assign enable_write_mod_wire_net_1  = enable_write_mod_wire_net_0;
+assign enable_write_mod_wire        = enable_write_mod_wire_net_1;
+assign write_module_active_net_1    = write_module_active_net_0;
+assign write_module_active          = write_module_active_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -272,9 +284,11 @@ n64_magic_box n64_magic_box_0(
         // Outputs
         .PREADY_1               ( CoreAPB3_0_APBmslave0_PREADY ),
         .PSLVERR_1              ( CoreAPB3_0_APBmslave0_PSLVERR ),
-        .PRDATA_1               ( CoreAPB3_0_APBmslave0_PRDATA ),
         .enable_data_write_wire ( enable_data_write_wire_net_0 ),
         .data_out               ( data_out_net_0 ),
+        .PRDATA_1               ( CoreAPB3_0_APBmslave0_PRDATA ),
+        .enable_write_mod_wire  ( enable_write_mod_wire_net_0 ),
+        .write_module_active    ( write_module_active_net_0 ),
         // Inouts
         .fab_pin                ( fab_pin ) 
         );
