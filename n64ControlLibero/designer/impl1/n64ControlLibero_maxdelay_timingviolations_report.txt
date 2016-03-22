@@ -2,7 +2,7 @@ Timing Violation Report Max Delay Analysis
 
 SmartTime Version v11.5 SP3
 Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
-Date: Mon Mar 21 20:45:39 2016
+Date: Mon Mar 21 21:42:51 2016
 
 
 Design: n64ControlLibero
@@ -20,5 +20,147 @@ Using Enhanced Min Delay Analysis
 Scenario for Timing Analysis: Primary
 
 
-No Path
+Path 1
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
+  Delay (ns):                  13.058
+  Slack (ns):                  -1.764
+  Arrival (ns):                16.613
+  Required (ns):               14.849
+
+Path 2
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
+  Delay (ns):                  12.940
+  Slack (ns):                  -1.746
+  Arrival (ns):                16.495
+  Required (ns):               14.749
+
+Path 3
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[31]:E
+  Delay (ns):                  11.660
+  Slack (ns):                  -0.498
+  Arrival (ns):                15.215
+  Required (ns):               14.717
+
+Path 4
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[29]:E
+  Delay (ns):                  11.697
+  Slack (ns):                  -0.487
+  Arrival (ns):                15.252
+  Required (ns):               14.765
+
+Path 5
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[23]:E
+  Delay (ns):                  11.697
+  Slack (ns):                  -0.487
+  Arrival (ns):                15.252
+  Required (ns):               14.765
+
+Path 6
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[27]:E
+  Delay (ns):                  11.697
+  Slack (ns):                  -0.487
+  Arrival (ns):                15.252
+  Required (ns):               14.765
+
+Path 7
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[18]:E
+  Delay (ns):                  11.693
+  Slack (ns):                  -0.483
+  Arrival (ns):                15.248
+  Required (ns):               14.765
+
+Path 8
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[17]:E
+  Delay (ns):                  11.693
+  Slack (ns):                  -0.483
+  Arrival (ns):                15.248
+  Required (ns):               14.765
+
+Path 9
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[25]:E
+  Delay (ns):                  11.693
+  Slack (ns):                  -0.483
+  Arrival (ns):                15.248
+  Required (ns):               14.765
+
+Path 10
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[26]:E
+  Delay (ns):                  11.693
+  Slack (ns):                  -0.483
+  Arrival (ns):                15.248
+  Required (ns):               14.765
+
+Path 11
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[30]:E
+  Delay (ns):                  11.533
+  Slack (ns):                  -0.323
+  Arrival (ns):                15.088
+  Required (ns):               14.765
+
+Path 12
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[24]:E
+  Delay (ns):                  11.521
+  Slack (ns):                  -0.311
+  Arrival (ns):                15.076
+  Required (ns):               14.765
+
+Path 13
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[4]:E
+  Delay (ns):                  11.472
+  Slack (ns):                  -0.310
+  Arrival (ns):                15.027
+  Required (ns):               14.717
+
+Path 14
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[28]:E
+  Delay (ns):                  11.367
+  Slack (ns):                  -0.205
+  Arrival (ns):                14.922
+  Required (ns):               14.717
+
+Path 15
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[0]:E
+  Delay (ns):                  11.418
+  Slack (ns):                  -0.188
+  Arrival (ns):                14.973
+  Required (ns):               14.785
+
+Path 16
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[13]:E
+  Delay (ns):                  11.252
+  Slack (ns):                  -0.090
+  Arrival (ns):                14.807
+  Required (ns):               14.717
+
+Path 17
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[15]:E
+  Delay (ns):                  11.261
+  Slack (ns):                  -0.031
+  Arrival (ns):                14.816
+  Required (ns):               14.785
+
+Path 18
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[20]:E
+  Delay (ns):                  11.169
+  Slack (ns):                  -0.007
+  Arrival (ns):                14.724
+  Required (ns):               14.717
 
