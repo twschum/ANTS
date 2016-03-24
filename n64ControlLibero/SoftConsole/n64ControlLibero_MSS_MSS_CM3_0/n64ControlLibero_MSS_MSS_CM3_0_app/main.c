@@ -50,8 +50,8 @@ int main() {
         /*
          * Toggle between manual and automatic modes, with the laser indicator
          */
-        if (n64_buttons.Start && !last_buttons.Start) {
-            printf("Start pressed: ");
+        if (n64_buttons.A && !last_buttons.A) {
+            printf("A pressed: ");
 
             if (mode == AUTOMATIC) {
                 mode = MANUAL;
