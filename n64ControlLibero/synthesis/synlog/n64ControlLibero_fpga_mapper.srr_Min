@@ -1,7 +1,7 @@
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Thu Mar 24 12:59:46 2016
+# Timing Report written on Thu Mar 24 14:15:10 2016
 #
 
 
@@ -30,7 +30,7 @@ Starting Clock     Frequency     Frequency     Period        Period        Slack
 ------------------------------------------------------------------------------------------------------------------
 FAB_CLK            100.0 MHz     72.5 MHz      10.000        13.797        -3.797     declared     clk_group_0    
 FCLK               100.0 MHz     NA            10.000        NA            NA         declared     clk_group_0    
-System             100.0 MHz     319.1 MHz     10.000        3.133         6.867      system       system_clkgroup
+System             100.0 MHz     198.8 MHz     10.000        5.030         4.970      system       system_clkgroup
 ==================================================================================================================
 
 
@@ -73,6 +73,15 @@ Instance                                          Reference     Type     Pin    
                                                   Clock                                                                               
 --------------------------------------------------------------------------------------------------------------------------------------
 n64_magic_box_0.n64_apb_interface_0.PRDATA[0]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[0]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[1]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[1]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[2]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[2]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[3]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[3]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[4]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[4]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[5]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[5]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[6]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[6]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[7]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[7]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[8]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[8]     0.580       1.519
+n64_magic_box_0.n64_apb_interface_0.PRDATA[9]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[9]     0.580       1.519
 ======================================================================================================================================
 
 
@@ -84,6 +93,15 @@ Instance                                  Reference     Type        Pin         
                                           Clock                                                                                                            
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[0]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[0]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[1]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[1]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[2]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[2]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[3]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[3]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[4]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[4]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[5]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[5]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[6]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[6]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[7]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[7]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[8]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[8]     0.000        1.519
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     FAB_CLK       MSS_APB     MSSPRDATA[9]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[9]     0.000        1.519
 ===========================================================================================================================================================
 
 
@@ -135,11 +153,11 @@ Instance                                  Reference     Type        Pin         
                                           Clock                                                                                                           
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     EMCCLK           MSS_ADLIB_INST_EMCCLK                               0.000       0.225
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[9]      0.000       2.438
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[10]     0.000       2.485
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL          n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx         0.000       2.614
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[11]     0.000       2.624
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]      0.000       2.666
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[9]      0.000       3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[10]     0.000       3.781
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL          n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx         0.000       3.909
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[11]     0.000       3.920
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]      n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[8]      0.000       3.961
 ==========================================================================================================================================================
 
 
@@ -151,7 +169,15 @@ Instance                                  Reference     Type        Pin         
                                           Clock                                                                                                            
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     EMCCLKRTN        MSS_ADLIB_INST_EMCCLK                               0.000        0.225
-n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[0]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[0]     0.000        2.438
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[0]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[0]     0.000        3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[1]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[1]     0.000        3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[2]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[2]     0.000        3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[3]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[3]     0.000        3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[4]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[4]     0.000        3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[5]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[5]     0.000        3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[6]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[6]     0.000        3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[7]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[7]     0.000        3.734
+n64ControlLibero_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPRDATA[8]     n64ControlLibero_MSS_0_MSS_MASTER_APB_PRDATA[8]     0.000        3.734
 ===========================================================================================================================================================
 
 

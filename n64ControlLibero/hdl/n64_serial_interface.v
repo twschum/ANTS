@@ -7,12 +7,8 @@ module n64_serial_interface(
     output reg [31:0] button_data,
 
     //DEBUG
-    output wire next_state0,
-    output wire next_state1,
-    output wire next_state2,
-    output wire state0,
-    output wire state1,
-    output wire state2
+    output wire read_data_bit,
+    output wire read_bit_data_valid
 );
 
 // used by the sync and count block
@@ -52,19 +48,15 @@ n64_write_command write_module(
 );
 
 // read module
-n64_read_controller read_module(
+n64_read_module read_module(
     read_module_begin,
     clk,
     data_in,
     read_module_error,
     read_module_active,
     button_data_raw,
-    next_state0,
-    next_state1,
-    next_state2,
-    state0,
-    state1,
-    state2
+    read_data_bit,
+    read_bit_data_valid
 );
 
 // open collector output circuit

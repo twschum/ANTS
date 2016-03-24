@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Mar 24 12:59:26 2016
+// Created by SmartDesign Thu Mar 24 14:07:01 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -12,12 +12,8 @@ module n64ControlLibero(
     UART_0_RXD,
     // Outputs
     UART_0_TXD,
-    next_state0,
-    next_state1,
-    next_state2,
-    state0,
-    state1,
-    state2,
+    read_bit_data_valid,
+    read_data_bit,
     // Inouts
     fab_pin
 );
@@ -31,12 +27,8 @@ input  UART_0_RXD;
 // Output
 //--------------------------------------------------------------------
 output UART_0_TXD;
-output next_state0;
-output next_state1;
-output next_state2;
-output state0;
-output state1;
-output state2;
+output read_bit_data_valid;
+output read_data_bit;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -63,21 +55,13 @@ wire          n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx;
 wire          n64ControlLibero_MSS_0_MSS_MASTER_APB_PSLVERR;
 wire   [31:0] n64ControlLibero_MSS_0_MSS_MASTER_APB_PWDATA;
 wire          n64ControlLibero_MSS_0_MSS_MASTER_APB_PWRITE;
-wire          next_state0_net_0;
-wire          next_state1_net_0;
-wire          next_state2_net_0;
-wire          state0_net_0;
-wire          state1_net_0;
-wire          state2_net_0;
+wire          read_bit_data_valid_net_0;
+wire          read_data_bit_net_0;
 wire          UART_0_RXD;
 wire          UART_0_TXD_net_0;
 wire          UART_0_TXD_net_1;
-wire          state0_net_1;
-wire          state2_net_1;
-wire          next_state2_net_1;
-wire          next_state0_net_1;
-wire          state1_net_1;
-wire          next_state1_net_1;
+wire          read_data_bit_net_1;
+wire          read_bit_data_valid_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -132,20 +116,12 @@ assign PRDATAS16_const_net_0 = 32'h00000000;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign UART_0_TXD_net_1  = UART_0_TXD_net_0;
-assign UART_0_TXD        = UART_0_TXD_net_1;
-assign state0_net_1      = state0_net_0;
-assign state0            = state0_net_1;
-assign state2_net_1      = state2_net_0;
-assign state2            = state2_net_1;
-assign next_state2_net_1 = next_state2_net_0;
-assign next_state2       = next_state2_net_1;
-assign next_state0_net_1 = next_state0_net_0;
-assign next_state0       = next_state0_net_1;
-assign state1_net_1      = state1_net_0;
-assign state1            = state1_net_1;
-assign next_state1_net_1 = next_state1_net_0;
-assign next_state1       = next_state1_net_1;
+assign UART_0_TXD_net_1          = UART_0_TXD_net_0;
+assign UART_0_TXD                = UART_0_TXD_net_1;
+assign read_data_bit_net_1       = read_data_bit_net_0;
+assign read_data_bit             = read_data_bit_net_1;
+assign read_bit_data_valid_net_1 = read_bit_data_valid_net_0;
+assign read_bit_data_valid       = read_bit_data_valid_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -286,25 +262,21 @@ CoreAPB3_0(
 //--------n64_magic_box
 n64_magic_box n64_magic_box_0(
         // Inputs
-        .PCLK        ( n64ControlLibero_MSS_0_FAB_CLK ),
-        .PRESERN     ( n64ControlLibero_MSS_0_M2F_RESET_N ),
-        .PENABLE_1   ( CoreAPB3_0_APBmslave0_PENABLE ),
-        .PWRITE_1    ( CoreAPB3_0_APBmslave0_PWRITE ),
-        .PSEL_1      ( CoreAPB3_0_APBmslave0_PSELx ),
-        .PADDR_1     ( CoreAPB3_0_APBmslave0_PADDR ),
-        .PWDATA_1    ( CoreAPB3_0_APBmslave0_PWDATA ),
+        .PCLK                ( n64ControlLibero_MSS_0_FAB_CLK ),
+        .PRESERN             ( n64ControlLibero_MSS_0_M2F_RESET_N ),
+        .PENABLE_1           ( CoreAPB3_0_APBmslave0_PENABLE ),
+        .PWRITE_1            ( CoreAPB3_0_APBmslave0_PWRITE ),
+        .PSEL_1              ( CoreAPB3_0_APBmslave0_PSELx ),
+        .PADDR_1             ( CoreAPB3_0_APBmslave0_PADDR ),
+        .PWDATA_1            ( CoreAPB3_0_APBmslave0_PWDATA ),
         // Outputs
-        .PREADY_1    ( CoreAPB3_0_APBmslave0_PREADY ),
-        .PSLVERR_1   ( CoreAPB3_0_APBmslave0_PSLVERR ),
-        .PRDATA_1    ( CoreAPB3_0_APBmslave0_PRDATA ),
-        .next_state0 ( next_state0_net_0 ),
-        .next_state1 ( next_state1_net_0 ),
-        .next_state2 ( next_state2_net_0 ),
-        .state0      ( state0_net_0 ),
-        .state1      ( state1_net_0 ),
-        .state2      ( state2_net_0 ),
+        .PREADY_1            ( CoreAPB3_0_APBmslave0_PREADY ),
+        .PSLVERR_1           ( CoreAPB3_0_APBmslave0_PSLVERR ),
+        .PRDATA_1            ( CoreAPB3_0_APBmslave0_PRDATA ),
+        .read_bit_data_valid ( read_bit_data_valid_net_0 ),
+        .read_data_bit       ( read_data_bit_net_0 ),
         // Inouts
-        .fab_pin     ( fab_pin ) 
+        .fab_pin             ( fab_pin ) 
         );
 
 //--------n64ControlLibero_MSS
