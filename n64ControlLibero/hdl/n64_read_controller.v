@@ -131,6 +131,9 @@ always @ (posedge clk) begin
         else
             next_state <= Error;
     end
+    default: begin
+        next_state <= End;
+    end
     endcase
 end
 

@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>C:/Users/rpokeefe/repos/373/n64ControlLibero/component/work/n64ControlLibero</location>
-    <state>GENERATED ( Thu Mar 24 12:59:29 2016 )</state>
+    <state>GENERATED ( Thu Mar 24 14:07:04 2016 )</state>
     <swide-toolchain>SoftConsole workspace generated to C:\Users\rpokeefe\repos\373\n64ControlLibero\SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -30,6 +30,7 @@
     <file>C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64_magic_box\n64_magic_box.v</file>
     <file>C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_apb_interface.v</file>
     <file>C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_controller.v</file>
+    <file>C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_module.v</file>
     <file>C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v</file>
     <file>C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_write_command.v</file>
     <file>C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\tribuf.v</file>
@@ -39,31 +40,7 @@
     <file>C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\./MSS_ENVM_0/MSS_ENVM_0.efc</file>
   </fileset>
   <io>
-    <port-name>state0</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>MSS_RESET_N</port-name>
-    <direction>IN</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>next_state0</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>next_state2</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>state2</port-name>
+    <port-name>UART_0_TXD</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -75,25 +52,25 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
+    <port-name>read_bit_data_valid</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
     <port-name>fab_pin</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>state1</port-name>
-    <direction>OUT</direction>
+    <port-name>MSS_RESET_N</port-name>
+    <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>UART_0_TXD</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>next_state1</port-name>
+    <port-name>read_data_bit</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>

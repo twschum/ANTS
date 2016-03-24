@@ -1,13 +1,13 @@
 ***************************************************************************
                                Status Report
-                          Thu Mar 24 13:00:11 2016 ***************************************************************************
+                          Thu Mar 24 14:15:31 2016 ***************************************************************************
 
 Product: Designer
 Release: v11.5 SP3
 Version: 11.5.3.10
 File Name: C:\Users\rpokeefe\repos\373\n64ControlLibero\designer\impl1\n64ControlLibero.adb
 Design Name: n64ControlLibero  Design State: compile
-Last Saved: Thu Mar 24 12:34:59 2016
+Last Saved: Thu Mar 24 14:14:45 2016
 
 ***** Device Data **************************************************
 
@@ -22,7 +22,7 @@ Voltage Range:   COM
 
 ***** Import Variables *********************************************
 
-Source File(s) Imported on Thu Mar 24 12:59:55 2016:
+Source File(s) Imported on Thu Mar 24 14:15:17 2016:
         C:\Users\rpokeefe\repos\373\n64ControlLibero\synthesis\n64ControlLibero.edn
         C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero\n64ControlLibero.pdc
 
@@ -383,9 +383,9 @@ Optimized macros:
   - Buffers:                0
   - Inverters:              0
   - Tieoff:                 0
-  - Logic combining:        24
+  - Logic combining:        17
 
-    Total macros optimized  24
+    Total macros optimized  17
 
 There were 0 error(s) and 286 warning(s) in this design.
 =====================================================================
@@ -407,8 +407,8 @@ Compile report:
 ===============
 
     Microcontroller Subsystem  Used:      1  Total:      1   (100.00%)
-    Fabric                     Used:    407  Total:   4608   (8.83%)
-    Fabric IO (W/ clocks)      Used:      7  Total:     94   (7.45%)
+    Fabric                     Used:    446  Total:   4608   (9.68%)
+    Fabric IO (W/ clocks)      Used:      3  Total:     94   (3.19%)
     Fabric Differential IO     Used:      0  Total:     47   (0.00%)
     Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
     Dedicated MSS IO           Used:      3  Total:     43   (6.98%)
@@ -436,15 +436,15 @@ Core Information:
 
     Type    | Instances    | Core tiles
     --------|--------------|-----------
-    COMB    | 320          | 320
-    SEQ     | 87           | 87
+    COMB    | 280          | 280
+    SEQ     | 166          | 166
 
 I/O Function:
 
     Type                                  | w/o register  | w/ register  | w/ DDR register
     --------------------------------------|---------------|--------------|----------------
     Input I/O                             | 0             | 0            | 0
-    Output I/O                            | 6             | 0            | 0
+    Output I/O                            | 2             | 0            | 0
     Bidirectional I/O                     | 1             | 0            | 0
     Differential Input I/O Pairs          | 0             | 0            | 0
     Differential Output I/O Pairs         | 0             | 0            | 0
@@ -455,15 +455,13 @@ I/O Technology:
     --------------------------------|-------|-------|-------|--------|--------------
     I/O Standard(s)                 | Vcci  | Vref  | Input | Output | Bidirectional
     --------------------------------|-------|-------|-------|--------|--------------
-    LVTTL                           | 3.30v | N/A   | 0     | 6      | 1
+    LVTTL                           | 3.30v | N/A   | 0     | 2      | 1
 
 I/O Placement:
 
-    Locked  :   1 ( 14.29% )
+    Locked  :   3 ( 100.00% )
     Placed  :   0
-    UnPlaced:   6 ( 85.71% )
-
-Warning: Only some I/Os are locked
+    UnPlaced:   0
 
 Net information report:
 =======================
@@ -471,64 +469,76 @@ Net information report:
 The following nets have been assigned to a chip global resource:
     Fanout  Type          Name
     --------------------------
-    88      CLK_NET       Net   : FAB_CLK
+    167     CLK_NET       Net   : FAB_CLK
                           Driver: n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC
                           Source: ESSENTIAL
 
 High fanout nets in the post compile netlist:
     Fanout  Type          Name
     --------------------------
-    23      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/N_158
+    17      INT_NET       Net   : CoreAPB3_0_APBmslave0_PSELx_0
+                          Driver: CoreAPB3_0/iPSELS_0[0]
+    17      INT_NET       Net   :
+n64_magic_box_0/n64_serial_interface_0/read_module/read_data_bit_c_0
                           Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/bits_RNIB0MN2[5]
-    15      INT_NET       Net   : state2_c
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/state[2]
-    14      INT_NET       Net   : state0_c
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/state[0]
-    14      INT_NET       Net   : state1_c
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/state[1]
-    13      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/zerose
+n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit_0
+    16      INT_NET       Net   : read_data_bit_c
                           Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/state_RNIO13S1[1]
-    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/ones[9]
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/ones[9]
-    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/ones[6]
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/ones[6]
-    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/ones[3]
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/ones[3]
-    11      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/write_module/index_0_sqmuxa
+n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit
+    16      INT_NET       Net   : CoreAPB3_0/CoreAPB3_0_APBmslave0_PSELx
+                          Driver: CoreAPB3_0/iPSELS[0]
+    16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/button_data_0_sqmuxa_0
                           Driver:
-n64_magic_box_0/n64_serial_interface_0/write_module/enabled_RNIQNND4
-    10      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/ones[8]
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/ones[8]
+n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
+    16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module_active
+                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/working
+    16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/button_data_0_sqmuxa
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9
+    16      INT_NET       Net   :
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_19_e_0
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I_0[4]
+    15      INT_NET       Net   :
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_41_e_0
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I[4]
+    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/index_c1
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI12F6[1]
 
 Nets that are candidates for clock assignment and the resulting fanout:
     Fanout  Type          Name
     --------------------------
-    23      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/N_158
+    17      INT_NET       Net   : CoreAPB3_0_APBmslave0_PSELx_0
+                          Driver: CoreAPB3_0/iPSELS_0[0]
+    17      INT_NET       Net   :
+n64_magic_box_0/n64_serial_interface_0/read_module/read_data_bit_c_0
                           Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/bits_RNIB0MN2[5]
-    15      INT_NET       Net   : state2_c
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/state[2]
-    14      INT_NET       Net   : state0_c
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/state[0]
-    14      INT_NET       Net   : state1_c
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/state[1]
-    13      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/zerose
+n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit_0
+    16      INT_NET       Net   : read_data_bit_c
                           Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/state_RNIO13S1[1]
-    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/ones[9]
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/ones[9]
-    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/ones[6]
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/ones[6]
-    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/ones[3]
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/ones[3]
-    11      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/write_module/index_0_sqmuxa
+n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit
+    16      INT_NET       Net   : CoreAPB3_0/CoreAPB3_0_APBmslave0_PSELx
+                          Driver: CoreAPB3_0/iPSELS[0]
+    16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/button_data_0_sqmuxa_0
                           Driver:
-n64_magic_box_0/n64_serial_interface_0/write_module/enabled_RNIQNND4
-    10      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/ones[8]
-                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/ones[8]
+n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
+    16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module_active
+                          Driver: n64_magic_box_0/n64_serial_interface_0/read_module/working
+    16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/button_data_0_sqmuxa
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9
+    16      INT_NET       Net   :
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_19_e_0
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I_0[4]
+    15      INT_NET       Net   :
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_41_e_0
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I[4]
+    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/index_c1
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI12F6[1]
 
 

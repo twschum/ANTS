@@ -2,7 +2,7 @@ Timing Violation Report Max Delay Analysis
 
 SmartTime Version v11.5 SP3
 Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
-Date: Thu Mar 24 13:04:06 2016
+Date: Thu Mar 24 14:16:09 2016
 
 
 Design: n64ControlLibero
@@ -21,66 +21,26 @@ Scenario for Timing Analysis: Primary
 
 
 Path 1
-  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/ones[5]:CLK
-  To:                          n64_magic_box_0/n64_serial_interface_0/read_module/con_data_1[0]:D
-  Delay (ns):                  10.313
-  Slack (ns):                  -0.818
-  Arrival (ns):                15.551
-  Required (ns):               14.733
-
-Path 2
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
-  Delay (ns):                  11.632
-  Slack (ns):                  -0.481
-  Arrival (ns):                15.187
-  Required (ns):               14.706
-
-Path 3
   From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
-  Delay (ns):                  11.523
-  Slack (ns):                  -0.372
-  Arrival (ns):                15.078
-  Required (ns):               14.706
+  Delay (ns):                  11.406
+  Slack (ns):                  -0.205
+  Arrival (ns):                14.961
+  Required (ns):               14.756
 
-Path 4
-  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/zeros[0]:CLK
-  To:                          n64_magic_box_0/n64_serial_interface_0/read_module/zeros[9]:D
-  Delay (ns):                  9.795
-  Slack (ns):                  -0.306
-  Arrival (ns):                15.060
-  Required (ns):               14.754
+Path 2
+  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[4]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
+  Delay (ns):                  9.576
+  Slack (ns):                  -0.082
+  Arrival (ns):                14.795
+  Required (ns):               14.713
 
-Path 5
-  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/zeros[8]:CLK
-  To:                          n64_magic_box_0/n64_serial_interface_0/read_module/con_data_1[0]:D
-  Delay (ns):                  9.739
-  Slack (ns):                  -0.239
-  Arrival (ns):                15.004
-  Required (ns):               14.765
-
-Path 6
-  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/zeros[6]:CLK
-  To:                          n64_magic_box_0/n64_serial_interface_0/read_module/con_data_1[0]:D
-  Delay (ns):                  9.758
-  Slack (ns):                  -0.231
-  Arrival (ns):                14.996
-  Required (ns):               14.765
-
-Path 7
+Path 3
   From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[5]:CLK
   To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
-  Delay (ns):                  9.735
-  Slack (ns):                  -0.194
-  Arrival (ns):                14.978
-  Required (ns):               14.784
-
-Path 8
-  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/zeros[7]:CLK
-  To:                          n64_magic_box_0/n64_serial_interface_0/read_module/con_data_1[0]:D
-  Delay (ns):                  9.544
-  Slack (ns):                  -0.055
-  Arrival (ns):                14.820
-  Required (ns):               14.765
+  Delay (ns):                  9.554
+  Slack (ns):                  -0.065
+  Arrival (ns):                14.778
+  Required (ns):               14.713
 
