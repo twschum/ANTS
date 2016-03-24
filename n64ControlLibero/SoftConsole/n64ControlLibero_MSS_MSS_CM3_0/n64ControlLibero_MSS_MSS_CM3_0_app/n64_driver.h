@@ -4,6 +4,7 @@
  */
 
 #include <inttypes.h>
+#include <stdio.h>
 
 #define N64_ADDR         0x40050000
 #define N64_RESET        0xff
@@ -46,3 +47,7 @@ void n64_reset();
 
 // enable button polling
 void n64_enable();
+
+// print the state thru printf
+void n64_print_state(n64_state_t* state);
+

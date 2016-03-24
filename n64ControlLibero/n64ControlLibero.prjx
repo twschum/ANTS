@@ -51,13 +51,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1458838766"
+TIME="1458842821"
 SIZE="2736"
 PARENT="<project>\component\work\n64ControlLibero\n64ControlLibero.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\coreparameters.v,tb_hdl"
 STATE="utd"
-TIME="1458838766"
+TIME="1458842821"
 SIZE="1284"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
 IS_READONLY="TRUE"
@@ -264,12 +264,12 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\n64ControlLibero\n64ControlLibero.cxf,actgen_cxf"
 STATE="utd"
-TIME="1458838770"
-SIZE="4629"
+TIME="1458842825"
+SIZE="4018"
 ENDFILE
 VALUE "<project>\component\work\n64ControlLibero\n64ControlLibero.pdc,pdc"
 STATE="utd"
-TIME="1458838765"
+TIME="1458842821"
 SIZE="1226"
 PARENT="<project>\component\work\n64ControlLibero\n64ControlLibero.cxf"
 BEGIN_USE_CONSTRAINT
@@ -280,8 +280,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\n64ControlLibero\n64ControlLibero.v,hdl"
 STATE="utd"
-TIME="1458838766"
-SIZE="15067"
+TIME="1458842821"
+SIZE="14410"
 PARENT="<project>\component\work\n64ControlLibero\n64ControlLibero.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -350,13 +350,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\n64_magic_box\n64_magic_box.cxf,actgen_cxf"
 STATE="utd"
-TIME="1458838740"
-SIZE="5341"
+TIME="1458842821"
+SIZE="4730"
 ENDFILE
 VALUE "<project>\component\work\n64_magic_box\n64_magic_box.v,hdl"
 STATE="utd"
-TIME="1458838739"
-SIZE="5163"
+TIME="1458842820"
+SIZE="4335"
 PARENT="<project>\component\work\n64_magic_box\n64_magic_box.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -367,8 +367,8 @@ SIZE="566784"
 ENDFILE
 VALUE "<project>\designer\impl1\n64ControlLibero.fdb,fdb"
 STATE="utd"
-TIME="1458839062"
-SIZE="45817"
+TIME="1458843384"
+SIZE="47590"
 ENDFILE
 VALUE "<project>\designer\impl1\n64ControlLibero.ide_des,ide_des"
 STATE="utd"
@@ -377,8 +377,8 @@ SIZE="1117"
 ENDFILE
 VALUE "<project>\designer\impl1\n64ControlLibero_compile_log.rpt,log"
 STATE="utd"
-TIME="1458838813"
-SIZE="35021"
+TIME="1458843333"
+SIZE="35098"
 ENDFILE
 VALUE "<project>\designer\impl1\n64ControlLibero_fp\n64ControlLibero.pdb,pdb"
 STATE="utd"
@@ -397,17 +397,17 @@ SIZE="47812"
 ENDFILE
 VALUE "<project>\designer\impl1\n64ControlLibero_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1458839041"
+TIME="1458843364"
 SIZE="2742"
 ENDFILE
 VALUE "<project>\designer\impl1\n64ControlLibero_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1458839064"
+TIME="1458843386"
 SIZE="736"
 ENDFILE
 VALUE "<project>\designer\impl1\n64ControlLibero_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1458839047"
+TIME="1458843370"
 SIZE="1233"
 ENDFILE
 VALUE "<project>\hdl\n64_apb_interface.v,hdl"
@@ -417,13 +417,18 @@ SIZE="2199"
 ENDFILE
 VALUE "<project>\hdl\n64_read_controller.v,hdl"
 STATE="utd"
-TIME="1458838592"
-SIZE="3032"
+TIME="1458844493"
+SIZE="3416"
+ENDFILE
+VALUE "<project>\hdl\n64_read_module.v,hdl"
+STATE="utd"
+TIME="1458843089"
+SIZE="2143"
 ENDFILE
 VALUE "<project>\hdl\n64_serial_interface.v,hdl"
 STATE="utd"
-TIME="1458838680"
-SIZE="3717"
+TIME="1458842775"
+SIZE="3571"
 ENDFILE
 VALUE "<project>\hdl\n64_write_command.v,hdl"
 STATE="utd"
@@ -455,7 +460,7 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1458838766"
+TIME="1458842821"
 SIZE="638"
 PARENT="<project>\component\work\n64ControlLibero\n64ControlLibero.cxf"
 ENDFILE
@@ -715,7 +720,8 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;Program Device:n64ControlLibero_program.log
+ReportsCurrentItem;Generate Programming Data:n64ControlLibero_prgdata_log.rpt
+HDL;hdl\n64_read_module.v;0
 SmartDesign;n64ControlLibero;0
 SmartDesign;n64_magic_box;0
 SmartDesign;n64ControlLibero_MSS;0
@@ -723,9 +729,11 @@ HDL;hdl\n64_serial_interface.v;0
 HDL;hdl\n64_read_controller.v;0
 HDL;hdl\n64_write_command.v;0
 HDL;hdl\n64_apb_interface.v;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;hdl\n64_read_controller.v
 ENDLIST
 LIST ModuleSubBlockList
+LIST "_read_bit::work","hdl\n64_read_module.v","FALSE","FALSE"
+ENDLIST
 LIST "BIBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.200\mss_comps.v","FALSE","FALSE"
 ENDLIST
 LIST "BIBUF_OPEND_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.200\mss_comps.v","FALSE","FALSE"
@@ -788,11 +796,12 @@ LIST "n64_magic_box::work","component\work\n64_magic_box\n64_magic_box.v","TRUE"
 SUBBLOCK "n64_apb_interface::work","hdl\n64_apb_interface.v","FALSE","FALSE"
 SUBBLOCK "n64_serial_interface::work","hdl\n64_serial_interface.v","FALSE","FALSE"
 ENDLIST
-LIST "n64_read_controller::work","hdl\n64_read_controller.v","FALSE","FALSE"
+LIST "n64_read_module::work","hdl\n64_read_module.v","FALSE","FALSE"
+SUBBLOCK "_read_bit::work","hdl\n64_read_module.v","FALSE","FALSE"
 ENDLIST
 LIST "n64_serial_interface::work","hdl\n64_serial_interface.v","FALSE","FALSE"
 SUBBLOCK "n64_write_command::work","hdl\n64_write_command.v","FALSE","FALSE"
-SUBBLOCK "n64_read_controller::work","hdl\n64_read_controller.v","FALSE","FALSE"
+SUBBLOCK "n64_read_module::work","hdl\n64_read_module.v","FALSE","FALSE"
 ENDLIST
 LIST "n64_write_command::work","hdl\n64_write_command.v","FALSE","FALSE"
 ENDLIST
