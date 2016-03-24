@@ -5,7 +5,15 @@ module n64_read_controller(
     input data_in,
     output reg error,
     output reg working,
-    output reg [31:0] con_data
+    output reg [31:0] con_data,
+
+    //DEBUG
+    output wire next_state0,
+    output wire next_state1,
+    output wire next_state2,
+    output wire state0,
+    output wire state1,
+    output wire state2
 );
 
 parameter Wait = 3'b000;
@@ -15,8 +23,16 @@ parameter Check = 3'b011;
 parameter End = 3'b100;
 parameter Error = 3'b101;
 
-reg [1:0] next_state = End;
-reg [1:0] state = End;
+reg [2:0] next_state = End;
+reg [2:0] state = End;
+//DEBUG
+assign next_state0 = next_state[0];
+assign next_state1 = next_state[1];
+assign next_state2 = next_state[2];
+assign state0 = state[0];
+assign state1 = state[1];
+assign state2 = state[2];
+
 reg [5:0] bits = 0;//number of bits read in so far
 reg [9:0] ones = 0;
 reg [9:0] zeros = 0;

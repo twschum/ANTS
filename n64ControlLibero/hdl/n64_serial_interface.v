@@ -6,10 +6,13 @@ module n64_serial_interface(
     inout fab_pin,
     output reg [31:0] button_data,
 
-    // debug
-    output data_out,
-    output write_module_begin_DEBUG,
-    output write_module_active
+    //DEBUG
+    output wire next_state0,
+    output wire next_state1,
+    output wire next_state2,
+    output wire state0,
+    output wire state1,
+    output wire state2
 );
 
 // used by the sync and count block
@@ -24,14 +27,16 @@ reg send_reset = 0; // use this to determine if reset should happen
 // write/read module in/outputs
 reg [7:0] command_byte; // input to write module
 reg write_module_begin; // high one cycle, starts the write module
-//DEBUG wire write_module_active; // high while write module is writing
-//DEBUG wire data_out; // data out from the write module
+wire write_module_active; // high while write module is writing
+wire data_out; // data out from the write module
 
 wire read_module_begin; // active signal to the read module, from write module(1 cycle)
 
 wire [31:0] button_data_raw; // since this changes, needs to write to button_data atomically
 wire read_module_active;
 wire read_module_error;
+
+
 
 //reg write_module_set_enabled = 0; // tracks that it has been enabled
 reg read_module_set_enabled = 0; // stays high to check falling edge
@@ -53,15 +58,18 @@ n64_read_controller read_module(
     data_in,
     read_module_error,
     read_module_active,
-    button_data_raw
+    button_data_raw,
+    next_state0,
+    next_state1,
+    next_state2,
+    state0,
+    state1,
+    state2
 );
 
 // open collector output circuit
 //assign fab_pin = (write_module_set_enabled & ~data_out) ? 1'b0 : 1'bZ;
 assign fab_pin = (write_module_active & ~data_out) ? 1'b0 : 1'bZ;
-
-// DEBUG output reg -> wire
-assign write_module_begin_DEBUG = write_module_begin;
 
 // utility functions
 always @ (posedge clk) begin
