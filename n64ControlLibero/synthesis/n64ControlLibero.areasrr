@@ -2,15 +2,15 @@
 Report for cell n64ControlLibero.verilog
                                           Cell usage:
                                cell       count     area    count*area
-                        CoreAPB3_Z1         1      36.0       36.0
+                              BIBUF         1       0.0        0.0
+                        CoreAPB3_Z1         1       4.0        4.0
                                 GND         1       0.0        0.0
-                             OUTBUF         3       0.0        0.0
-                            TRIBUFF         1       0.0        0.0
+                             OUTBUF         6       0.0        0.0
                                 VCC         1       0.0        0.0
                n64ControlLibero_MSS         1       0.0        0.0
-                      n64_magic_box         1     246.0      246.0
+                      n64_magic_box         1     427.0      427.0
                             
-                         TOTAL              9                282.0
+                         TOTAL             12                431.0
 ----------------------------------------------------------------------
 Report for cell n64ControlLibero_MSS.netlist
      Instance path:  n64ControlLibero_MSS_0
@@ -42,10 +42,10 @@ Report for cell n64_magic_box.netlist
                                cell       count     area    count*area
                                 GND         1       0.0        0.0
                                 VCC         1       0.0        0.0
-                  n64_apb_interface         1      70.0       70.0
-               n64_serial_interface         1     176.0      176.0
+                  n64_apb_interface         1      39.0       39.0
+               n64_serial_interface         1     388.0      388.0
                             
-                         TOTAL              4                246.0
+                         TOTAL              4                427.0
 ----------------------------------------------------------------------
 Report for cell n64_serial_interface.netlist
      Instance path:  n64_magic_box_0.n64_serial_interface_0
@@ -53,46 +53,99 @@ Report for cell n64_serial_interface.netlist
                                cell       count     area    count*area
                                AND2         4       1.0        4.0
                                AND3        18       1.0       18.0
-                                AO1         2       1.0        2.0
+                                AO1         3       1.0        3.0
                                AOI1         1       1.0        1.0
                               AOI1B         6       1.0        6.0
-                               DFN1        20       1.0       20.0
-                             DFN1E1         1       1.0        1.0
+                               DFN1        24       1.0       24.0
+                             DFN1E1         2       1.0        2.0
                                 GND         1       0.0        0.0
                                NOR2         3       1.0        3.0
-                              NOR2A         1       1.0        1.0
+                              NOR2A         2       1.0        2.0
                               NOR2B         6       1.0        6.0
-                              NOR3A         3       1.0        3.0
+                              NOR3A         4       1.0        4.0
                               NOR3B         1       1.0        1.0
                               NOR3C         1       1.0        1.0
                                 OR2         2       1.0        2.0
                                 OR3         1       1.0        1.0
                                 VCC         1       0.0        0.0
                                XOR2        16       1.0       16.0
-                  n64_write_command         1      90.0       90.0
+                n64_read_controller         1     202.0      202.0
+                  n64_write_command         1      92.0       92.0
                             
-                         TOTAL             89                176.0
+                         TOTAL             98                388.0
+----------------------------------------------------------------------
+Report for cell n64_read_controller.netlist
+     Instance path:  n64_magic_box_0.n64_serial_interface_0.read_module
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AND2         3       1.0        3.0
+                              AND2A         1       1.0        1.0
+                               AND3         1       1.0        1.0
+                                AO1         3       1.0        3.0
+                               AO13         1       1.0        1.0
+                               AO15         1       1.0        1.0
+                               AO1A         7       1.0        7.0
+                               AO1C         2       1.0        2.0
+                               AO1D         3       1.0        3.0
+                               AOI1         1       1.0        1.0
+                              AOI1A         3       1.0        3.0
+                               AX1B         1       1.0        1.0
+                               AX1C         2       1.0        2.0
+                               DFN1         6       1.0        6.0
+                             DFN1E1        29       1.0       29.0
+                                GND         1       0.0        0.0
+                               MX2C         1       1.0        1.0
+                               NOR2         4       1.0        4.0
+                              NOR2A        12       1.0       12.0
+                              NOR2B        14       1.0       14.0
+                               NOR3         2       1.0        2.0
+                              NOR3A         6       1.0        6.0
+                              NOR3B         3       1.0        3.0
+                              NOR3C         4       1.0        4.0
+                                OA1         3       1.0        3.0
+                               OA1A         5       1.0        5.0
+                               OA1B         1       1.0        1.0
+                               OA1C         4       1.0        4.0
+                                OR2         5       1.0        5.0
+                               OR2A        15       1.0       15.0
+                               OR2B         9       1.0        9.0
+                                OR3         3       1.0        3.0
+                               OR3A         2       1.0        2.0
+                               OR3B         6       1.0        6.0
+                                VCC         1       0.0        0.0
+                                XA1         1       1.0        1.0
+                               XA1A         1       1.0        1.0
+                               XA1B        13       1.0       13.0
+                               XA1C         8       1.0        8.0
+                              XAI1A         2       1.0        2.0
+                              XNOR2         8       1.0        8.0
+                               XO1A         2       1.0        2.0
+                               XOR2         3       1.0        3.0
+                               XOR3         1       1.0        1.0
+                            
+                         TOTAL            204                202.0
 ----------------------------------------------------------------------
 Report for cell n64_write_command.netlist
      Instance path:  n64_magic_box_0.n64_serial_interface_0.write_module
                                           Cell usage:
                                cell       count     area    count*area
                                AND2         5       1.0        5.0
+                                AO1         1       1.0        1.0
                                AO1B         1       1.0        1.0
                                AO1C         1       1.0        1.0
                               AOI1B         1       1.0        1.0
                                AX1C         1       1.0        1.0
-                               DFN1        11       1.0       11.0
+                               DFN1        12       1.0       12.0
                              DFN1E0         4       1.0        4.0
                              DFN1E1         7       1.0        7.0
                                 GND         1       0.0        0.0
                                 MX2         7       1.0        7.0
                                NOR2         2       1.0        2.0
-                              NOR2A         5       1.0        5.0
-                              NOR2B        19       1.0       19.0
-                               NOR3         3       1.0        3.0
-                              NOR3A         2       1.0        2.0
-                              NOR3B         2       1.0        2.0
+                              NOR2A         6       1.0        6.0
+                              NOR2B        18       1.0       18.0
+                               NOR3         2       1.0        2.0
+                              NOR3A         4       1.0        4.0
+                              NOR3B         1       1.0        1.0
                               NOR3C         1       1.0        1.0
                                OA1B         1       1.0        1.0
                                 OR2         2       1.0        2.0
@@ -102,13 +155,13 @@ Report for cell n64_write_command.netlist
                                 XA1         1       1.0        1.0
                                XOR2        10       1.0       10.0
                             
-                         TOTAL             92                 90.0
+                         TOTAL             94                 92.0
 ----------------------------------------------------------------------
 Report for cell n64_apb_interface.netlist
      Instance path:  n64_magic_box_0.n64_apb_interface_0
                                           Cell usage:
                                cell       count     area    count*area
-                               DFN1        34       1.0       34.0
+                               DFN1         3       1.0        3.0
                                 GND         1       0.0        0.0
                                 MX2         2       1.0        2.0
                                NOR2        13       1.0       13.0
@@ -119,27 +172,27 @@ Report for cell n64_apb_interface.netlist
                                OR2A         1       1.0        1.0
                                 VCC         1       0.0        0.0
                             
-                         TOTAL             72                 70.0
+                         TOTAL             41                 39.0
 ----------------------------------------------------------------------
 Report for cell CoreAPB3_Z1.netlist
      Instance path:  CoreAPB3_0
                                           Cell usage:
                                cell       count     area    count*area
-                  COREAPB3_MUXPTOB3         1      32.0       32.0
+                  COREAPB3_MUXPTOB3         1       1.0        1.0
                                 GND         1       0.0        0.0
                                NOR2         1       1.0        1.0
-                              NOR2B         2       1.0        2.0
+                              NOR2B         1       1.0        1.0
                               NOR3A         1       1.0        1.0
                                 VCC         1       0.0        0.0
                             
-                         TOTAL              7                 36.0
+                         TOTAL              6                  4.0
 ----------------------------------------------------------------------
 Report for cell COREAPB3_MUXPTOB3.netlist
      Instance path:  CoreAPB3_0.u_mux_p_to_b3
                                           Cell usage:
                                cell       count     area    count*area
                                 GND         1       0.0        0.0
-                              NOR2B        32       1.0       32.0
+                              NOR2B         1       1.0        1.0
                                 VCC         1       0.0        0.0
                             
-                         TOTAL             34                 32.0
+                         TOTAL              3                  1.0

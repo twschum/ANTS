@@ -32,7 +32,7 @@ always @ (posedge clk) begin
     // counter & reset logic
     if (enabled) begin
         // case for the 9th stop bit, starting the read module
-        if ((count == START) && (index == 9)) begin
+        if ((count == START) && (index == 8)) begin
             enabled <= 0;
             begin_read <= 1;
         end
@@ -43,7 +43,7 @@ always @ (posedge clk) begin
         end
 
         // case increment index, reset count for next bit
-        else if ((count == STOP) && (index != 9)) begin
+        else if ((count == STOP) && (index != 8)) begin
             count <= 0;
             index <= index + 1;
         end

@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Mar 22 18:56:35 2016
+// Created by SmartDesign Thu Mar 24 12:58:59 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -19,9 +19,12 @@ module n64_magic_box(
     PRDATA_1,
     PREADY_1,
     PSLVERR_1,
-    data_out,
-    enable_write_mod_wire,
-    write_module_active,
+    next_state0,
+    next_state1,
+    next_state2,
+    state0,
+    state1,
+    state2,
     // Inouts
     fab_pin
 );
@@ -42,9 +45,12 @@ input         PWRITE_1;
 output [31:0] PRDATA_1;
 output        PREADY_1;
 output        PSLVERR_1;
-output        data_out;
-output        enable_write_mod_wire;
-output        write_module_active;
+output        next_state0;
+output        next_state1;
+output        next_state2;
+output        state0;
+output        state1;
+output        state2;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -61,35 +67,47 @@ wire          BIF_1_1_PSLVERR;
 wire   [31:0] PWDATA_1;
 wire          PWRITE_1;
 wire          controller_reset;
-wire          data_out_net_0;
-wire          enable_write_mod_wire_net_0;
 wire          fab_pin;
 wire   [31:0] n64_serial_interface_0_button_data;
+wire          next_state0_net_0;
+wire          next_state1_net_0;
+wire          next_state2_net_0;
 wire          PCLK;
 wire          polling_enable;
 wire          PRESERN;
-wire          write_module_active_net_0;
+wire          state0_net_0;
+wire          state1_net_0;
+wire          state2_net_0;
 wire          BIF_1_1_PREADY_net_0;
 wire          BIF_1_1_PSLVERR_net_0;
-wire          data_out_net_1;
 wire   [31:0] BIF_1_1_PRDATA_net_0;
-wire          enable_write_mod_wire_net_1;
-wire          write_module_active_net_1;
+wire          next_state0_net_1;
+wire          next_state1_net_1;
+wire          next_state2_net_1;
+wire          state0_net_1;
+wire          state1_net_1;
+wire          state2_net_1;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign BIF_1_1_PREADY_net_0        = BIF_1_1_PREADY;
-assign PREADY_1                    = BIF_1_1_PREADY_net_0;
-assign BIF_1_1_PSLVERR_net_0       = BIF_1_1_PSLVERR;
-assign PSLVERR_1                   = BIF_1_1_PSLVERR_net_0;
-assign data_out_net_1              = data_out_net_0;
-assign data_out                    = data_out_net_1;
-assign BIF_1_1_PRDATA_net_0        = BIF_1_1_PRDATA;
-assign PRDATA_1[31:0]              = BIF_1_1_PRDATA_net_0;
-assign enable_write_mod_wire_net_1 = enable_write_mod_wire_net_0;
-assign enable_write_mod_wire       = enable_write_mod_wire_net_1;
-assign write_module_active_net_1   = write_module_active_net_0;
-assign write_module_active         = write_module_active_net_1;
+assign BIF_1_1_PREADY_net_0  = BIF_1_1_PREADY;
+assign PREADY_1              = BIF_1_1_PREADY_net_0;
+assign BIF_1_1_PSLVERR_net_0 = BIF_1_1_PSLVERR;
+assign PSLVERR_1             = BIF_1_1_PSLVERR_net_0;
+assign BIF_1_1_PRDATA_net_0  = BIF_1_1_PRDATA;
+assign PRDATA_1[31:0]        = BIF_1_1_PRDATA_net_0;
+assign next_state0_net_1     = next_state0_net_0;
+assign next_state0           = next_state0_net_1;
+assign next_state1_net_1     = next_state1_net_0;
+assign next_state1           = next_state1_net_1;
+assign next_state2_net_1     = next_state2_net_0;
+assign next_state2           = next_state2_net_1;
+assign state0_net_1          = state0_net_0;
+assign state0                = state0_net_1;
+assign state1_net_1          = state1_net_0;
+assign state1                = state1_net_1;
+assign state2_net_1          = state2_net_0;
+assign state2                = state2_net_1;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -115,16 +133,19 @@ n64_apb_interface n64_apb_interface_0(
 //--------n64_serial_interface
 n64_serial_interface n64_serial_interface_0(
         // Inputs
-        .clk                      ( PCLK ),
-        .polling_enable           ( polling_enable ),
-        .controller_reset         ( controller_reset ),
+        .clk              ( PCLK ),
+        .polling_enable   ( polling_enable ),
+        .controller_reset ( controller_reset ),
         // Outputs
-        .button_data              ( n64_serial_interface_0_button_data ),
-        .data_out                 ( data_out_net_0 ),
-        .write_module_begin_DEBUG ( enable_write_mod_wire_net_0 ),
-        .write_module_active      ( write_module_active_net_0 ),
+        .button_data      ( n64_serial_interface_0_button_data ),
+        .next_state0      ( next_state0_net_0 ),
+        .next_state1      ( next_state1_net_0 ),
+        .next_state2      ( next_state2_net_0 ),
+        .state0           ( state0_net_0 ),
+        .state1           ( state1_net_0 ),
+        .state2           ( state2_net_0 ),
         // Inouts
-        .fab_pin                  ( fab_pin ) 
+        .fab_pin          ( fab_pin ) 
         );
 
 
