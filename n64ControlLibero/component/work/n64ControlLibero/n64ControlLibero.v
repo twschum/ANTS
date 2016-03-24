@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Mar 24 14:07:01 2016
+// Created by SmartDesign Thu Mar 24 14:43:22 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -11,6 +11,7 @@ module n64ControlLibero(
     MSS_RESET_N,
     UART_0_RXD,
     // Outputs
+    GPIO_0_OUT,
     UART_0_TXD,
     read_bit_data_valid,
     read_data_bit,
@@ -26,6 +27,7 @@ input  UART_0_RXD;
 //--------------------------------------------------------------------
 // Output
 //--------------------------------------------------------------------
+output GPIO_0_OUT;
 output UART_0_TXD;
 output read_bit_data_valid;
 output read_data_bit;
@@ -45,6 +47,7 @@ wire          CoreAPB3_0_APBmslave0_PSLVERR;
 wire   [31:0] CoreAPB3_0_APBmslave0_PWDATA;
 wire          CoreAPB3_0_APBmslave0_PWRITE;
 wire          fab_pin;
+wire          GPIO_0_OUT_net_0;
 wire          MSS_RESET_N;
 wire          n64ControlLibero_MSS_0_FAB_CLK;
 wire          n64ControlLibero_MSS_0_M2F_RESET_N;
@@ -62,6 +65,7 @@ wire          UART_0_TXD_net_0;
 wire          UART_0_TXD_net_1;
 wire          read_data_bit_net_1;
 wire          read_bit_data_valid_net_1;
+wire          GPIO_0_OUT_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -122,6 +126,8 @@ assign read_data_bit_net_1       = read_data_bit_net_0;
 assign read_data_bit             = read_data_bit_net_1;
 assign read_bit_data_valid_net_1 = read_bit_data_valid_net_0;
 assign read_bit_data_valid       = read_bit_data_valid_net_1;
+assign GPIO_0_OUT_net_1          = GPIO_0_OUT_net_0;
+assign GPIO_0_OUT                = GPIO_0_OUT_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -295,7 +301,8 @@ n64ControlLibero_MSS n64ControlLibero_MSS_0(
         .FAB_CLK     ( n64ControlLibero_MSS_0_FAB_CLK ),
         .M2F_RESET_N ( n64ControlLibero_MSS_0_M2F_RESET_N ),
         .MSSPADDR    ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR ),
-        .MSSPWDATA   ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PWDATA ) 
+        .MSSPWDATA   ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PWDATA ),
+        .GPIO_0_OUT  ( GPIO_0_OUT_net_0 ) 
         );
 
 

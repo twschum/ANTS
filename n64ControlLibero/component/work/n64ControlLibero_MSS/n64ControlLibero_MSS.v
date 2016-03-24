@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Mar 22 14:36:58 2016
+// Created by SmartDesign Thu Mar 24 14:43:18 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -15,6 +15,7 @@ module n64ControlLibero_MSS(
     UART_0_RXD,
     // Outputs
     FAB_CLK,
+    GPIO_0_OUT,
     M2F_RESET_N,
     MSSPADDR,
     MSSPENABLE,
@@ -36,6 +37,7 @@ input         UART_0_RXD;
 // Output
 //--------------------------------------------------------------------
 output        FAB_CLK;
+output        GPIO_0_OUT;
 output        M2F_RESET_N;
 output [19:0] MSSPADDR;
 output        MSSPENABLE;
@@ -46,12 +48,14 @@ output        UART_0_TXD;
 //--------------------------------------------------------------------
 // Nets
 //--------------------------------------------------------------------
+wire          GPIO_0_OUT_net_0;
 wire          MSS_ADLIB_INST_EMCCLK;
 wire          MSS_ADLIB_INST_FCLK;
 wire          MSS_ADLIB_INST_MACCLK;
 wire          MSS_ADLIB_INST_MACCLKCCC;
 wire          MSS_ADLIB_INST_PLLLOCK;
 wire          MSS_ADLIB_INST_SYNCCLKFDBK;
+wire   [0:0]  MSS_GPIO_0_GPIO_0_OUT_D;
 wire          MSS_RESET_0_MSS_RESET_N_Y;
 wire          MSS_RESET_N;
 wire          MSS_UART_0_RXD_Y;
@@ -75,6 +79,8 @@ wire          net_71_net_0;
 wire   [19:0] net_72_PADDR_net_0;
 wire   [31:0] net_72_PWDATA_net_0;
 wire          UART_0_TXD_net_1;
+wire          GPIO_0_OUT_net_1;
+wire   [31:0] GPO_net_0;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -118,6 +124,12 @@ assign net_72_PWDATA_net_0              = net_72_PWDATA;
 assign MSSPWDATA[31:0]                  = net_72_PWDATA_net_0;
 assign UART_0_TXD_net_1                 = UART_0_TXD_net_0;
 assign UART_0_TXD                       = UART_0_TXD_net_1;
+assign GPIO_0_OUT_net_1                 = GPIO_0_OUT_net_0;
+assign GPIO_0_OUT                       = GPIO_0_OUT_net_1;
+//--------------------------------------------------------------------
+// Slices assignments
+//--------------------------------------------------------------------
+assign MSS_GPIO_0_GPIO_0_OUT_D[0] = GPO_net_0[0:0];
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -266,7 +278,7 @@ MSS_ADLIB_INST(
         .DEEPSLEEP      (  ),
         .SLEEP          (  ),
         .TXEV           (  ),
-        .GPO            (  ),
+        .GPO            ( GPO_net_0 ),
         .UART0RTSn      (  ),
         .UART0DTRn      (  ),
         .UART1RTSn      (  ),
@@ -379,6 +391,17 @@ n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC MSS_CCC_0(
         .MSS_LOCK       ( MSS_ADLIB_INST_PLLLOCK ),
         .MAC_CLK_CCC    ( MSS_ADLIB_INST_MACCLKCCC ),
         .MAC_CLK_IO     ( MSS_ADLIB_INST_MACCLK ) 
+        );
+
+//--------OUTBUF_MSS
+OUTBUF_MSS #( 
+        .ACT_CONFIG ( 0 ),
+        .ACT_PIN    ( "V1" ) )
+MSS_GPIO_0_GPIO_0_OUT(
+        // Inputs
+        .D   ( MSS_GPIO_0_GPIO_0_OUT_D ),
+        // Outputs
+        .PAD ( GPIO_0_OUT_net_0 ) 
         );
 
 //--------INBUF_MSS

@@ -3,39 +3,39 @@ n64ControlLibero_MSS_MSS_CM3_0_app:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000075a8  20000000  20000000  00008000  2**4
+  0 .text         000075a0  20000000  20000000  00008000  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .ARM.exidx    00000008  200075a8  200075a8  0000f5a8  2**2
+  1 .ARM.exidx    00000008  200075a0  200075a0  0000f5a0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .data         00000520  200075b0  200075b0  0000f5b0  2**2
+  2 .data         00000520  200075a8  200075a8  0000f5a8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          00000098  20007ad0  20007ad0  0000fad0  2**2
+  3 .bss          00000098  20007ac8  20007ac8  0000fac8  2**2
                   ALLOC
-  4 .stack        00003000  20007b68  20007b68  0000fad0  2**0
+  4 .stack        00003000  20007b60  20007b60  0000fac8  2**0
                   ALLOC
-  5 .comment      00000102  00000000  00000000  0000fad0  2**0
+  5 .comment      00000102  00000000  00000000  0000fac8  2**0
                   CONTENTS, READONLY
-  6 .debug_aranges 00000238  00000000  00000000  0000fbd2  2**0
+  6 .debug_aranges 00000238  00000000  00000000  0000fbca  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_pubnames 000004dc  00000000  00000000  0000fe0a  2**0
+  7 .debug_pubnames 000004dc  00000000  00000000  0000fe02  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_info   00004442  00000000  00000000  000102e6  2**0
+  8 .debug_info   00004442  00000000  00000000  000102de  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_abbrev 00000a84  00000000  00000000  00014728  2**0
+  9 .debug_abbrev 00000a84  00000000  00000000  00014720  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_line   00001854  00000000  00000000  000151ac  2**0
+ 10 .debug_line   00001854  00000000  00000000  000151a4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_frame  00001134  00000000  00000000  00016a00  2**2
+ 11 .debug_frame  00001134  00000000  00000000  000169f8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_str    00001ce9  00000000  00000000  00017b34  2**0
+ 12 .debug_str    00001ce9  00000000  00000000  00017b2c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_loc    00000e59  00000000  00000000  0001981d  2**0
+ 13 .debug_loc    00000e59  00000000  00000000  00019815  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_macinfo 0002a729  00000000  00000000  0001a676  2**0
+ 14 .debug_macinfo 0002a729  00000000  00000000  0001a66e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .ARM.attributes 00000025  00000000  00000000  00044d9f  2**0
+ 15 .ARM.attributes 00000025  00000000  00000000  00044d97  2**0
                   CONTENTS, READONLY
- 16 .debug_ranges 00000238  00000000  00000000  00044dc4  2**0
+ 16 .debug_ranges 00000238  00000000  00000000  00044dbc  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -717,18 +717,18 @@ Disassembly of section .text:
 20000440:	00000000 	.word	0x00000000
 20000444:	20000000 	.word	0x20000000
 20000448:	20000000 	.word	0x20000000
-2000044c:	200075b0 	.word	0x200075b0
-20000450:	200075b0 	.word	0x200075b0
-20000454:	200075b0 	.word	0x200075b0
-20000458:	20007ad0 	.word	0x20007ad0
+2000044c:	200075a8 	.word	0x200075a8
+20000450:	200075a8 	.word	0x200075a8
+20000454:	200075a8 	.word	0x200075a8
+20000458:	20007ac8 	.word	0x20007ac8
 2000045c:	00000000 	.word	0x00000000
-20000460:	20007ad0 	.word	0x20007ad0
-20000464:	20007b68 	.word	0x20007b68
+20000460:	20007ac8 	.word	0x20007ac8
+20000464:	20007b60 	.word	0x20007b60
 20000468:	20000d59 	.word	0x20000d59
 2000046c:	200004a1 	.word	0x200004a1
 
 20000470 <__do_global_dtors_aux>:
-20000470:	f647 23d0 	movw	r3, #31440	; 0x7ad0
+20000470:	f647 23c8 	movw	r3, #31432	; 0x7ac8
 20000474:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000478:	781a      	ldrb	r2, [r3, #0]
 2000047a:	b90a      	cbnz	r2, 20000480 <__do_global_dtors_aux+0x10>
@@ -738,7 +738,7 @@ Disassembly of section .text:
 20000482:	bf00      	nop
 
 20000484 <frame_dummy>:
-20000484:	f247 50b0 	movw	r0, #30128	; 0x75b0
+20000484:	f247 50a8 	movw	r0, #30120	; 0x75a8
 20000488:	f2c2 0000 	movt	r0, #8192	; 0x2000
 2000048c:	b508      	push	{r3, lr}
 2000048e:	6803      	ldr	r3, [r0, #0]
@@ -843,16 +843,16 @@ int main() {
         /*
          * Toggle between manual and automatic modes, with the laser indicator
          */
-        if (n64_buttons.Start && !last_buttons.Start) {
+        if (n64_buttons.A && !last_buttons.A) {
 2000052c:	7a3b      	ldrb	r3, [r7, #8]
-2000052e:	f003 0308 	and.w	r3, r3, #8
+2000052e:	f003 0301 	and.w	r3, r3, #1
 20000532:	2b00      	cmp	r3, #0
 20000534:	d02f      	beq.n	20000596 <main+0xf6>
 20000536:	793b      	ldrb	r3, [r7, #4]
-20000538:	f003 0308 	and.w	r3, r3, #8
+20000538:	f003 0301 	and.w	r3, r3, #1
 2000053c:	2b00      	cmp	r3, #0
 2000053e:	d12a      	bne.n	20000596 <main+0xf6>
-            printf("Start pressed: ");
+            printf("A pressed: ");
 20000540:	f247 1068 	movw	r0, #29032	; 0x7168
 20000544:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20000548:	f000 fcf6 	bl	20000f38 <printf>
@@ -865,7 +865,7 @@ int main() {
 20000552:	f04f 0301 	mov.w	r3, #1
 20000556:	73fb      	strb	r3, [r7, #15]
                 printf("manual mode, laser on!\n");
-20000558:	f247 1078 	movw	r0, #29048	; 0x7178
+20000558:	f247 1074 	movw	r0, #29044	; 0x7174
 2000055c:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20000560:	f000 fd58 	bl	20001014 <puts>
                 MSS_GPIO_set_output(MSS_GPIO_0, 1);
@@ -883,7 +883,7 @@ int main() {
 20000578:	f04f 0300 	mov.w	r3, #0
 2000057c:	73fb      	strb	r3, [r7, #15]
                 printf("automatic mode, laser off :(\n");
-2000057e:	f247 1090 	movw	r0, #29072	; 0x7190
+2000057e:	f247 108c 	movw	r0, #29068	; 0x718c
 20000582:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20000586:	f000 fd45 	bl	20001014 <puts>
                 MSS_GPIO_set_output(MSS_GPIO_0, 0);
@@ -1283,7 +1283,7 @@ void n64_print_state(n64_state_t* state) {
 2000071c:	910a      	str	r1, [sp, #40]	; 0x28
 2000071e:	920b      	str	r2, [sp, #44]	; 0x2c
 20000720:	930c      	str	r3, [sp, #48]	; 0x30
-20000722:	f247 10b0 	movw	r0, #29104	; 0x71b0
+20000722:	f247 10ac 	movw	r0, #29100	; 0x71ac
 20000726:	f2c2 0000 	movt	r0, #8192	; 0x2000
 2000072a:	4629      	mov	r1, r5
 2000072c:	4622      	mov	r2, r4
@@ -1384,19 +1384,19 @@ int _write_r( void * reent, int file, char * ptr, int len )
      * called.
      */
     if ( !g_stdio_uart_init_done )
-20000776:	f647 23d4 	movw	r3, #31444	; 0x7ad4
+20000776:	f647 23cc 	movw	r3, #31436	; 0x7acc
 2000077a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 2000077e:	681b      	ldr	r3, [r3, #0]
 20000780:	b983      	cbnz	r3, 200007a4 <_write_r+0x34>
     {
         MSS_UART_init( &g_mss_uart0, ACTEL_STDIO_BAUD_RATE, (MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY));
-20000782:	f647 3038 	movw	r0, #31544	; 0x7b38
+20000782:	f647 3030 	movw	r0, #31536	; 0x7b30
 20000786:	f2c2 0000 	movt	r0, #8192	; 0x2000
 2000078a:	f44f 4161 	mov.w	r1, #57600	; 0xe100
 2000078e:	f04f 0203 	mov.w	r2, #3
 20000792:	f000 f955 	bl	20000a40 <MSS_UART_init>
         g_stdio_uart_init_done = 1;
-20000796:	f647 23d4 	movw	r3, #31444	; 0x7ad4
+20000796:	f647 23cc 	movw	r3, #31436	; 0x7acc
 2000079a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 2000079e:	f04f 0201 	mov.w	r2, #1
 200007a2:	601a      	str	r2, [r3, #0]
@@ -1406,7 +1406,7 @@ int _write_r( void * reent, int file, char * ptr, int len )
      * Output text to the UART.
      */
     MSS_UART_polled_tx( &g_mss_uart0, (uint8_t *)ptr, len );
-200007a4:	f647 3038 	movw	r0, #31544	; 0x7b38
+200007a4:	f647 3030 	movw	r0, #31536	; 0x7b30
 200007a8:	f2c2 0000 	movt	r0, #8192	; 0x2000
 200007ac:	4629      	mov	r1, r5
 200007ae:	4622      	mov	r2, r4
@@ -1434,21 +1434,21 @@ caddr_t _sbrk(int incr)
     char * stack_ptr;
     
     if (heap_end == 0)
-200007ba:	f647 23d8 	movw	r3, #31448	; 0x7ad8
+200007ba:	f647 23d0 	movw	r3, #31440	; 0x7ad0
 200007be:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200007c2:	681b      	ldr	r3, [r3, #0]
 200007c4:	b943      	cbnz	r3, 200007d8 <_sbrk+0x20>
     {
       heap_end = &_end;
-200007c6:	f647 23d8 	movw	r3, #31448	; 0x7ad8
+200007c6:	f647 23d0 	movw	r3, #31440	; 0x7ad0
 200007ca:	f2c2 0300 	movt	r3, #8192	; 0x2000
-200007ce:	f647 3268 	movw	r2, #31592	; 0x7b68
+200007ce:	f647 3260 	movw	r2, #31584	; 0x7b60
 200007d2:	f2c2 0200 	movt	r2, #8192	; 0x2000
 200007d6:	601a      	str	r2, [r3, #0]
     }
     
     prev_heap_end = heap_end;
-200007d8:	f647 23d8 	movw	r3, #31448	; 0x7ad8
+200007d8:	f647 23d0 	movw	r3, #31440	; 0x7ad0
 200007dc:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200007e0:	681a      	ldr	r2, [r3, #0]
     asm volatile ("MRS %0, msp" : "=r" (stack_ptr) );
@@ -1461,7 +1461,7 @@ caddr_t _sbrk(int incr)
       _write_r ((void *)0, 1, "Heap and stack collision\n", 25);
 200007ec:	f04f 0000 	mov.w	r0, #0
 200007f0:	f04f 0101 	mov.w	r1, #1
-200007f4:	f247 2250 	movw	r2, #29264	; 0x7250
+200007f4:	f247 224c 	movw	r2, #29260	; 0x724c
 200007f8:	f2c2 0200 	movt	r2, #8192	; 0x2000
 200007fc:	f04f 0319 	mov.w	r3, #25
 20000800:	f7ff ffb6 	bl	20000770 <_write_r>
@@ -1471,7 +1471,7 @@ caddr_t _sbrk(int incr)
     }
   
     heap_end += incr;
-2000080c:	f647 23d8 	movw	r3, #31448	; 0x7ad8
+2000080c:	f647 23d0 	movw	r3, #31440	; 0x7ad0
 20000810:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000814:	6018      	str	r0, [r3, #0]
     return (caddr_t) prev_heap_end;
@@ -1493,11 +1493,11 @@ caddr_t _sbrk(int incr)
     uint8_t status;
 
     ASSERT( (this_uart == &g_mss_uart0) || (this_uart == &g_mss_uart1) );
-20000820:	f647 3338 	movw	r3, #31544	; 0x7b38
+20000820:	f647 3330 	movw	r3, #31536	; 0x7b30
 20000824:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000828:	4298      	cmp	r0, r3
 2000082a:	d006      	beq.n	2000083a <MSS_UART_polled_tx+0x1e>
-2000082c:	f647 3310 	movw	r3, #31504	; 0x7b10
+2000082c:	f647 3308 	movw	r3, #31496	; 0x7b08
 20000830:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000834:	4298      	cmp	r0, r3
 20000836:	d000      	beq.n	2000083a <MSS_UART_polled_tx+0x1e>
@@ -1510,11 +1510,11 @@ caddr_t _sbrk(int incr)
 20000840:	be00      	bkpt	0x0000
 
     if( ( (this_uart == &g_mss_uart0) || (this_uart == &g_mss_uart1) ) &&
-20000842:	f647 3338 	movw	r3, #31544	; 0x7b38
+20000842:	f647 3330 	movw	r3, #31536	; 0x7b30
 20000846:	f2c2 0300 	movt	r3, #8192	; 0x2000
 2000084a:	4298      	cmp	r0, r3
 2000084c:	d005      	beq.n	2000085a <MSS_UART_polled_tx+0x3e>
-2000084e:	f647 3310 	movw	r3, #31504	; 0x7b10
+2000084e:	f647 3308 	movw	r3, #31496	; 0x7b08
 20000852:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000856:	4298      	cmp	r0, r3
 20000858:	d133      	bne.n	200008c2 <MSS_UART_polled_tx+0xa6>
@@ -1632,11 +1632,11 @@ MSS_UART_isr
     uint8_t iirf;
 
     ASSERT( (this_uart == &g_mss_uart0) || (this_uart == &g_mss_uart1) );
-200008ca:	f647 3338 	movw	r3, #31544	; 0x7b38
+200008ca:	f647 3330 	movw	r3, #31536	; 0x7b30
 200008ce:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200008d2:	4298      	cmp	r0, r3
 200008d4:	d007      	beq.n	200008e6 <MSS_UART_isr+0x1e>
-200008d6:	f647 3310 	movw	r3, #31504	; 0x7b10
+200008d6:	f647 3308 	movw	r3, #31496	; 0x7b08
 200008da:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200008de:	4298      	cmp	r0, r3
 200008e0:	d001      	beq.n	200008e6 <MSS_UART_isr+0x1e>
@@ -1738,11 +1738,11 @@ default_tx_handler
     uint8_t status;
 
     ASSERT( (this_uart == &g_mss_uart0) || (this_uart == &g_mss_uart1) );
-2000093a:	f647 3338 	movw	r3, #31544	; 0x7b38
+2000093a:	f647 3330 	movw	r3, #31536	; 0x7b30
 2000093e:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000942:	4298      	cmp	r0, r3
 20000944:	d006      	beq.n	20000954 <default_tx_handler+0x1c>
-20000946:	f647 3310 	movw	r3, #31504	; 0x7b10
+20000946:	f647 3308 	movw	r3, #31496	; 0x7b08
 2000094a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 2000094e:	4298      	cmp	r0, r3
 20000950:	d000      	beq.n	20000954 <default_tx_handler+0x1c>
@@ -1757,11 +1757,11 @@ default_tx_handler
 2000095e:	be00      	bkpt	0x0000
 
     if( ( (this_uart == &g_mss_uart0) || (this_uart == &g_mss_uart1) ) &&
-20000960:	f647 3338 	movw	r3, #31544	; 0x7b38
+20000960:	f647 3330 	movw	r3, #31536	; 0x7b30
 20000964:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000968:	4298      	cmp	r0, r3
 2000096a:	d005      	beq.n	20000978 <default_tx_handler+0x40>
-2000096c:	f647 3310 	movw	r3, #31504	; 0x7b10
+2000096c:	f647 3308 	movw	r3, #31496	; 0x7b08
 20000970:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000974:	4298      	cmp	r0, r3
 20000976:	d130      	bne.n	200009da <default_tx_handler+0xa2>
@@ -1870,7 +1870,7 @@ void UART0_IRQHandler( void )
 200009e6:	468d      	mov	sp, r1
 200009e8:	b501      	push	{r0, lr}
     MSS_UART_isr( &g_mss_uart0 );
-200009ea:	f647 3038 	movw	r0, #31544	; 0x7b38
+200009ea:	f647 3030 	movw	r0, #31536	; 0x7b30
 200009ee:	f2c2 0000 	movt	r0, #8192	; 0x2000
 200009f2:	f7ff ff69 	bl	200008c8 <MSS_UART_isr>
  * Clear the pending bit for the specified interrupt. 
@@ -1902,7 +1902,7 @@ void UART1_IRQHandler( void )
 20000a16:	468d      	mov	sp, r1
 20000a18:	b501      	push	{r0, lr}
     MSS_UART_isr( &g_mss_uart1 );
-20000a1a:	f647 3010 	movw	r0, #31504	; 0x7b10
+20000a1a:	f647 3008 	movw	r0, #31496	; 0x7b08
 20000a1e:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20000a22:	f7ff ff51 	bl	200008c8 <MSS_UART_isr>
 20000a26:	f24e 1300 	movw	r3, #57600	; 0xe100
@@ -1933,11 +1933,11 @@ void UART1_IRQHandler( void )
     /* The driver expects g_mss_uart0 and g_mss_uart1 to be the only
      * mss_uart_instance_t instances used to identify UART0 and UART1. */
     ASSERT( (this_uart == &g_mss_uart0) || (this_uart == &g_mss_uart1) );
-20000a48:	f647 3338 	movw	r3, #31544	; 0x7b38
+20000a48:	f647 3330 	movw	r3, #31536	; 0x7b30
 20000a4c:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000a50:	4298      	cmp	r0, r3
 20000a52:	d006      	beq.n	20000a62 <MSS_UART_init+0x22>
-20000a54:	f647 3310 	movw	r3, #31504	; 0x7b10
+20000a54:	f647 3308 	movw	r3, #31496	; 0x7b08
 20000a58:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000a5c:	4298      	cmp	r0, r3
 20000a5e:	d000      	beq.n	20000a62 <MSS_UART_init+0x22>
@@ -1954,13 +1954,13 @@ void UART1_IRQHandler( void )
 20000a66:	f000 f8df 	bl	20000c28 <SystemCoreClockUpdate>
 
     if ( this_uart == &g_mss_uart0 )
-20000a6a:	f647 3338 	movw	r3, #31544	; 0x7b38
+20000a6a:	f647 3330 	movw	r3, #31536	; 0x7b30
 20000a6e:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000a72:	429c      	cmp	r4, r3
 20000a74:	d126      	bne.n	20000ac4 <MSS_UART_init+0x84>
     {
         this_uart->hw_reg = UART0;
-20000a76:	f647 3338 	movw	r3, #31544	; 0x7b38
+20000a76:	f647 3330 	movw	r3, #31536	; 0x7b30
 20000a7a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000a7e:	f04f 4280 	mov.w	r2, #1073741824	; 0x40000000
 20000a82:	601a      	str	r2, [r3, #0]
@@ -1972,7 +1972,7 @@ void UART1_IRQHandler( void )
 20000a8e:	811a      	strh	r2, [r3, #8]
 
         pclk_freq = g_FrequencyPCLK0;
-20000a90:	f247 53bc 	movw	r3, #30140	; 0x75bc
+20000a90:	f247 53b4 	movw	r3, #30132	; 0x75b4
 20000a94:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000a98:	6818      	ldr	r0, [r3, #0]
 
@@ -2011,7 +2011,7 @@ void UART1_IRQHandler( void )
 20000adc:	8123      	strh	r3, [r4, #8]
 
         pclk_freq = g_FrequencyPCLK1;
-20000ade:	f247 53c0 	movw	r3, #30144	; 0x75c0
+20000ade:	f247 53b8 	movw	r3, #30136	; 0x75b8
 20000ae2:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000ae6:	6818      	ldr	r0, [r3, #0]
 
@@ -2176,7 +2176,7 @@ void MSS_GPIO_init( void )
     for ( i = 0U; i < NB_OF_GPIO; ++i )
     {
         NVIC_ClearPendingIRQ( g_gpio_irqn_lut[i] );
-20000ba6:	f247 206c 	movw	r0, #29292	; 0x726c
+20000ba6:	f247 2068 	movw	r0, #29288	; 0x7268
 20000baa:	f2c2 0000 	movt	r0, #8192	; 0x2000
  * Clear the pending bit for the specified interrupt. 
  * The interrupt number cannot be a negative value.
@@ -2233,7 +2233,7 @@ static __INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn)
     if ( gpio_idx < NB_OF_GPIO )
     {
         *(g_config_reg_lut[gpio_idx]) = config;
-20000bf8:	f247 23ac 	movw	r3, #29356	; 0x72ac
+20000bf8:	f247 23a8 	movw	r3, #29352	; 0x72a8
 20000bfc:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000c00:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
 20000c04:	6019      	str	r1, [r3, #0]
@@ -2286,7 +2286,7 @@ void SystemCoreClockUpdate (void)
     uint32_t FabDiv;
 
     const uint32_t pclk_div_lut[4] = { 1uL, 2uL, 4uL, 1uL };
-20000c2c:	f247 332c 	movw	r3, #29484	; 0x732c
+20000c2c:	f247 3328 	movw	r3, #29480	; 0x7328
 20000c30:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000c34:	46ec      	mov	ip, sp
 20000c36:	cb0f      	ldmia	r3!, {r0, r1, r2, r3}
@@ -2428,33 +2428,33 @@ void SystemCoreClockUpdate (void)
     
     /* Read system clock from eNVM spare pages. */
     SystemCoreClock = GetSystemClock();
-20000d06:	f247 52c4 	movw	r2, #30148	; 0x75c4
+20000d06:	f247 52bc 	movw	r2, #30140	; 0x75bc
 20000d0a:	f2c2 0200 	movt	r2, #8192	; 0x2000
 20000d0e:	6013      	str	r3, [r2, #0]
     g_FrequencyPCLK0 = SystemCoreClock / PclkDiv0;
-20000d10:	f247 52bc 	movw	r2, #30140	; 0x75bc
+20000d10:	f247 52b4 	movw	r2, #30132	; 0x75b4
 20000d14:	f2c2 0200 	movt	r2, #8192	; 0x2000
 20000d18:	fbb3 f5f5 	udiv	r5, r3, r5
 20000d1c:	6015      	str	r5, [r2, #0]
     g_FrequencyPCLK1 = SystemCoreClock / PclkDiv1;
-20000d1e:	f247 52c0 	movw	r2, #30144	; 0x75c0
+20000d1e:	f247 52b8 	movw	r2, #30136	; 0x75b8
 20000d22:	f2c2 0200 	movt	r2, #8192	; 0x2000
 20000d26:	fbb3 f4f4 	udiv	r4, r3, r4
 20000d2a:	6014      	str	r4, [r2, #0]
     g_FrequencyACE = SystemCoreClock / AceDiv;
-20000d2c:	f247 52b4 	movw	r2, #30132	; 0x75b4
+20000d2c:	f247 52ac 	movw	r2, #30124	; 0x75ac
 20000d30:	f2c2 0200 	movt	r2, #8192	; 0x2000
 20000d34:	fbb3 f0f0 	udiv	r0, r3, r0
 20000d38:	6010      	str	r0, [r2, #0]
     g_FrequencyFPGA = SystemCoreClock / FabDiv;
-20000d3a:	f247 52b8 	movw	r2, #30136	; 0x75b8
+20000d3a:	f247 52b0 	movw	r2, #30128	; 0x75b0
 20000d3e:	f2c2 0200 	movt	r2, #8192	; 0x2000
 20000d42:	fbb3 f1f1 	udiv	r1, r3, r1
 20000d46:	6011      	str	r1, [r2, #0]
     
     /* Keep SystemFrequency as well as SystemCoreClock for legacy reasons. */
     SystemFrequency = SystemCoreClock;
-20000d48:	f247 52c8 	movw	r2, #30152	; 0x75c8
+20000d48:	f247 52c0 	movw	r2, #30144	; 0x75c0
 20000d4c:	f2c2 0200 	movt	r2, #8192	; 0x2000
 20000d50:	6013      	str	r3, [r2, #0]
 }
@@ -2464,8 +2464,8 @@ void SystemCoreClockUpdate (void)
 
 20000d58 <__libc_init_array>:
 20000d58:	b570      	push	{r4, r5, r6, lr}
-20000d5a:	f247 56a0 	movw	r6, #30112	; 0x75a0
-20000d5e:	f247 55a0 	movw	r5, #30112	; 0x75a0
+20000d5a:	f247 5698 	movw	r6, #30104	; 0x7598
+20000d5e:	f247 5598 	movw	r5, #30104	; 0x7598
 20000d62:	f2c2 0600 	movt	r6, #8192	; 0x2000
 20000d66:	f2c2 0500 	movt	r5, #8192	; 0x2000
 20000d6a:	1b76      	subs	r6, r6, r5
@@ -2477,12 +2477,12 @@ void SystemCoreClockUpdate (void)
 20000d78:	4798      	blx	r3
 20000d7a:	42a6      	cmp	r6, r4
 20000d7c:	d8f9      	bhi.n	20000d72 <__libc_init_array+0x1a>
-20000d7e:	f247 55a0 	movw	r5, #30112	; 0x75a0
-20000d82:	f247 56a4 	movw	r6, #30116	; 0x75a4
+20000d7e:	f247 5598 	movw	r5, #30104	; 0x7598
+20000d82:	f247 569c 	movw	r6, #30108	; 0x759c
 20000d86:	f2c2 0500 	movt	r5, #8192	; 0x2000
 20000d8a:	f2c2 0600 	movt	r6, #8192	; 0x2000
 20000d8e:	1b76      	subs	r6, r6, r5
-20000d90:	f006 fbfa 	bl	20007588 <_init>
+20000d90:	f006 fbf6 	bl	20007580 <_init>
 20000d94:	10b6      	asrs	r6, r6, #2
 20000d96:	d006      	beq.n	20000da6 <__libc_init_array+0x4e>
 20000d98:	2400      	movs	r4, #0
@@ -2628,7 +2628,7 @@ void SystemCoreClockUpdate (void)
 
 20000f38 <printf>:
 20000f38:	b40f      	push	{r0, r1, r2, r3}
-20000f3a:	f247 53cc 	movw	r3, #30156	; 0x75cc
+20000f3a:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20000f3e:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000f42:	b510      	push	{r4, lr}
 20000f44:	681c      	ldr	r4, [r3, #0]
@@ -2679,7 +2679,7 @@ void SystemCoreClockUpdate (void)
 20000fa2:	4608      	mov	r0, r1
 20000fa4:	460d      	mov	r5, r1
 20000fa6:	f000 f83d 	bl	20001024 <strlen>
-20000faa:	f247 2368 	movw	r3, #29288	; 0x7268
+20000faa:	f247 2364 	movw	r3, #29284	; 0x7264
 20000fae:	9501      	str	r5, [sp, #4]
 20000fb0:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000fb4:	9303      	str	r3, [sp, #12]
@@ -2695,7 +2695,7 @@ void SystemCoreClockUpdate (void)
 20000fc8:	b10c      	cbz	r4, 20000fce <_puts_r+0x32>
 20000fca:	69a3      	ldr	r3, [r4, #24]
 20000fcc:	b1eb      	cbz	r3, 2000100a <_puts_r+0x6e>
-20000fce:	f247 53cc 	movw	r3, #30156	; 0x75cc
+20000fce:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20000fd2:	4620      	mov	r0, r4
 20000fd4:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20000fd8:	681b      	ldr	r3, [r3, #0]
@@ -2724,7 +2724,7 @@ void SystemCoreClockUpdate (void)
 20001012:	bf00      	nop
 
 20001014 <puts>:
-20001014:	f247 53cc 	movw	r3, #30156	; 0x75cc
+20001014:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20001018:	4601      	mov	r1, r0
 2000101a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 2000101e:	6818      	ldr	r0, [r3, #0]
@@ -2794,19 +2794,19 @@ void SystemCoreClockUpdate (void)
 200010c0:	f8d9 3018 	ldr.w	r3, [r9, #24]
 200010c4:	2b00      	cmp	r3, #0
 200010c6:	f000 815a 	beq.w	2000137e <_vfprintf_r+0x2de>
-200010ca:	f247 33b8 	movw	r3, #29624	; 0x73b8
+200010ca:	f247 33b4 	movw	r3, #29620	; 0x73b4
 200010ce:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200010d2:	429e      	cmp	r6, r3
 200010d4:	bf08      	it	eq
 200010d6:	f8d9 6004 	ldreq.w	r6, [r9, #4]
 200010da:	d010      	beq.n	200010fe <_vfprintf_r+0x5e>
-200010dc:	f247 33d8 	movw	r3, #29656	; 0x73d8
+200010dc:	f247 33d4 	movw	r3, #29652	; 0x73d4
 200010e0:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200010e4:	429e      	cmp	r6, r3
 200010e6:	bf08      	it	eq
 200010e8:	f8d9 6008 	ldreq.w	r6, [r9, #8]
 200010ec:	d007      	beq.n	200010fe <_vfprintf_r+0x5e>
-200010ee:	f247 33f8 	movw	r3, #29688	; 0x73f8
+200010ee:	f247 33f4 	movw	r3, #29684	; 0x73f4
 200010f2:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200010f6:	429e      	cmp	r6, r3
 200010f8:	bf08      	it	eq
@@ -3024,7 +3024,7 @@ void SystemCoreClockUpdate (void)
 20001380:	f002 fcee 	bl	20003d60 <__sinit>
 20001384:	e6a1      	b.n	200010ca <_vfprintf_r+0x2a>
 20001386:	980a      	ldr	r0, [sp, #40]	; 0x28
-20001388:	f247 3c88 	movw	ip, #29576	; 0x7388
+20001388:	f247 3c84 	movw	ip, #29572	; 0x7384
 2000138c:	f2c2 0c00 	movt	ip, #8192	; 0x2000
 20001390:	9216      	str	r2, [sp, #88]	; 0x58
 20001392:	f010 0f20 	tst.w	r0, #32
@@ -3107,7 +3107,7 @@ void SystemCoreClockUpdate (void)
 2000146c:	2f00      	cmp	r7, #0
 2000146e:	dd48      	ble.n	20001502 <_vfprintf_r+0x462>
 20001470:	2f10      	cmp	r7, #16
-20001472:	f247 3844 	movw	r8, #29508	; 0x7344
+20001472:	f247 3840 	movw	r8, #29504	; 0x7340
 20001476:	bfd8      	it	le
 20001478:	f2c2 0800 	movtle	r8, #8192	; 0x2000
 2000147c:	dd30      	ble.n	200014e0 <_vfprintf_r+0x440>
@@ -3273,7 +3273,7 @@ void SystemCoreClockUpdate (void)
 20001640:	2f00      	cmp	r7, #0
 20001642:	dd4e      	ble.n	200016e2 <_vfprintf_r+0x642>
 20001644:	2f10      	cmp	r7, #16
-20001646:	f247 3844 	movw	r8, #29508	; 0x7344
+20001646:	f247 3840 	movw	r8, #29504	; 0x7340
 2000164a:	bfd8      	it	le
 2000164c:	f2c2 0800 	movtle	r8, #8192	; 0x2000
 20001650:	dd2e      	ble.n	200016b0 <_vfprintf_r+0x610>
@@ -3495,8 +3495,8 @@ void SystemCoreClockUpdate (void)
 20001898:	2800      	cmp	r0, #0
 2000189a:	f040 850b 	bne.w	200022b4 <_vfprintf_r+0x1214>
 2000189e:	f89d 3577 	ldrb.w	r3, [sp, #1399]	; 0x577
-200018a2:	f247 317c 	movw	r1, #29564	; 0x737c
-200018a6:	f247 3278 	movw	r2, #29560	; 0x7378
+200018a2:	f247 3178 	movw	r1, #29560	; 0x7378
+200018a6:	f247 3274 	movw	r2, #29556	; 0x7374
 200018aa:	9816      	ldr	r0, [sp, #88]	; 0x58
 200018ac:	f2c2 0100 	movt	r1, #8192	; 0x2000
 200018b0:	f2c2 0200 	movt	r2, #8192	; 0x2000
@@ -3569,7 +3569,7 @@ void SystemCoreClockUpdate (void)
 20001964:	f8dd c028 	ldr.w	ip, [sp, #40]	; 0x28
 20001968:	9116      	str	r1, [sp, #88]	; 0x58
 2000196a:	6803      	ldr	r3, [r0, #0]
-2000196c:	f247 3088 	movw	r0, #29576	; 0x7388
+2000196c:	f247 3084 	movw	r0, #29572	; 0x7384
 20001970:	f88d 1575 	strb.w	r1, [sp, #1397]	; 0x575
 20001974:	2130      	movs	r1, #48	; 0x30
 20001976:	f88d 1574 	strb.w	r1, [sp, #1396]	; 0x574
@@ -3665,7 +3665,7 @@ void SystemCoreClockUpdate (void)
 20001a62:	e4af      	b.n	200013c4 <_vfprintf_r+0x324>
 20001a64:	980a      	ldr	r0, [sp, #40]	; 0x28
 20001a66:	9216      	str	r2, [sp, #88]	; 0x58
-20001a68:	f247 3264 	movw	r2, #29540	; 0x7364
+20001a68:	f247 3260 	movw	r2, #29536	; 0x7360
 20001a6c:	f010 0f20 	tst.w	r0, #32
 20001a70:	f2c2 0200 	movt	r2, #8192	; 0x2000
 20001a74:	9219      	str	r2, [sp, #100]	; 0x64
@@ -3748,7 +3748,7 @@ void SystemCoreClockUpdate (void)
 20001b5a:	2301      	movs	r3, #1
 20001b5c:	6063      	str	r3, [r4, #4]
 20001b5e:	f8dd 2550 	ldr.w	r2, [sp, #1360]	; 0x550
-20001b62:	f247 33a4 	movw	r3, #29604	; 0x73a4
+20001b62:	f247 33a0 	movw	r3, #29600	; 0x73a0
 20001b66:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20001b6a:	6023      	str	r3, [r4, #0]
 20001b6c:	f8dd 3554 	ldr.w	r3, [sp, #1364]	; 0x554
@@ -4268,7 +4268,7 @@ void SystemCoreClockUpdate (void)
 200020fa:	f8cd 3550 	str.w	r3, [sp, #1360]	; 0x550
 200020fe:	f77f ae8d 	ble.w	20001e1c <_vfprintf_r+0xd7c>
 20002102:	e6ad      	b.n	20001e60 <_vfprintf_r+0xdc0>
-20002104:	20007354 	.word	0x20007354
+20002104:	20007350 	.word	0x20007350
 20002108:	f50d 62a8 	add.w	r2, sp, #1344	; 0x540
 2000210c:	4648      	mov	r0, r9
 2000210e:	4631      	mov	r1, r6
@@ -4433,7 +4433,7 @@ void SystemCoreClockUpdate (void)
 200022da:	2301      	movs	r3, #1
 200022dc:	6063      	str	r3, [r4, #4]
 200022de:	f8dd 2550 	ldr.w	r2, [sp, #1360]	; 0x550
-200022e2:	f247 33a4 	movw	r3, #29604	; 0x73a4
+200022e2:	f247 33a0 	movw	r3, #29600	; 0x73a0
 200022e6:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200022ea:	6023      	str	r3, [r4, #0]
 200022ec:	f8dd 3554 	ldr.w	r3, [sp, #1364]	; 0x554
@@ -4707,8 +4707,8 @@ void SystemCoreClockUpdate (void)
 200025c0:	468a      	mov	sl, r1
 200025c2:	f04f 0b00 	mov.w	fp, #0
 200025c6:	f7fe befd 	b.w	200013c4 <_vfprintf_r+0x324>
-200025ca:	f247 3284 	movw	r2, #29572	; 0x7384
-200025ce:	f247 3380 	movw	r3, #29568	; 0x7380
+200025ca:	f247 3280 	movw	r2, #29568	; 0x7380
+200025ce:	f247 337c 	movw	r3, #29564	; 0x737c
 200025d2:	9916      	ldr	r1, [sp, #88]	; 0x58
 200025d4:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200025d8:	f2c2 0200 	movt	r2, #8192	; 0x2000
@@ -4842,7 +4842,7 @@ void SystemCoreClockUpdate (void)
 20002744:	2f06      	cmp	r7, #6
 20002746:	bf28      	it	cs
 20002748:	2706      	movcs	r7, #6
-2000274a:	f247 319c 	movw	r1, #29596	; 0x739c
+2000274a:	f247 3198 	movw	r1, #29592	; 0x7398
 2000274e:	f2c2 0100 	movt	r1, #8192	; 0x2000
 20002752:	ea27 72e7 	bic.w	r2, r7, r7, asr #31
 20002756:	9710      	str	r7, [sp, #64]	; 0x40
@@ -5069,11 +5069,11 @@ void SystemCoreClockUpdate (void)
 2000299e:	9116      	str	r1, [sp, #88]	; 0x58
 200029a0:	920c      	str	r2, [sp, #48]	; 0x30
 200029a2:	e5ce      	b.n	20002542 <_vfprintf_r+0x14a2>
-200029a4:	20007354 	.word	0x20007354
+200029a4:	20007350 	.word	0x20007350
 
 200029a8 <vfprintf>:
 200029a8:	b410      	push	{r4}
-200029aa:	f247 54cc 	movw	r4, #30156	; 0x75cc
+200029aa:	f247 54c4 	movw	r4, #30148	; 0x75c4
 200029ae:	f2c2 0400 	movt	r4, #8192	; 0x2000
 200029b2:	468c      	mov	ip, r1
 200029b4:	4613      	mov	r3, r2
@@ -5086,7 +5086,7 @@ void SystemCoreClockUpdate (void)
 
 200029c4 <__swsetup_r>:
 200029c4:	b570      	push	{r4, r5, r6, lr}
-200029c6:	f247 55cc 	movw	r5, #30156	; 0x75cc
+200029c6:	f247 55c4 	movw	r5, #30148	; 0x75c4
 200029ca:	f2c2 0500 	movt	r5, #8192	; 0x2000
 200029ce:	4606      	mov	r6, r0
 200029d0:	460c      	mov	r4, r1
@@ -5095,15 +5095,15 @@ void SystemCoreClockUpdate (void)
 200029d6:	6983      	ldr	r3, [r0, #24]
 200029d8:	2b00      	cmp	r3, #0
 200029da:	d036      	beq.n	20002a4a <__swsetup_r+0x86>
-200029dc:	f247 33b8 	movw	r3, #29624	; 0x73b8
+200029dc:	f247 33b4 	movw	r3, #29620	; 0x73b4
 200029e0:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200029e4:	429c      	cmp	r4, r3
 200029e6:	d038      	beq.n	20002a5a <__swsetup_r+0x96>
-200029e8:	f247 33d8 	movw	r3, #29656	; 0x73d8
+200029e8:	f247 33d4 	movw	r3, #29652	; 0x73d4
 200029ec:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200029f0:	429c      	cmp	r4, r3
 200029f2:	d041      	beq.n	20002a78 <__swsetup_r+0xb4>
-200029f4:	f247 33f8 	movw	r3, #29688	; 0x73f8
+200029f4:	f247 33f4 	movw	r3, #29684	; 0x73f4
 200029f8:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200029fc:	429c      	cmp	r4, r3
 200029fe:	bf04      	itt	eq
@@ -5140,7 +5140,7 @@ void SystemCoreClockUpdate (void)
 20002a44:	f04f 30ff 	mov.w	r0, #4294967295
 20002a48:	bd70      	pop	{r4, r5, r6, pc}
 20002a4a:	f001 f989 	bl	20003d60 <__sinit>
-20002a4e:	f247 33b8 	movw	r3, #29624	; 0x73b8
+20002a4e:	f247 33b4 	movw	r3, #29620	; 0x73b4
 20002a52:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20002a56:	429c      	cmp	r4, r3
 20002a58:	d1c6      	bne.n	200029e8 <__swsetup_r+0x24>
@@ -5362,7 +5362,7 @@ void SystemCoreClockUpdate (void)
 20002c76:	6003      	str	r3, [r0, #0]
 20002c78:	f1b8 0f00 	cmp.w	r8, #0
 20002c7c:	f000 8095 	beq.w	20002daa <_dtoa_r+0x1c2>
-20002c80:	f247 30b4 	movw	r0, #29620	; 0x73b4
+20002c80:	f247 30b0 	movw	r0, #29616	; 0x73b0
 20002c84:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20002c88:	992e      	ldr	r1, [sp, #184]	; 0xb8
 20002c8a:	2900      	cmp	r1, #0
@@ -5473,7 +5473,7 @@ void SystemCoreClockUpdate (void)
 20002dae:	f426 0670 	bic.w	r6, r6, #15728640	; 0xf00000
 20002db2:	2e00      	cmp	r6, #0
 20002db4:	f47f af64 	bne.w	20002c80 <_dtoa_r+0x98>
-20002db8:	f247 30a8 	movw	r0, #29608	; 0x73a8
+20002db8:	f247 30a4 	movw	r0, #29604	; 0x73a4
 20002dbc:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20002dc0:	e762      	b.n	20002c88 <_dtoa_r+0xa0>
 20002dc2:	9f1f      	ldr	r7, [sp, #124]	; 0x7c
@@ -5498,10 +5498,10 @@ void SystemCoreClockUpdate (void)
 20002dfa:	9219      	str	r2, [sp, #100]	; 0x64
 20002dfc:	f1a1 71f8 	sub.w	r1, r1, #32505856	; 0x1f00000
 20002e00:	e770      	b.n	20002ce4 <_dtoa_r+0xfc>
-20002e02:	f247 30a4 	movw	r0, #29604	; 0x73a4
+20002e02:	f247 30a0 	movw	r0, #29600	; 0x73a0
 20002e06:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20002e0a:	e72e      	b.n	20002c6a <_dtoa_r+0x82>
-20002e0c:	f247 4360 	movw	r3, #29792	; 0x7460
+20002e0c:	f247 4358 	movw	r3, #29784	; 0x7458
 20002e10:	e9dd 0106 	ldrd	r0, r1, [sp, #24]
 20002e14:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20002e18:	eb03 03c6 	add.w	r3, r3, r6, lsl #3
@@ -5518,7 +5518,7 @@ void SystemCoreClockUpdate (void)
 20002e3c:	3fc68a28 	.word	0x3fc68a28
 20002e40:	509f79fb 	.word	0x509f79fb
 20002e44:	3fd34413 	.word	0x3fd34413
-20002e48:	200073a5 	.word	0x200073a5
+20002e48:	200073a1 	.word	0x200073a1
 20002e4c:	2300      	movs	r3, #0
 20002e4e:	f04f 30ff 	mov.w	r0, #4294967295
 20002e52:	461f      	mov	r7, r3
@@ -5542,7 +5542,7 @@ void SystemCoreClockUpdate (void)
 20002e78:	f000 815b 	beq.w	20003132 <_dtoa_r+0x54a>
 20002e7c:	2e00      	cmp	r6, #0
 20002e7e:	f340 842a 	ble.w	200036d6 <_dtoa_r+0xaee>
-20002e82:	f247 4360 	movw	r3, #29792	; 0x7460
+20002e82:	f247 4358 	movw	r3, #29784	; 0x7458
 20002e86:	f006 020f 	and.w	r2, r6, #15
 20002e8a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20002e8e:	1135      	asrs	r5, r6, #4
@@ -5551,7 +5551,7 @@ void SystemCoreClockUpdate (void)
 20002e98:	e9d3 0100 	ldrd	r0, r1, [r3]
 20002e9c:	e9cd 010c 	strd	r0, r1, [sp, #48]	; 0x30
 20002ea0:	f000 82e7 	beq.w	20003472 <_dtoa_r+0x88a>
-20002ea4:	f247 5338 	movw	r3, #30008	; 0x7538
+20002ea4:	f247 5330 	movw	r3, #30000	; 0x7530
 20002ea8:	e9dd 0106 	ldrd	r0, r1, [sp, #24]
 20002eac:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20002eb0:	f005 050f 	and.w	r5, r5, #15
@@ -5560,7 +5560,7 @@ void SystemCoreClockUpdate (void)
 20002ebc:	f003 fc3c 	bl	20006738 <__aeabi_ddiv>
 20002ec0:	e9cd 0112 	strd	r0, r1, [sp, #72]	; 0x48
 20002ec4:	b1bd      	cbz	r5, 20002ef6 <_dtoa_r+0x30e>
-20002ec6:	f247 5738 	movw	r7, #30008	; 0x7538
+20002ec6:	f247 5730 	movw	r7, #30000	; 0x7530
 20002eca:	e9dd 230c 	ldrd	r2, r3, [sp, #48]	; 0x30
 20002ece:	f2c2 0700 	movt	r7, #8192	; 0x2000
 20002ed2:	f015 0f01 	tst.w	r5, #1
@@ -5625,7 +5625,7 @@ void SystemCoreClockUpdate (void)
 20002f8a:	9b16      	ldr	r3, [sp, #88]	; 0x58
 20002f8c:	2b00      	cmp	r3, #0
 20002f8e:	f000 83ad 	beq.w	200036ec <_dtoa_r+0xb04>
-20002f92:	f247 4360 	movw	r3, #29792	; 0x7460
+20002f92:	f247 4358 	movw	r3, #29784	; 0x7458
 20002f96:	f240 0100 	movw	r1, #0
 20002f9a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20002f9e:	2000      	movs	r0, #0
@@ -5774,7 +5774,7 @@ void SystemCoreClockUpdate (void)
 20003146:	2f00      	cmp	r7, #0
 20003148:	f000 80b7 	beq.w	200032ba <_dtoa_r+0x6d2>
 2000314c:	982b      	ldr	r0, [sp, #172]	; 0xac
-2000314e:	f247 4360 	movw	r3, #29792	; 0x7460
+2000314e:	f247 4358 	movw	r3, #29784	; 0x7458
 20003152:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003156:	9908      	ldr	r1, [sp, #32]
 20003158:	eb03 03c6 	add.w	r3, r3, r6, lsl #3
@@ -6345,7 +6345,7 @@ void SystemCoreClockUpdate (void)
 200036e2:	f04f 0802 	mov.w	r8, #2
 200036e6:	e9cd 010c 	strd	r0, r1, [sp, #48]	; 0x30
 200036ea:	e40c      	b.n	20002f06 <_dtoa_r+0x31e>
-200036ec:	f247 4160 	movw	r1, #29792	; 0x7460
+200036ec:	f247 4158 	movw	r1, #29784	; 0x7458
 200036f0:	4642      	mov	r2, r8
 200036f2:	f2c2 0100 	movt	r1, #8192	; 0x2000
 200036f6:	464b      	mov	r3, r9
@@ -6531,7 +6531,7 @@ void SystemCoreClockUpdate (void)
 200038dc:	4683      	mov	fp, r0
 200038de:	e528      	b.n	20003332 <_dtoa_r+0x74a>
 200038e0:	f005 030f 	and.w	r3, r5, #15
-200038e4:	f247 4260 	movw	r2, #29792	; 0x7460
+200038e4:	f247 4258 	movw	r2, #29784	; 0x7458
 200038e8:	f2c2 0200 	movt	r2, #8192	; 0x2000
 200038ec:	e9dd 0106 	ldrd	r0, r1, [sp, #24]
 200038f0:	eb02 03c3 	add.w	r3, r2, r3, lsl #3
@@ -6542,7 +6542,7 @@ void SystemCoreClockUpdate (void)
 20003900:	f04f 0802 	moveq.w	r8, #2
 20003904:	e9cd 010c 	strd	r0, r1, [sp, #48]	; 0x30
 20003908:	f43f aafd 	beq.w	20002f06 <_dtoa_r+0x31e>
-2000390c:	f247 5738 	movw	r7, #30008	; 0x7538
+2000390c:	f247 5730 	movw	r7, #30000	; 0x7530
 20003910:	e9dd 230c 	ldrd	r2, r3, [sp, #48]	; 0x30
 20003914:	f04f 0802 	mov.w	r8, #2
 20003918:	f2c2 0700 	movt	r7, #8192	; 0x2000
@@ -6707,19 +6707,19 @@ void SystemCoreClockUpdate (void)
 20003a90:	6983      	ldr	r3, [r0, #24]
 20003a92:	2b00      	cmp	r3, #0
 20003a94:	d078      	beq.n	20003b88 <_fflush_r+0x108>
-20003a96:	f247 33b8 	movw	r3, #29624	; 0x73b8
+20003a96:	f247 33b4 	movw	r3, #29620	; 0x73b4
 20003a9a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003a9e:	429c      	cmp	r4, r3
 20003aa0:	bf08      	it	eq
 20003aa2:	f8d8 4004 	ldreq.w	r4, [r8, #4]
 20003aa6:	d010      	beq.n	20003aca <_fflush_r+0x4a>
-20003aa8:	f247 33d8 	movw	r3, #29656	; 0x73d8
+20003aa8:	f247 33d4 	movw	r3, #29652	; 0x73d4
 20003aac:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003ab0:	429c      	cmp	r4, r3
 20003ab2:	bf08      	it	eq
 20003ab4:	f8d8 4008 	ldreq.w	r4, [r8, #8]
 20003ab8:	d007      	beq.n	20003aca <_fflush_r+0x4a>
-20003aba:	f247 33f8 	movw	r3, #29688	; 0x73f8
+20003aba:	f247 33f4 	movw	r3, #29684	; 0x73f4
 20003abe:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003ac2:	429c      	cmp	r4, r3
 20003ac4:	bf08      	it	eq
@@ -6837,11 +6837,11 @@ void SystemCoreClockUpdate (void)
 20003bd0 <fflush>:
 20003bd0:	4601      	mov	r1, r0
 20003bd2:	b128      	cbz	r0, 20003be0 <fflush+0x10>
-20003bd4:	f247 53cc 	movw	r3, #30156	; 0x75cc
+20003bd4:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20003bd8:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003bdc:	6818      	ldr	r0, [r3, #0]
 20003bde:	e74f      	b.n	20003a80 <_fflush_r>
-20003be0:	f247 333c 	movw	r3, #29500	; 0x733c
+20003be0:	f247 3338 	movw	r3, #29496	; 0x7338
 20003be4:	f643 2181 	movw	r1, #14977	; 0x3a81
 20003be8:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003bec:	f2c2 0100 	movt	r1, #8192	; 0x2000
@@ -6874,7 +6874,7 @@ void SystemCoreClockUpdate (void)
 20003c0e:	4770      	bx	lr
 
 20003c10 <__fp_unlock_all>:
-20003c10:	f247 53cc 	movw	r3, #30156	; 0x75cc
+20003c10:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20003c14:	f643 410d 	movw	r1, #15373	; 0x3c0d
 20003c18:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003c1c:	f2c2 0100 	movt	r1, #8192	; 0x2000
@@ -6883,7 +6883,7 @@ void SystemCoreClockUpdate (void)
 20003c26:	bf00      	nop
 
 20003c28 <__fp_lock_all>:
-20003c28:	f247 53cc 	movw	r3, #30156	; 0x75cc
+20003c28:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20003c2c:	f643 4109 	movw	r1, #15369	; 0x3c09
 20003c30:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003c34:	f2c2 0100 	movt	r1, #8192	; 0x2000
@@ -6897,7 +6897,7 @@ void SystemCoreClockUpdate (void)
 20003c48:	f000 bbb2 	b.w	200043b0 <_fwalk>
 
 20003c4c <_cleanup>:
-20003c4c:	f247 333c 	movw	r3, #29500	; 0x733c
+20003c4c:	f247 3338 	movw	r3, #29496	; 0x7338
 20003c50:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003c54:	6818      	ldr	r0, [r3, #0]
 20003c56:	e7f3      	b.n	20003c40 <_cleanup_r>
@@ -6957,7 +6957,7 @@ void SystemCoreClockUpdate (void)
 20003cd6:	bf00      	nop
 
 20003cd8 <__sfp>:
-20003cd8:	f247 333c 	movw	r3, #29500	; 0x733c
+20003cd8:	f247 3338 	movw	r3, #29496	; 0x7338
 20003cdc:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003ce0:	b570      	push	{r4, r5, r6, lr}
 20003ce2:	681d      	ldr	r5, [r3, #0]
@@ -7058,7 +7058,7 @@ void SystemCoreClockUpdate (void)
 
 20003dc0 <_malloc_trim_r>:
 20003dc0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-20003dc2:	f247 64c0 	movw	r4, #30400	; 0x76c0
+20003dc2:	f247 64b8 	movw	r4, #30392	; 0x76b8
 20003dc6:	f2c2 0400 	movt	r4, #8192	; 0x2000
 20003dca:	460f      	mov	r7, r1
 20003dcc:	4605      	mov	r5, r0
@@ -7091,7 +7091,7 @@ void SystemCoreClockUpdate (void)
 20003e10:	f1b0 3fff 	cmp.w	r0, #4294967295
 20003e14:	d010      	beq.n	20003e38 <_malloc_trim_r+0x78>
 20003e16:	68a2      	ldr	r2, [r4, #8]
-20003e18:	f647 23e0 	movw	r3, #31456	; 0x7ae0
+20003e18:	f647 23d8 	movw	r3, #31448	; 0x7ad8
 20003e1c:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20003e20:	1bf6      	subs	r6, r6, r7
 20003e22:	f046 0601 	orr.w	r6, r6, #1
@@ -7110,8 +7110,8 @@ void SystemCoreClockUpdate (void)
 20003e42:	1ac2      	subs	r2, r0, r3
 20003e44:	2a0f      	cmp	r2, #15
 20003e46:	ddda      	ble.n	20003dfe <_malloc_trim_r+0x3e>
-20003e48:	f647 24c8 	movw	r4, #31432	; 0x7ac8
-20003e4c:	f647 21e0 	movw	r1, #31456	; 0x7ae0
+20003e48:	f647 24c0 	movw	r4, #31424	; 0x7ac0
+20003e4c:	f647 21d8 	movw	r1, #31448	; 0x7ad8
 20003e50:	f2c2 0400 	movt	r4, #8192	; 0x2000
 20003e54:	f2c2 0100 	movt	r1, #8192	; 0x2000
 20003e58:	f042 0201 	orr.w	r2, r2, #1
@@ -7130,7 +7130,7 @@ void SystemCoreClockUpdate (void)
 20003e72:	f000 8088 	beq.w	20003f86 <_free_r+0x11e>
 20003e76:	f000 ff4b 	bl	20004d10 <__malloc_lock>
 20003e7a:	f1a4 0208 	sub.w	r2, r4, #8
-20003e7e:	f247 60c0 	movw	r0, #30400	; 0x76c0
+20003e7e:	f247 60b8 	movw	r0, #30392	; 0x76b8
 20003e82:	6856      	ldr	r6, [r2, #4]
 20003e84:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20003e88:	f026 0301 	bic.w	r3, r6, #1
@@ -7263,7 +7263,7 @@ void SystemCoreClockUpdate (void)
 20003fda:	6891      	ldr	r1, [r2, #8]
 20003fdc:	60a1      	str	r1, [r4, #8]
 20003fde:	60cc      	str	r4, [r1, #12]
-20003fe0:	f647 21cc 	movw	r1, #31436	; 0x7acc
+20003fe0:	f647 21c4 	movw	r1, #31428	; 0x7ac4
 20003fe4:	6082      	str	r2, [r0, #8]
 20003fe6:	f2c2 0100 	movt	r1, #8192	; 0x2000
 20003fea:	f043 0001 	orr.w	r0, r3, #1
@@ -7271,7 +7271,7 @@ void SystemCoreClockUpdate (void)
 20003ff0:	680a      	ldr	r2, [r1, #0]
 20003ff2:	4293      	cmp	r3, r2
 20003ff4:	d3b2      	bcc.n	20003f5c <_free_r+0xf4>
-20003ff6:	f647 23dc 	movw	r3, #31452	; 0x7adc
+20003ff6:	f647 23d4 	movw	r3, #31444	; 0x7ad4
 20003ffa:	4628      	mov	r0, r5
 20003ffc:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20004000:	6819      	ldr	r1, [r3, #0]
@@ -7288,7 +7288,7 @@ void SystemCoreClockUpdate (void)
 2000401e:	6044      	str	r4, [r0, #4]
 20004020:	e798      	b.n	20003f54 <_free_r+0xec>
 20004022:	bf00      	nop
-20004024:	200076c8 	.word	0x200076c8
+20004024:	200076c0 	.word	0x200076c0
 
 20004028 <__sfvwrite_r>:
 20004028:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -7679,7 +7679,7 @@ void SystemCoreClockUpdate (void)
 200043fa:	bf00      	nop
 
 200043fc <__locale_charset>:
-200043fc:	f247 4318 	movw	r3, #29720	; 0x7418
+200043fc:	f247 4314 	movw	r3, #29716	; 0x7414
 20004400:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20004404:	6818      	ldr	r0, [r3, #0]
 20004406:	4770      	bx	lr
@@ -7687,12 +7687,12 @@ void SystemCoreClockUpdate (void)
 20004408 <_localeconv_r>:
 20004408:	4800      	ldr	r0, [pc, #0]	; (2000440c <_localeconv_r+0x4>)
 2000440a:	4770      	bx	lr
-2000440c:	2000741c 	.word	0x2000741c
+2000440c:	20007418 	.word	0x20007418
 
 20004410 <localeconv>:
 20004410:	4800      	ldr	r0, [pc, #0]	; (20004414 <localeconv+0x4>)
 20004412:	4770      	bx	lr
-20004414:	2000741c 	.word	0x2000741c
+20004414:	20007418 	.word	0x20007418
 
 20004418 <_setlocale_r>:
 20004418:	b570      	push	{r4, r5, r6, lr}
@@ -7700,20 +7700,20 @@ void SystemCoreClockUpdate (void)
 2000441c:	460e      	mov	r6, r1
 2000441e:	4614      	mov	r4, r2
 20004420:	b172      	cbz	r2, 20004440 <_setlocale_r+0x28>
-20004422:	f247 3140 	movw	r1, #29504	; 0x7340
+20004422:	f247 313c 	movw	r1, #29500	; 0x733c
 20004426:	4610      	mov	r0, r2
 20004428:	f2c2 0100 	movt	r1, #8192	; 0x2000
 2000442c:	f001 fb76 	bl	20005b1c <strcmp>
 20004430:	b958      	cbnz	r0, 2000444a <_setlocale_r+0x32>
-20004432:	f247 3040 	movw	r0, #29504	; 0x7340
+20004432:	f247 303c 	movw	r0, #29500	; 0x733c
 20004436:	622c      	str	r4, [r5, #32]
 20004438:	f2c2 0000 	movt	r0, #8192	; 0x2000
 2000443c:	61ee      	str	r6, [r5, #28]
 2000443e:	bd70      	pop	{r4, r5, r6, pc}
-20004440:	f247 3040 	movw	r0, #29504	; 0x7340
+20004440:	f247 303c 	movw	r0, #29500	; 0x733c
 20004444:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20004448:	bd70      	pop	{r4, r5, r6, pc}
-2000444a:	f247 3174 	movw	r1, #29556	; 0x7374
+2000444a:	f247 3170 	movw	r1, #29552	; 0x7370
 2000444e:	4620      	mov	r0, r4
 20004450:	f2c2 0100 	movt	r1, #8192	; 0x2000
 20004454:	f001 fb62 	bl	20005b1c <strcmp>
@@ -7723,7 +7723,7 @@ void SystemCoreClockUpdate (void)
 2000445e:	bd70      	pop	{r4, r5, r6, pc}
 
 20004460 <setlocale>:
-20004460:	f247 53cc 	movw	r3, #30156	; 0x75cc
+20004460:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20004464:	460a      	mov	r2, r1
 20004466:	f2c2 0300 	movt	r3, #8192	; 0x2000
 2000446a:	4601      	mov	r1, r0
@@ -7818,14 +7818,14 @@ void SystemCoreClockUpdate (void)
 2000454a:	e7c1      	b.n	200044d0 <__smakebuf_r+0x60>
 
 2000454c <free>:
-2000454c:	f247 53cc 	movw	r3, #30156	; 0x75cc
+2000454c:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20004550:	4601      	mov	r1, r0
 20004552:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20004556:	6818      	ldr	r0, [r3, #0]
 20004558:	f7ff bc86 	b.w	20003e68 <_free_r>
 
 2000455c <malloc>:
-2000455c:	f247 53cc 	movw	r3, #30156	; 0x75cc
+2000455c:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20004560:	4601      	mov	r1, r0
 20004562:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20004566:	6818      	ldr	r0, [r3, #0]
@@ -7851,7 +7851,7 @@ void SystemCoreClockUpdate (void)
 20004594:	f5b4 7ffc 	cmp.w	r4, #504	; 0x1f8
 20004598:	d22e      	bcs.n	200045f8 <_malloc_r+0x8c>
 2000459a:	ea4f 0ed4 	mov.w	lr, r4, lsr #3
-2000459e:	f247 65c0 	movw	r5, #30400	; 0x76c0
+2000459e:	f247 65b8 	movw	r5, #30392	; 0x76b8
 200045a2:	f2c2 0500 	movt	r5, #8192	; 0x2000
 200045a6:	eb05 02ce 	add.w	r2, r5, lr, lsl #3
 200045aa:	68d3      	ldr	r3, [r2, #12]
@@ -7890,7 +7890,7 @@ void SystemCoreClockUpdate (void)
 200045fe:	ea4f 0ed4 	moveq.w	lr, r4, lsr #3
 20004602:	ea4f 00ce 	moveq.w	r0, lr, lsl #3
 20004606:	f040 8090 	bne.w	2000472a <_malloc_r+0x1be>
-2000460a:	f247 65c0 	movw	r5, #30400	; 0x76c0
+2000460a:	f247 65b8 	movw	r5, #30392	; 0x76b8
 2000460e:	f2c2 0500 	movt	r5, #8192	; 0x2000
 20004612:	1828      	adds	r0, r5, r0
 20004614:	68c3      	ldr	r3, [r0, #12]
@@ -7909,7 +7909,7 @@ void SystemCoreClockUpdate (void)
 20004632:	ddf3      	ble.n	2000461c <_malloc_r+0xb0>
 20004634:	f10e 3eff 	add.w	lr, lr, #4294967295
 20004638:	f10e 0e01 	add.w	lr, lr, #1
-2000463c:	f247 67c0 	movw	r7, #30400	; 0x76c0
+2000463c:	f247 67b8 	movw	r7, #30392	; 0x76b8
 20004640:	f2c2 0700 	movt	r7, #8192	; 0x2000
 20004644:	f107 0108 	add.w	r1, r7, #8
 20004648:	688b      	ldr	r3, [r1, #8]
@@ -8042,7 +8042,7 @@ void SystemCoreClockUpdate (void)
 200047d2:	f043 0301 	orrle.w	r3, r3, #1
 200047d6:	2b00      	cmp	r3, #0
 200047d8:	f000 80a1 	beq.w	2000491e <_malloc_r+0x3b2>
-200047dc:	f647 2bdc 	movw	fp, #31452	; 0x7adc
+200047dc:	f647 2bd4 	movw	fp, #31444	; 0x7ad4
 200047e0:	f8d5 2408 	ldr.w	r2, [r5, #1032]	; 0x408
 200047e4:	f2c2 0b00 	movt	fp, #8192	; 0x2000
 200047e8:	f8db 3000 	ldr.w	r3, [fp]
@@ -8071,7 +8071,7 @@ void SystemCoreClockUpdate (void)
 2000482c:	f8cb 2004 	str.w	r2, [fp, #4]
 20004830:	f000 8145 	beq.w	20004abe <_malloc_r+0x552>
 20004834:	f8d5 5408 	ldr.w	r5, [r5, #1032]	; 0x408
-20004838:	f247 60c0 	movw	r0, #30400	; 0x76c0
+20004838:	f247 60b8 	movw	r0, #30392	; 0x76b8
 2000483c:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20004840:	f1b5 3fff 	cmp.w	r5, #4294967295
 20004844:	bf08      	it	eq
@@ -8099,7 +8099,7 @@ void SystemCoreClockUpdate (void)
 20004884:	1949      	adds	r1, r1, r5
 20004886:	f041 0101 	orr.w	r1, r1, #1
 2000488a:	f8db 2004 	ldr.w	r2, [fp, #4]
-2000488e:	f647 23dc 	movw	r3, #31452	; 0x7adc
+2000488e:	f647 23d4 	movw	r3, #31444	; 0x7ad4
 20004892:	f8c7 a008 	str.w	sl, [r7, #8]
 20004896:	f2c2 0300 	movt	r3, #8192	; 0x2000
 2000489a:	18aa      	adds	r2, r5, r2
@@ -8122,14 +8122,14 @@ void SystemCoreClockUpdate (void)
 200048d0:	f8c8 0004 	str.w	r0, [r8, #4]
 200048d4:	f200 80ac 	bhi.w	20004a30 <_malloc_r+0x4c4>
 200048d8:	46d0      	mov	r8, sl
-200048da:	f647 23dc 	movw	r3, #31452	; 0x7adc
+200048da:	f647 23d4 	movw	r3, #31444	; 0x7ad4
 200048de:	f8db 102c 	ldr.w	r1, [fp, #44]	; 0x2c
 200048e2:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200048e6:	428a      	cmp	r2, r1
 200048e8:	f8db 1030 	ldr.w	r1, [fp, #48]	; 0x30
 200048ec:	bf88      	it	hi
 200048ee:	62da      	strhi	r2, [r3, #44]	; 0x2c
-200048f0:	f647 23dc 	movw	r3, #31452	; 0x7adc
+200048f0:	f647 23d4 	movw	r3, #31444	; 0x7ad4
 200048f4:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200048f8:	428a      	cmp	r2, r1
 200048fa:	bf88      	it	hi
@@ -8165,7 +8165,7 @@ void SystemCoreClockUpdate (void)
 2000494c:	325b      	adds	r2, #91	; 0x5b
 2000494e:	ea4f 08c2 	mov.w	r8, r2, lsl #3
 20004952:	44a8      	add	r8, r5
-20004954:	f247 67c0 	movw	r7, #30400	; 0x76c0
+20004954:	f247 67b8 	movw	r7, #30392	; 0x76b8
 20004958:	f2c2 0700 	movt	r7, #8192	; 0x2000
 2000495c:	f8d8 0008 	ldr.w	r0, [r8, #8]
 20004960:	4540      	cmp	r0, r8
@@ -8793,7 +8793,7 @@ void SystemCoreClockUpdate (void)
 20004f70:	3c01      	subs	r4, #1
 20004f72:	d1f6      	bne.n	20004f62 <_mprec_log10+0x12>
 20004f74:	bd10      	pop	{r4, pc}
-20004f76:	f247 4360 	movw	r3, #29792	; 0x7460
+20004f76:	f247 4358 	movw	r3, #29784	; 0x7458
 20004f7a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20004f7e:	eb03 03c0 	add.w	r3, r3, r0, lsl #3
 20004f82:	e9d3 0100 	ldrd	r0, r1, [r3]
@@ -9418,7 +9418,7 @@ void SystemCoreClockUpdate (void)
 2000558c:	4607      	mov	r7, r0
 2000558e:	6006      	str	r6, [r0, #0]
 20005590:	e7e3      	b.n	2000555a <__pow5mult+0x32>
-20005592:	f247 4c60 	movw	ip, #29792	; 0x7460
+20005592:	f247 4c58 	movw	ip, #29784	; 0x7458
 20005596:	2300      	movs	r3, #0
 20005598:	f2c2 0c00 	movt	ip, #8192	; 0x2000
 2000559c:	eb0c 0282 	add.w	r2, ip, r2, lsl #2
@@ -9536,7 +9536,7 @@ void SystemCoreClockUpdate (void)
 200056b8:	4655      	movge	r5, sl
 200056ba:	f108 0808 	addge.w	r8, r8, #8
 200056be:	da75      	bge.n	200057ac <_realloc_r+0x13c>
-200056c0:	f247 63c0 	movw	r3, #30400	; 0x76c0
+200056c0:	f247 63b8 	movw	r3, #30392	; 0x76b8
 200056c4:	eb08 000a 	add.w	r0, r8, sl
 200056c8:	f2c2 0300 	movt	r3, #8192	; 0x2000
 200056cc:	f8d3 e008 	ldr.w	lr, [r3, #8]
@@ -9873,7 +9873,7 @@ void SystemCoreClockUpdate (void)
 
 20005a64 <_sbrk_r>:
 20005a64:	b538      	push	{r3, r4, r5, lr}
-20005a66:	f647 3460 	movw	r4, #31584	; 0x7b60
+20005a66:	f647 3458 	movw	r4, #31576	; 0x7b58
 20005a6a:	f2c2 0400 	movt	r4, #8192	; 0x2000
 20005a6e:	4605      	mov	r5, r0
 20005a70:	4608      	mov	r0, r1
@@ -10146,7 +10146,7 @@ void SystemCoreClockUpdate (void)
 
 20005d54 <_close_r>:
 20005d54:	b538      	push	{r3, r4, r5, lr}
-20005d56:	f647 3460 	movw	r4, #31584	; 0x7b60
+20005d56:	f647 3458 	movw	r4, #31576	; 0x7b58
 20005d5a:	f2c2 0400 	movt	r4, #8192	; 0x2000
 20005d5e:	4605      	mov	r5, r0
 20005d60:	4608      	mov	r0, r1
@@ -10173,19 +10173,19 @@ void SystemCoreClockUpdate (void)
 20005d8c:	69ab      	ldr	r3, [r5, #24]
 20005d8e:	2b00      	cmp	r3, #0
 20005d90:	d048      	beq.n	20005e24 <_fclose_r+0xa8>
-20005d92:	f247 33b8 	movw	r3, #29624	; 0x73b8
+20005d92:	f247 33b4 	movw	r3, #29620	; 0x73b4
 20005d96:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20005d9a:	429c      	cmp	r4, r3
 20005d9c:	bf08      	it	eq
 20005d9e:	686c      	ldreq	r4, [r5, #4]
 20005da0:	d00e      	beq.n	20005dc0 <_fclose_r+0x44>
-20005da2:	f247 33d8 	movw	r3, #29656	; 0x73d8
+20005da2:	f247 33d4 	movw	r3, #29652	; 0x73d4
 20005da6:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20005daa:	429c      	cmp	r4, r3
 20005dac:	bf08      	it	eq
 20005dae:	68ac      	ldreq	r4, [r5, #8]
 20005db0:	d006      	beq.n	20005dc0 <_fclose_r+0x44>
-20005db2:	f247 33f8 	movw	r3, #29688	; 0x73f8
+20005db2:	f247 33f4 	movw	r3, #29684	; 0x73f4
 20005db6:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20005dba:	429c      	cmp	r4, r3
 20005dbc:	bf08      	it	eq
@@ -10240,7 +10240,7 @@ void SystemCoreClockUpdate (void)
 20005e36:	bf00      	nop
 
 20005e38 <fclose>:
-20005e38:	f247 53cc 	movw	r3, #30156	; 0x75cc
+20005e38:	f247 53c4 	movw	r3, #30148	; 0x75c4
 20005e3c:	4601      	mov	r1, r0
 20005e3e:	f2c2 0300 	movt	r3, #8192	; 0x2000
 20005e42:	6818      	ldr	r0, [r3, #0]
@@ -10249,7 +10249,7 @@ void SystemCoreClockUpdate (void)
 
 20005e48 <_fstat_r>:
 20005e48:	b538      	push	{r3, r4, r5, lr}
-20005e4a:	f647 3460 	movw	r4, #31584	; 0x7b60
+20005e4a:	f647 3458 	movw	r4, #31576	; 0x7b58
 20005e4e:	f2c2 0400 	movt	r4, #8192	; 0x2000
 20005e52:	4605      	mov	r5, r0
 20005e54:	4608      	mov	r0, r1
@@ -10269,7 +10269,7 @@ void SystemCoreClockUpdate (void)
 
 20005e74 <_isatty_r>:
 20005e74:	b538      	push	{r3, r4, r5, lr}
-20005e76:	f647 3460 	movw	r4, #31584	; 0x7b60
+20005e76:	f647 3458 	movw	r4, #31576	; 0x7b58
 20005e7a:	f2c2 0400 	movt	r4, #8192	; 0x2000
 20005e7e:	4605      	mov	r5, r0
 20005e80:	4608      	mov	r0, r1
@@ -10287,7 +10287,7 @@ void SystemCoreClockUpdate (void)
 
 20005e9c <_lseek_r>:
 20005e9c:	b538      	push	{r3, r4, r5, lr}
-20005e9e:	f647 3460 	movw	r4, #31584	; 0x7b60
+20005e9e:	f647 3458 	movw	r4, #31576	; 0x7b58
 20005ea2:	f2c2 0400 	movt	r4, #8192	; 0x2000
 20005ea6:	4605      	mov	r5, r0
 20005ea8:	4608      	mov	r0, r1
@@ -10307,7 +10307,7 @@ void SystemCoreClockUpdate (void)
 
 20005ec8 <_read_r>:
 20005ec8:	b538      	push	{r3, r4, r5, lr}
-20005eca:	f647 3460 	movw	r4, #31584	; 0x7b60
+20005eca:	f647 3458 	movw	r4, #31576	; 0x7b58
 20005ece:	f2c2 0400 	movt	r4, #8192	; 0x2000
 20005ed2:	4605      	mov	r5, r0
 20005ed4:	4608      	mov	r0, r1
@@ -11956,171 +11956,169 @@ void SystemCoreClockUpdate (void)
 2000715c:	6572205a 	.word	0x6572205a
 20007160:	7361656c 	.word	0x7361656c
 20007164:	00006465 	.word	0x00006465
-20007168:	72617453 	.word	0x72617453
-2000716c:	72702074 	.word	0x72702074
-20007170:	65737365 	.word	0x65737365
-20007174:	00203a64 	.word	0x00203a64
-20007178:	756e616d 	.word	0x756e616d
-2000717c:	6d206c61 	.word	0x6d206c61
-20007180:	2c65646f 	.word	0x2c65646f
-20007184:	73616c20 	.word	0x73616c20
-20007188:	6f207265 	.word	0x6f207265
-2000718c:	0000216e 	.word	0x0000216e
-20007190:	6f747561 	.word	0x6f747561
-20007194:	6974616d 	.word	0x6974616d
-20007198:	6f6d2063 	.word	0x6f6d2063
-2000719c:	202c6564 	.word	0x202c6564
-200071a0:	6573616c 	.word	0x6573616c
-200071a4:	666f2072 	.word	0x666f2072
-200071a8:	283a2066 	.word	0x283a2066
-200071ac:	00000000 	.word	0x00000000
-200071b0:	25203a41 	.word	0x25203a41
-200071b4:	42202064 	.word	0x42202064
-200071b8:	6425203a 	.word	0x6425203a
-200071bc:	3a5a2020 	.word	0x3a5a2020
-200071c0:	20642520 	.word	0x20642520
-200071c4:	61745320 	.word	0x61745320
-200071c8:	203a7472 	.word	0x203a7472
-200071cc:	20206425 	.word	0x20206425
-200071d0:	203a7055 	.word	0x203a7055
-200071d4:	20206425 	.word	0x20206425
-200071d8:	6e776f44 	.word	0x6e776f44
-200071dc:	6425203a 	.word	0x6425203a
-200071e0:	654c2020 	.word	0x654c2020
-200071e4:	203a7466 	.word	0x203a7466
-200071e8:	20206425 	.word	0x20206425
-200071ec:	68676952 	.word	0x68676952
-200071f0:	25203a74 	.word	0x25203a74
-200071f4:	4c202064 	.word	0x4c202064
-200071f8:	6425203a 	.word	0x6425203a
-200071fc:	3a522020 	.word	0x3a522020
-20007200:	20642520 	.word	0x20642520
-20007204:	555f4320 	.word	0x555f4320
-20007208:	25203a70 	.word	0x25203a70
-2000720c:	43202064 	.word	0x43202064
-20007210:	776f445f 	.word	0x776f445f
-20007214:	25203a6e 	.word	0x25203a6e
-20007218:	43202064 	.word	0x43202064
-2000721c:	66654c5f 	.word	0x66654c5f
-20007220:	25203a74 	.word	0x25203a74
-20007224:	43202064 	.word	0x43202064
-20007228:	6769525f 	.word	0x6769525f
-2000722c:	203a7468 	.word	0x203a7468
-20007230:	20206425 	.word	0x20206425
-20007234:	78615f58 	.word	0x78615f58
-20007238:	203a7369 	.word	0x203a7369
-2000723c:	20643325 	.word	0x20643325
-20007240:	615f5920 	.word	0x615f5920
-20007244:	3a736978 	.word	0x3a736978
-20007248:	64332520 	.word	0x64332520
-2000724c:	00000a0d 	.word	0x00000a0d
-20007250:	70616548 	.word	0x70616548
-20007254:	646e6120 	.word	0x646e6120
-20007258:	61747320 	.word	0x61747320
-2000725c:	63206b63 	.word	0x63206b63
-20007260:	696c6c6f 	.word	0x696c6c6f
-20007264:	6e6f6973 	.word	0x6e6f6973
-20007268:	0000000a 	.word	0x0000000a
+20007168:	72702041 	.word	0x72702041
+2000716c:	65737365 	.word	0x65737365
+20007170:	00203a64 	.word	0x00203a64
+20007174:	756e616d 	.word	0x756e616d
+20007178:	6d206c61 	.word	0x6d206c61
+2000717c:	2c65646f 	.word	0x2c65646f
+20007180:	73616c20 	.word	0x73616c20
+20007184:	6f207265 	.word	0x6f207265
+20007188:	0000216e 	.word	0x0000216e
+2000718c:	6f747561 	.word	0x6f747561
+20007190:	6974616d 	.word	0x6974616d
+20007194:	6f6d2063 	.word	0x6f6d2063
+20007198:	202c6564 	.word	0x202c6564
+2000719c:	6573616c 	.word	0x6573616c
+200071a0:	666f2072 	.word	0x666f2072
+200071a4:	283a2066 	.word	0x283a2066
+200071a8:	00000000 	.word	0x00000000
+200071ac:	25203a41 	.word	0x25203a41
+200071b0:	42202064 	.word	0x42202064
+200071b4:	6425203a 	.word	0x6425203a
+200071b8:	3a5a2020 	.word	0x3a5a2020
+200071bc:	20642520 	.word	0x20642520
+200071c0:	61745320 	.word	0x61745320
+200071c4:	203a7472 	.word	0x203a7472
+200071c8:	20206425 	.word	0x20206425
+200071cc:	203a7055 	.word	0x203a7055
+200071d0:	20206425 	.word	0x20206425
+200071d4:	6e776f44 	.word	0x6e776f44
+200071d8:	6425203a 	.word	0x6425203a
+200071dc:	654c2020 	.word	0x654c2020
+200071e0:	203a7466 	.word	0x203a7466
+200071e4:	20206425 	.word	0x20206425
+200071e8:	68676952 	.word	0x68676952
+200071ec:	25203a74 	.word	0x25203a74
+200071f0:	4c202064 	.word	0x4c202064
+200071f4:	6425203a 	.word	0x6425203a
+200071f8:	3a522020 	.word	0x3a522020
+200071fc:	20642520 	.word	0x20642520
+20007200:	555f4320 	.word	0x555f4320
+20007204:	25203a70 	.word	0x25203a70
+20007208:	43202064 	.word	0x43202064
+2000720c:	776f445f 	.word	0x776f445f
+20007210:	25203a6e 	.word	0x25203a6e
+20007214:	43202064 	.word	0x43202064
+20007218:	66654c5f 	.word	0x66654c5f
+2000721c:	25203a74 	.word	0x25203a74
+20007220:	43202064 	.word	0x43202064
+20007224:	6769525f 	.word	0x6769525f
+20007228:	203a7468 	.word	0x203a7468
+2000722c:	20206425 	.word	0x20206425
+20007230:	78615f58 	.word	0x78615f58
+20007234:	203a7369 	.word	0x203a7369
+20007238:	20643325 	.word	0x20643325
+2000723c:	615f5920 	.word	0x615f5920
+20007240:	3a736978 	.word	0x3a736978
+20007244:	64332520 	.word	0x64332520
+20007248:	00000a0d 	.word	0x00000a0d
+2000724c:	70616548 	.word	0x70616548
+20007250:	646e6120 	.word	0x646e6120
+20007254:	61747320 	.word	0x61747320
+20007258:	63206b63 	.word	0x63206b63
+2000725c:	696c6c6f 	.word	0x696c6c6f
+20007260:	6e6f6973 	.word	0x6e6f6973
+20007264:	0000000a 	.word	0x0000000a
 
-2000726c <g_gpio_irqn_lut>:
-2000726c:	00210020 00230022 00250024 00270026      .!.".#.$.%.&.'.
-2000727c:	00290028 002b002a 002d002c 002f002e     (.).*.+.,.-.../.
-2000728c:	00310030 00330032 00350034 00370036     0.1.2.3.4.5.6.7.
-2000729c:	00390038 003b003a 003d003c 003f003e     8.9.:.;.<.=.>.?.
+20007268 <g_gpio_irqn_lut>:
+20007268:	00210020 00230022 00250024 00270026      .!.".#.$.%.&.'.
+20007278:	00290028 002b002a 002d002c 002f002e     (.).*.+.,.-.../.
+20007288:	00310030 00330032 00350034 00370036     0.1.2.3.4.5.6.7.
+20007298:	00390038 003b003a 003d003c 003f003e     8.9.:.;.<.=.>.?.
 
-200072ac <g_config_reg_lut>:
-200072ac:	40013000 40013004 40013008 4001300c     .0.@.0.@.0.@.0.@
-200072bc:	40013010 40013014 40013018 4001301c     .0.@.0.@.0.@.0.@
-200072cc:	40013020 40013024 40013028 4001302c      0.@$0.@(0.@,0.@
-200072dc:	40013030 40013034 40013038 4001303c     00.@40.@80.@<0.@
-200072ec:	40013040 40013044 40013048 4001304c     @0.@D0.@H0.@L0.@
-200072fc:	40013050 40013054 40013058 4001305c     P0.@T0.@X0.@\0.@
-2000730c:	40013060 40013064 40013068 4001306c     `0.@d0.@h0.@l0.@
-2000731c:	40013070 40013074 40013078 4001307c     p0.@t0.@x0.@|0.@
+200072a8 <g_config_reg_lut>:
+200072a8:	40013000 40013004 40013008 4001300c     .0.@.0.@.0.@.0.@
+200072b8:	40013010 40013014 40013018 4001301c     .0.@.0.@.0.@.0.@
+200072c8:	40013020 40013024 40013028 4001302c      0.@$0.@(0.@,0.@
+200072d8:	40013030 40013034 40013038 4001303c     00.@40.@80.@<0.@
+200072e8:	40013040 40013044 40013048 4001304c     @0.@D0.@H0.@L0.@
+200072f8:	40013050 40013054 40013058 4001305c     P0.@T0.@X0.@\0.@
+20007308:	40013060 40013064 40013068 4001306c     `0.@d0.@h0.@l0.@
+20007318:	40013070 40013074 40013078 4001307c     p0.@t0.@x0.@|0.@
 
-2000732c <C.16.2565>:
-2000732c:	00000001 00000002 00000004 00000001     ................
+20007328 <C.16.2565>:
+20007328:	00000001 00000002 00000004 00000001     ................
 
-2000733c <_global_impure_ptr>:
-2000733c:	200075d0 00000043                       .u. C...
+20007338 <_global_impure_ptr>:
+20007338:	200075c8 00000043                       .u. C...
 
-20007344 <blanks.3577>:
-20007344:	20202020 20202020 20202020 20202020                     
+20007340 <blanks.3577>:
+20007340:	20202020 20202020 20202020 20202020                     
 
-20007354 <zeroes.3578>:
-20007354:	30303030 30303030 30303030 30303030     0000000000000000
-20007364:	33323130 37363534 42413938 46454443     0123456789ABCDEF
-20007374:	00000000 00464e49 00666e69 004e414e     ....INF.inf.NAN.
-20007384:	006e616e 33323130 37363534 62613938     nan.0123456789ab
-20007394:	66656463 00000000 6c756e28 0000296c     cdef....(null)..
-200073a4:	00000030 69666e49 7974696e 00000000     0...Infinity....
-200073b4:	004e614e                                NaN.
+20007350 <zeroes.3578>:
+20007350:	30303030 30303030 30303030 30303030     0000000000000000
+20007360:	33323130 37363534 42413938 46454443     0123456789ABCDEF
+20007370:	00000000 00464e49 00666e69 004e414e     ....INF.inf.NAN.
+20007380:	006e616e 33323130 37363534 62613938     nan.0123456789ab
+20007390:	66656463 00000000 6c756e28 0000296c     cdef....(null)..
+200073a0:	00000030 69666e49 7974696e 00000000     0...Infinity....
+200073b0:	004e614e                                NaN.
 
-200073b8 <__sf_fake_stdin>:
+200073b4 <__sf_fake_stdin>:
 	...
 
-200073d8 <__sf_fake_stdout>:
+200073d4 <__sf_fake_stdout>:
 	...
 
-200073f8 <__sf_fake_stderr>:
+200073f4 <__sf_fake_stderr>:
 	...
 
-20007418 <charset>:
-20007418:	20007450                                Pt. 
+20007414 <charset>:
+20007414:	2000744c                                Lt. 
 
-2000741c <lconv>:
-2000741c:	2000744c 20007374 20007374 20007374     Lt. ts. ts. ts. 
-2000742c:	20007374 20007374 20007374 20007374     ts. ts. ts. ts. 
-2000743c:	20007374 20007374 ffffffff ffffffff     ts. ts. ........
-2000744c:	0000002e 2d4f5349 39353838 0000312d     ....ISO-8859-1..
-2000745c:	00000000                                ....
+20007418 <lconv>:
+20007418:	20007448 20007370 20007370 20007370     Ht. ps. ps. ps. 
+20007428:	20007370 20007370 20007370 20007370     ps. ps. ps. ps. 
+20007438:	20007370 20007370 ffffffff ffffffff     ps. ps. ........
+20007448:	0000002e 2d4f5349 39353838 0000312d     ....ISO-8859-1..
 
-20007460 <__mprec_tens>:
-20007460:	00000000 3ff00000 00000000 40240000     .......?......$@
-20007470:	00000000 40590000 00000000 408f4000     ......Y@.....@.@
-20007480:	00000000 40c38800 00000000 40f86a00     .......@.....j.@
-20007490:	00000000 412e8480 00000000 416312d0     .......A......cA
-200074a0:	00000000 4197d784 00000000 41cdcd65     .......A....e..A
-200074b0:	20000000 4202a05f e8000000 42374876     ... _..B....vH7B
-200074c0:	a2000000 426d1a94 e5400000 42a2309c     ......mB..@..0.B
-200074d0:	1e900000 42d6bcc4 26340000 430c6bf5     .......B..4&.k.C
-200074e0:	37e08000 4341c379 85d8a000 43763457     ...7y.AC....W4vC
-200074f0:	674ec800 43abc16d 60913d00 43e158e4     ..Ngm..C.=.`.X.C
-20007500:	78b58c40 4415af1d d6e2ef50 444b1ae4     @..x...DP.....KD
-20007510:	064dd592 4480f0cf c7e14af6 44b52d02     ..M....D.J...-.D
-20007520:	79d99db4 44ea7843                       ...yCx.D
+20007458 <__mprec_tens>:
+20007458:	00000000 3ff00000 00000000 40240000     .......?......$@
+20007468:	00000000 40590000 00000000 408f4000     ......Y@.....@.@
+20007478:	00000000 40c38800 00000000 40f86a00     .......@.....j.@
+20007488:	00000000 412e8480 00000000 416312d0     .......A......cA
+20007498:	00000000 4197d784 00000000 41cdcd65     .......A....e..A
+200074a8:	20000000 4202a05f e8000000 42374876     ... _..B....vH7B
+200074b8:	a2000000 426d1a94 e5400000 42a2309c     ......mB..@..0.B
+200074c8:	1e900000 42d6bcc4 26340000 430c6bf5     .......B..4&.k.C
+200074d8:	37e08000 4341c379 85d8a000 43763457     ...7y.AC....W4vC
+200074e8:	674ec800 43abc16d 60913d00 43e158e4     ..Ngm..C.=.`.X.C
+200074f8:	78b58c40 4415af1d d6e2ef50 444b1ae4     @..x...DP.....KD
+20007508:	064dd592 4480f0cf c7e14af6 44b52d02     ..M....D.J...-.D
+20007518:	79d99db4 44ea7843                       ...yCx.D
 
-20007528 <p05.2463>:
-20007528:	00000005 00000019 0000007d 00000000     ........}.......
+20007520 <p05.2463>:
+20007520:	00000005 00000019 0000007d 00000000     ........}.......
 
-20007538 <__mprec_bigtens>:
-20007538:	37e08000 4341c379 b5056e17 4693b8b5     ...7y.AC.n.....F
-20007548:	e93ff9f5 4d384f03 f9301d32 5a827748     ..?..O8M2.0.Hw.Z
-20007558:	7f73bf3c 75154fdd                       <.s..O.u
+20007530 <__mprec_bigtens>:
+20007530:	37e08000 4341c379 b5056e17 4693b8b5     ...7y.AC.n.....F
+20007540:	e93ff9f5 4d384f03 f9301d32 5a827748     ..?..O8M2.0.Hw.Z
+20007550:	7f73bf3c 75154fdd                       <.s..O.u
 
-20007560 <__mprec_tinytens>:
-20007560:	97d889bc 3c9cd2b2 d5a8a733 3949f623     .......<3...#.I9
-20007570:	44f4a73d 32a50ffd cf8c979d 255bba08     =..D...2......[%
-20007580:	64ac6f43 0ac80628                       Co.d(...
+20007558 <__mprec_tinytens>:
+20007558:	97d889bc 3c9cd2b2 d5a8a733 3949f623     .......<3...#.I9
+20007568:	44f4a73d 32a50ffd cf8c979d 255bba08     =..D...2......[%
+20007578:	64ac6f43 0ac80628                       Co.d(...
 
-20007588 <_init>:
-20007588:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-2000758a:	bf00      	nop
-2000758c:	bcf8      	pop	{r3, r4, r5, r6, r7}
-2000758e:	bc08      	pop	{r3}
-20007590:	469e      	mov	lr, r3
-20007592:	4770      	bx	lr
+20007580 <_init>:
+20007580:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+20007582:	bf00      	nop
+20007584:	bcf8      	pop	{r3, r4, r5, r6, r7}
+20007586:	bc08      	pop	{r3}
+20007588:	469e      	mov	lr, r3
+2000758a:	4770      	bx	lr
 
-20007594 <_fini>:
-20007594:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-20007596:	bf00      	nop
-20007598:	bcf8      	pop	{r3, r4, r5, r6, r7}
-2000759a:	bc08      	pop	{r3}
-2000759c:	469e      	mov	lr, r3
-2000759e:	4770      	bx	lr
+2000758c <_fini>:
+2000758c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+2000758e:	bf00      	nop
+20007590:	bcf8      	pop	{r3, r4, r5, r6, r7}
+20007592:	bc08      	pop	{r3}
+20007594:	469e      	mov	lr, r3
+20007596:	4770      	bx	lr
 
-200075a0 <__frame_dummy_init_array_entry>:
-200075a0:	0485 2000                                   ... 
+20007598 <__frame_dummy_init_array_entry>:
+20007598:	0485 2000                                   ... 
 
-200075a4 <__do_global_dtors_aux_fini_array_entry>:
-200075a4:	0471 2000                                   q.. 
+2000759c <__do_global_dtors_aux_fini_array_entry>:
+2000759c:	0471 2000                                   q.. 
