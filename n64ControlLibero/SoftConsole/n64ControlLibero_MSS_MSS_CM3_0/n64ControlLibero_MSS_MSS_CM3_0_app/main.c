@@ -2,35 +2,81 @@
 //
 
 #include <stdio.h>
+#include <unistd.h>
 #include "n64_driver.h"
+#include "drivers/mss_gpio/mss_gpio.h"
+
+#define PRINT_STATE 1
+
+#define MANUAL 1
+#define AUTOMATIC 0
+
+#define GPIO_OUTPUT_CFG 0x01
 
 int main() {
 
+
+    /*
+     * configure GPIO_0 as an output pin
+     */
+    MSS_GPIO_init();
+    MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
+    MSS_GPIO_set_output(MSS_GPIO_0, 0);
+
+    /*
+     * n64 controller state
+     */
     n64_state_t n64_buttons;
+    n64_state_t last_buttons;
+    uint8_t mode = AUTOMATIC;
 
     n64_reset();
     n64_enable();
 
+    n64_get_state(&last_buttons);
+
+    volatile int x = 0;
 
     while (1) {
         n64_get_state( &n64_buttons );
-        printf("A: %d\tB: %d\tZ: %d\tStart: %d\tUp: %d\tDown: %d\tLeft: %d\tRight: %d\tL: %d\tR: %d\tC_Up: %d\tC_Down: %d\tC_Left: %d\tC_Right: %d\tX_axis: %3d\tY_axis: %3d\r\n",
-                n64_buttons.A,
-                n64_buttons.B,
-                n64_buttons.Z,
-                n64_buttons.Start,
-                n64_buttons.Up,
-                n64_buttons.Down,
-                n64_buttons.Left,
-                n64_buttons.Right,
-                n64_buttons.L,
-                n64_buttons.R,
-                n64_buttons.C_Up,
-                n64_buttons.C_Down,
-                n64_buttons.C_Left,
-                n64_buttons.C_Right,
-                n64_buttons.X_axis,
-                n64_buttons.Y_axis );
+
+        if (n64_buttons.Z && !last_buttons.Z) {
+            printf("Z pressed\n");
+        }
+        else if (!n64_buttons.Z && last_buttons.Z) {
+            printf("Z released\n");
+        }
+
+        /*
+         * Toggle between manual and automatic modes, with the laser indicator
+         */
+        if (n64_buttons.Start && !last_buttons.Start) {
+            printf("Start pressed: ");
+
+            if (mode == AUTOMATIC) {
+                mode = MANUAL;
+                printf("manual mode, laser on!\n");
+                MSS_GPIO_set_output(MSS_GPIO_0, 1);
+                // do thing
+            }
+            else if (mode == MANUAL) {
+                mode = AUTOMATIC;
+                printf("automatic mode, laser off :(\n");
+                MSS_GPIO_set_output(MSS_GPIO_0, 0);
+            }
+        }
+
+
+
+        if (PRINT_STATE) {
+            n64_print_state( &n64_buttons );
+            while (x < 10000000) {
+            	x = x + 1;
+            }
+            x = 0;
+        }
+
+        last_buttons = n64_buttons;
     }
 
 }
