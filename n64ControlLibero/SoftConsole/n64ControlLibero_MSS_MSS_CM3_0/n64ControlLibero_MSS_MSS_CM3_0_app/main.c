@@ -4,9 +4,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "n64_driver.h"
+#include "trigger_solenoid_driver.h"
 #include "drivers/mss_gpio/mss_gpio.h"
 
-#define PRINT_STATE 1
+#define PRINT_STATE 0
 
 #define MANUAL 1
 #define AUTOMATIC 0
@@ -37,14 +38,35 @@ int main() {
 
     volatile int x = 0;
 
+    int milliseconds = 200;
+    int increment = 50;
+
     while (1) {
         n64_get_state( &n64_buttons );
 
+        /*
+         * trigger the solenoid:
+         *   Z to fire
+         *   C Up to increment the time
+         *   C Down to decrement the itme
+         */
         if (n64_buttons.Z && !last_buttons.Z) {
-            printf("Z pressed\n");
+            printf("Z pressed, activating trigger solenoid\n");
+            trigger_solenoid_activate(milliseconds);
         }
-        else if (!n64_buttons.Z && last_buttons.Z) {
-            printf("Z released\n");
+
+        if (n64_buttons.C_Up && !last_buttons.C_Up) {
+            milliseconds += increment;
+            printf("Incrementing solenoid time to: %d ms", milliseconds);
+        }
+        if (n64_buttons.C_Down && !last_buttons.C_Down) {
+            if (milliseconds <= increment) {
+                printf("Cannot decrement solenoid time, at min: %d ms", milliseconds);
+            }
+            else {
+                milliseconds += increment;
+                printf("Decrementing solenoid time to: %d ms", milliseconds);
+            }
         }
 
         /*
