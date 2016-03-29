@@ -15,7 +15,7 @@ Colleen
 	void LCD_init() 
 	{
 		MSS_UART_init(
-			&g_mss_uart0,
+			&g_mss_uart1,
 			MSS_UART_115200_BAUD,
 			MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT
 			);
@@ -24,19 +24,19 @@ Colleen
 	void LCD_printStr(char Str[78])
 	{
 		// the length of one line on the LCD is 26 characters long
-		MSS_UART_polled_tx_string( &g_mss_uart0, (unsigned char*)Str );
+		MSS_UART_polled_tx_string( &g_mss_uart1, (unsigned char*)Str );
 	}
 	
 	void LCD_printNum(int num)
 	{
 		uint8_t message[] = {num};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 	}
 	
 	void LCD_nextLine()
 	{
 		uint8_t message[] = "\n\r";
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 	}
 	
 	void LCD_clearScreen()
@@ -44,8 +44,8 @@ Colleen
 		//clears the screen, you will use this a lot!
 		uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x00};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, 2 );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, 2 );
 	}
 	
     void LCD_toggleReverseMode()
@@ -53,8 +53,8 @@ Colleen
     	//Everything that was black is now white and vise versa
     	uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x12};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
     }
     
 	void LCD_toggleSplash()
@@ -62,8 +62,8 @@ Colleen
 		//turns the splash screen on and off, the 1 second delay at startup stays either way.
 		uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x13};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
 	}
 	
 	void LCD_setBacklight(duty)
@@ -73,9 +73,9 @@ Colleen
 		uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x02};
 		uint8_t message3[] = {duty};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
-		MSS_UART_polled_tx( &g_mss_uart0, message3, sizeof(message3) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
 	}
 	
 	// void LCD_setBaud(byte baud)
@@ -95,9 +95,9 @@ Colleen
  		uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x18};
 		uint8_t message3[] = {posX};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
-		MSS_UART_polled_tx( &g_mss_uart0, message3, sizeof(message3) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
 
 		//characters are 8 pixels tall x 6 pixels wide
 		//The top left corner of a char is where the x/y value will start its print
@@ -125,9 +125,9 @@ Colleen
 		uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x18};
 		uint8_t message3[] = {posY};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
-		MSS_UART_polled_tx( &g_mss_uart0, message3, sizeof(message3) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
 	}
 
 	void LCD_setHome()
@@ -140,8 +140,8 @@ Colleen
 		//Demonstrates all the capabilities of the LCD
 		uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x04};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
 	}
 	
 	void LCD_setPixel(x, y, set)
@@ -153,11 +153,11 @@ Colleen
 		uint8_t message3[] = {x};
 		uint8_t message4[] = {y};
 		uint8_t message5[] = {0x01};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
-		MSS_UART_polled_tx( &g_mss_uart0, message3, sizeof(message3) );
-		MSS_UART_polled_tx( &g_mss_uart0, message4, sizeof(message4) );
-		MSS_UART_polled_tx( &g_mss_uart0, message5, sizeof(message5) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
+		MSS_UART_polled_tx( &g_mss_uart1, message4, sizeof(message4) );
+		MSS_UART_polled_tx( &g_mss_uart1, message5, sizeof(message5) );
 		// @TODO: need to set delay(10); not sure how to
 	}
 
@@ -173,13 +173,13 @@ Colleen
 		uint8_t message5[] = {x2};
 		uint8_t message6[] = {y2};
 		uint8_t message7[] = {0x01};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
-		MSS_UART_polled_tx( &g_mss_uart0, message3, sizeof(message3) );
-		MSS_UART_polled_tx( &g_mss_uart0, message4, sizeof(message4) );
-		MSS_UART_polled_tx( &g_mss_uart0, message5, sizeof(message5) );
-		MSS_UART_polled_tx( &g_mss_uart0, message6, sizeof(message6) );
-		MSS_UART_polled_tx( &g_mss_uart0, message7, sizeof(message7) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
+		MSS_UART_polled_tx( &g_mss_uart1, message4, sizeof(message4) );
+		MSS_UART_polled_tx( &g_mss_uart1, message5, sizeof(message5) );
+		MSS_UART_polled_tx( &g_mss_uart1, message6, sizeof(message6) );
+		MSS_UART_polled_tx( &g_mss_uart1, message7, sizeof(message7) );
 		// @TODO: need to set delay(10); not sure how to
 	}
 
@@ -195,13 +195,13 @@ Colleen
 		uint8_t message5[] = {x2};
 		uint8_t message6[] = {y2};
 		uint8_t message7[] = {0x01};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
-		MSS_UART_polled_tx( &g_mss_uart0, message3, sizeof(message3) );
-		MSS_UART_polled_tx( &g_mss_uart0, message4, sizeof(message4) );
-		MSS_UART_polled_tx( &g_mss_uart0, message5, sizeof(message5) );
-		MSS_UART_polled_tx( &g_mss_uart0, message6, sizeof(message6) );
-		MSS_UART_polled_tx( &g_mss_uart0, message7, sizeof(message7) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
+		MSS_UART_polled_tx( &g_mss_uart1, message4, sizeof(message4) );
+		MSS_UART_polled_tx( &g_mss_uart1, message5, sizeof(message5) );
+		MSS_UART_polled_tx( &g_mss_uart1, message6, sizeof(message6) );
+		MSS_UART_polled_tx( &g_mss_uart1, message7, sizeof(message7) );
 		// @TODO: need to set delay(10); not sure how to
 	}
 
@@ -218,12 +218,12 @@ Colleen
 		uint8_t message4[] = {y};
 		uint8_t message5[] = {rad};
 		uint8_t message6[] = {0x01};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
-		MSS_UART_polled_tx( &g_mss_uart0, message3, sizeof(message3) );
-		MSS_UART_polled_tx( &g_mss_uart0, message4, sizeof(message4) );
-		MSS_UART_polled_tx( &g_mss_uart0, message5, sizeof(message5) );
-		MSS_UART_polled_tx( &g_mss_uart0, message6, sizeof(message6) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
+		MSS_UART_polled_tx( &g_mss_uart1, message4, sizeof(message4) );
+		MSS_UART_polled_tx( &g_mss_uart1, message5, sizeof(message5) );
+		MSS_UART_polled_tx( &g_mss_uart1, message6, sizeof(message6) );
 		// @TODO: need to set delay(10); not sure how to
 	}
 
@@ -235,12 +235,12 @@ Colleen
 		uint8_t message4[] = {y1};
 		uint8_t message5[] = {x2};
 		uint8_t message6[] = {y2};
-		MSS_UART_polled_tx( &g_mss_uart0, message, sizeof(message) );
-		MSS_UART_polled_tx( &g_mss_uart0, message2, sizeof(message2) );
-		MSS_UART_polled_tx( &g_mss_uart0, message3, sizeof(message3) );
-		MSS_UART_polled_tx( &g_mss_uart0, message4, sizeof(message4) );
-		MSS_UART_polled_tx( &g_mss_uart0, message5, sizeof(message5) );
-		MSS_UART_polled_tx( &g_mss_uart0, message6, sizeof(message6) );
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
+		MSS_UART_polled_tx( &g_mss_uart1, message4, sizeof(message4) );
+		MSS_UART_polled_tx( &g_mss_uart1, message5, sizeof(message5) );
+		MSS_UART_polled_tx( &g_mss_uart1, message6, sizeof(message6) );
 		// @TODO: need to set delay(10); not sure how to
 	}
 
