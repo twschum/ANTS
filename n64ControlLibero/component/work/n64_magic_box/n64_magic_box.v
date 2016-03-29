@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Mar 24 14:07:00 2016
+// Created by SmartDesign Tue Mar 29 12:22:15 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -19,8 +19,6 @@ module n64_magic_box(
     PRDATA_1,
     PREADY_1,
     PSLVERR_1,
-    read_bit_data_valid,
-    read_data_bit,
     // Inouts
     fab_pin
 );
@@ -41,8 +39,6 @@ input         PWRITE_1;
 output [31:0] PRDATA_1;
 output        PREADY_1;
 output        PSLVERR_1;
-output        read_bit_data_valid;
-output        read_data_bit;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -64,26 +60,18 @@ wire   [31:0] n64_serial_interface_0_button_data;
 wire          PCLK;
 wire          polling_enable;
 wire          PRESERN;
-wire          read_bit_data_valid_net_0;
-wire          read_data_bit_net_0;
 wire          BIF_1_1_PREADY_net_0;
 wire          BIF_1_1_PSLVERR_net_0;
 wire   [31:0] BIF_1_1_PRDATA_net_0;
-wire          read_bit_data_valid_net_1;
-wire          read_data_bit_net_1;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign BIF_1_1_PREADY_net_0      = BIF_1_1_PREADY;
-assign PREADY_1                  = BIF_1_1_PREADY_net_0;
-assign BIF_1_1_PSLVERR_net_0     = BIF_1_1_PSLVERR;
-assign PSLVERR_1                 = BIF_1_1_PSLVERR_net_0;
-assign BIF_1_1_PRDATA_net_0      = BIF_1_1_PRDATA;
-assign PRDATA_1[31:0]            = BIF_1_1_PRDATA_net_0;
-assign read_bit_data_valid_net_1 = read_bit_data_valid_net_0;
-assign read_bit_data_valid       = read_bit_data_valid_net_1;
-assign read_data_bit_net_1       = read_data_bit_net_0;
-assign read_data_bit             = read_data_bit_net_1;
+assign BIF_1_1_PREADY_net_0  = BIF_1_1_PREADY;
+assign PREADY_1              = BIF_1_1_PREADY_net_0;
+assign BIF_1_1_PSLVERR_net_0 = BIF_1_1_PSLVERR;
+assign PSLVERR_1             = BIF_1_1_PSLVERR_net_0;
+assign BIF_1_1_PRDATA_net_0  = BIF_1_1_PRDATA;
+assign PRDATA_1[31:0]        = BIF_1_1_PRDATA_net_0;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -109,15 +97,13 @@ n64_apb_interface n64_apb_interface_0(
 //--------n64_serial_interface
 n64_serial_interface n64_serial_interface_0(
         // Inputs
-        .clk                 ( PCLK ),
-        .polling_enable      ( polling_enable ),
-        .controller_reset    ( controller_reset ),
+        .clk              ( PCLK ),
+        .polling_enable   ( polling_enable ),
+        .controller_reset ( controller_reset ),
         // Outputs
-        .button_data         ( n64_serial_interface_0_button_data ),
-        .read_data_bit       ( read_data_bit_net_0 ),
-        .read_bit_data_valid ( read_bit_data_valid_net_0 ),
+        .button_data      ( n64_serial_interface_0_button_data ),
         // Inouts
-        .fab_pin             ( fab_pin ) 
+        .fab_pin          ( fab_pin ) 
         );
 
 

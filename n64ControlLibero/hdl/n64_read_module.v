@@ -23,11 +23,7 @@ module n64_read_module(
     input data_in,
     output reg error,
     output reg working,
-    output reg [31:0] con_data,
-
-    //DEBUG
-    output wire data_bit, 
-    output wire data_valid
+    output reg [31:0] con_data
 );
 
 initial begin
@@ -54,7 +50,7 @@ always @ (posedge clk) begin
 end
 
 
-//DEBUG wire data_bit, data_valid;
+wire data_bit, data_valid;
 
 _read_bit read_bit0 (
     data_in,

@@ -12,7 +12,7 @@ Opened an existing Libero design n64ControlLibero.adb.
 'IDE_DESIGNERVIEW_ROOTDIR' set to 'C:\Users\rpokeefe\repos\373\n64ControlLibero\designer'
 'IDE_DESIGNERVIEW_LASTREV' set to '1'
 
- Netlist Reading Time = 1.0 seconds
+ Netlist Reading Time = 0.0 seconds
 Imported the files:
    C:\Users\rpokeefe\repos\373\n64ControlLibero\synthesis\n64ControlLibero.edn
 
@@ -329,8 +329,6 @@ Warning: CMP201: Net n64ControlLibero_MSS_0/MSS_ADLIB_INST_FABPRDATA[28] drives 
 Warning: CMP201: Net n64ControlLibero_MSS_0/MSS_ADLIB_INST_FABPRDATA[29] drives no load.
 Warning: CMP201: Net n64ControlLibero_MSS_0/MSS_ADLIB_INST_FABPRDATA[30] drives no load.
 Warning: CMP201: Net n64ControlLibero_MSS_0/MSS_ADLIB_INST_FABPRDATA[31] drives no load.
-Warning: CMP201: Net n64ControlLibero_MSS_0/n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[12]
-         drives no load.
 Warning: CMP201: Net n64ControlLibero_MSS_0/n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[13]
          drives no load.
 Warning: CMP201: Net n64ControlLibero_MSS_0/n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR[14]
@@ -359,11 +357,11 @@ Optimized macros:
   - Buffers:                0
   - Inverters:              0
   - Tieoff:                 0
-  - Logic combining:        17
+  - Logic combining:        44
 
-    Total macros optimized  17
+    Total macros optimized  44
 
-There were 0 error(s) and 285 warning(s) in this design.
+There were 0 error(s) and 284 warning(s) in this design.
 =====================================================================
 
 Reading previous post-compile physical placement constraints.
@@ -383,12 +381,12 @@ Compile report:
 ===============
 
     Microcontroller Subsystem  Used:      1  Total:      1   (100.00%)
-    Fabric                     Used:    446  Total:   4608   (9.68%)
+    Fabric                     Used:    692  Total:   4608   (15.02%)
     Fabric IO (W/ clocks)      Used:      3  Total:     94   (3.19%)
     Fabric Differential IO     Used:      0  Total:     47   (0.00%)
     Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
     Dedicated MSS IO           Used:      4  Total:     43   (9.30%)
-    GLOBAL (Chip+Quadrant)     Used:      0  Total:     15   (0.00%)
+    GLOBAL (Chip+Quadrant)     Used:      1  Total:     15   (6.67%)
     MSS GLOBAL                 Used:      3  Total:      3   (100.00%)
     On-chip RC oscillator      Used:      1  Total:      1   (100.00%)
     Main Crystal oscillator    Used:      0  Total:      1   (0.00%)
@@ -400,7 +398,7 @@ Global Information:
 
     Type            | Used   | Total
     ----------------|--------|--------------
-    Chip global     | 0      | 3  (0.00%)*
+    Chip global     | 1      | 3  (33.33%)*
     Quadrant global | 0      | 12 (0.00%)
     MSS global      | 3      | 3  (100.00%)
 
@@ -412,8 +410,8 @@ Core Information:
 
     Type    | Instances    | Core tiles
     --------|--------------|-----------
-    COMB    | 280          | 280
-    SEQ     | 166          | 166
+    COMB    | 496          | 496
+    SEQ     | 196          | 196
 
 I/O Function:
 
@@ -445,24 +443,28 @@ Net information report:
 The following nets have been assigned to a chip global resource:
     Fanout  Type          Name
     --------------------------
-    167     CLK_NET       Net   : FAB_CLK
+    197     CLK_NET       Net   : FAB_CLK
                           Driver: n64ControlLibero_MSS_0/MSS_CCC_0/I_MSSCCC
                           Source: ESSENTIAL
+    95      INT_NET       Net   : trigger_solenoid_0/N_89
+                          Driver: trigger_solenoid_0/countdown_RNIOENN7_0[2]/U_CLKSRC
+                          Source: NETLIST
 
 High fanout nets in the post compile netlist:
     Fanout  Type          Name
     --------------------------
-    17      INT_NET       Net   : CoreAPB3_0_APBmslave0_PSELx_0
-                          Driver: CoreAPB3_0/iPSELS_0[0]
-    17      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/read_data_bit_c_0
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit_0
-    16      INT_NET       Net   : read_data_bit_c
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit
-    16      INT_NET       Net   : CoreAPB3_0/CoreAPB3_0_APBmslave0_PSELx
-                          Driver: CoreAPB3_0/iPSELS[0]
+    18      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR[8]
+                          Driver: n64ControlLibero_MSS_0/MSS_ADLIB_INST
+    17      INT_NET       Net   : n64ControlLibero_MSS_0_M2F_RESET_N
+                          Driver: n64ControlLibero_MSS_0/MSS_ADLIB_INST
+    17      INT_NET       Net   : N_15_mux_0
+                          Driver: CoreAPB3_0/m3_e_0_0
+    17      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR_0[8]
+                          Driver: n64ControlLibero_MSS_0/MSS_ADLIB_INST_RNIGU4C_0
+    17      INT_NET       Net   : CoreAPB3_0/N_15_mux
+                          Driver: CoreAPB3_0/m3_e
+    16      INT_NET       Net   : n64ControlLibero_MSS_0_M2F_RESET_N_0
+                          Driver: n64ControlLibero_MSS_0/MSS_ADLIB_INST_RNIGU4C
     16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/button_data_0_sqmuxa_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
@@ -472,31 +474,21 @@ n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9
     16      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/con_data_19_e_0
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I_0[4]
-    15      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/con_data_41_e_0
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_37_e_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I[4]
-    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/index_c1
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI12F6[1]
 
 Nets that are candidates for clock assignment and the resulting fanout:
     Fanout  Type          Name
     --------------------------
-    17      INT_NET       Net   : CoreAPB3_0_APBmslave0_PSELx_0
-                          Driver: CoreAPB3_0/iPSELS_0[0]
-    17      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/read_data_bit_c_0
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit_0
-    16      INT_NET       Net   : read_data_bit_c
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit
-    16      INT_NET       Net   : CoreAPB3_0/CoreAPB3_0_APBmslave0_PSELx
-                          Driver: CoreAPB3_0/iPSELS[0]
+    34      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR[8]
+                          Driver: n64ControlLibero_MSS_0/MSS_ADLIB_INST
+    32      INT_NET       Net   : n64ControlLibero_MSS_0_M2F_RESET_N
+                          Driver: n64ControlLibero_MSS_0/MSS_ADLIB_INST
+    17      INT_NET       Net   : N_15_mux_0
+                          Driver: CoreAPB3_0/m3_e_0_0
+    17      INT_NET       Net   : CoreAPB3_0/N_15_mux
+                          Driver: CoreAPB3_0/m3_e
     16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/button_data_0_sqmuxa_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
@@ -506,30 +498,30 @@ n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9
     16      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/con_data_19_e_0
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I_0[4]
-    15      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/con_data_41_e_0
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_37_e_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I[4]
-    11      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/index_c1
+    16      INT_NET       Net   :
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_23_e_0
                           Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI12F6[1]
+n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I_0[4]
+    16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/data_bit_0
+                          Driver:
+n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit_0
 
-The Compile command succeeded ( 00:00:05 )
+The Compile command succeeded ( 00:00:06 )
 Wrote status report to file: n64ControlLibero_compile_report.txt
 
 The Report command succeeded ( 00:00:00 )
 Wrote pin report to file: n64ControlLibero_report_pin_byname.txt
 
-The Report command succeeded ( 00:00:00 )
+The Report command succeeded ( 00:00:01 )
 Wrote pin report to file: n64ControlLibero_report_pin_bynumber.txt
 
 The Report command succeeded ( 00:00:01 )
 Design saved to file
 C:\Users\rpokeefe\repos\373\n64ControlLibero\designer\impl1\n64ControlLibero.adb.
 
-The Execute Script command succeeded ( 00:00:19 )
+The Execute Script command succeeded ( 00:00:20 )
 Design closed.
 

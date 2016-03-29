@@ -38,8 +38,8 @@ assign PREADY = 1;
 wire write;
 wire read;
 
-assign write = (PSEL && PWRITE && PENABLE && (PADDR[7:0] == 8'h00));
-assign read = (PSEL && !PWRITE && PENABLE && (PADDR[7:0] == 8'h00));
+assign write = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h00));
+assign read = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h00));
 
 /***END APB INTERFACE***/
 

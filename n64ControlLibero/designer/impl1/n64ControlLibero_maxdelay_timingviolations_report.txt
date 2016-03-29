@@ -2,7 +2,7 @@ Timing Violation Report Max Delay Analysis
 
 SmartTime Version v11.5 SP3
 Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
-Date: Thu Mar 24 14:45:47 2016
+Date: Tue Mar 29 14:46:32 2016
 
 
 Design: n64ControlLibero
@@ -21,26 +21,802 @@ Scenario for Timing Analysis: Primary
 
 
 Path 1
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
-  Delay (ns):                  11.392
-  Slack (ns):                  -0.198
-  Arrival (ns):                14.947
-  Required (ns):               14.749
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.963
+  Slack (ns):                  -12.512
+  Arrival (ns):                27.202
+  Required (ns):               14.690
 
 Path 2
-  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
-  Delay (ns):                  11.390
-  Slack (ns):                  -0.196
-  Arrival (ns):                14.945
-  Required (ns):               14.749
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.957
+  Slack (ns):                  -12.505
+  Arrival (ns):                27.195
+  Required (ns):               14.690
 
 Path 3
-  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[6]:CLK
-  To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
-  Delay (ns):                  9.639
-  Slack (ns):                  -0.129
-  Arrival (ns):                14.867
-  Required (ns):               14.738
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  21.710
+  Slack (ns):                  -12.233
+  Arrival (ns):                26.949
+  Required (ns):               14.716
+
+Path 4
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  21.704
+  Slack (ns):                  -12.226
+  Arrival (ns):                26.942
+  Required (ns):               14.716
+
+Path 5
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  21.550
+  Slack (ns):                  -12.065
+  Arrival (ns):                26.789
+  Required (ns):               14.724
+
+Path 6
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  21.544
+  Slack (ns):                  -12.058
+  Arrival (ns):                26.782
+  Required (ns):               14.724
+
+Path 7
+  From:                        trigger_solenoid_0/countdown[23]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.459
+  Slack (ns):                  -11.981
+  Arrival (ns):                26.671
+  Required (ns):               14.690
+
+Path 8
+  From:                        trigger_solenoid_0/countdown[22]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.359
+  Slack (ns):                  -11.881
+  Arrival (ns):                26.571
+  Required (ns):               14.690
+
+Path 9
+  From:                        trigger_solenoid_0/countdown[17]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.298
+  Slack (ns):                  -11.863
+  Arrival (ns):                26.553
+  Required (ns):               14.690
+
+Path 10
+  From:                        trigger_solenoid_0/countdown[8]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.245
+  Slack (ns):                  -11.801
+  Arrival (ns):                26.491
+  Required (ns):               14.690
+
+Path 11
+  From:                        trigger_solenoid_0/countdown[20]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.259
+  Slack (ns):                  -11.778
+  Arrival (ns):                26.468
+  Required (ns):               14.690
+
+Path 12
+  From:                        trigger_solenoid_0/countdown[21]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.248
+  Slack (ns):                  -11.767
+  Arrival (ns):                26.457
+  Required (ns):               14.690
+
+Path 13
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  21.156
+  Slack (ns):                  -11.705
+  Arrival (ns):                26.395
+  Required (ns):               14.690
+
+Path 14
+  From:                        trigger_solenoid_0/countdown[23]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  21.206
+  Slack (ns):                  -11.702
+  Arrival (ns):                26.418
+  Required (ns):               14.716
+
+Path 15
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  21.150
+  Slack (ns):                  -11.698
+  Arrival (ns):                26.388
+  Required (ns):               14.690
+
+Path 16
+  From:                        trigger_solenoid_0/countdown[9]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  21.130
+  Slack (ns):                  -11.682
+  Arrival (ns):                26.372
+  Required (ns):               14.690
+
+Path 17
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  21.081
+  Slack (ns):                  -11.633
+  Arrival (ns):                26.320
+  Required (ns):               14.687
+
+Path 18
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  21.075
+  Slack (ns):                  -11.626
+  Arrival (ns):                26.313
+  Required (ns):               14.687
+
+Path 19
+  From:                        trigger_solenoid_0/countdown[22]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  21.106
+  Slack (ns):                  -11.602
+  Arrival (ns):                26.318
+  Required (ns):               14.716
+
+Path 20
+  From:                        trigger_solenoid_0/countdown[17]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  21.045
+  Slack (ns):                  -11.584
+  Arrival (ns):                26.300
+  Required (ns):               14.716
+
+Path 21
+  From:                        trigger_solenoid_0/countdown[23]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  21.046
+  Slack (ns):                  -11.534
+  Arrival (ns):                26.258
+  Required (ns):               14.724
+
+Path 22
+  From:                        trigger_solenoid_0/countdown[8]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.992
+  Slack (ns):                  -11.522
+  Arrival (ns):                26.238
+  Required (ns):               14.716
+
+Path 23
+  From:                        trigger_solenoid_0/countdown[11]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.934
+  Slack (ns):                  -11.499
+  Arrival (ns):                26.189
+  Required (ns):               14.690
+
+Path 24
+  From:                        trigger_solenoid_0/countdown[20]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  21.006
+  Slack (ns):                  -11.499
+  Arrival (ns):                26.215
+  Required (ns):               14.716
+
+Path 25
+  From:                        trigger_solenoid_0/countdown[21]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.995
+  Slack (ns):                  -11.488
+  Arrival (ns):                26.204
+  Required (ns):               14.716
+
+Path 26
+  From:                        trigger_solenoid_0/countdown[22]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.946
+  Slack (ns):                  -11.434
+  Arrival (ns):                26.158
+  Required (ns):               14.724
+
+Path 27
+  From:                        trigger_solenoid_0/countdown[17]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.885
+  Slack (ns):                  -11.416
+  Arrival (ns):                26.140
+  Required (ns):               14.724
+
+Path 28
+  From:                        trigger_solenoid_0/countdown[9]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.877
+  Slack (ns):                  -11.403
+  Arrival (ns):                26.119
+  Required (ns):               14.716
+
+Path 29
+  From:                        trigger_solenoid_0/countdown[26]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.836
+  Slack (ns):                  -11.401
+  Arrival (ns):                26.091
+  Required (ns):               14.690
+
+Path 30
+  From:                        trigger_solenoid_0/countdown[0]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.848
+  Slack (ns):                  -11.390
+  Arrival (ns):                26.080
+  Required (ns):               14.690
+
+Path 31
+  From:                        trigger_solenoid_0/countdown[8]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.832
+  Slack (ns):                  -11.354
+  Arrival (ns):                26.078
+  Required (ns):               14.724
+
+Path 32
+  From:                        trigger_solenoid_0/countdown[20]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.846
+  Slack (ns):                  -11.331
+  Arrival (ns):                26.055
+  Required (ns):               14.724
+
+Path 33
+  From:                        trigger_solenoid_0/countdown[21]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.835
+  Slack (ns):                  -11.320
+  Arrival (ns):                26.044
+  Required (ns):               14.724
+
+Path 34
+  From:                        trigger_solenoid_0/countdown[19]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.785
+  Slack (ns):                  -11.316
+  Arrival (ns):                26.006
+  Required (ns):               14.690
+
+Path 35
+  From:                        trigger_solenoid_0/countdown[10]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.743
+  Slack (ns):                  -11.308
+  Arrival (ns):                25.998
+  Required (ns):               14.690
+
+Path 36
+  From:                        trigger_solenoid_0/countdown[9]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.717
+  Slack (ns):                  -11.235
+  Arrival (ns):                25.959
+  Required (ns):               14.724
+
+Path 37
+  From:                        trigger_solenoid_0/countdown[11]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.681
+  Slack (ns):                  -11.220
+  Arrival (ns):                25.936
+  Required (ns):               14.716
+
+Path 38
+  From:                        trigger_solenoid_0/countdown[23]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.652
+  Slack (ns):                  -11.174
+  Arrival (ns):                25.864
+  Required (ns):               14.690
+
+Path 39
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[26]:D
+  Delay (ns):                  20.665
+  Slack (ns):                  -11.171
+  Arrival (ns):                25.904
+  Required (ns):               14.733
+
+Path 40
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[26]:D
+  Delay (ns):                  20.659
+  Slack (ns):                  -11.164
+  Arrival (ns):                25.897
+  Required (ns):               14.733
+
+Path 41
+  From:                        trigger_solenoid_0/countdown[26]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.583
+  Slack (ns):                  -11.122
+  Arrival (ns):                25.838
+  Required (ns):               14.716
+
+Path 42
+  From:                        trigger_solenoid_0/countdown[0]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.595
+  Slack (ns):                  -11.111
+  Arrival (ns):                25.827
+  Required (ns):               14.716
+
+Path 43
+  From:                        trigger_solenoid_0/countdown[23]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  20.577
+  Slack (ns):                  -11.102
+  Arrival (ns):                25.789
+  Required (ns):               14.687
+
+Path 44
+  From:                        trigger_solenoid_0/countdown[22]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.552
+  Slack (ns):                  -11.074
+  Arrival (ns):                25.764
+  Required (ns):               14.690
+
+Path 45
+  From:                        trigger_solenoid_0/countdown[17]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.491
+  Slack (ns):                  -11.056
+  Arrival (ns):                25.746
+  Required (ns):               14.690
+
+Path 46
+  From:                        trigger_solenoid_0/countdown[11]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.521
+  Slack (ns):                  -11.052
+  Arrival (ns):                25.776
+  Required (ns):               14.724
+
+Path 47
+  From:                        trigger_solenoid_0/countdown[19]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.532
+  Slack (ns):                  -11.037
+  Arrival (ns):                25.753
+  Required (ns):               14.716
+
+Path 48
+  From:                        trigger_solenoid_0/countdown[1]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.504
+  Slack (ns):                  -11.036
+  Arrival (ns):                25.726
+  Required (ns):               14.690
+
+Path 49
+  From:                        trigger_solenoid_0/countdown[10]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.490
+  Slack (ns):                  -11.029
+  Arrival (ns):                25.745
+  Required (ns):               14.716
+
+Path 50
+  From:                        trigger_solenoid_0/countdown[22]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  20.477
+  Slack (ns):                  -11.002
+  Arrival (ns):                25.689
+  Required (ns):               14.687
+
+Path 51
+  From:                        trigger_solenoid_0/countdown[18]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.449
+  Slack (ns):                  -11.001
+  Arrival (ns):                25.691
+  Required (ns):               14.690
+
+Path 52
+  From:                        trigger_solenoid_0/countdown[8]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.438
+  Slack (ns):                  -10.994
+  Arrival (ns):                25.684
+  Required (ns):               14.690
+
+Path 53
+  From:                        trigger_solenoid_0/countdown[17]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  20.416
+  Slack (ns):                  -10.984
+  Arrival (ns):                25.671
+  Required (ns):               14.687
+
+Path 54
+  From:                        trigger_solenoid_0/countdown[7]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.445
+  Slack (ns):                  -10.977
+  Arrival (ns):                25.667
+  Required (ns):               14.690
+
+Path 55
+  From:                        trigger_solenoid_0/countdown[20]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.452
+  Slack (ns):                  -10.971
+  Arrival (ns):                25.661
+  Required (ns):               14.690
+
+Path 56
+  From:                        trigger_solenoid_0/countdown[21]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.441
+  Slack (ns):                  -10.960
+  Arrival (ns):                25.650
+  Required (ns):               14.690
+
+Path 57
+  From:                        trigger_solenoid_0/countdown[26]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.423
+  Slack (ns):                  -10.954
+  Arrival (ns):                25.678
+  Required (ns):               14.724
+
+Path 58
+  From:                        trigger_solenoid_0/countdown[27]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.397
+  Slack (ns):                  -10.953
+  Arrival (ns):                25.643
+  Required (ns):               14.690
+
+Path 59
+  From:                        trigger_solenoid_0/countdown[0]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.435
+  Slack (ns):                  -10.943
+  Arrival (ns):                25.667
+  Required (ns):               14.724
+
+Path 60
+  From:                        trigger_solenoid_0/countdown[8]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  20.363
+  Slack (ns):                  -10.922
+  Arrival (ns):                25.609
+  Required (ns):               14.687
+
+Path 61
+  From:                        trigger_solenoid_0/countdown[15]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.396
+  Slack (ns):                  -10.918
+  Arrival (ns):                25.608
+  Required (ns):               14.690
+
+Path 62
+  From:                        trigger_solenoid_0/countdown[20]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  20.377
+  Slack (ns):                  -10.899
+  Arrival (ns):                25.586
+  Required (ns):               14.687
+
+Path 63
+  From:                        trigger_solenoid_0/countdown[21]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  20.366
+  Slack (ns):                  -10.888
+  Arrival (ns):                25.575
+  Required (ns):               14.687
+
+Path 64
+  From:                        trigger_solenoid_0/countdown[9]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.323
+  Slack (ns):                  -10.875
+  Arrival (ns):                25.565
+  Required (ns):               14.690
+
+Path 65
+  From:                        trigger_solenoid_0/countdown[19]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.372
+  Slack (ns):                  -10.869
+  Arrival (ns):                25.593
+  Required (ns):               14.724
+
+Path 66
+  From:                        trigger_solenoid_0/countdown[10]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.330
+  Slack (ns):                  -10.861
+  Arrival (ns):                25.585
+  Required (ns):               14.724
+
+Path 67
+  From:                        trigger_solenoid_0/countdown[14]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.340
+  Slack (ns):                  -10.858
+  Arrival (ns):                25.548
+  Required (ns):               14.690
+
+Path 68
+  From:                        trigger_solenoid_0/countdown[16]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.283
+  Slack (ns):                  -10.848
+  Arrival (ns):                25.538
+  Required (ns):               14.690
+
+Path 69
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[17]:D
+  Delay (ns):                  20.319
+  Slack (ns):                  -10.825
+  Arrival (ns):                25.558
+  Required (ns):               14.733
+
+Path 70
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[17]:D
+  Delay (ns):                  20.313
+  Slack (ns):                  -10.818
+  Arrival (ns):                25.551
+  Required (ns):               14.733
+
+Path 71
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[19]:D
+  Delay (ns):                  20.277
+  Slack (ns):                  -10.817
+  Arrival (ns):                25.516
+  Required (ns):               14.699
+
+Path 72
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[19]:D
+  Delay (ns):                  20.271
+  Slack (ns):                  -10.810
+  Arrival (ns):                25.509
+  Required (ns):               14.699
+
+Path 73
+  From:                        trigger_solenoid_0/countdown[9]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  20.248
+  Slack (ns):                  -10.803
+  Arrival (ns):                25.490
+  Required (ns):               14.687
+
+Path 74
+  From:                        trigger_solenoid_0/countdown[3]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.207
+  Slack (ns):                  -10.772
+  Arrival (ns):                25.462
+  Required (ns):               14.690
+
+Path 75
+  From:                        trigger_solenoid_0/countdown[12]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.245
+  Slack (ns):                  -10.758
+  Arrival (ns):                25.448
+  Required (ns):               14.690
+
+Path 76
+  From:                        trigger_solenoid_0/countdown[1]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.251
+  Slack (ns):                  -10.757
+  Arrival (ns):                25.473
+  Required (ns):               14.716
+
+Path 77
+  From:                        trigger_solenoid_0/countdown[6]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.195
+  Slack (ns):                  -10.728
+  Arrival (ns):                25.418
+  Required (ns):               14.690
+
+Path 78
+  From:                        trigger_solenoid_0/countdown[18]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.196
+  Slack (ns):                  -10.722
+  Arrival (ns):                25.438
+  Required (ns):               14.716
+
+Path 79
+  From:                        trigger_solenoid_0/countdown[2]:CLK
+  To:                          trigger_solenoid_0/countdown[23]:D
+  Delay (ns):                  20.151
+  Slack (ns):                  -10.716
+  Arrival (ns):                25.406
+  Required (ns):               14.690
+
+Path 80
+  From:                        trigger_solenoid_0/countdown[7]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.192
+  Slack (ns):                  -10.698
+  Arrival (ns):                25.414
+  Required (ns):               14.716
+
+Path 81
+  From:                        trigger_solenoid_0/countdown[11]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.127
+  Slack (ns):                  -10.692
+  Arrival (ns):                25.382
+  Required (ns):               14.690
+
+Path 82
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[15]:D
+  Delay (ns):                  20.137
+  Slack (ns):                  -10.686
+  Arrival (ns):                25.376
+  Required (ns):               14.690
+
+Path 83
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[15]:D
+  Delay (ns):                  20.131
+  Slack (ns):                  -10.679
+  Arrival (ns):                25.369
+  Required (ns):               14.690
+
+Path 84
+  From:                        trigger_solenoid_0/countdown[27]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.144
+  Slack (ns):                  -10.674
+  Arrival (ns):                25.390
+  Required (ns):               14.716
+
+Path 85
+  From:                        trigger_solenoid_0/countdown[23]:CLK
+  To:                          trigger_solenoid_0/countdown[26]:D
+  Delay (ns):                  20.161
+  Slack (ns):                  -10.640
+  Arrival (ns):                25.373
+  Required (ns):               14.733
+
+Path 86
+  From:                        trigger_solenoid_0/countdown[15]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.143
+  Slack (ns):                  -10.639
+  Arrival (ns):                25.355
+  Required (ns):               14.716
+
+Path 87
+  From:                        trigger_solenoid_0/countdown[11]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  20.052
+  Slack (ns):                  -10.620
+  Arrival (ns):                25.307
+  Required (ns):               14.687
+
+Path 88
+  From:                        trigger_solenoid_0/countdown[26]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.029
+  Slack (ns):                  -10.594
+  Arrival (ns):                25.284
+  Required (ns):               14.690
+
+Path 89
+  From:                        trigger_solenoid_0/countdown[1]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.091
+  Slack (ns):                  -10.589
+  Arrival (ns):                25.313
+  Required (ns):               14.724
+
+Path 90
+  From:                        trigger_solenoid_0/countdown[0]:CLK
+  To:                          trigger_solenoid_0/countdown[22]:D
+  Delay (ns):                  20.041
+  Slack (ns):                  -10.583
+  Arrival (ns):                25.273
+  Required (ns):               14.690
+
+Path 91
+  From:                        trigger_solenoid_0/countdown[14]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.087
+  Slack (ns):                  -10.579
+  Arrival (ns):                25.295
+  Required (ns):               14.716
+
+Path 92
+  From:                        trigger_solenoid_0/countdown[16]:CLK
+  To:                          trigger_solenoid_0/countdown[25]:D
+  Delay (ns):                  20.030
+  Slack (ns):                  -10.569
+  Arrival (ns):                25.285
+  Required (ns):               14.716
+
+Path 93
+  From:                        trigger_solenoid_0/countdown[18]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.036
+  Slack (ns):                  -10.554
+  Arrival (ns):                25.278
+  Required (ns):               14.724
+
+Path 94
+  From:                        trigger_solenoid_0/countdown[24]:CLK
+  To:                          trigger_solenoid_0/countdown[14]:D
+  Delay (ns):                  19.987
+  Slack (ns):                  -10.540
+  Arrival (ns):                25.226
+  Required (ns):               14.686
+
+Path 95
+  From:                        trigger_solenoid_0/countdown[22]:CLK
+  To:                          trigger_solenoid_0/countdown[26]:D
+  Delay (ns):                  20.061
+  Slack (ns):                  -10.540
+  Arrival (ns):                25.273
+  Required (ns):               14.733
+
+Path 96
+  From:                        trigger_solenoid_0/countdown[25]:CLK
+  To:                          trigger_solenoid_0/countdown[14]:D
+  Delay (ns):                  19.981
+  Slack (ns):                  -10.533
+  Arrival (ns):                25.219
+  Required (ns):               14.686
+
+Path 97
+  From:                        trigger_solenoid_0/countdown[7]:CLK
+  To:                          trigger_solenoid_0/countdown[27]:D
+  Delay (ns):                  20.032
+  Slack (ns):                  -10.530
+  Arrival (ns):                25.254
+  Required (ns):               14.724
+
+Path 98
+  From:                        trigger_solenoid_0/countdown[26]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  19.954
+  Slack (ns):                  -10.522
+  Arrival (ns):                25.209
+  Required (ns):               14.687
+
+Path 99
+  From:                        trigger_solenoid_0/countdown[17]:CLK
+  To:                          trigger_solenoid_0/countdown[26]:D
+  Delay (ns):                  20.000
+  Slack (ns):                  -10.522
+  Arrival (ns):                25.255
+  Required (ns):               14.733
+
+Path 100
+  From:                        trigger_solenoid_0/countdown[0]:CLK
+  To:                          trigger_solenoid_0/countdown[21]:D
+  Delay (ns):                  19.966
+  Slack (ns):                  -10.511
+  Arrival (ns):                25.198
+  Required (ns):               14.687
 

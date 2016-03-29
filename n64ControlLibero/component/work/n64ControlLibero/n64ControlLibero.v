@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Mar 24 14:43:22 2016
+// Created by SmartDesign Tue Mar 29 14:26:04 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -13,8 +13,8 @@ module n64ControlLibero(
     // Outputs
     GPIO_0_OUT,
     UART_0_TXD,
-    read_bit_data_valid,
-    read_data_bit,
+    correct,
+    trigger_signal,
     // Inouts
     fab_pin
 );
@@ -29,8 +29,8 @@ input  UART_0_RXD;
 //--------------------------------------------------------------------
 output GPIO_0_OUT;
 output UART_0_TXD;
-output read_bit_data_valid;
-output read_data_bit;
+output correct;
+output trigger_signal;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -46,6 +46,11 @@ wire          CoreAPB3_0_APBmslave0_PSELx;
 wire          CoreAPB3_0_APBmslave0_PSLVERR;
 wire   [31:0] CoreAPB3_0_APBmslave0_PWDATA;
 wire          CoreAPB3_0_APBmslave0_PWRITE;
+wire   [31:0] CoreAPB3_0_APBmslave1_PRDATA;
+wire          CoreAPB3_0_APBmslave1_PREADY;
+wire          CoreAPB3_0_APBmslave1_PSELx;
+wire          CoreAPB3_0_APBmslave1_PSLVERR;
+wire          correct_net_0;
 wire          fab_pin;
 wire          GPIO_0_OUT_net_0;
 wire          MSS_RESET_N;
@@ -58,21 +63,19 @@ wire          n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx;
 wire          n64ControlLibero_MSS_0_MSS_MASTER_APB_PSLVERR;
 wire   [31:0] n64ControlLibero_MSS_0_MSS_MASTER_APB_PWDATA;
 wire          n64ControlLibero_MSS_0_MSS_MASTER_APB_PWRITE;
-wire          read_bit_data_valid_net_0;
-wire          read_data_bit_net_0;
+wire          trigger_signal_net_0;
 wire          UART_0_RXD;
 wire          UART_0_TXD_net_0;
 wire          UART_0_TXD_net_1;
-wire          read_data_bit_net_1;
-wire          read_bit_data_valid_net_1;
 wire          GPIO_0_OUT_net_1;
+wire          trigger_signal_net_1;
+wire          correct_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
 wire          GND_net;
 wire          VCC_net;
 wire   [31:0] IADDR_const_net_0;
-wire   [31:0] PRDATAS1_const_net_0;
 wire   [31:0] PRDATAS2_const_net_0;
 wire   [31:0] PRDATAS3_const_net_0;
 wire   [31:0] PRDATAS4_const_net_0;
@@ -91,17 +94,16 @@ wire   [31:0] PRDATAS16_const_net_0;
 //--------------------------------------------------------------------
 // Bus Interface Nets Declarations - Unequal Pin Widths
 //--------------------------------------------------------------------
+wire   [19:0] n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR;
 wire   [31:20]n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR_0_31to20;
 wire   [19:0] n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR_0_19to0;
 wire   [31:0] n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR_0;
-wire   [19:0] n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
 assign GND_net               = 1'b0;
 assign VCC_net               = 1'b1;
 assign IADDR_const_net_0     = 32'h00000000;
-assign PRDATAS1_const_net_0  = 32'h00000000;
 assign PRDATAS2_const_net_0  = 32'h00000000;
 assign PRDATAS3_const_net_0  = 32'h00000000;
 assign PRDATAS4_const_net_0  = 32'h00000000;
@@ -120,14 +122,14 @@ assign PRDATAS16_const_net_0 = 32'h00000000;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign UART_0_TXD_net_1          = UART_0_TXD_net_0;
-assign UART_0_TXD                = UART_0_TXD_net_1;
-assign read_data_bit_net_1       = read_data_bit_net_0;
-assign read_data_bit             = read_data_bit_net_1;
-assign read_bit_data_valid_net_1 = read_bit_data_valid_net_0;
-assign read_bit_data_valid       = read_bit_data_valid_net_1;
-assign GPIO_0_OUT_net_1          = GPIO_0_OUT_net_0;
-assign GPIO_0_OUT                = GPIO_0_OUT_net_1;
+assign UART_0_TXD_net_1     = UART_0_TXD_net_0;
+assign UART_0_TXD           = UART_0_TXD_net_1;
+assign GPIO_0_OUT_net_1     = GPIO_0_OUT_net_0;
+assign GPIO_0_OUT           = GPIO_0_OUT_net_1;
+assign trigger_signal_net_1 = trigger_signal_net_0;
+assign trigger_signal       = trigger_signal_net_1;
+assign correct_net_1        = correct_net_0;
+assign correct              = correct_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -142,7 +144,7 @@ assign n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR_0 = { n64ControlLibero_MSS_0_
 CoreAPB3 #( 
         .APB_DWIDTH      ( 32 ),
         .APBSLOT0ENABLE  ( 1 ),
-        .APBSLOT1ENABLE  ( 0 ),
+        .APBSLOT1ENABLE  ( 1 ),
         .APBSLOT2ENABLE  ( 0 ),
         .APBSLOT3ENABLE  ( 0 ),
         .APBSLOT4ENABLE  ( 0 ),
@@ -186,8 +188,8 @@ CoreAPB3_0(
         .PSEL       ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PSELx ),
         .PREADYS0   ( CoreAPB3_0_APBmslave0_PREADY ),
         .PSLVERRS0  ( CoreAPB3_0_APBmslave0_PSLVERR ),
-        .PREADYS1   ( VCC_net ), // tied to 1'b1 from definition
-        .PSLVERRS1  ( GND_net ), // tied to 1'b0 from definition
+        .PREADYS1   ( CoreAPB3_0_APBmslave1_PREADY ),
+        .PSLVERRS1  ( CoreAPB3_0_APBmslave1_PSLVERR ),
         .PREADYS2   ( VCC_net ), // tied to 1'b1 from definition
         .PSLVERRS2  ( GND_net ), // tied to 1'b0 from definition
         .PREADYS3   ( VCC_net ), // tied to 1'b1 from definition
@@ -221,7 +223,7 @@ CoreAPB3_0(
         .PADDR      ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR_0 ),
         .PWDATA     ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PWDATA ),
         .PRDATAS0   ( CoreAPB3_0_APBmslave0_PRDATA ),
-        .PRDATAS1   ( PRDATAS1_const_net_0 ), // tied to 32'h00000000 from definition
+        .PRDATAS1   ( CoreAPB3_0_APBmslave1_PRDATA ),
         .PRDATAS2   ( PRDATAS2_const_net_0 ), // tied to 32'h00000000 from definition
         .PRDATAS3   ( PRDATAS3_const_net_0 ), // tied to 32'h00000000 from definition
         .PRDATAS4   ( PRDATAS4_const_net_0 ), // tied to 32'h00000000 from definition
@@ -244,7 +246,7 @@ CoreAPB3_0(
         .PWRITES    ( CoreAPB3_0_APBmslave0_PWRITE ),
         .PENABLES   ( CoreAPB3_0_APBmslave0_PENABLE ),
         .PSELS0     ( CoreAPB3_0_APBmslave0_PSELx ),
-        .PSELS1     (  ),
+        .PSELS1     ( CoreAPB3_0_APBmslave1_PSELx ),
         .PSELS2     (  ),
         .PSELS3     (  ),
         .PSELS4     (  ),
@@ -268,21 +270,19 @@ CoreAPB3_0(
 //--------n64_magic_box
 n64_magic_box n64_magic_box_0(
         // Inputs
-        .PCLK                ( n64ControlLibero_MSS_0_FAB_CLK ),
-        .PRESERN             ( n64ControlLibero_MSS_0_M2F_RESET_N ),
-        .PENABLE_1           ( CoreAPB3_0_APBmslave0_PENABLE ),
-        .PWRITE_1            ( CoreAPB3_0_APBmslave0_PWRITE ),
-        .PSEL_1              ( CoreAPB3_0_APBmslave0_PSELx ),
-        .PADDR_1             ( CoreAPB3_0_APBmslave0_PADDR ),
-        .PWDATA_1            ( CoreAPB3_0_APBmslave0_PWDATA ),
+        .PCLK      ( n64ControlLibero_MSS_0_FAB_CLK ),
+        .PRESERN   ( n64ControlLibero_MSS_0_M2F_RESET_N ),
+        .PENABLE_1 ( CoreAPB3_0_APBmslave0_PENABLE ),
+        .PWRITE_1  ( CoreAPB3_0_APBmslave0_PWRITE ),
+        .PSEL_1    ( CoreAPB3_0_APBmslave0_PSELx ),
+        .PADDR_1   ( CoreAPB3_0_APBmslave0_PADDR ),
+        .PWDATA_1  ( CoreAPB3_0_APBmslave0_PWDATA ),
         // Outputs
-        .PREADY_1            ( CoreAPB3_0_APBmslave0_PREADY ),
-        .PSLVERR_1           ( CoreAPB3_0_APBmslave0_PSLVERR ),
-        .PRDATA_1            ( CoreAPB3_0_APBmslave0_PRDATA ),
-        .read_bit_data_valid ( read_bit_data_valid_net_0 ),
-        .read_data_bit       ( read_data_bit_net_0 ),
+        .PREADY_1  ( CoreAPB3_0_APBmslave0_PREADY ),
+        .PSLVERR_1 ( CoreAPB3_0_APBmslave0_PSLVERR ),
+        .PRDATA_1  ( CoreAPB3_0_APBmslave0_PRDATA ),
         // Inouts
-        .fab_pin             ( fab_pin ) 
+        .fab_pin   ( fab_pin ) 
         );
 
 //--------n64ControlLibero_MSS
@@ -300,9 +300,29 @@ n64ControlLibero_MSS n64ControlLibero_MSS_0(
         .MSSPWRITE   ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PWRITE ),
         .FAB_CLK     ( n64ControlLibero_MSS_0_FAB_CLK ),
         .M2F_RESET_N ( n64ControlLibero_MSS_0_M2F_RESET_N ),
+        .GPIO_0_OUT  ( GPIO_0_OUT_net_0 ),
         .MSSPADDR    ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PADDR ),
-        .MSSPWDATA   ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PWDATA ),
-        .GPIO_0_OUT  ( GPIO_0_OUT_net_0 ) 
+        .MSSPWDATA   ( n64ControlLibero_MSS_0_MSS_MASTER_APB_PWDATA ) 
+        );
+
+//--------trigger_solenoid
+trigger_solenoid #( 
+        .ADDR ( 256 ) )
+trigger_solenoid_0(
+        // Inputs
+        .PCLK           ( n64ControlLibero_MSS_0_FAB_CLK ),
+        .PRESERN        ( n64ControlLibero_MSS_0_M2F_RESET_N ),
+        .PSEL           ( CoreAPB3_0_APBmslave1_PSELx ),
+        .PENABLE        ( CoreAPB3_0_APBmslave0_PENABLE ),
+        .PWRITE         ( CoreAPB3_0_APBmslave0_PWRITE ),
+        .PADDR          ( CoreAPB3_0_APBmslave0_PADDR ),
+        .PWDATA         ( CoreAPB3_0_APBmslave0_PWDATA ),
+        // Outputs
+        .PREADY         ( CoreAPB3_0_APBmslave1_PREADY ),
+        .PSLVERR        ( CoreAPB3_0_APBmslave1_PSLVERR ),
+        .PRDATA         ( CoreAPB3_0_APBmslave1_PRDATA ),
+        .trigger_signal ( trigger_signal_net_0 ),
+        .correct        ( correct_net_0 ) 
         );
 
 

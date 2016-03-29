@@ -38,7 +38,7 @@ int main() {
 
     volatile int x = 0;
 
-    int milliseconds = 200;
+    uint32_t milliseconds = 200;
     int increment = 50;
 
     while (1) {
@@ -51,21 +51,21 @@ int main() {
          *   C Down to decrement the itme
          */
         if (n64_buttons.Z && !last_buttons.Z) {
-            printf("Z pressed, activating trigger solenoid\n");
+            printf("Z pressed, activating trigger solenoid\r\n");
             trigger_solenoid_activate(milliseconds);
         }
 
         if (n64_buttons.C_Up && !last_buttons.C_Up) {
             milliseconds += increment;
-            printf("Incrementing solenoid time to: %d ms", milliseconds);
+            printf("Incrementing solenoid time to: %d ms\r\n", milliseconds);
         }
         if (n64_buttons.C_Down && !last_buttons.C_Down) {
             if (milliseconds <= increment) {
-                printf("Cannot decrement solenoid time, at min: %d ms", milliseconds);
+                printf("Cannot decrement solenoid time, at min: %d ms\r\n", milliseconds);
             }
             else {
-                milliseconds += increment;
-                printf("Decrementing solenoid time to: %d ms", milliseconds);
+                milliseconds -= increment;
+                printf("Decrementing solenoid time to: %d ms\r\n", milliseconds);
             }
         }
 
@@ -77,13 +77,13 @@ int main() {
 
             if (mode == AUTOMATIC) {
                 mode = MANUAL;
-                printf("manual mode, laser on!\n");
+                printf("manual mode, laser on!\r\n");
                 MSS_GPIO_set_output(MSS_GPIO_0, 1);
                 // do thing
             }
             else if (mode == MANUAL) {
                 mode = AUTOMATIC;
-                printf("automatic mode, laser off :(\n");
+                printf("automatic mode, laser off :(\r\n");
                 MSS_GPIO_set_output(MSS_GPIO_0, 0);
             }
         }

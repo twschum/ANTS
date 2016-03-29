@@ -4,11 +4,7 @@ module n64_serial_interface(
     input polling_enable,
     input controller_reset,
     inout fab_pin,
-    output reg [31:0] button_data,
-
-    //DEBUG
-    output wire read_data_bit,
-    output wire read_bit_data_valid
+    output reg [31:0] button_data
 );
 
 // used by the sync and count block
@@ -54,9 +50,7 @@ n64_read_module read_module(
     data_in,
     read_module_error,
     read_module_active,
-    button_data_raw,
-    read_data_bit,
-    read_bit_data_valid
+    button_data_raw
 );
 
 // open collector output circuit

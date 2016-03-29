@@ -2,8 +2,20 @@
 @W: CG775 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Found Component CoreAPB3 in library COREAPB3_LIB
 @W: CG775 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Found Component CoreAPB3 in library COREAPB3_LIB
 @W: CG360 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":244:12:244:20|No assignment to wire IA_PRDATA
-@W: CG532 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_module.v":33:0:33:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
+@W: CG532 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_module.v":29:0:29:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
 @W: CG133 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_read_module.v":24:15:24:19|No assignment to error
+@W: CG532 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":48:0:48:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
+@W: CG133 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":34:22:34:27|No assignment to PRDATA
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":58:0:58:5|Register bit countdown[31] is always 0, optimizing ...
+@W: CL260 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":58:0:58:5|Pruning register bit 31 of countdown[31:0] 
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":58:0:58:5|Register bit countdown[30] is always 0, optimizing ...
+@W: CL260 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":58:0:58:5|Pruning register bit 30 of countdown[30:0] 
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":58:0:58:5|Register bit countdown[29] is always 0, optimizing ...
+@W: CL260 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":58:0:58:5|Pruning register bit 29 of countdown[29:0] 
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":58:0:58:5|Register bit countdown[28] is always 0, optimizing ...
+@W: CL260 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":58:0:58:5|Pruning register bit 28 of countdown[28:0] 
+@W: CL246 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":32:17:32:21|Input port bits 31 to 12 of PADDR[31:0] are unused
+@W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\solenoid_control.v":33:22:33:27|Input PWDATA is unused
 @W: CL157 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\MSS_CCC_0\n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC.v":62:7:62:18|*Output RCOSC_CLKOUT has undriven bits -- simulation mismatch possible.
 @W: CL157 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\MSS_CCC_0\n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC.v":63:7:63:20|*Output MAINXIN_CLKOUT has undriven bits -- simulation mismatch possible.
 @W: CL157 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\MSS_CCC_0\n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC.v":64:7:64:18|*Output LPXIN_CLKOUT has undriven bits -- simulation mismatch possible.
@@ -22,22 +34,21 @@
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\MSS_CCC_0\n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC.v":48:7:48:13|Input MAINXIN is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\MSS_CCC_0\n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC.v":49:7:49:11|Input LPXIN is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\work\n64ControlLibero_MSS\MSS_CCC_0\n64ControlLibero_MSS_tmp_MSS_CCC_0_MSS_CCC.v":50:7:50:13|Input MAC_CLK is unused
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":90:0:90:5|Register bit command_byte[0] is always 1, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":67:0:67:5|Register bit long_count[17] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":67:0:67:5|Register bit long_count[18] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":67:0:67:5|Register bit long_count[19] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":67:0:67:5|Register bit long_count[20] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":67:0:67:5|Register bit long_count[21] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":67:0:67:5|Register bit long_count[22] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":67:0:67:5|Register bit long_count[23] is always 0, optimizing ...
-@W: CL279 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":67:0:67:5|Pruning register bits 23 to 17 of long_count[23:0] 
-@W: CL260 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":90:0:90:5|Pruning register bit 0 of command_byte[7:0] 
-@W: CL279 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":90:0:90:5|Pruning register bits 7 to 2 of command_byte[7:1] 
-@W: CL246 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_apb_interface.v":28:13:28:17|Input port bits 31 to 8 of PADDR[31:0] are unused
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":84:0:84:5|Register bit command_byte[0] is always 1, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[17] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[18] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[19] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[20] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[21] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[22] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[23] is always 0, optimizing ...
+@W: CL279 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":61:0:61:5|Pruning register bits 23 to 17 of long_count[23:0] 
+@W: CL260 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":84:0:84:5|Pruning register bit 0 of command_byte[7:0] 
+@W: CL279 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_serial_interface.v":84:0:84:5|Pruning register bits 7 to 2 of command_byte[7:1] 
+@W: CL246 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\hdl\n64_apb_interface.v":28:13:28:17|Input port bits 31 to 13 of PADDR[31:0] are unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":72:36:72:40|Input IADDR is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":73:13:73:19|Input PRESETN is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":74:13:74:16|Input PCLK is unused
-@W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":105:18:105:25|Input PRDATAS1 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":106:18:106:25|Input PRDATAS2 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":107:18:107:25|Input PRDATAS3 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":108:18:108:25|Input PRDATAS4 is unused
@@ -52,7 +63,6 @@
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":117:18:117:26|Input PRDATAS13 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":118:18:118:26|Input PRDATAS14 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":119:18:119:26|Input PRDATAS15 is unused
-@W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":122:13:122:20|Input PREADYS1 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":123:13:123:20|Input PREADYS2 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":124:13:124:20|Input PREADYS3 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":125:13:125:20|Input PREADYS4 is unused
@@ -67,7 +77,6 @@
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":134:13:134:21|Input PREADYS13 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":135:13:135:21|Input PREADYS14 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":136:13:136:21|Input PREADYS15 is unused
-@W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":139:13:139:21|Input PSLVERRS1 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":140:13:140:21|Input PSLVERRS2 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":141:13:141:21|Input PSLVERRS3 is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\n64ControlLibero\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":142:13:142:21|Input PSLVERRS4 is unused
