@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "drivers/n64_driver.h"
-#include "drivers/trigger_solenoid_driver.h"
+#include "n64_driver.h"
+#include "trigger_solenoid_driver.h"
 #include "drivers/mss_gpio/mss_gpio.h"
 
 #define PRINT_STATE 0
@@ -15,6 +15,7 @@
 #define GPIO_OUTPUT_CFG 0x01
 
 int main() {
+
 
     /*
      * configure GPIO_0 as an output pin

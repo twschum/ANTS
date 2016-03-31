@@ -3,11 +3,10 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "drivers/n64_driver.h"
-#include "drivers/trigger_solenoid_driver.h"
+#include "n64_driver.h"
 #include "drivers/mss_gpio/mss_gpio.h"
 
-#define PRINT_STATE 0
+#define PRINT_STATE 1
 
 #define MANUAL 1
 #define AUTOMATIC 0
@@ -15,6 +14,7 @@
 #define GPIO_OUTPUT_CFG 0x01
 
 int main() {
+
 
     /*
      * configure GPIO_0 as an output pin
@@ -37,35 +37,14 @@ int main() {
 
     volatile int x = 0;
 
-    uint32_t milliseconds = 200;
-    int increment = 50;
-
     while (1) {
         n64_get_state( &n64_buttons );
 
-        /*
-         * trigger the solenoid:
-         *   Z to fire
-         *   C Up to increment the time
-         *   C Down to decrement the itme
-         */
         if (n64_buttons.Z && !last_buttons.Z) {
-            printf("Z pressed, activating trigger solenoid\r\n");
-            trigger_solenoid_activate(milliseconds);
+            printf("Z pressed\n");
         }
-
-        if (n64_buttons.C_Up && !last_buttons.C_Up) {
-            milliseconds += increment;
-            printf("Incrementing solenoid time to: %d ms\r\n", milliseconds);
-        }
-        if (n64_buttons.C_Down && !last_buttons.C_Down) {
-            if (milliseconds <= increment) {
-                printf("Cannot decrement solenoid time, at min: %d ms\r\n", milliseconds);
-            }
-            else {
-                milliseconds -= increment;
-                printf("Decrementing solenoid time to: %d ms\r\n", milliseconds);
-            }
+        else if (!n64_buttons.Z && last_buttons.Z) {
+            printf("Z released\n");
         }
 
         /*
@@ -76,13 +55,13 @@ int main() {
 
             if (mode == AUTOMATIC) {
                 mode = MANUAL;
-                printf("manual mode, laser on!\r\n");
+                printf("manual mode, laser on!\n");
                 MSS_GPIO_set_output(MSS_GPIO_0, 1);
                 // do thing
             }
             else if (mode == MANUAL) {
                 mode = AUTOMATIC;
-                printf("automatic mode, laser off :(\r\n");
+                printf("automatic mode, laser off :(\n");
                 MSS_GPIO_set_output(MSS_GPIO_0, 0);
             }
         }
@@ -99,4 +78,5 @@ int main() {
 
         last_buttons = n64_buttons;
     }
+
 }
