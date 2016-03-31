@@ -41,6 +41,7 @@ int main() {
     uint32_t milliseconds = 200;
     int increment = 50;
 
+    printf("Hello, world!\r\n");
 
     // Pixy test
     int i=0, curr, prev=0;
