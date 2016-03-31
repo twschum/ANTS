@@ -27,25 +27,29 @@
  * Initialize the blocks data buffer,
  * and the MSS_SPI master
  */
-void Pixy_init();
+void init();
 
 /*
- * ?
+ *
  */
-int Pixy_get_start(void);
+int getStart(void);
 
 /*
- * Get up to maxBlocks from Pixy
+ *
  */
-uint16_t Pixy_get_blocks(uint16_t max_blocks);
-
-
-/*
- * Set the camera brightness
- */
-int Pixy_set_brightness(uint8_t brightness);
+uint16_t getBlocks(uint16_t maxBlocks);
 
 /*
- * Set the RGB value of the LED
+ *
  */
-int Pixy_set_LED(uint8_t r, uint8_t g, uint8_t b);
+int setServos(uint16_t s0, uint16_t s1);
+
+/*
+ *
+ */
+int setBrightness(uint8_t brightness);
+
+/*
+ *
+ */
+int setLED(uint8_t r, uint8_t g, uint8_t b);

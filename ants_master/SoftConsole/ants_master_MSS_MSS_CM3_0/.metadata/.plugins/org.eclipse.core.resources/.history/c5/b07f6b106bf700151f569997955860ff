@@ -3,10 +3,9 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "drivers/mss_gpio/mss_gpio.h"
-
 #include "drivers/n64_driver.h"
 #include "drivers/trigger_solenoid_driver.h"
+#include "drivers/mss_gpio/mss_gpio.h"
 
 #define PRINT_STATE 0
 
@@ -40,17 +39,6 @@ int main() {
 
     uint32_t milliseconds = 200;
     int increment = 50;
-
-
-    // Pixy test
-    int i=0, curr, prev=0;
-    while (1) {
-        curr = Pixy_get_start());
-        if (prev && curr) // two start codes means start of new frame
-            printf("%d\r\n", i++);
-        prev = curr;
-    }
-
 
     while (1) {
         n64_get_state( &n64_buttons );
