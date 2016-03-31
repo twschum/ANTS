@@ -29,13 +29,9 @@ static int sendByte(uint8_t *data, int len);
 // takes an output data argument
 uint8_t getByte(uint8_t out) {
 	
-	uint8_t in_rx;
-
-	MSS_SPI_set_slave_select( &g_mss_spi0, MSS_SPI_SLAVE_0 );
-	in_rx = MSS_SPI_transfer_frame( &g_mss_spi0, out );
-	MSS_SPI_clear_slave_select( &g_mss_spi0, MSS_SPI_SLAVE_0 );
-
-	return in_rx;
+	MSS_SPI_set_slave_select( &g_mss_spi1, MSS_SPI_SLAVE_0 );
+	//MSS_SPI_transfer_frame( &g_mss_spi1, out );
+	MSS_SPI_clear_slave_select( &g_mss_spi1, MSS_SPI_SLAVE_0 );
 }
 
 // variables for a little circular queue
@@ -60,7 +56,6 @@ uint16_t getWord()
   }
   else
     w = getByte(PIXY_SYNC_BYTE); // send out sync byte
-
   w <<= 8;
   c = getByte(cout); // send out data byte
   w |= c;
@@ -98,10 +93,10 @@ void Pixy_init()
   
   	const uint8_t frame_size = 8; // Single byte for Pixy
 
-	MSS_SPI_init( &g_mss_spi0 );
+	MSS_SPI_init( &g_mss_spi1 );
 	MSS_SPI_configure_master_mode
 	(
-		&g_mss_spi0,
+		&g_mss_spi1,
 		MSS_SPI_SLAVE_0,
 		MSS_SPI_MODE0,
 		MSS_SPI_PCLK_DIV_256, // between 256 and 2
@@ -137,7 +132,7 @@ int Pixy_get_start(void)
   }
 }
 
-uint16_t Pixy_get_blocks(uint16_t max_blocks)
+uint16_t Pixy_get_blocks(uint16_t maxBlocks)
 {
   uint8_t i;
   uint16_t w, blockCount, checksum, sum;
@@ -151,7 +146,7 @@ uint16_t Pixy_get_blocks(uint16_t max_blocks)
   else
     g_skipStart = 0;
 
-  for(blockCount=0; blockCount<max_blocks && blockCount<PIXY_ARRAYSIZE;)
+  for(blockCount=0; blockCount<maxBlocks && blockCount<PIXY_ARRAYSIZE;)
   {
     checksum = getWord();
     if (checksum==PIXY_START_WORD) // we've reached the beginning of the next frame
@@ -199,7 +194,7 @@ uint16_t Pixy_get_blocks(uint16_t max_blocks)
   }
 }
 
-int Pixy_set_brightness(uint8_t brightness)
+int setBrightness(uint8_t brightness)
 {
   uint8_t outBuf[3];
 
@@ -210,7 +205,7 @@ int Pixy_set_brightness(uint8_t brightness)
   return sendByte(outBuf, 3);
 }
 
-int Pixy_set_LED(uint8_t r, uint8_t g, uint8_t b)
+int setLED(uint8_t r, uint8_t g, uint8_t b)
 {
   uint8_t outBuf[5];
 

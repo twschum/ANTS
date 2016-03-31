@@ -60,7 +60,6 @@ uint16_t getWord()
   }
   else
     w = getByte(PIXY_SYNC_BYTE); // send out sync byte
-
   w <<= 8;
   c = getByte(cout); // send out data byte
   w |= c;

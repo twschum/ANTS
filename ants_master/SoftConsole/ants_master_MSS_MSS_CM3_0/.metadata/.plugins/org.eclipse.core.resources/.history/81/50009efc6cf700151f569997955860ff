@@ -47,7 +47,7 @@ int main() {
     while (1) {
         curr = Pixy_get_start());
         if (prev && curr) // two start codes means start of new frame
-            printf("%d\r\n", i++);
+            printf("%d", i++);
         prev = curr;
     }
 
