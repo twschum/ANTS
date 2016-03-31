@@ -1,0 +1,46 @@
+Timing Violation Report Max Delay Analysis
+
+SmartTime Version v11.5 SP3
+Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
+Date: Thu Mar 24 14:45:47 2016
+
+
+Design: n64ControlLibero
+Family: SmartFusion
+Die: A2F200M3F
+Package: 484 FBGA
+Temperature: COM
+Voltage: COM
+Speed Grade: STD
+Design State: Post-Layout
+Data source: Silicon verified
+Min Operating Condition: BEST
+Max Operating Condition: WORST
+Using Enhanced Min Delay Analysis
+Scenario for Timing Analysis: Primary
+
+
+Path 1
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
+  Delay (ns):                  11.392
+  Slack (ns):                  -0.198
+  Arrival (ns):                14.947
+  Required (ns):               14.749
+
+Path 2
+  From:                        n64ControlLibero_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
+  Delay (ns):                  11.390
+  Slack (ns):                  -0.196
+  Arrival (ns):                14.945
+  Required (ns):               14.749
+
+Path 3
+  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[6]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
+  Delay (ns):                  9.639
+  Slack (ns):                  -0.129
+  Arrival (ns):                14.867
+  Required (ns):               14.738
+
