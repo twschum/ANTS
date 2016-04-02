@@ -7,6 +7,16 @@ Colleen
 #ifndef LCD_h
 #define LCD_h
 
+#define LCD_MIN_X 	0
+#define LCD_MAX_X 	159
+
+#define LCD_MIN_Y 	0
+#define LCD_MAX_Y 	127
+
+#define LCD_SET 	1
+#define LCD_UNSET 	0
+
+
 #include "mss_uart/mss_uart.h"
 
 
