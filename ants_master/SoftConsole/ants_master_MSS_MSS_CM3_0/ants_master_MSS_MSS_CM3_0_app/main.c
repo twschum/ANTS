@@ -185,15 +185,19 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 
     if (state->Up && !last_state->Up) {
         y_pos = increment_forward(y_pos);
+        printf("Y servo set to: %d\r\n", y_pos);
     }
     else if (state->Down && !last_state->Down) {
         y_pos = increment_backward(y_pos);
+        printf("Y servo set to: %d\r\n", y_pos);
     }
     else if (state->Left && !last_state->Left) {
         x_pos = increment_forward(x_pos);
+        printf("X servo set to: %d\r\n", x_pos);
     }
     else if (state->Right && !last_state->Right) {
         x_pos = increment_backward(x_pos);
+        printf("X servo set to: %d\r\n", x_pos);
     }
 
     set_x_servo(x_pos);
