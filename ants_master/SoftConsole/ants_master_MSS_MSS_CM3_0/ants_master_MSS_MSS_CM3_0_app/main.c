@@ -15,6 +15,9 @@
 
 #define GPIO_OUTPUT_CFG 0x01
 
+void do_solenoid(n64_state_t* state, n64_state_t* last_state);
+void do_servos_manual(n64_state_t* state, n64_state_t* last_state);
+
 int main() {
 
     /*
@@ -23,6 +26,11 @@ int main() {
     MSS_GPIO_init();
     MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
     MSS_GPIO_set_output(MSS_GPIO_0, 0);
+
+    /*
+     * Initialize the solenoid
+     */
+    trigger_solenoid_pin_init();
 
     /*
      * n64 controller state
@@ -38,12 +46,9 @@ int main() {
 
     volatile int x = 0;
 
-    uint32_t milliseconds = 200;
-    int increment = 50;
+    printf("A.N.T.S. 3000, ready for action!\r\n");
 
-    printf("Hello, world!\r\n");
-
-    // Pixy test
+    /* Pixy test
     int i=0, curr, prev=0;
     while (1) {
         curr = Pixy_get_start());
@@ -51,34 +56,16 @@ int main() {
             printf("%d\r\n", i++);
         prev = curr;
     }
+    */
 
 
     while (1) {
         n64_get_state( &n64_buttons );
 
-        /*
-         * trigger the solenoid:
-         *   Z to fire
-         *   C Up to increment the time
-         *   C Down to decrement the itme
-         */
-        if (n64_buttons.Z && !last_buttons.Z) {
-            printf("Z pressed, activating trigger solenoid\r\n");
-            trigger_solenoid_activate(milliseconds);
-        }
+        do_solenoid( &n64_buttons, &last_buttons );
 
-        if (n64_buttons.C_Up && !last_buttons.C_Up) {
-            milliseconds += increment;
-            printf("Incrementing solenoid time to: %d ms\r\n", milliseconds);
-        }
-        if (n64_buttons.C_Down && !last_buttons.C_Down) {
-            if (milliseconds <= increment) {
-                printf("Cannot decrement solenoid time, at min: %d ms\r\n", milliseconds);
-            }
-            else {
-                milliseconds -= increment;
-                printf("Decrementing solenoid time to: %d ms\r\n", milliseconds);
-            }
+        if (mode == MANUAL) {
+            do_servos_manual( &n64_buttons, &last_buttons );
         }
 
         /*
@@ -100,8 +87,6 @@ int main() {
             }
         }
 
-
-
         if (PRINT_STATE) {
             n64_print_state( &n64_buttons );
             while (x < 10000000) {
@@ -111,5 +96,60 @@ int main() {
         }
 
         last_buttons = n64_buttons;
+    }
+}
+
+
+/*
+ * Checks the controller state and then triggers the solenoid
+ * Also checks and adjusts the duration of the solenoid
+ */
+void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
+
+    static uint32_t milliseconds=200, increment=20;
+    /*
+     * trigger the solenoid:
+     *   Z to fire
+     *   C Up to increment the time
+     *   C Down to decrement the itme
+     */
+    if (state->Z && !last_state->Z) {
+        printf("Z pressed, activating trigger solenoid\r\n");
+        trigger_solenoid_activate(milliseconds);
+    }
+
+    if (state->C_Up && !last_state->C_Up) {
+        milliseconds += increment;
+        printf("Incrementing solenoid time to: %d ms\r\n", milliseconds);
+    }
+    if (state->C_Down && !last_state->C_Down) {
+        if (milliseconds <= increment) {
+            printf("Cannot decrement solenoid time, at min: %d ms\r\n", milliseconds);
+        }
+        else {
+            milliseconds -= increment;
+            printf("Decrementing solenoid time to: %d ms\r\n", milliseconds);
+        }
+    }
+}
+
+/*
+ * This checks the D-pad and adjusts the servos accordingly
+ *
+ */
+void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
+    static int x_pos=0, y_pos=0;
+
+    if (state->Up && !last_state->Up) {
+        y_pos++;
+    }
+    else if (state->Down && !last_state->Down) {
+        y_pos--;
+    }
+    else if (state->Left && !last_state->Left) {
+        x_pos++;
+    }
+    else if (state->Right && !last_state->Right) {
+        x_pos--;
     }
 }
