@@ -2,58 +2,59 @@ Synopsys Microsemi Technology Mapper, Version mapact, Build 1346R, Built Oct 10 
 Copyright (C) 1994-2014, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
 Product Version I-2014.03M-SP1
 
-Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 99MB)
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
 
 @N: MF248 |Running in 64-bit mode.
 @N: MF667 |Clock conversion disabled 
 
-Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 100MB)
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 101MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 100MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 101MB)
 
 
 
-Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 110MB peak: 111MB)
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 111MB)
 
-@W: MO111 :"c:\users\twschum\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":64:7:64:18|Tristate driver LPXIN_CLKOUT on net LPXIN_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
-@W: MO111 :"c:\users\twschum\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":63:7:63:20|Tristate driver MAINXIN_CLKOUT on net MAINXIN_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
-@W: MO111 :"c:\users\twschum\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":62:7:62:18|Tristate driver RCOSC_CLKOUT on net RCOSC_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
+@W: MO111 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":64:7:64:18|Tristate driver LPXIN_CLKOUT on net LPXIN_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
+@W: MO111 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":63:7:63:20|Tristate driver MAINXIN_CLKOUT on net MAINXIN_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
+@W: MO111 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":62:7:62:18|Tristate driver RCOSC_CLKOUT on net RCOSC_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
 
 Available hyper_sources - for debug and ip models
 	None Found
 
 
-Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 110MB peak: 111MB)
+Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
 
-@N: MF238 :"c:\users\twschum\373\ants_master\hdl\n64_serial_interface.v":69:22:69:36|Found 17-bit incrementor, 'long_count_2[16:0]'
-@N:"c:\users\twschum\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Found counter in view:work.n64_write_command(verilog) inst index[3:0]
-@W: MO161 :"c:\users\twschum\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Register bit command_byte[0] is always 1, optimizing ...
-@N:"c:\users\twschum\373\ants_master\hdl\n64_read_module.v":37:0:37:5|Found counter in view:work.n64_read_module(verilog) inst index[5:0]
-@N:"c:\users\twschum\373\ants_master\hdl\n64_read_module.v":80:0:80:5|Found counter in view:work._read_bit(verilog) inst count[8:0]
+@N: MF238 :"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v":69:22:69:36|Found 17-bit incrementor, 'long_count_2[16:0]'
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Found counter in view:work.n64_write_command(verilog) inst index[3:0]
+@W: MO161 :"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Register bit command_byte[0] is always 1, optimizing ...
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v":37:0:37:5|Found counter in view:work.n64_read_module(verilog) inst index[5:0]
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v":80:0:80:5|Found counter in view:work._read_bit(verilog) inst count[8:0]
+@N: MF238 :"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":66:17:66:26|Found 21-bit incrementor, 'un6_count_1[20:0]'
 
-Finished factoring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 112MB)
-
-
-Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
+Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 112MB)
 
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 112MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 113MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 113MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 113MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 114MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 114MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 113MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 114MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Finished preparing to map (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 113MB peak: 114MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 112MB peak: 114MB)
 
 
 High Fanout Net Report
@@ -61,65 +62,63 @@ High Fanout Net Report
 
 Driver Instance / Pin Name                                                    Fanout, notes
 -------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ADLIB_INST / MSSPSEL                                    33           
 n64_magic_box_0.n64_serial_interface_0.button_data_0_sqmuxa / Y               32           
 n64_magic_box_0.n64_serial_interface_0.read_module.read_bit0.data_bit / Q     32           
-n64_magic_box_0.n64_apb_interface_0.m4_e_1 / Y                                33           
-n64_magic_box_0.n64_apb_interface_0.m4_e_2 / Y                                33           
 ===========================================================================================
 
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 113MB peak: 114MB)
 
-Replicating Combinational Instance n64_magic_box_0.n64_apb_interface_0.m4_e_2, fanout 33 segments 2
-Replicating Combinational Instance n64_magic_box_0.n64_apb_interface_0.m4_e_1, fanout 33 segments 2
 Replicating Sequential Instance n64_magic_box_0.n64_serial_interface_0.read_module.read_bit0.data_bit, fanout 32 segments 2
 Replicating Combinational Instance n64_magic_box_0.n64_serial_interface_0.button_data_0_sqmuxa, fanout 32 segments 2
+Buffering CoreAPB3_0_APBmslave0_PSELx, fanout 33 segments 2
 
-Added 0 Buffers
-Added 4 Cells via replication
+Added 1 Buffers
+Added 2 Cells via replication
 	Added 1 Sequential Cells via replication
-	Added 3 Combinational Cells via replication
+	Added 1 Combinational Cells via replication
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 113MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 113MB peak: 114MB)
 
 
 
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
 Clock optimization not enabled
-1 non-gated/non-generated clock tree(s) driving 166 clock pin(s) of sequential element(s)
+1 non-gated/non-generated clock tree(s) driving 188 clock pin(s) of sequential element(s)
 0 gated/generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
 0 instances converted, 0 sequential instances remain driven by gated/generated clocks
 
-=================================================== Non-Gated/Non-Generated Clocks ====================================================
-Clock Tree ID     Driving Element       Drive Element Type                Fanout     Sample Instance                                   
----------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       ants_master_MSS_0     clock definition on hierarchy     166        n64_magic_box_0.n64_serial_interface_0.sync_reg[1]
-=======================================================================================================================================
+======================================= Non-Gated/Non-Generated Clocks =======================================
+Clock Tree ID     Driving Element       Drive Element Type                Fanout     Sample Instance          
+--------------------------------------------------------------------------------------------------------------
+@K:CKID0001       ants_master_MSS_0     clock definition on hierarchy     188        servo_control_0.count[20]
+==============================================================================================================
 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######]
 
-Writing Analyst data base C:\Users\twschum\373\ants_master\synthesis\ants_master.srm
+Writing Analyst data base C:\Users\rpokeefe\repos\373\ants_master\synthesis\ants_master.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 113MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 112MB peak: 114MB)
 
-Writing Analyst data base C:\Users\twschum\373\ants_master\synthesis\synwork\ants_master_m.srm
+Writing Analyst data base C:\Users\rpokeefe\repos\373\ants_master\synthesis\synwork\ants_master_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 112MB peak: 113MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 113MB peak: 114MB)
 
 Writing EDIF Netlist and constraint files
 I-2014.03M-SP1
 
-Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:01s; Memory used current: 112MB peak: 113MB)
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 113MB peak: 114MB)
 
-@W: MT246 :"c:\users\twschum\373\ants_master\component\work\ants_master_mss\ants_master_mss.v":506:0:506:11|Blackbox TRIBUFF_MSS is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
+@W: MT246 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\ants_master_mss.v":506:0:506:11|Blackbox TRIBUFF_MSS is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
 Found clock FAB_CLK with period 10.00ns 
 Found clock FCLK with period 10.00ns 
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Thu Mar 31 14:20:24 2016
+# Timing Report written on Sat Apr 02 15:36:23 2016
 #
 
 
@@ -130,7 +129,7 @@ Requested Frequency:    100.0 MHz
 Wire load mode:         top
 Wire load model:        smartfusion
 Paths requested:        5
-Constraint File(s):    C:\Users\twschum\373\ants_master\component\work\ants_master_MSS\mss_tshell_syn.sdc
+Constraint File(s):    C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master_MSS\mss_tshell_syn.sdc
                        
 @N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
 
@@ -149,7 +148,7 @@ Starting Clock     Frequency     Frequency     Period        Period        Slack
 ------------------------------------------------------------------------------------------------------------------
 FAB_CLK            100.0 MHz     72.5 MHz      10.000        13.797        -3.797     declared     clk_group_0    
 FCLK               100.0 MHz     NA            10.000        NA            NA         declared     clk_group_0    
-System             100.0 MHz     234.5 MHz     10.000        4.265         5.735      system       system_clkgroup
+System             100.0 MHz     170.0 MHz     10.000        5.883         4.117      system       system_clkgroup
 ==================================================================================================================
 
 
@@ -163,9 +162,9 @@ Clocks             |    rise  to  rise    |    fall  to  fall   |    rise  to  f
 ----------------------------------------------------------------------------------------------------------
 Starting  Ending   |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
 ----------------------------------------------------------------------------------------------------------
-System    System   |  10.000      5.735   |  No paths    -      |  No paths    -      |  No paths    -    
-System    FAB_CLK  |  10.000      1.526   |  No paths    -      |  No paths    -      |  No paths    -    
-FAB_CLK   System   |  10.000      7.979   |  No paths    -      |  No paths    -      |  No paths    -    
+System    System   |  10.000      4.117   |  No paths    -      |  No paths    -      |  No paths    -    
+System    FAB_CLK  |  10.000      -0.097  |  No paths    -      |  No paths    -      |  No paths    -    
+FAB_CLK   System   |  10.000      8.106   |  No paths    -      |  No paths    -      |  No paths    -    
 FAB_CLK   FAB_CLK  |  10.000      -3.797  |  No paths    -      |  No paths    -      |  No paths    -    
 ==========================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
@@ -189,41 +188,41 @@ Detailed Report for Clock: FAB_CLK
 Starting Points with Worst Slack
 ********************************
 
-                                                                          Starting                                                 Arrival           
-Instance                                                                  Reference     Type       Pin     Net                     Time        Slack 
-                                                                          Clock                                                                      
------------------------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_serial_interface_0.write_module.count[4]              FAB_CLK       DFN1       Q       count[4]                0.580       -3.797
-n64_magic_box_0.n64_serial_interface_0.write_module.count[5]              FAB_CLK       DFN1       Q       count[5]                0.580       -3.736
-n64_magic_box_0.n64_serial_interface_0.write_module.count[6]              FAB_CLK       DFN1       Q       count[6]                0.580       -3.515
-n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              FAB_CLK       DFN1       Q       count[7]                0.580       -3.430
-n64_magic_box_0.n64_serial_interface_0.write_module.count[8]              FAB_CLK       DFN1       Q       count[8]                0.580       -3.258
-n64_magic_box_0.n64_serial_interface_0.write_module.enabled               FAB_CLK       DFN1       Q       write_module_active     0.737       -1.764
-n64_magic_box_0.n64_serial_interface_0.write_module.count[0]              FAB_CLK       DFN1       Q       count[0]                0.737       0.195 
-n64_magic_box_0.n64_serial_interface_0.read_module.read_bit0.count[1]     FAB_CLK       DFN1E1     Q       count[1]                0.737       0.761 
-n64_magic_box_0.n64_serial_interface_0.read_module.read_bit0.count[0]     FAB_CLK       DFN1E1     Q       count[0]                0.737       0.779 
-n64_magic_box_0.n64_serial_interface_0.write_module.count[2]              FAB_CLK       DFN1       Q       count[2]                0.737       0.850 
-=====================================================================================================================================================
+                                                                 Starting                                               Arrival           
+Instance                                                         Reference     Type     Pin     Net                     Time        Slack 
+                                                                 Clock                                                                    
+------------------------------------------------------------------------------------------------------------------------------------------
+n64_magic_box_0.n64_serial_interface_0.write_module.count[4]     FAB_CLK       DFN1     Q       count[4]                0.580       -3.797
+n64_magic_box_0.n64_serial_interface_0.write_module.count[5]     FAB_CLK       DFN1     Q       count[5]                0.580       -3.736
+n64_magic_box_0.n64_serial_interface_0.write_module.count[6]     FAB_CLK       DFN1     Q       count[6]                0.580       -3.515
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]     FAB_CLK       DFN1     Q       count[7]                0.580       -3.430
+n64_magic_box_0.n64_serial_interface_0.write_module.count[8]     FAB_CLK       DFN1     Q       count[8]                0.580       -3.258
+n64_magic_box_0.n64_serial_interface_0.write_module.enabled      FAB_CLK       DFN1     Q       write_module_active     0.737       -1.764
+n64_magic_box_0.n64_serial_interface_0.write_module.count[0]     FAB_CLK       DFN1     Q       count[0]                0.737       0.195 
+servo_control_0.count[0]                                         FAB_CLK       DFN1     Q       count[0]                0.580       0.600 
+servo_control_0.count[1]                                         FAB_CLK       DFN1     Q       count[1]                0.737       0.627 
+servo_control_0.count[2]                                         FAB_CLK       DFN1     Q       count[2]                0.737       0.688 
+==========================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                                                          Starting                                            Required           
-Instance                                                                  Reference     Type       Pin     Net                Time         Slack 
-                                                                          Clock                                                                  
--------------------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_serial_interface_0.write_module.count[7]              FAB_CLK       DFN1       D       count_6[7]         9.461        -3.797
-n64_magic_box_0.n64_serial_interface_0.write_module.count[6]              FAB_CLK       DFN1       D       count_6[6]         9.461        -2.961
-n64_magic_box_0.n64_serial_interface_0.write_module.count[5]              FAB_CLK       DFN1       D       count_6[5]         9.461        -2.897
-n64_magic_box_0.n64_serial_interface_0.write_module.count[8]              FAB_CLK       DFN1       D       count_6[8]         9.461        -2.897
-n64_magic_box_0.n64_serial_interface_0.write_module.count[4]              FAB_CLK       DFN1       D       count_6[4]         9.461        -2.061
-n64_magic_box_0.n64_serial_interface_0.write_module.count[3]              FAB_CLK       DFN1       D       I_37               9.461        -0.389
-n64_magic_box_0.n64_serial_interface_0.write_module.count[2]              FAB_CLK       DFN1       D       count_6[2]         9.461        -0.363
-n64_magic_box_0.n64_serial_interface_0.write_module.count[0]              FAB_CLK       DFN1       D       count_6[0]         9.427        -0.132
-n64_magic_box_0.n64_serial_interface_0.read_module.read_bit0.count[8]     FAB_CLK       DFN1E1     D       count_n8           9.461        0.761 
-n64_magic_box_0.n64_serial_interface_0.write_module.index[0]              FAB_CLK       DFN1E0     E       index_0_sqmuxa     9.392        0.782 
-=================================================================================================================================================
+                                                                 Starting                                       Required           
+Instance                                                         Reference     Type     Pin     Net             Time         Slack 
+                                                                 Clock                                                             
+-----------------------------------------------------------------------------------------------------------------------------------
+n64_magic_box_0.n64_serial_interface_0.write_module.count[7]     FAB_CLK       DFN1     D       count_6[7]      9.461        -3.797
+n64_magic_box_0.n64_serial_interface_0.write_module.count[6]     FAB_CLK       DFN1     D       count_6[6]      9.461        -2.961
+n64_magic_box_0.n64_serial_interface_0.write_module.count[5]     FAB_CLK       DFN1     D       count_6[5]      9.461        -2.897
+n64_magic_box_0.n64_serial_interface_0.write_module.count[8]     FAB_CLK       DFN1     D       count_6[8]      9.461        -2.897
+n64_magic_box_0.n64_serial_interface_0.write_module.count[4]     FAB_CLK       DFN1     D       count_6[4]      9.461        -2.061
+n64_magic_box_0.n64_serial_interface_0.write_module.count[3]     FAB_CLK       DFN1     D       I_37            9.461        -0.389
+n64_magic_box_0.n64_serial_interface_0.write_module.count[2]     FAB_CLK       DFN1     D       count_6[2]      9.461        -0.363
+n64_magic_box_0.n64_serial_interface_0.write_module.count[0]     FAB_CLK       DFN1     D       count_6[0]      9.427        -0.132
+servo_control_0.count[15]                                        FAB_CLK       DFN1     D       count_4[15]     9.461        0.600 
+servo_control_0.count[17]                                        FAB_CLK       DFN1     D       count_4[17]     9.461        0.600 
+===================================================================================================================================
 
 
 
@@ -527,41 +526,41 @@ Detailed Report for Clock: System
 Starting Points with Worst Slack
 ********************************
 
-                                     Starting                                                                               Arrival          
-Instance                             Reference     Type        Pin               Net                                        Time        Slack
-                                     Clock                                                                                                   
----------------------------------------------------------------------------------------------------------------------------------------------
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]       CoreAPB3_0_APBmslave0_PADDR[8]             0.000       1.526
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]      CoreAPB3_0_APBmslave0_PADDR[10]            0.000       1.554
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL           ants_master_MSS_0_MSS_MASTER_APB_PSELx     0.000       1.578
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]       CoreAPB3_0_APBmslave0_PADDR[9]             0.000       1.693
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]      CoreAPB3_0_APBmslave0_PADDR[11]            0.000       1.754
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[11]     CoreAPB3_0_APBmslave0_PWDATA[11]           0.000       2.458
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[31]     CoreAPB3_0_APBmslave0_PWDATA[31]           0.000       2.499
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[10]     CoreAPB3_0_APBmslave0_PWDATA[10]           0.000       2.597
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[23]     CoreAPB3_0_APBmslave0_PWDATA[23]           0.000       2.599
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[30]     CoreAPB3_0_APBmslave0_PWDATA[30]           0.000       2.639
-=============================================================================================================================================
+                                     Starting                                                                         Arrival           
+Instance                             Reference     Type        Pin               Net                                  Time        Slack 
+                                     Clock                                                                                              
+----------------------------------------------------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL           CoreAPB3_0_APBmslave0_PSELx          0.000       -0.097
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[11]     CoreAPB3_0_APBmslave0_PWDATA[11]     0.000       2.458 
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[31]     CoreAPB3_0_APBmslave0_PWDATA[31]     0.000       2.499 
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[10]     CoreAPB3_0_APBmslave0_PWDATA[10]     0.000       2.597 
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[23]     CoreAPB3_0_APBmslave0_PWDATA[23]     0.000       2.599 
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[30]     CoreAPB3_0_APBmslave0_PWDATA[30]     0.000       2.639 
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[22]     CoreAPB3_0_APBmslave0_PWDATA[22]     0.000       2.738 
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[8]      CoreAPB3_0_APBmslave0_PWDATA[8]      0.000       3.363 
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPWDATA[28]     CoreAPB3_0_APBmslave0_PWDATA[28]     0.000       3.398 
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[4]       CoreAPB3_0_APBmslave0_PADDR[4]       0.000       3.427 
+========================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                                         Starting                                                                                    Required          
-Instance                                                 Reference     Type        Pin               Net                                             Time         Slack
-                                                         Clock                                                                                                         
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-n64_magic_box_0.n64_apb_interface_0.controller_reset     System        DFN1        D                 controller_reset_RNO                            9.427        1.526
-n64_magic_box_0.n64_apb_interface_0.polling_enable       System        DFN1        D                 polling_enable_RNO                              9.427        1.545
-ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[10]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[10]     10.000       5.735
-ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[11]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[11]     10.000       5.735
-ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[12]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[12]     10.000       5.735
-ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[13]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[13]     10.000       5.735
-ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[14]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[14]     10.000       5.735
-ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[15]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[15]     10.000       5.735
-ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[16]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[16]     10.000       5.735
-ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[17]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[17]     10.000       5.735
-=======================================================================================================================================================================
+                                                         Starting                                                                                    Required           
+Instance                                                 Reference     Type        Pin               Net                                             Time         Slack 
+                                                         Clock                                                                                                          
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+n64_magic_box_0.n64_apb_interface_0.controller_reset     System        DFN1        D                 controller_reset_RNO                            9.427        -0.097
+n64_magic_box_0.n64_apb_interface_0.polling_enable       System        DFN1        D                 polling_enable_RNO                              9.427        -0.078
+ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[10]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[10]     10.000       4.117 
+ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[11]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[11]     10.000       4.117 
+ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[12]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[12]     10.000       4.117 
+ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[13]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[13]     10.000       4.117 
+ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[14]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[14]     10.000       4.117 
+ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[15]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[15]     10.000       4.117 
+ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[16]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[16]     10.000       4.117 
+ants_master_MSS_0.MSS_ADLIB_INST                         System        MSS_APB     MSSPRDATA[17]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[17]     10.000       4.117 
+========================================================================================================================================================================
 
 
 
@@ -575,43 +574,236 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.427
 
-    - Propagation time:                      7.901
+    - Propagation time:                      9.524
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (non-critical) :                 1.526
+    = Slack (non-critical) :                 -0.097
 
     Number of logic level(s):                6
-    Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[8]
+    Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPSEL
     Ending point:                            n64_magic_box_0.n64_apb_interface_0.controller_reset / D
     The start point is clocked by            System [rising]
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
-Instance / Net                                                             Pin             Pin               Arrival     No. of    
-Name                                                           Type        Name            Dir     Delay     Time        Fan Out(s)
+Instance / Net                                                             Pin         Pin               Arrival     No. of    
+Name                                                           Type        Name        Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ADLIB_INST                               MSS_APB     MSSPSEL     Out     0.000     0.000       -         
+CoreAPB3_0_APBmslave0_PSELx                                    Net         -           -       2.218     -           17        
+ants_master_MSS_0.MSS_ADLIB_INST_RNIRLU3                       BUFF        A           In      -         2.218       -         
+ants_master_MSS_0.MSS_ADLIB_INST_RNIRLU3                       BUFF        Y           Out     0.499     2.716       -         
+CoreAPB3_0_APBmslave0_PSELx_0                                  Net         -           -       2.218     -           17        
+n64_magic_box_0.n64_apb_interface_0.write_0                    NOR2B       B           In      -         4.934       -         
+n64_magic_box_0.n64_apb_interface_0.write_0                    NOR2B       Y           Out     0.627     5.562       -         
+write_0                                                        Net         -           -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.write_12                   NOR3C       B           In      -         5.883       -         
+n64_magic_box_0.n64_apb_interface_0.write_12                   NOR3C       Y           Out     0.607     6.490       -         
+write_12                                                       Net         -           -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.write                      NOR3C       C           In      -         6.811       -         
+n64_magic_box_0.n64_apb_interface_0.write                      NOR3C       Y           Out     0.641     7.452       -         
+write                                                          Net         -           -       0.386     -           2         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         S           In      -         7.838       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         Y           Out     0.396     8.234       -         
+controller_reset_RNO_0                                         Net         -           -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        B           In      -         8.556       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        Y           Out     0.646     9.202       -         
+controller_reset_RNO                                           Net         -           -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset           DFN1        D           In      -         9.524       -         
+===============================================================================================================================
+Total path delay (propagation time + setup) of 10.097 is 3.990(39.5%) logic and 6.107(60.5%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 2: 
+      Requested Period:                      10.000
+    - Setup time:                            0.573
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.427
+
+    - Propagation time:                      9.505
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 -0.078
+
+    Number of logic level(s):                6
+    Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPSEL
+    Ending point:                            n64_magic_box_0.n64_apb_interface_0.polling_enable / D
+    The start point is clocked by            System [rising]
+    The end   point is clocked by            FAB_CLK [rising] on pin CLK
+
+Instance / Net                                                           Pin         Pin               Arrival     No. of    
+Name                                                         Type        Name        Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ADLIB_INST                             MSS_APB     MSSPSEL     Out     0.000     0.000       -         
+CoreAPB3_0_APBmslave0_PSELx                                  Net         -           -       2.218     -           17        
+ants_master_MSS_0.MSS_ADLIB_INST_RNIRLU3                     BUFF        A           In      -         2.218       -         
+ants_master_MSS_0.MSS_ADLIB_INST_RNIRLU3                     BUFF        Y           Out     0.499     2.716       -         
+CoreAPB3_0_APBmslave0_PSELx_0                                Net         -           -       2.218     -           17        
+n64_magic_box_0.n64_apb_interface_0.write_0                  NOR2B       B           In      -         4.934       -         
+n64_magic_box_0.n64_apb_interface_0.write_0                  NOR2B       Y           Out     0.627     5.562       -         
+write_0                                                      Net         -           -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.write_12                 NOR3C       B           In      -         5.883       -         
+n64_magic_box_0.n64_apb_interface_0.write_12                 NOR3C       Y           Out     0.607     6.490       -         
+write_12                                                     Net         -           -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.write                    NOR3C       C           In      -         6.811       -         
+n64_magic_box_0.n64_apb_interface_0.write                    NOR3C       Y           Out     0.641     7.452       -         
+write                                                        Net         -           -       0.386     -           2         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0     MX2         S           In      -         7.838       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0     MX2         Y           Out     0.396     8.234       -         
+polling_enable_RNO_0                                         Net         -           -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO       NOR2B       B           In      -         8.556       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO       NOR2B       Y           Out     0.627     9.183       -         
+polling_enable_RNO                                           Net         -           -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable           DFN1        D           In      -         9.505       -         
+=============================================================================================================================
+Total path delay (propagation time + setup) of 10.078 is 3.971(39.4%) logic and 6.107(60.6%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 3: 
+      Requested Period:                      10.000
+    - Setup time:                            0.539
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.461
+
+    - Propagation time:                      7.004
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 2.458
+
+    Number of logic level(s):                7
+    Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPWDATA[11]
+    Ending point:                            n64_magic_box_0.n64_apb_interface_0.polling_enable / D
+    The start point is clocked by            System [rising]
+    The end   point is clocked by            FAB_CLK [rising] on pin CLK
+
+Instance / Net                                                           Pin               Pin               Arrival     No. of    
+Name                                                         Type        Name              Dir     Delay     Time        Fan Out(s)
 -----------------------------------------------------------------------------------------------------------------------------------
-ants_master_MSS_0.MSS_ADLIB_INST                               MSS_APB     MSSPADDR[8]     Out     0.000     0.000       -         
-CoreAPB3_0_APBmslave0_PADDR[8]                                 Net         -               -       0.386     -           2         
-n64_magic_box_0.n64_apb_interface_0.m4_e_2                     NOR3A       C               In      -         0.386       -         
-n64_magic_box_0.n64_apb_interface_0.m4_e_2                     NOR3A       Y               Out     0.716     1.102       -         
-m4_e_2                                                         Net         -               -       2.172     -           16        
-n64_magic_box_0.n64_apb_interface_0.m10_0                      NOR3B       B               In      -         3.274       -         
-n64_magic_box_0.n64_apb_interface_0.m10_0                      NOR3B       Y               Out     0.624     3.898       -         
-m10_0                                                          Net         -               -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.m10_6                      NOR3A       A               In      -         4.220       -         
-n64_magic_box_0.n64_apb_interface_0.m10_6                      NOR3A       Y               Out     0.664     4.884       -         
-m10_6                                                          Net         -               -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.m10                        NOR3C       B               In      -         5.205       -         
-n64_magic_box_0.n64_apb_interface_0.m10                        NOR3C       Y               Out     0.624     5.829       -         
-write                                                          Net         -               -       0.386     -           2         
-n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         S               In      -         6.215       -         
-n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         Y               Out     0.396     6.611       -         
-controller_reset_RNO_0                                         Net         -               -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        B               In      -         6.933       -         
-n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        Y               Out     0.646     7.579       -         
-controller_reset_RNO                                           Net         -               -       0.322     -           1         
-n64_magic_box_0.n64_apb_interface_0.controller_reset           DFN1        D               In      -         7.901       -         
+ants_master_MSS_0.MSS_ADLIB_INST                             MSS_APB     MSSPWDATA[11]     Out     0.000     0.000       -         
+CoreAPB3_0_APBmslave0_PWDATA[11]                             Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26_1     NOR2        B                 In      -         0.322       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26_1     NOR2        Y                 Out     0.646     0.968       -         
+polling_enable6_26_1                                         Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26_4     NOR3A       A                 In      -         1.290       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26_4     NOR3A       Y                 Out     0.664     1.953       -         
+polling_enable6_26_4                                         Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26       NOR3C       C                 In      -         2.275       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26       NOR3C       Y                 Out     0.666     2.941       -         
+polling_enable7_26                                           Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_4        NOR3C       C                 In      -         3.262       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_4        NOR3C       Y                 Out     0.666     3.928       -         
+polling_enable7_4                                            Net         -                 -       0.386     -           2         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_1     NOR3C       B                 In      -         4.313       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_1     NOR3C       Y                 Out     0.624     4.937       -         
+polling_enable7                                              Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0     MX2         B                 In      -         5.259       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0     MX2         Y                 Out     0.586     5.845       -         
+polling_enable_RNO_0                                         Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO       NOR2B       B                 In      -         6.166       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO       NOR2B       Y                 Out     0.516     6.682       -         
+polling_enable_RNO                                           Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable           DFN1        D                 In      -         7.004       -         
 ===================================================================================================================================
-Total path delay (propagation time + setup) of 8.474 is 4.244(50.1%) logic and 4.230(49.9%) route.
+Total path delay (propagation time + setup) of 7.542 is 4.906(65.0%) logic and 2.636(35.0%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 4: 
+      Requested Period:                      10.000
+    - Setup time:                            0.539
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.461
+
+    - Propagation time:                      7.002
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 2.459
+
+    Number of logic level(s):                7
+    Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPWDATA[11]
+    Ending point:                            n64_magic_box_0.n64_apb_interface_0.controller_reset / D
+    The start point is clocked by            System [rising]
+    The end   point is clocked by            FAB_CLK [rising] on pin CLK
+
+Instance / Net                                                             Pin               Pin               Arrival     No. of    
+Name                                                           Type        Name              Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ADLIB_INST                               MSS_APB     MSSPWDATA[11]     Out     0.000     0.000       -         
+CoreAPB3_0_APBmslave0_PWDATA[11]                               Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26_1       NOR2        B                 In      -         0.322       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26_1       NOR2        Y                 Out     0.646     0.968       -         
+polling_enable6_26_1                                           Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26_4       NOR3A       A                 In      -         1.290       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26_4       NOR3A       Y                 Out     0.664     1.953       -         
+polling_enable6_26_4                                           Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26         NOR3C       C                 In      -         2.275       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_26         NOR3C       Y                 Out     0.666     2.941       -         
+polling_enable7_26                                             Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_4          NOR3C       C                 In      -         3.262       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_4          NOR3C       Y                 Out     0.666     3.928       -         
+polling_enable7_4                                              Net         -                 -       0.386     -           2         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_1     NOR3C       B                 In      -         4.313       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_1     NOR3C       Y                 Out     0.624     4.937       -         
+polling_enable6                                                Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         B                 In      -         5.259       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO_0     MX2         Y                 Out     0.586     5.845       -         
+controller_reset_RNO_0                                         Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        B                 In      -         6.166       -         
+n64_magic_box_0.n64_apb_interface_0.controller_reset_RNO       OR2A        Y                 Out     0.514     6.680       -         
+controller_reset_RNO                                           Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.controller_reset           DFN1        D                 In      -         7.002       -         
+=====================================================================================================================================
+Total path delay (propagation time + setup) of 7.541 is 4.904(65.0%) logic and 2.636(35.0%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 5: 
+      Requested Period:                      10.000
+    - Setup time:                            0.539
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.461
+
+    - Propagation time:                      6.962
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 2.499
+
+    Number of logic level(s):                7
+    Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPWDATA[31]
+    Ending point:                            n64_magic_box_0.n64_apb_interface_0.polling_enable / D
+    The start point is clocked by            System [rising]
+    The end   point is clocked by            FAB_CLK [rising] on pin CLK
+
+Instance / Net                                                            Pin               Pin               Arrival     No. of    
+Name                                                          Type        Name              Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ADLIB_INST                              MSS_APB     MSSPWDATA[31]     Out     0.000     0.000       -         
+CoreAPB3_0_APBmslave0_PWDATA[31]                              Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_30_7      NOR2        B                 In      -         0.322       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_30_7      NOR2        Y                 Out     0.646     0.968       -         
+polling_enable6_30_7                                          Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_30_11     NOR3A       A                 In      -         1.290       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_30_11     NOR3A       Y                 Out     0.664     1.953       -         
+polling_enable6_30_11                                         Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_30_13     NOR3C       C                 In      -         2.275       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_30_13     NOR3C       Y                 Out     0.666     2.941       -         
+polling_enable6_30_13                                         Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_4         NOR3C       B                 In      -         3.262       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable6_4         NOR3C       Y                 Out     0.624     3.886       -         
+polling_enable7_4                                             Net         -                 -       0.386     -           2         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_1      NOR3C       B                 In      -         4.272       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_1      NOR3C       Y                 Out     0.624     4.896       -         
+polling_enable7                                               Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0      MX2         B                 In      -         5.217       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO_0      MX2         Y                 Out     0.586     5.803       -         
+polling_enable_RNO_0                                          Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO        NOR2B       B                 In      -         6.124       -         
+n64_magic_box_0.n64_apb_interface_0.polling_enable_RNO        NOR2B       Y                 Out     0.516     6.640       -         
+polling_enable_RNO                                            Net         -                 -       0.322     -           1         
+n64_magic_box_0.n64_apb_interface_0.polling_enable            DFN1        D                 In      -         6.962       -         
+====================================================================================================================================
+Total path delay (propagation time + setup) of 7.501 is 4.864(64.9%) logic and 2.636(35.1%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -623,43 +815,48 @@ Target Part: A2F200M3F_FBGA484_STD
 Report for cell ants_master.verilog
   Core Cell usage:
               cell count     area count*area
-              AND2     9      1.0        9.0
-              AND3    18      1.0       18.0
-               AO1     4      1.0        4.0
+              AND2    15      1.0       15.0
+              AND3    43      1.0       43.0
+               AO1     8      1.0        8.0
+              AO1A     1      1.0        1.0
               AO1B     1      1.0        1.0
               AO1C     1      1.0        1.0
               AOI1     2      1.0        2.0
              AOI1B     8      1.0        8.0
               AX1C     4      1.0        4.0
-               GND    11      0.0        0.0
+              BUFF     1      1.0        1.0
+               GND    12      0.0        0.0
            MSS_APB     1      0.0        0.0
            MSS_CCC     1      0.0        0.0
                MX2     9      1.0        9.0
-              NOR2    23      1.0       23.0
-             NOR2A    19      1.0       19.0
-             NOR2B    42      1.0       42.0
-              NOR3     3      1.0        3.0
-             NOR3A    21      1.0       21.0
-             NOR3B     5      1.0        5.0
-             NOR3C    78      1.0       78.0
-              OA1B     1      1.0        1.0
-               OR2     6      1.0        6.0
-              OR2A     2      1.0        2.0
-              OR2B     2      1.0        2.0
-               OR3     1      1.0        1.0
-              OR3B     2      1.0        2.0
+              NOR2    25      1.0       25.0
+             NOR2A    16      1.0       16.0
+             NOR2B    81      1.0       81.0
+              NOR3     5      1.0        5.0
+             NOR3A    19      1.0       19.0
+             NOR3B     4      1.0        4.0
+             NOR3C    47      1.0       47.0
+               OA1     7      1.0        7.0
+              OA1A     1      1.0        1.0
+              OA1B     2      1.0        2.0
+              OA1C     1      1.0        1.0
+               OR2     9      1.0        9.0
+              OR2A     1      1.0        1.0
+              OR2B     3      1.0        3.0
+               OR3     3      1.0        3.0
+              OR3B     3      1.0        3.0
              RCOSC     1      0.0        0.0
-               VCC    11      0.0        0.0
-               XA1     3      1.0        3.0
+               VCC    12      0.0        0.0
+               XA1     4      1.0        4.0
               XA1B     7      1.0        7.0
-              XOR2    27      1.0       27.0
+              XOR2    46      1.0       46.0
 
 
-              DFN1    72      1.0       72.0
+              DFN1    94      1.0       94.0
             DFN1E0     4      1.0        4.0
             DFN1E1    90      1.0       90.0
                    -----          ----------
-             TOTAL   489               464.0
+             TOTAL   592               565.0
 
 
   IO Cell usage:
@@ -667,23 +864,24 @@ Report for cell ants_master.verilog
              BIBUF     1
          BIBUF_MSS     2
          INBUF_MSS     4
+            OUTBUF     2
         OUTBUF_MSS     4
        TRIBUFF_MSS     1
                    -----
-             TOTAL    12
+             TOTAL    14
 
 
-Core Cells         : 464 of 4608 (10%)
-IO Cells           : 12
+Core Cells         : 565 of 4608 (12%)
+IO Cells           : 14
 
   RAM/ROM Usage Summary
 Block Rams : 0 of 8 (0%)
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:01s; Memory used current: 49MB peak: 113MB)
+At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 49MB peak: 114MB)
 
-Process took 0h:00m:03s realtime, 0h:00m:01s cputime
-# Thu Mar 31 14:20:24 2016
+Process took 0h:00m:02s realtime, 0h:00m:01s cputime
+# Sat Apr 02 15:36:23 2016
 
 ###########################################################]
