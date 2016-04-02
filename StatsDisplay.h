@@ -5,24 +5,34 @@
 #include "LCD.h"
 //#include "drivers/n64_driver.h"
 
-#define	HI_BYTE_16
-#define LO_BYTE_16
-
 //POSITIONING MACROS//////////////////////////
-#define	TARGET_BOX_X1 		99				//
-#define TARGET_BOX_Y1		0				//
+#define	TARGET_BOX_X1 		69				//
+#define TARGET_BOX_Y1		37				//
 #define TARGET_BOX_X2		159				//
-#define	TARGET_BOX_Y2		49				//
+#define	TARGET_BOX_Y2		127				//
+											//
+#define TARGET_HORZ_X		78				//
+#define TARGET_HORZ_Y		31				//
+											//
+#define TARGET_VERT_X		118				//
+#define TARGET_VERT_Y		31				//
+											//
+//These are here to clear the positioning 	//
+//data from the screen on refresh			//
+#define TARGET_POS_UL_X		78				//
+#define TARGET_POS_UL_Y		31				//
+#define TARGET_POS_LR_X		158				//
+#define TARGET_POS_LR_Y		29				//				
 											//
 #define N64_DBG_BOX_X1		0				//
-#define N64_DBG_BOX_Y1		100				//
-#define N64_DBG_BOX_X2		96				//
-#define N64_DBG_BOX_Y2		0				//
+#define N64_DBG_BOX_Y1		0				//
+#define N64_DBG_BOX_X2		100				//
+#define N64_DBG_BOX_Y2		12				//
 											//
-#define SHOTS_POS_X			16				//
-#define SHOTS_POS_Y			16				//
+#define SHOTS_LEFT_POS_X	10				//
+#define SHOTS_LEFT_POS_Y	110				//
 											//
-#define MODE_POS_X			16				//
+#define MODE_POS_X			10				//
 #define MODE_POS_Y			80				//
 											//
 #define PRESSURE_POS_X		0				//
@@ -78,7 +88,13 @@ typedef struct {
 
 void initDisplay();
 
-//void 
+void writePos(unsigned int x, unsigned int y);
+
+void writeShots(unsigned int shots);
+
+void writeMode(char mode);
+
+void writeN64State();
 
 void testBarebones();
 

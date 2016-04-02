@@ -32,6 +32,7 @@ Colleen
 	//void LCD_restoreDefaultBaud();
   	void LCD_setX(uint8_t posX);
 	void LCD_setY(uint8_t posY);
+	void LCD_setPos(uint8_t posX, uint8_t posY);
 	void LCD_setHome();
 	void LCD_demo();
 	void LCD_setPixel(uint8_t x, uint8_t y, uint8_t set);

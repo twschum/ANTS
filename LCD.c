@@ -35,7 +35,7 @@ Colleen
 	
 	void LCD_nextLine()
 	{
-		uint8_t message[] = "\n\r";
+		uint8_t message[] = "\r\n";
 		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 	}
 	
@@ -123,11 +123,16 @@ Colleen
 	{
 		//posY needs to be one byte
 		uint8_t message[] = {0x7C};
-		uint8_t message2[] = {0x18};
+		uint8_t message2[] = {0x19};
 		uint8_t message3[] = {posY};
 		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
 		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
+	}
+
+	void LCD_setPos(uint8_t posX, uint8_t posY){
+		LCD_setX(posX);
+		LCD_setY(posY);
 	}
 
 	void LCD_setHome()
