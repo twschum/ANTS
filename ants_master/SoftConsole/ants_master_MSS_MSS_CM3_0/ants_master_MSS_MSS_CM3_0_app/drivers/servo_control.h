@@ -16,8 +16,8 @@
 #define SERVO_FULL_FORWARD 200000
 
 // set the x position using the defined values
-void set_x_servo();
+void set_x_servo(uint32_t pos);
 
 // set the y position using the defined values
-void set_y_servo();
+void set_y_servo(uint32_t pos);
 

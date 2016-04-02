@@ -7,6 +7,7 @@
 
 #include "drivers/n64_driver.h"
 #include "drivers/trigger_solenoid_driver.h"
+#include "drivers/servo_control.h"
 
 #define PRINT_STATE 0
 
@@ -133,23 +134,68 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
     }
 }
 
+uint32_t increment_forward(uint32_t pos) {
+    if (pos == SERVO_FULL_REVERSE) {
+        return SERVO_HALF_REVERSE;
+    }
+    else if (pos == SERVO_HALF_REVERSE) {
+        return SERVO_NEUTRAL;
+    }
+    else if (pos == SERVO_NEUTRAL) {
+        return SERVO_HALF_FORWARD;
+    }
+    else if (pos == SERVO_HALF_FORWARD) {
+        return SERVO_FULL_FORWARD;
+    }
+    else if (pos == SERVO_FULL_FORWARD) {
+        return SERVO_FULL_FORWARD;
+    }
+    else {
+        return pos;
+    }
+}
+
+uint32_t increment_backward(uint32_t pos) {
+    if (pos == SERVO_FULL_REVERSE) {
+        return SERVO_FULL_REVERSE;
+    }
+    else if (pos == SERVO_HALF_REVERSE) {
+        return SERVO_FULL_REVERSE;
+    }
+    else if (pos == SERVO_NEUTRAL) {
+        return SERVO_HALF_REVERSE;
+    }
+    else if (pos == SERVO_HALF_FORWARD) {
+        return SERVO_NEUTRAL;
+    }
+    else if (pos == SERVO_FULL_FORWARD) {
+        return SERVO_HALF_FORWARD;
+    }
+    else {
+        return pos;
+    }
+}
+
 /*
  * This checks the D-pad and adjusts the servos accordingly
  *
  */
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
-    static int x_pos=0, y_pos=0;
+    static uint32_t x_pos=SERVO_NEUTRAL, y_pos=SERVO_NEUTRAL;
 
     if (state->Up && !last_state->Up) {
-        y_pos++;
+        y_pos = increment_forward(y_pos);
     }
     else if (state->Down && !last_state->Down) {
-        y_pos--;
+        y_pos = increment_backward(y_pos);
     }
     else if (state->Left && !last_state->Left) {
-        x_pos++;
+        x_pos = increment_forward(x_pos);
     }
     else if (state->Right && !last_state->Right) {
-        x_pos--;
+        x_pos = increment_backward(x_pos);
     }
+
+    set_x_servo(x_pos);
+    set_y_servo(y_pos);
 }
