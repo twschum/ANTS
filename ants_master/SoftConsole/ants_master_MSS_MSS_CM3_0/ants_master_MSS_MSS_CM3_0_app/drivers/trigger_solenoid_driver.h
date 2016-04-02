@@ -11,7 +11,7 @@
 #define SOLENOID_ADDR 0x40050100
 #define US_MULT 100
 #define MS_MULT 100000
-#define CYCLE_MULT 1000 //  TODO
+#define CYCLE_MULT 100000 //  TODO
 
 void trigger_solenoid_pin_init() {
     MSS_GPIO_init();
