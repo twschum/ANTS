@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>C:/Users/rpokeefe/repos/373/ants_master/component/work/ants_master</location>
-    <state>GENERATED ( Thu Mar 31 12:49:18 2016 )</state>
+    <state>GENERATED ( Sat Apr 02 15:16:26 2016 )</state>
     <swide-toolchain>SoftConsole workspace generated to C:\Users\rpokeefe\repos\373\ants_master\SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -33,46 +33,14 @@
     <file>C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v</file>
     <file>C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v</file>
     <file>C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_write_command.v</file>
-    <file>C:\Users\rpokeefe\repos\373\ants_master\hdl\solenoid_control.v</file>
-    <file>C:\Users\rpokeefe\repos\373\ants_master\hdl\tribuf.v</file>
-    <file>C:\Users\rpokeefe\repos\373\ants_master\hdl\trigger_solenoid.v</file>
+    <file>C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v</file>
   </fileset>
   <fileset>
     <name>Flash Memory File(s)</name>
-    <file>C:\Users\rpokeefe\repos\373\ants_master\component\work\C:/Users/rpokeefe/repos/373/ants_master/component/work/ants_master_MSS/MSS_ENVM_0/MSS_ENVM_0.efc</file>
+    <file>C:\Users\rpokeefe\repos\373\ants_master\component\work\./MSS_ENVM_0/MSS_ENVM_0.efc</file>
   </fileset>
   <io>
-    <port-name>SPI_0_DO</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>UART_0_RXD</port-name>
-    <direction>IN</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>SPI_0_CLK</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>fab_pin</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>UART_1_TXD</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>UART_1_RXD</port-name>
+    <port-name>MSS_RESET_N</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -84,13 +52,31 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
+    <port-name>UART_0_TXD</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>y_servo_pwm</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>x_servo_pwm</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
     <port-name>SPI_0_DI</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>MSS_RESET_N</port-name>
+    <port-name>UART_1_RXD</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -102,7 +88,31 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>UART_0_TXD</port-name>
+    <port-name>UART_0_RXD</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>fab_pin</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>SPI_0_CLK</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>UART_1_TXD</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>SPI_0_DO</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -148,9 +158,9 @@ There is one APB3 Master interface.
     </core-param>
     <core-param>
       <param-name>Slot 1:</param-name>
-      <param-value>false</param-value>
+      <param-value>true</param-value>
       <param-hdlname>APBSLOT1ENABLE</param-hdlname>
-      <param-hdlvalue>0</param-hdlvalue>
+      <param-hdlvalue>1</param-hdlvalue>
       <param-tag>spirit:hwParameter</param-tag>
     </core-param>
     <core-param>
@@ -267,9 +277,9 @@ There is one APB3 Master interface.
     </core-param>
     <core-param>
       <param-name>Number of address bits driven by master:</param-name>
-      <param-value>12</param-value>
+      <param-value>32</param-value>
       <param-hdlname>MADDR_BITS</param-hdlname>
-      <param-hdlvalue>12</param-hdlvalue>
+      <param-hdlvalue>32</param-hdlvalue>
       <param-tag>spirit:hwParameter</param-tag>
     </core-param>
     <core-param>
@@ -398,6 +408,9 @@ There is one APB3 Master interface.
     <core-exttype>SmartDesign</core-exttype>
     <core-location>C:/Users/rpokeefe/repos/373/ants_master/component/work/n64_magic_box</core-location>
     <core-name>n64_magic_box_0</core-name>
+  </core>
+  <core>
+    <core-name>servo_control_0</core-name>
   </core>
   <firmware_core type="FirmWareModule">
     <core-exttype>IP</core-exttype>
@@ -2451,9 +2464,16 @@ These files are required by the SmartFusion bare metal peripheral drivers to bui
         <slave>
           <name>n64_apb_interface_0</name>
           <fullPinName>n64_magic_box_0:BIF_1</fullPinName>
-          <remapAddress>0x40050000</remapAddress>
-          <fullAddressSpace>0x40050000 - 0x400500FF</fullAddressSpace>
-          <range>0x00000100</range>
+          <remapAddress>0x00000000</remapAddress>
+          <fullAddressSpace>0x00000000 - 0x0FFFFFFF</fullAddressSpace>
+          <range>0x10000000</range>
+        </slave>
+        <slave>
+          <name>servo_control_0</name>
+          <fullPinName>servo_control_0:BIF_1</fullPinName>
+          <remapAddress>0x10000000</remapAddress>
+          <fullAddressSpace>0x10000000 - 0x1FFFFFFF</fullAddressSpace>
+          <range>0x10000000</range>
         </slave>
         <slave>
           <name>FPGA_FABRIC_BACKDOOR</name>

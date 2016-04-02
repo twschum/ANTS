@@ -6,8 +6,8 @@
 #include <inttypes.h>
 #include <stdio.h>
 
-#define X_SERVO_ADDR 0x40050200
-#define Y_SERVO_ADDR 0x40050204
+#define X_SERVO_ADDR 0x40050100
+#define Y_SERVO_ADDR 0x40050104
 
 #define SERVO_FULL_REVERSE 100000
 #define SERVO_HALF_REVERSE 125000
