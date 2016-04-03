@@ -15,13 +15,11 @@
 #define SERVO_HALF_FORWARD 175000
 #define SERVO_FULL_FORWARD 200000
 
-static uint32_t x_servo=SERVO_NEUTRAL, y_servo=SERVO_NEUTRAL;
-
 // set the x position using the defined values
-void set_x_servo(uint32_t pos);
+void set_x_servo(uint32_t new_pw);
 
 // set the y position using the defined values
-void set_y_servo(uint32_t pos);
+void set_y_servo(uint32_t new_pw);
 
 // move thru the servo half and full speeds
 // incrementing based on last pos
