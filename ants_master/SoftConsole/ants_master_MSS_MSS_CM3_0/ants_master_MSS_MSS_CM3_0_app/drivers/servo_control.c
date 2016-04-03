@@ -1,23 +1,41 @@
 
 #include "servo_control.h"
 
-void set_x_servo(uint32_t cycles) {
+uint32_t _set_servo(uint32_t pw, volatile uint32_t* servo_address) {
 
-    volatile uint32_t* address = (volatile uint32_t*)X_SERVO_ADDR;
-    *address = cycles;
+    // capture how long the servo had been running at that pulse width
+    uint32_t runtime = *servo_address;
 
-    x_servo = cycles;
-    printf("X servo set to: %d\r\n", x_servo);
+    // set the new pulse width
+    *servo_address = pw;
+
+    return runtime;
 }
 
-void set_y_servo(uint32_t cycles) {
+void set_x_servo(uint32_t new_pw) {
+    static uint32_t current_pw = SERVO_NEUTRAL; // what it is currently set to
 
-    volatile uint32_t* address = (volatile uint32_t*)Y_SERVO_ADDR;
-    *address = cycles;
+    if (new_pw == current_pw) {
+        return;
+    }
+    _set_servo(new_pw, (volatile uint32_t*)X_SERVO_ADDR);
 
-    y_servo = cycles;
-    printf("Y servo set to: %d\r\n", y_servo);
+    current_pw = new_pw;
+    printf("X servo set to: %d\r\n", current_pw);
 }
+
+void set_y_servo(uint32_t new_pw) {
+    static uint32_t current_pw = SERVO_NEUTRAL;
+
+    if (new_pw == current_pw) {
+        return;
+    }
+    _set_servo(new_pw, (volatile uint32_t*)Y_SERVO_ADDR);
+
+    current_pw = new_pw;
+    printf("Y servo set to: %d\r\n", current_pw);
+}
+
 
 uint32_t increment_forward_speed(uint32_t pos) {
     if (pos == SERVO_FULL_REVERSE) {
