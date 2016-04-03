@@ -134,72 +134,45 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
     }
 }
 
-uint32_t increment_forward(uint32_t pos) {
-    if (pos == SERVO_FULL_REVERSE) {
-        return SERVO_HALF_REVERSE;
-    }
-    else if (pos == SERVO_HALF_REVERSE) {
-        return SERVO_NEUTRAL;
-    }
-    else if (pos == SERVO_NEUTRAL) {
-        return SERVO_HALF_FORWARD;
-    }
-    else if (pos == SERVO_HALF_FORWARD) {
-        return SERVO_FULL_FORWARD;
-    }
-    else if (pos == SERVO_FULL_FORWARD) {
-        return SERVO_FULL_FORWARD;
-    }
-    else {
-        return pos;
-    }
-}
-
-uint32_t increment_backward(uint32_t pos) {
-    if (pos == SERVO_FULL_REVERSE) {
-        return SERVO_FULL_REVERSE;
-    }
-    else if (pos == SERVO_HALF_REVERSE) {
-        return SERVO_FULL_REVERSE;
-    }
-    else if (pos == SERVO_NEUTRAL) {
-        return SERVO_HALF_REVERSE;
-    }
-    else if (pos == SERVO_HALF_FORWARD) {
-        return SERVO_NEUTRAL;
-    }
-    else if (pos == SERVO_FULL_FORWARD) {
-        return SERVO_HALF_FORWARD;
-    }
-    else {
-        return pos;
-    }
-}
-
 /*
- * This checks the D-pad and adjusts the servos accordingly
- *
+ * This checks the D-pad and adjusts the servos accordingly,
+ * moving them for as long as the button is held
  */
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
-    static uint32_t x_pos=SERVO_NEUTRAL, y_pos=SERVO_NEUTRAL;
 
+    // Pitch control
     if (state->Up && !last_state->Up) {
-        y_pos = increment_forward(y_pos);
-        printf("Y servo set to: %d\r\n", y_pos);
+        // Up pressed
+        set_y_servo(SERVO_FULL_FORWARD);
+    }
+    else if (!state->Up && last_state->Up) {
+        // Up released
+        set_y_servo(SERVO_NEUTRAL);
     }
     else if (state->Down && !last_state->Down) {
-        y_pos = increment_backward(y_pos);
-        printf("Y servo set to: %d\r\n", y_pos);
+        // Down pressed
+        set_y_servo(SERVO_FULL_REVERSE);
     }
-    else if (state->Left && !last_state->Left) {
-        x_pos = increment_forward(x_pos);
-        printf("X servo set to: %d\r\n", x_pos);
-    }
-    else if (state->Right && !last_state->Right) {
-        x_pos = increment_backward(x_pos);
-        printf("X servo set to: %d\r\n", x_pos);
+    else if (!state->Down && last_state->Down) {
+        // Down released
+        set_y_servo(SERVO_NEUTRAL);
     }
 
-    set_x_servo(x_pos);
-    set_y_servo(y_pos);
+    // Yaw control
+    if (state->Left && !last_state->Left) {
+        // Left pressed
+        set_x_servo(SERVO_FULL_FORWARD);
+    }
+    else if (!state->Left && last_state->Left) {
+        // Left released
+        set_x_servo(SERVO_NEUTRAL);
+    }
+    else if (state->Right && !last_state->Right) {
+        // Right pressed
+        set_x_servo(SERVO_FULL_REVERSE);
+    }
+    else if (!state->Right && last_state->Right) {
+        // Right released
+        set_x_servo(SERVO_NEUTRAL);
+    }
 }
