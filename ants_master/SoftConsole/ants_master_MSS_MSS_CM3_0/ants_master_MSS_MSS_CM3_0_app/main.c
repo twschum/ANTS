@@ -15,8 +15,8 @@
 // convenience button macros in the do_ functions
 #define N64_STATE_PTR state
 #define N64_LAST_STATE_PTR last_state
-#define n64_pressed(BUTTON) { (N64_STATE_PTR->BUTTON && !N64_LAST_STATE_PTR->BUTTON) }
-#define n64_released(BUTTON) { (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->BUTTON) }
+#define n64_pressed(BUTTON)  (N64_STATE_PTR->BUTTON && !N64_LAST_STATE_PTR->BUTTON)
+#define n64_released(BUTTON)  (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->UTTON)
 
 // make all do_ functions take the n64 args as defined to use the button macro!
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
