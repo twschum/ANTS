@@ -2,21 +2,21 @@
 #include "Pixy_SPI.h"
 
 // data types
-typedef enum 
+typedef enum
 {
     NORMAL_BLOCK,
     CC_BLOCK // color code block
-} BlockType;
+} PixyBlockType;
 
-typedef struct  
+typedef struct
 {
-  uint16_t signature; 
+  uint16_t signature;
   uint16_t x;
   uint16_t y;
   uint16_t width;
   uint16_t height;
   uint16_t angle; // angle is only available for color coded blocks
-} Block;
+} PixyBlock;
 
 // communication routines (internal)
 static uint16_t getWord(void);
@@ -25,15 +25,15 @@ static int sendByte(uint8_t *data, int len);
 ///////////////////////////////////////////////////////////////////////////////
 // SPI routines
 
-// SPI sends as it receives so we need a getByte routine that 
+// SPI sends as it receives so we need a getByte routine that
 // takes an output data argument
 uint8_t getByte(uint8_t out) {
-	
+
 	uint8_t in_rx;
 
-	MSS_SPI_set_slave_select( &g_mss_spi0, MSS_SPI_SLAVE_0 );
-	in_rx = MSS_SPI_transfer_frame( &g_mss_spi0, out );
-	MSS_SPI_clear_slave_select( &g_mss_spi0, MSS_SPI_SLAVE_0 );
+	MSS_SPI_set_slave_select( &g_mss_spi1, MSS_SPI_SLAVE_0 );
+	in_rx = MSS_SPI_transfer_frame( &g_mss_spi1, out );
+	MSS_SPI_clear_slave_select( &g_mss_spi1, MSS_SPI_SLAVE_0 );
 
 	return in_rx;
 }
@@ -46,7 +46,7 @@ static uint8_t g_outReadIndex = 0;
 
 uint16_t getWord()
 {
-  // ordering is big endian because Pixy is sending 16 bits through SPI 
+  // ordering is big endian because Pixy is sending 16 bits through SPI
   uint16_t w;
   uint8_t c, cout = 0;
 
@@ -56,7 +56,7 @@ uint16_t getWord()
     cout = g_outBuf[g_outReadIndex++];
     g_outLen--;
     if (g_outReadIndex==PIXY_OUTBUF_SIZE)
-      g_outReadIndex = 0; 
+      g_outReadIndex = 0;
   }
   else
     w = getByte(PIXY_SYNC_BYTE); // send out sync byte
@@ -89,22 +89,22 @@ int sendByte(uint8_t *data, int len)
 ///////////////////////////////////////////////////////////////////////////////
 
 static int g_skipStart = 0;
-static BlockType g_blockType;
-static Block *g_blocks;
+static PixyBlockType g_blockType;
+static PixyBlock *g_blocks;
 
 void Pixy_init()
 {
-    g_blocks = (Block *)malloc(sizeof(Block)*PIXY_ARRAYSIZE);
-  
+    g_blocks = (PixyBlock *)malloc(sizeof(PixyBlock)*PIXY_ARRAYSIZE);
+
   	const uint8_t frame_size = 8; // Single byte for Pixy
 
-	MSS_SPI_init( &g_mss_spi0 );
+	MSS_SPI_init( &g_mss_spi1 );
 	MSS_SPI_configure_master_mode
 	(
-		&g_mss_spi0,
+		&g_mss_spi1,
 		MSS_SPI_SLAVE_0,
-		MSS_SPI_MODE0,
-		MSS_SPI_PCLK_DIV_256, // between 256 and 2
+		MSS_SPI_MODE0, // based on Pix documentation
+		MSS_SPI_PCLK_DIV_256, // can be between 256 and 2
 		frame_size
 	);
 }
@@ -119,7 +119,7 @@ int Pixy_get_start(void)
   {
     w = getWord();
     if (w==0 && lastw==0)
-      return 0; // no start code  
+      return 0; // no start code
     else if (w==PIXY_START_WORD && lastw==PIXY_START_WORD)
     {
       g_blockType = NORMAL_BLOCK;
@@ -129,11 +129,11 @@ int Pixy_get_start(void)
     {
       g_blockType = CC_BLOCK; // found color code block
       return 1;
-    }    
-    else if (w==PIXY_START_WORDX) 
+    }
+    else if (w==PIXY_START_WORDX)
       getByte(0); // we're out of sync! (backwards)
 
-    lastw = w; 
+    lastw = w;
   }
 }
 
@@ -141,7 +141,7 @@ uint16_t Pixy_get_blocks(uint16_t max_blocks)
 {
   uint8_t i;
   uint16_t w, blockCount, checksum, sum;
-  Block *block;
+  PixyBlock *block;
 
   if (!g_skipStart)
   {
@@ -171,7 +171,7 @@ uint16_t Pixy_get_blocks(uint16_t max_blocks)
 
     block = g_blocks + blockCount;
 
-    for (i=0, sum=0; i<sizeof(Block)/sizeof(uint16_t); i++)
+    for (i=0, sum=0; i<sizeof(PixyBlock)/sizeof(uint16_t); i++)
     {
       if (g_blockType==NORMAL_BLOCK && i>=5) // no angle for normal block
       {
@@ -204,7 +204,7 @@ int Pixy_set_brightness(uint8_t brightness)
   uint8_t outBuf[3];
 
   outBuf[0] = 0x00;
-  outBuf[1] = PIXY_CAM_BRIGHTNESS_SYNC; 
+  outBuf[1] = PIXY_CAM_BRIGHTNESS_SYNC;
   outBuf[2] = brightness;
 
   return sendByte(outBuf, 3);
@@ -215,7 +215,7 @@ int Pixy_set_LED(uint8_t r, uint8_t g, uint8_t b)
   uint8_t outBuf[5];
 
   outBuf[0] = 0x00;
-  outBuf[1] = PIXY_LED_SYNC; 
+  outBuf[1] = PIXY_LED_SYNC;
   outBuf[2] = r;
   outBuf[3] = g;
   outBuf[4] = b;
