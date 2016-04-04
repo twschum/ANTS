@@ -1,37 +1,27 @@
 
 #include "servo_control.h"
 
-uint32_t _set_servo(uint32_t pw, volatile uint32_t* servo_address) {
+#define _servo_set(ADDR,VALUE) { *((volatile uint32_t*)ADDR) = VALUE; }
 
-    // capture how long the servo had been running at that pulse width
-    uint32_t runtime = *servo_address;
-
-    // set the new pulse width
-    *servo_address = pw;
-
-    return runtime;
-}
-
-void set_x_servo(uint32_t new_pw) {
-    static uint32_t current_pw = SERVO_NEUTRAL; // what it is currently set to
+void set_x_servo_analog_pw(uint32_t new_pw) {
+    static uint32_t current_pw = 0xFFFFFFFF;
 
     if (new_pw == current_pw) {
         return;
     }
-    _set_servo(new_pw, (volatile uint32_t*)X_SERVO_ADDR);
 
+    _servo_set(X_SET_SERVO, new_pw);
     current_pw = new_pw;
     printf("X servo set to: %d\r\n", current_pw);
 }
 
-void set_y_servo(uint32_t new_pw) {
-    static uint32_t current_pw = SERVO_NEUTRAL;
+void set_y_servo_analog_pw(uint32_t new_pw) {
+    static uint32_t current_pw = 0xFFFFFFFF;
 
     if (new_pw == current_pw) {
         return;
     }
-    _set_servo(new_pw, (volatile uint32_t*)Y_SERVO_ADDR);
-
+    _servo_set(Y_SET_SERVO, new_pw);
     current_pw = new_pw;
     printf("Y servo set to: %d\r\n", current_pw);
 }

@@ -1,5 +1,3 @@
-// #include <> mss stuff and shit for UART
-//
 
 #include <stdio.h>
 #include <unistd.h>
@@ -9,13 +7,18 @@
 #include "drivers/trigger_solenoid_driver.h"
 #include "drivers/servo_control.h"
 
-#define PRINT_STATE 0
+#define PRINT_N64_STATE 0
 
 #define MANUAL 1
 #define AUTOMATIC 0
 
-#define GPIO_OUTPUT_CFG 0x01
+// convenience button macros in the do_ functions
+#define N64_STATE_PTR state
+#define N64_LAST_STATE_PTR last_state
+#define n64_pressed(BUTTON) { (N64_STATE_PTR->BUTTON && !N64_LAST_STATE_PTR->BUTTON) }
+#define n64_released(BUTTON) { (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->BUTTON) }
 
+// make all do_ functions take the n64 args as defined to use the button macro!
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state);
 
@@ -38,7 +41,7 @@ int main() {
      */
     n64_state_t n64_buttons;
     n64_state_t last_buttons;
-    uint8_t mode = AUTOMATIC;
+    uint8_t mode = MANUAL;
 
     n64_reset();
     n64_enable();
@@ -88,7 +91,7 @@ int main() {
             }
         }
 
-        if (PRINT_STATE) {
+        if (PRINT_N64_STATE) {
             n64_print_state( &n64_buttons );
             while (x < 10000000) {
             	x = x + 1;
@@ -114,16 +117,16 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
      *   C Up to increment the time
      *   C Down to decrement the itme
      */
-    if (state->Z && !last_state->Z) {
+    if (n64_pressed(Z)) {
         printf("Z pressed, activating trigger solenoid\r\n");
         trigger_solenoid_activate(milliseconds);
     }
 
-    if (state->C_Up && !last_state->C_Up) {
+    if (n64_pressed(C_Up)) {
         milliseconds += increment;
         printf("Incrementing solenoid time to: %d ms\r\n", milliseconds);
     }
-    if (state->C_Down && !last_state->C_Down) {
+    if (n64_pressed(C_Down)) {
         if (milliseconds <= increment) {
             printf("Cannot decrement solenoid time, at min: %d ms\r\n", milliseconds);
         }
@@ -137,42 +140,29 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
 /*
  * This checks the D-pad and adjusts the servos accordingly,
  * moving them for as long as the button is held
+ *
  */
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 
     // Pitch control
-    if (state->Up && !last_state->Up) {
-        // Up pressed
-        set_y_servo(SERVO_FULL_FORWARD);
+    if (n64_pressed(Up)) {
+        servo_do(Y_SET_FORWARD);
     }
-    else if (!state->Up && last_state->Up) {
-        // Up released
-        set_y_servo(SERVO_NEUTRAL);
+    else if (n64_pressed(Down)) {
+        servo_do(Y_SET_REVERSE);
     }
-    else if (state->Down && !last_state->Down) {
-        // Down pressed
-        set_y_servo(SERVO_FULL_REVERSE);
-    }
-    else if (!state->Down && last_state->Down) {
-        // Down released
-        set_y_servo(SERVO_NEUTRAL);
+    else if (n64_released(Up) || n64_released(Down)) {
+        servo_do(Y_SET_NEUTRAL);
     }
 
     // Yaw control
-    if (state->Left && !last_state->Left) {
-        // Left pressed
-        set_x_servo(SERVO_FULL_FORWARD);
+    if (n64_pressed(Left)) {
+        servo_do(X_SET_FORWARD);
     }
-    else if (!state->Left && last_state->Left) {
-        // Left released
-        set_x_servo(SERVO_NEUTRAL);
+    else if (n64_pressed(Right)) {
+        servo_do(X_SET_REVERSE);
     }
-    else if (state->Right && !last_state->Right) {
-        // Right pressed
-        set_x_servo(SERVO_FULL_REVERSE);
-    }
-    else if (!state->Right && last_state->Right) {
-        // Right released
-        set_x_servo(SERVO_NEUTRAL);
+    else if (n64_released(Left) || n64_released(Right)) {
+        servo_do(X_SET_NEUTRAL);
     }
 }
