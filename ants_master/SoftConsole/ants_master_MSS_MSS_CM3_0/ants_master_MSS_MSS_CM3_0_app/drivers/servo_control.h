@@ -31,10 +31,10 @@
 #define SERVO_FULL_FORWARD 200000
 
 // Use this marco to do all the write-triggered actions
-#define servo_do(ADDR) { *((volatile uint32_t*)ADDR) = 0 }
+#define servo_do(ADDR) ( *((volatile uint32_t*)ADDR) = 0 )
 
 // Use this macro to get (X|Y)_READ_(FORWARD|REVERSE)
-#define servo_read(ADDR,RETURN) { *RETURN = *((volatile uint32_t*)ADDR) }
+#define servo_read(ADDR,RETURN) ( *RETURN = *((volatile uint32_t*)ADDR) )
 
 // set the x position using any value
 // might map this to the alalog stick
