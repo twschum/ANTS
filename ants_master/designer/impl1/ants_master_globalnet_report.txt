@@ -5,7 +5,7 @@
 Product: Designer
 Release: v11.5 SP3
 Version: 11.5.3.10
-Date: Tue Apr 05 17:09:04 2016
+Date: Tue Apr 05 17:37:35 2016
 Design Name: ants_master  Family: SmartFusion  Die: A2F200M3F  Package: 484 FBGA
 
 
@@ -20,13 +20,13 @@ Global Nets Information:
         |---------------------------------------------------------------|
         |Name                          |Core      |IO        |RAM       |
         |---------------------------------------------------------------|
-        |CoreAPB3_0_APBmslave0_PADDR[6]|       77 |        0 |        0 |
+        |CoreAPB3_0_APBmslave0_PADDR[6]|       73 |        0 |        0 |
         |---------------------------------------------------------------|
         |FAB_CLK                       |      502 |        0 |        0 |
         |---------------------------------------------------------------|
-        |ants_master_MSS_0_M2F_RESET_N |      143 |        0 |        0 |
+        |ants_master_MSS_0_M2F_RESET_N |       96 |        0 |        0 |
         |---------------------------------------------------------------|
-        |servo_control_0.N_256_mux     |      129 |        0 |        0 |
+        |servo_control_0.N_258_mux     |      129 |        0 |        0 |
         |---------------------------------------------------------------|
 
 Nets Sharing Loads:
@@ -34,9 +34,9 @@ Nets Sharing Loads:
         |-------------------------------------------------------------|
         |Global Net                    |Shares Loads With ...         |
         |-------------------------------------------------------------|
-        |CoreAPB3_0_APBmslave0_PADDR[6]|servo_control_0.N_256_mux     |
+        |CoreAPB3_0_APBmslave0_PADDR[6]|servo_control_0.N_258_mux     |
         |-------------------------------------------------------------|
-        |servo_control_0.N_256_mux     |CoreAPB3_0_APBmslave0_PADDR[6]|
+        |servo_control_0.N_258_mux     |CoreAPB3_0_APBmslave0_PADDR[6]|
         |-------------------------------------------------------------|
 
 Summary of Global Net Placement:
@@ -50,5 +50,5 @@ Summary of Global Net Placement:
         |----------------------------------------------------------------------------------|
         |ants_master_MSS_0_M2F_RESET_N |MIDDLE_RIGHT        |                              |
         |----------------------------------------------------------------------------------|
-        |servo_control_0.N_256_mux     |MIDDLE_RIGHT        |                              |
+        |servo_control_0.N_258_mux     |MIDDLE_RIGHT        |                              |
         |----------------------------------------------------------------------------------|

@@ -16,6 +16,7 @@ module servo_control(
     output x_servo_pwm,
     output y_servo_pwm,
 
+    // DEBUG
     output set_y_forward, //J6  (F5) (0)
     output set_x,         //B22 (F6) (2)
     output read_x_reverse //C22 (F7) (4)
@@ -25,13 +26,13 @@ assign PSLVERR = 0;
 assign PREADY = 1;
 
 /*** ADDRESS COMMAND DECODING ***/
-//wire set_x;
+wire set_x;
 wire set_x_neutral;
 wire set_x_forward;
 wire set_x_reverse;
 wire set_x_zero;
 wire x_return_to_zero;
-//wire read_x_forward;
+wire read_x_forward;
 wire read_x_reverse;
 
 assign set_x            = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h100)); // WRITE DATA to 100 - 'analog' currently not working
@@ -40,12 +41,12 @@ assign set_x_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h108)
 assign set_x_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h10c)); // WRITE ANY to 103
 assign set_x_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h110)); // WRITE ANY to 104
 assign x_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h114)); // WRITE ANY to 105
-assign read_x_forward  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h118)); // READ from 108
-assign read_x_reverse  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h11c)); // READ from 109
+assign read_x_forward  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h118)); // READ from 108
+assign read_x_reverse  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h11c)); // READ from 109
 
 wire set_y;
 wire set_y_neutral;
-//wire set_y_forward;
+wire set_y_forward;
 wire set_y_reverse;
 wire set_y_zero;
 wire y_return_to_zero;
@@ -58,8 +59,8 @@ assign set_y_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h148)
 assign set_y_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h14c)); // WRITE ANY to 113
 assign set_y_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h150)); // WRITE ANY to 114
 assign y_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h154)); // WRITE ANY to 115
-assign read_y_forward  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h158)); // READ from 118
-assign read_y_reverse  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h15c)); // READ from 119
+assign read_y_forward  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h158)); // READ from 118
+assign read_y_reverse  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h15c)); // READ from 119
 
 /*** END APB INTERFACE ***/
 /*** TRACKING SERVO INSTANTIAIONS  ***/
@@ -67,10 +68,6 @@ wire [31:0] x_forward_count;
 wire [31:0] x_reverse_count;
 wire [31:0] y_forward_count;
 wire [31:0] y_reverse_count;
-//reg x_pwm_reg;
-//reg y_pwm_reg;
-//assign x_servo_pwm = x_pwm_reg;
-//assign y_servo_pwm = y_pwm_reg;
 
 _tracking_servo x_servo(
     .PCLK           (PCLK),
@@ -107,13 +104,13 @@ always @ (posedge PCLK) begin
 
     if (read_x_forward)
         PRDATA <= x_forward_count;
-
+        
     else if (read_y_forward)
         PRDATA <= y_forward_count;
 
     else if (read_x_reverse)
         PRDATA <= x_reverse_count;
-
+ 
     else if (read_y_reverse)
         PRDATA <= y_reverse_count;
 
@@ -186,11 +183,6 @@ initial begin
     next_pw = PW_NEUTRAL;
     zero_counts_next = 0;
 end
-
-//assign forward_count_ow = forward_count;
-//assign reverse_count_ow = reverse_count;
-//assign pwm_signal_ow = pwm_signal;
-//assign in_return_mode_ow = in_return_mode;
 
 always @ (posedge PCLK) begin
 

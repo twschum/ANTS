@@ -142,7 +142,7 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
  */
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 
-    // Pitch control
+    // Digital Pitch control
     if (n64_pressed(Up)) {
         servo_do(Y_SET_FORWARD);
         //set_y_servo_analog_pw(SERVO_FULL_FORWARD);
@@ -157,7 +157,7 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
         printf("servo_do Y_SET_NEUTRAL\r\n");
     }
 
-    // Yaw control
+    // Digital Yaw control
     if (n64_pressed(Left)) {
         servo_do(X_SET_FORWARD);
         //set_x_servo_analog_pw(SERVO_FULL_FORWARD);
@@ -187,6 +187,12 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     // Zero the counts
     if (n64_pressed(B)) {
     	servo_do(X_SET_ZERO);
+    }
+
+    // Analog Pitch and Yaw
+    if (state->X_axis) {
+    	n64_print_state(state);
+    	//set_x_servo_analog_pw();
     }
 
 }
