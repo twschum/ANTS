@@ -2,7 +2,7 @@ Timing Violation Report Max Delay Analysis
 
 SmartTime Version v11.5 SP3
 Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
-Date: Sat Apr 02 15:37:20 2016
+Date: Tue Apr 05 13:07:34 2016
 
 
 Design: ants_master
@@ -21,34 +21,346 @@ Scenario for Timing Analysis: Primary
 
 
 Path 1
-  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[4]:CLK
-  To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
-  Delay (ns):                  10.110
-  Slack (ns):                  -0.589
-  Arrival (ns):                15.319
-  Required (ns):               14.730
+  From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
+  Delay (ns):                  12.602
+  Slack (ns):                  -1.390
+  Arrival (ns):                16.157
+  Required (ns):               14.767
 
 Path 2
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
-  Delay (ns):                  11.556
-  Slack (ns):                  -0.362
-  Arrival (ns):                15.111
-  Required (ns):               14.749
+  Delay (ns):                  12.151
+  Slack (ns):                  -0.939
+  Arrival (ns):                15.706
+  Required (ns):               14.767
 
 Path 3
-  From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          n64_magic_box_0/n64_apb_interface_0/polling_enable:D
-  Delay (ns):                  11.491
-  Slack (ns):                  -0.297
-  Arrival (ns):                15.046
-  Required (ns):               14.749
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[16]:D
+  Delay (ns):                  10.123
+  Slack (ns):                  -0.626
+  Arrival (ns):                15.342
+  Required (ns):               14.716
 
 Path 4
-  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[5]:CLK
+  From:                        servo_control_0/y_servo/time_count[11]:CLK
+  To:                          servo_control_0/y_servo/time_count[4]:D
+  Delay (ns):                  10.009
+  Slack (ns):                  -0.545
+  Arrival (ns):                15.264
+  Required (ns):               14.719
+
+Path 5
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[0]:D
+  Delay (ns):                  10.061
+  Slack (ns):                  -0.541
+  Arrival (ns):                15.280
+  Required (ns):               14.739
+
+Path 6
+  From:                        servo_control_0/y_servo/time_count[1]:CLK
+  To:                          servo_control_0/y_servo/time_count[18]:D
+  Delay (ns):                  9.979
+  Slack (ns):                  -0.481
+  Arrival (ns):                15.234
+  Required (ns):               14.753
+
+Path 7
+  From:                        servo_control_0/y_servo/time_count[2]:CLK
+  To:                          servo_control_0/y_servo/time_count[18]:D
+  Delay (ns):                  9.936
+  Slack (ns):                  -0.438
+  Arrival (ns):                15.191
+  Required (ns):               14.753
+
+Path 8
+  From:                        servo_control_0/x_servo/time_count[2]:CLK
+  To:                          servo_control_0/x_servo/time_count[20]:D
+  Delay (ns):                  9.945
+  Slack (ns):                  -0.423
+  Arrival (ns):                15.174
+  Required (ns):               14.751
+
+Path 9
+  From:                        servo_control_0/x_servo/time_count[1]:CLK
+  To:                          servo_control_0/x_servo/time_count[20]:D
+  Delay (ns):                  9.916
+  Slack (ns):                  -0.394
+  Arrival (ns):                15.145
+  Required (ns):               14.751
+
+Path 10
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[1]:D
+  Delay (ns):                  9.910
+  Slack (ns):                  -0.390
+  Arrival (ns):                15.129
+  Required (ns):               14.739
+
+Path 11
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[17]:D
+  Delay (ns):                  9.901
+  Slack (ns):                  -0.385
+  Arrival (ns):                15.120
+  Required (ns):               14.735
+
+Path 12
+  From:                        servo_control_0/x_servo/time_count[10]:CLK
+  To:                          servo_control_0/x_servo/time_count[16]:D
+  Delay (ns):                  9.865
+  Slack (ns):                  -0.378
+  Arrival (ns):                15.094
+  Required (ns):               14.716
+
+Path 13
+  From:                        servo_control_0/y_servo/time_count[11]:CLK
+  To:                          servo_control_0/y_servo/time_count[0]:D
+  Delay (ns):                  9.839
+  Slack (ns):                  -0.373
+  Arrival (ns):                15.094
+  Required (ns):               14.721
+
+Path 14
+  From:                        servo_control_0/y_servo/time_count[11]:CLK
+  To:                          servo_control_0/y_servo/time_count[2]:D
+  Delay (ns):                  9.792
+  Slack (ns):                  -0.314
+  Arrival (ns):                15.047
+  Required (ns):               14.733
+
+Path 15
+  From:                        servo_control_0/x_servo/time_count[10]:CLK
+  To:                          servo_control_0/x_servo/time_count[0]:D
+  Delay (ns):                  9.803
+  Slack (ns):                  -0.293
+  Arrival (ns):                15.032
+  Required (ns):               14.739
+
+Path 16
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[8]:D
+  Delay (ns):                  9.807
+  Slack (ns):                  -0.287
+  Arrival (ns):                15.026
+  Required (ns):               14.739
+
+Path 17
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[6]:D
+  Delay (ns):                  9.807
+  Slack (ns):                  -0.287
+  Arrival (ns):                15.026
+  Required (ns):               14.739
+
+Path 18
+  From:                        servo_control_0/y_servo/time_count[4]:CLK
+  To:                          servo_control_0/y_servo/time_count[18]:D
+  Delay (ns):                  9.766
+  Slack (ns):                  -0.254
+  Arrival (ns):                15.007
+  Required (ns):               14.753
+
+Path 19
+  From:                        servo_control_0/y_servo/time_count[12]:CLK
+  To:                          servo_control_0/y_servo/time_count[4]:D
+  Delay (ns):                  9.686
+  Slack (ns):                  -0.222
+  Arrival (ns):                14.941
+  Required (ns):               14.719
+
+Path 20
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[14]:D
+  Delay (ns):                  9.724
+  Slack (ns):                  -0.219
+  Arrival (ns):                14.943
+  Required (ns):               14.724
+
+Path 21
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[20]:D
+  Delay (ns):                  9.713
+  Slack (ns):                  -0.213
+  Arrival (ns):                14.932
+  Required (ns):               14.719
+
+Path 22
+  From:                        servo_control_0/y_servo/time_count[0]:CLK
+  To:                          servo_control_0/y_servo/time_count[18]:D
+  Delay (ns):                  9.686
+  Slack (ns):                  -0.176
+  Arrival (ns):                14.929
+  Required (ns):               14.753
+
+Path 23
+  From:                        servo_control_0/x_servo/time_count[0]:CLK
+  To:                          servo_control_0/x_servo/time_count[20]:D
+  Delay (ns):                  9.694
+  Slack (ns):                  -0.172
+  Arrival (ns):                14.923
+  Required (ns):               14.751
+
+Path 24
+  From:                        servo_control_0/x_servo/time_count[10]:CLK
+  To:                          servo_control_0/x_servo/time_count[17]:D
+  Delay (ns):                  9.621
+  Slack (ns):                  -0.147
+  Arrival (ns):                14.850
+  Required (ns):               14.703
+
+Path 25
+  From:                        servo_control_0/x_servo/time_count[11]:CLK
+  To:                          servo_control_0/x_servo/time_count[16]:D
+  Delay (ns):                  9.607
+  Slack (ns):                  -0.147
+  Arrival (ns):                14.831
+  Required (ns):               14.684
+
+Path 26
+  From:                        servo_control_0/x_servo/time_count[10]:CLK
+  To:                          servo_control_0/x_servo/time_count[1]:D
+  Delay (ns):                  9.623
+  Slack (ns):                  -0.145
+  Arrival (ns):                14.852
+  Required (ns):               14.707
+
+Path 27
+  From:                        servo_control_0/x_servo/time_count[7]:CLK
+  To:                          servo_control_0/x_servo/time_count[16]:D
+  Delay (ns):                  9.630
+  Slack (ns):                  -0.133
+  Arrival (ns):                14.849
+  Required (ns):               14.716
+
+Path 28
+  From:                        servo_control_0/y_servo/time_count[11]:CLK
+  To:                          servo_control_0/y_servo/time_count[17]:D
+  Delay (ns):                  9.591
+  Slack (ns):                  -0.125
+  Arrival (ns):                14.846
+  Required (ns):               14.721
+
+Path 29
+  From:                        servo_control_0/y_servo/time_count[1]:CLK
+  To:                          servo_control_0/y_servo/time_count[20]:D
+  Delay (ns):                  9.647
+  Slack (ns):                  -0.122
+  Arrival (ns):                14.902
+  Required (ns):               14.780
+
+Path 30
+  From:                        servo_control_0/x_servo/time_count[2]:CLK
+  To:                          servo_control_0/x_servo/time_count[18]:D
+  Delay (ns):                  9.617
+  Slack (ns):                  -0.114
+  Arrival (ns):                14.846
+  Required (ns):               14.732
+
+Path 31
+  From:                        servo_control_0/x_servo/time_count[1]:CLK
+  To:                          servo_control_0/x_servo/time_count[18]:D
+  Delay (ns):                  9.588
+  Slack (ns):                  -0.085
+  Arrival (ns):                14.817
+  Required (ns):               14.732
+
+Path 32
+  From:                        servo_control_0/y_servo/time_count[2]:CLK
+  To:                          servo_control_0/y_servo/time_count[20]:D
+  Delay (ns):                  9.600
+  Slack (ns):                  -0.075
+  Arrival (ns):                14.855
+  Required (ns):               14.780
+
+Path 33
+  From:                        servo_control_0/y_servo/time_count[11]:CLK
+  To:                          servo_control_0/y_servo/time_count[3]:D
+  Delay (ns):                  9.536
+  Slack (ns):                  -0.070
+  Arrival (ns):                14.791
+  Required (ns):               14.721
+
+Path 34
+  From:                        servo_control_0/x_servo/time_count[11]:CLK
+  To:                          servo_control_0/x_servo/time_count[0]:D
+  Delay (ns):                  9.551
+  Slack (ns):                  -0.068
+  Arrival (ns):                14.775
+  Required (ns):               14.707
+
+Path 35
+  From:                        servo_control_0/y_servo/time_count[12]:CLK
+  To:                          servo_control_0/y_servo/pwm_signal:D
+  Delay (ns):                  9.534
+  Slack (ns):                  -0.055
+  Arrival (ns):                14.789
+  Required (ns):               14.734
+
+Path 36
+  From:                        n64_magic_box_0/n64_serial_interface_0/write_module/count[6]:CLK
   To:                          n64_magic_box_0/n64_serial_interface_0/write_module/count[7]:D
-  Delay (ns):                  9.614
-  Slack (ns):                  -0.136
-  Arrival (ns):                14.866
-  Required (ns):               14.730
+  Delay (ns):                  9.548
+  Slack (ns):                  -0.054
+  Arrival (ns):                14.762
+  Required (ns):               14.708
+
+Path 37
+  From:                        servo_control_0/y_servo/time_count[12]:CLK
+  To:                          servo_control_0/y_servo/time_count[0]:D
+  Delay (ns):                  9.516
+  Slack (ns):                  -0.050
+  Arrival (ns):                14.771
+  Required (ns):               14.721
+
+Path 38
+  From:                        servo_control_0/x_servo/time_count[7]:CLK
+  To:                          servo_control_0/x_servo/time_count[0]:D
+  Delay (ns):                  9.568
+  Slack (ns):                  -0.048
+  Arrival (ns):                14.787
+  Required (ns):               14.739
+
+Path 39
+  From:                        servo_control_0/x_servo/time_count[10]:CLK
+  To:                          servo_control_0/x_servo/time_count[8]:D
+  Delay (ns):                  9.549
+  Slack (ns):                  -0.039
+  Arrival (ns):                14.778
+  Required (ns):               14.739
+
+Path 40
+  From:                        servo_control_0/x_servo/time_count[10]:CLK
+  To:                          servo_control_0/x_servo/time_count[6]:D
+  Delay (ns):                  9.549
+  Slack (ns):                  -0.039
+  Arrival (ns):                14.778
+  Required (ns):               14.739
+
+Path 41
+  From:                        servo_control_0/x_servo/time_count[9]:CLK
+  To:                          servo_control_0/x_servo/time_count[19]:D
+  Delay (ns):                  9.557
+  Slack (ns):                  -0.028
+  Arrival (ns):                14.776
+  Required (ns):               14.748
+
+Path 42
+  From:                        servo_control_0/y_servo/time_count[9]:CLK
+  To:                          servo_control_0/y_servo/time_count[18]:D
+  Delay (ns):                  9.496
+  Slack (ns):                  -0.013
+  Arrival (ns):                14.766
+  Required (ns):               14.753
+
+Path 43
+  From:                        servo_control_0/y_servo/time_count[11]:CLK
+  To:                          servo_control_0/y_servo/time_count[6]:D
+  Delay (ns):                  9.473
+  Slack (ns):                  -0.007
+  Arrival (ns):                14.728
+  Required (ns):               14.721
 

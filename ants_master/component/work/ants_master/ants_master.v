@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Sat Apr 02 15:16:20 2016
+// Created by SmartDesign Tue Apr 05 13:05:38 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -118,10 +118,10 @@ wire   [31:0] PRDATAS16_const_net_0;
 //--------------------------------------------------------------------
 // Bus Interface Nets Declarations - Unequal Pin Widths
 //--------------------------------------------------------------------
-wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 wire   [31:20]ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_31to20;
 wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_19to0;
 wire   [31:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0;
+wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
@@ -344,9 +344,7 @@ n64_magic_box n64_magic_box_0(
         );
 
 //--------servo_control
-servo_control #( 
-        .pwm_period ( 2000000 ) )
-servo_control_0(
+servo_control servo_control_0(
         // Inputs
         .PCLK        ( ants_master_MSS_0_FAB_CLK ),
         .PRESERN     ( ants_master_MSS_0_M2F_RESET_N ),
