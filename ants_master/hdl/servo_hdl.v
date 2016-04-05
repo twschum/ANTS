@@ -13,8 +13,8 @@ module servo_control(
     output reg [31:0] PRDATA, // data to processor from I/O device (32-bits)
 
     /*** I/O PORTS DECLARATION ***/
-    output wire x_servo_pwm,
-    output wire y_servo_pwm
+    output x_servo_pwm,
+    output y_servo_pwm
 );
 
 assign PSLVERR = 0;
@@ -63,39 +63,39 @@ wire [31:0] x_forward_count;
 wire [31:0] x_reverse_count;
 wire [31:0] y_forward_count;
 wire [31:0] y_reverse_count;
-wire x_in_rtz_mode;
-wire y_in_rtz_mode;
+//reg x_pwm_reg;
+//reg y_pwm_reg;
+//assign x_servo_pwm = x_pwm_reg;
+//assign y_servo_pwm = y_pwm_reg;
 
 _tracking_servo x_servo(
-    PCLK,
-    PRESERN,
-    PWDATA,
-    set_x,
-    set_x_neutral,
-    set_x_forward,
-    set_x_reverse,
-    set_x_zero,
-    x_return_to_zero,
-    x_servo_pwm,
-    x_in_rtz_mode,
-    x_forward_count,
-    x_reverse_count
+    .PCLK           (PCLK),
+    .PRESERN        (PRESERN),
+    .PWDATA         (PWDATA),
+    .SET_PW         (set_x),
+    .SET_PW_NEUTRAL (set_x_neutral),
+    .SET_PW_FORWARD (set_x_forward),
+    .SET_PW_REVERSE (set_x_reverse),
+    .SET_ZERO       (set_x_zero),
+    .RETURN_TO_ZERO (x_return_to_zero),
+    .pwm_signal     (x_servo_pwm),
+    .forward_count  (x_forward_count),
+    .reverse_count  (x_reverse_count)
 );
 
 _tracking_servo y_servo(
-    PCLK,
-    PRESERN,
-    PWDATA,
-    set_y,
-    set_y_neutral,
-    set_y_forward,
-    set_y_reverse,
-    set_y_zero,
-    y_return_to_zero,
-    y_servo_pwm,
-    y_in_rtz_mode,
-    y_forward_count,
-    y_reverse_count
+    .PCLK           (PCLK),
+    .PRESERN        (PRESERN),
+    .PWDATA         (PWDATA),
+    .SET_PW         (set_y),
+    .SET_PW_NEUTRAL (set_y_neutral),
+    .SET_PW_FORWARD (set_y_forward),
+    .SET_PW_REVERSE (set_y_reverse),
+    .SET_ZERO       (set_y_zero),
+    .RETURN_TO_ZERO (y_return_to_zero),
+    .pwm_signal     (y_servo_pwm),
+    .forward_count  (y_forward_count),
+    .reverse_count  (y_reverse_count)
 );
 
 /*** APB READ DATA LOGIC ***/
@@ -152,10 +152,9 @@ module _tracking_servo(
     input SET_ZERO, // set the current position as the zero point
     input RETURN_TO_ZERO, // command the module to return to the zero position
 
-    output wire pwm_signal_ow, // the actual PWM signal
-    output wire in_return_mode_ow, // high while executing RETURN_TO_ZERO (no other command will interrupt it)
-    output wire [31:0] forward_count_ow,
-    output wire [31:0] reverse_count_ow
+    output reg pwm_signal, // the actual PWM signal
+    output reg [31:0] forward_count,
+    output reg [31:0] reverse_count
 );
 
 // all these values in cycles @ 100 MHz
@@ -168,13 +167,10 @@ parameter PW_FULL_REVERSE = 100000; // 1ms
 parameter PW_FULL_FORWARD = 200000; // 2 ms
 
 reg [31:0] time_count;
-reg [31:0] reverse_count;
-reg [31:0] forward_count;
 reg [31:0] pw;
 reg [31:0] next_pw;
 reg zero_counts_next;
-reg pwm_signal;
-reg in_return_mode;
+reg in_return_mode; // high while executing RETURN_TO_ZERO (no other command will interrupt it)
 
 initial begin
     pwm_signal = 0;
@@ -187,11 +183,10 @@ initial begin
     zero_counts_next = 0;
 end
 
-assign forward_count_ow = forward_count;
-assign reverse_count_ow = reverse_count;
-assign pwm_signal_ow = pwm_signal;
-assign in_return_mode_ow = in_return_mode;
-
+//assign forward_count_ow = forward_count;
+//assign reverse_count_ow = reverse_count;
+//assign pwm_signal_ow = pwm_signal;
+//assign in_return_mode_ow = in_return_mode;
 
 always @ (posedge PCLK) begin
 
@@ -205,7 +200,6 @@ always @ (posedge PCLK) begin
         next_pw <= PW_NEUTRAL;
         zero_counts_next <= 0;
     end
-
     else begin
 
         /*** Commands, determine next period's pw ***/
@@ -241,7 +235,13 @@ always @ (posedge PCLK) begin
         end // not in return mode
 
         /*** Period timer, tracking counts, and return to zero logic ***/
-        if (time_count >= PWM_PERIOD) begin
+        /*** PW ouput logic ***/
+        if ((time_count > pw) && (time_count < PWM_PERIOD)) begin
+            pwm_signal <= 0;
+            time_count <= time_count + 1;
+        end
+        else if (time_count >= PWM_PERIOD)
+        begin
 
             // setup next PWM_PERIOD
             time_count <= 0;
@@ -272,11 +272,6 @@ always @ (posedge PCLK) begin
         else begin
             time_count <= time_count + 1;
         end // period timer
-
-        /*** PW ouput logic ***/
-        if (time_count > pw) begin
-            pwm_signal <= 0;
-        end
 
     end // else, not in reset
 end // end posedge clk
