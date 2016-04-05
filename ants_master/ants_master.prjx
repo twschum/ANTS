@@ -368,17 +368,17 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master.adb,adb"
 STATE="utd"
-TIME="1459625855"
-SIZE="668160"
+TIME="1459876069"
+SIZE="765440"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master.fdb,fdb"
 STATE="utd"
-TIME="1459876068"
+TIME="1459876090"
 SIZE="52493"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master.ide_des,ide_des"
 STATE="utd"
-TIME="1459625856"
+TIME="1459876069"
 SIZE="1077"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_ba.sdf,ba_sdf"
@@ -403,18 +403,18 @@ SIZE="32440"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_fp\ants_master.pdb,pdb"
 STATE="utd"
-TIME="1459625920"
-SIZE="55472"
+TIME="1459876135"
+SIZE="58019"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_fp\ants_master.pro,pro"
 STATE="utd"
-TIME="1459625920"
+TIME="1459876135"
 SIZE="2663"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_fp\projectData\ants_master.pdb,pdb"
 STATE="utd"
-TIME="1459625920"
-SIZE="55472"
+TIME="1459876135"
+SIZE="58019"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_placeroute_log.rpt,log"
 STATE="utd"
@@ -474,8 +474,8 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
-TIME="1459611831"
-SIZE="42"
+TIME="1459873981"
+SIZE="45"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.200\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\coreapb3_usertb_master.bfm,sim"
@@ -509,22 +509,22 @@ PARENT="<project>\component\work\ants_master_MSS\ants_master_MSS.cxf"
 ENDFILE
 VALUE "<project>\synthesis\ants_master.edn,syn_edn"
 STATE="utd"
-TIME="1459625783"
-SIZE="492762"
+TIME="1459875996"
+SIZE="539219"
 ENDFILE
 VALUE "<project>\synthesis\ants_master.so,so"
 STATE="utd"
-TIME="1459625783"
+TIME="1459875996"
 SIZE="231"
 ENDFILE
 VALUE "<project>\synthesis\ants_master_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1459625783"
+TIME="1459875996"
 SIZE="548"
 ENDFILE
 VALUE "<project>\synthesis\ants_master_syn.prj,prj"
 STATE="utd"
-TIME="1459625783"
+TIME="1459875997"
 SIZE="3135"
 ENDFILE
 VALUE "<project>\synthesis\synwork\ants_master_comp.so,so"
@@ -595,6 +595,17 @@ VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\b
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslaveext.v,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\test\user\testbench.v,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
@@ -690,8 +701,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -699,7 +710,7 @@ NAME="ModelSim ME"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Microsemi\Libero_v11.5\Model\win32acoem\modelsim.exe"
-PARAM=" -l testbench_postlayout_simulation.log "
+PARAM=""
 BATCH=0
 LICENSE=""
 IS32BIT="1"
@@ -737,6 +748,17 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -750,14 +772,8 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;Generate Programming Data:ants_master_prgdata_log.rpt
 StartPage;StartPage;0
-SmartDesign;ants_master;0
-HDL;hdl\servo_hdl.v;0
-SmartDesign;n64_magic_box;0
-HDL;hdl\n64_apb_interface.v;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "_read_bit::work","hdl\n64_read_module.v","FALSE","FALSE"

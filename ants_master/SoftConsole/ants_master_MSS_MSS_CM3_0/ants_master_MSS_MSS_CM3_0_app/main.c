@@ -7,7 +7,7 @@
 #include "drivers/trigger_solenoid_driver.h"
 #include "drivers/servo_control.h"
 
-#define PRINT_N64_STATE 0
+#define PRINT_N64_STATE 1
 
 #define MANUAL 1
 #define AUTOMATIC 0
@@ -68,9 +68,8 @@ int main() {
 
         do_solenoid( &n64_buttons, &last_buttons );
 
-        if (mode == MANUAL) {
+
             do_servos_manual( &n64_buttons, &last_buttons );
-        }
 
         /*
          * Toggle between manual and automatic modes, with the laser indicator
