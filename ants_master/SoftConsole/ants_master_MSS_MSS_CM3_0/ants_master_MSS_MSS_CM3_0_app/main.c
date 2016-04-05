@@ -182,17 +182,22 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     // Return to Zero
     if (n64_pressed(C_Left)) {
     	servo_do(X_RETURN_TO_ZERO);
+		printf("X Servo beginning Return to Zero\r\n");
     }
 
     // Zero the counts
     if (n64_pressed(B)) {
     	servo_do(X_SET_ZERO);
+    	printf("Setting zero location for X servo\r\n");
     }
 
     // Analog Pitch and Yaw
-    if (state->X_axis) {
+    static uint8_t last_x_axis = 0;
+    if (state->X_axis != last_x_axis) {
     	n64_print_state(state);
+    	// mapping maths
     	//set_x_servo_analog_pw();
+    	last_x_axis = state->X_axis;
     }
 
 }

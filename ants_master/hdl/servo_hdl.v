@@ -14,12 +14,7 @@ module servo_control(
 
     /*** I/O PORTS DECLARATION ***/
     output x_servo_pwm,
-    output y_servo_pwm,
-
-    // DEBUG
-    output set_y_forward, //J6  (F5) (0)
-    output set_x,         //B22 (F6) (2)
-    output read_x_reverse //C22 (F7) (4)
+    output y_servo_pwm
 );
 
 assign PSLVERR = 0;
@@ -199,21 +194,26 @@ always @ (posedge PCLK) begin
     else begin
 
         /*** Commands, determine next period's pw ***/
-        if (!in_return_mode) begin
             if (SET_PW) begin
                 next_pw <= PWDATA;
+                in_return_mode <= 0;
             end
             else if (SET_PW_NEUTRAL) begin
                 next_pw <= PW_NEUTRAL;
+                in_return_mode <= 0;
             end
             else if (SET_PW_FORWARD) begin
                 next_pw <= PW_FULL_FORWARD;
+                in_return_mode <= 0;
             end
             else if (SET_PW_REVERSE) begin
                 next_pw <= PW_FULL_REVERSE;
+                in_return_mode <= 0;
             end
             else if (SET_ZERO) begin
+                next_pw <= PW_NEUTRAL;
                 zero_counts_next <= 1;
+                in_return_mode <= 0;
             end
             else if (RETURN_TO_ZERO) begin
                 // go into return mode, setting next_pw and the return mode flag
@@ -225,11 +225,8 @@ always @ (posedge PCLK) begin
                     next_pw <= PW_FULL_FORWARD;
                     in_return_mode <= 1;
                 end
-                zero_counts_next <= 0; // let return win to simplify logic
                 // else, ignore (already there!)
             end
-        end // not in return mode
-
         /*** Period timer, tracking counts, and return to zero logic ***/
         /*** PW ouput logic ***/
         if ((time_count > pw) && (time_count < PWM_PERIOD)) begin
@@ -242,21 +239,23 @@ always @ (posedge PCLK) begin
             // setup next PWM_PERIOD
             time_count <= 0;
             pwm_signal <= 1;
-            pw <= next_pw;
+            //pw <= next_pw;
 
-            // ending condition for return mode, or zero counts
-            if (in_return_mode && (forward_count == reverse_count)) begin
-                forward_count <= 0;
-                reverse_count <= 0;
-                in_return_mode <= 0;
-            end
-            else if (!in_return_mode && zero_counts_next) begin
+            // Zeroing condition
+            if (zero_counts_next) begin
                 forward_count <= 0;
                 reverse_count <= 0;
                 zero_counts_next <= 0;
+                pw <= PW_NEUTRAL;
+            end
+            // Ending condition for return mode
+            else if (in_return_mode && (forward_count == reverse_count)) begin
+                in_return_mode <= 0;
+                pw <= PW_NEUTRAL;
             end
             // if not at any reset conditions, update the counters
             else begin
+                pw <= next_pw;
                 if (next_pw == PW_FULL_FORWARD) begin
                     forward_count <= forward_count + 1;
                 end
