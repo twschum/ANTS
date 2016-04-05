@@ -7,6 +7,16 @@ Colleen
 #ifndef LCD_h
 #define LCD_h
 
+#define LCD_MIN_X 	0
+#define LCD_MAX_X 	159
+
+#define LCD_MIN_Y 	0
+#define LCD_MAX_Y 	127
+
+#define LCD_SET 	1
+#define LCD_UNSET 	0
+
+
 #include "mss_uart/mss_uart.h"
 
 
@@ -22,6 +32,7 @@ Colleen
 	//void LCD_restoreDefaultBaud();
   	void LCD_setX(uint8_t posX);
 	void LCD_setY(uint8_t posY);
+	void LCD_setPos(uint8_t posX, uint8_t posY);
 	void LCD_setHome();
 	void LCD_demo();
 	void LCD_setPixel(uint8_t x, uint8_t y, uint8_t set);

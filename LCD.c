@@ -35,7 +35,7 @@ Colleen
 	
 	void LCD_nextLine()
 	{
-		uint8_t message[] = "\n\r";
+		uint8_t message[] = "\r\n";
 		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 	}
 	
@@ -45,7 +45,11 @@ Colleen
 		uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x00};
 		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+<<<<<<< HEAD
 		MSS_UART_polled_tx( &g_mss_uart1, message2, 2 );
+=======
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+>>>>>>> origin/lcd
 	}
 	
     void LCD_toggleReverseMode()
@@ -123,11 +127,16 @@ Colleen
 	{
 		//posY needs to be one byte
 		uint8_t message[] = {0x7C};
-		uint8_t message2[] = {0x18};
+		uint8_t message2[] = {0x19};
 		uint8_t message3[] = {posY};
 		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
 		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
+	}
+
+	void LCD_setPos(uint8_t posX, uint8_t posY){
+		LCD_setX(posX);
+		LCD_setY(posY);
 	}
 
 	void LCD_setHome()
@@ -188,6 +197,7 @@ Colleen
 		//draws a box from two given points. You can set and reset just as the pixel function.
 		// x1, y1, x2, y2 and set are all one byte
 		// not sure what set does, sparkfun didn't set it to anything
+<<<<<<< HEAD
 		uint8_t message[] = {0x7C};
 		uint8_t message2[] = {0x0F};
 		uint8_t message3[] = {x1};
@@ -202,6 +212,31 @@ Colleen
 		MSS_UART_polled_tx( &g_mss_uart1, message5, sizeof(message5) );
 		MSS_UART_polled_tx( &g_mss_uart1, message6, sizeof(message6) );
 		MSS_UART_polled_tx( &g_mss_uart1, message7, sizeof(message7) );
+=======
+		if(set){
+			uint8_t message[] = {0x7C};
+			uint8_t message2[] = {0x0F};
+			uint8_t message3[] = {x1};
+			uint8_t message4[] = {y1};
+			uint8_t message5[] = {x2};
+			uint8_t message6[] = {y2};
+			//uint8_t message7[] = {set};
+			MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+			MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+			MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
+			MSS_UART_polled_tx( &g_mss_uart1, message4, sizeof(message4) );
+			MSS_UART_polled_tx( &g_mss_uart1, message5, sizeof(message5) );
+			MSS_UART_polled_tx( &g_mss_uart1, message6, sizeof(message6) );
+		} else{
+			LCD_drawLine(x1, y1, x1, y2, 0);
+			LCD_drawLine(x1, y1, x2, y1, 0);
+			//LCD_drawLine(x2, y2, x1, y2, 1);
+			LCD_drawLine(x1, y2, x2, y2, 0);
+			//LCD_drawLine(x2, y2, x2, y1, 1);
+			LCD_drawLine(x2, y1, x2, y2, 0);
+		}
+		//MSS_UART_polled_tx( &g_mss_uart1, message7, sizeof(message7) );
+>>>>>>> origin/lcd
 		// @TODO: need to set delay(10); not sure how to
 	}
 
