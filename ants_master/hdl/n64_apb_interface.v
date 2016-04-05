@@ -1,20 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Company: <Name>
-//
-// File: n64_apb_interface.v
-// File history:
-//      <Revision number>: <Date>: <Comments>
-//      <Revision number>: <Date>: <Comments>
-//      <Revision number>: <Date>: <Comments>
-//
-// Description:
-//
-// <Description here>
-//
-// Targeted device: <Family::SmartFusion> <Die::A2F200M3F> <Package::484 FBGA>
-// Author: <Name>
-//
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 module n64_apb_interface(
 /*** APB3 BUS INTERFACE ***/
@@ -38,8 +21,8 @@ assign PREADY = 1;
 wire write;
 wire read;
 
-assign write = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h00));
-assign read = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h00));
+assign write = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h000));
+assign read = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h000));
 
 /***END APB INTERFACE***/
 

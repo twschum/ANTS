@@ -7,22 +7,22 @@
 #include <stdio.h>
 
 #define X_SET_SERVO      0x40050100
-#define X_SET_NEUTRAL    0x40050101
-#define X_SET_FORWARD    0x40050102
-#define X_SET_REVERSE    0x40050103
-#define X_SET_ZERO       0x40050104
-#define X_RETURN_TO_ZERO 0x40050105
-#define X_READ_FORWARD   0x40050108
-#define X_READ_REVERSE   0x40050109
+#define X_SET_NEUTRAL    0x40050104
+#define X_SET_FORWARD    0x40050108
+#define X_SET_REVERSE    0x4005010c
+#define X_SET_ZERO       0x40050110
+#define X_RETURN_TO_ZERO 0x40050114
+#define X_READ_FORWARD   0x40050118
+#define X_READ_REVERSE   0x4005011c
 
-#define Y_SET_SERVO      0x40050110
-#define Y_SET_NEUTRAL    0x40050111
-#define Y_SET_FORWARD    0x40050112
-#define Y_SET_REVERSE    0x40050113
-#define Y_SET_ZERO       0x40050114
-#define Y_RETURN_TO_ZERO 0x40050115
-#define Y_READ_FORWARD   0x40050118
-#define Y_READ_REVERSE   0x40050119
+#define Y_SET_SERVO      0x40050140
+#define Y_SET_NEUTRAL    0x40050144
+#define Y_SET_FORWARD    0x40050148
+#define Y_SET_REVERSE    0x4005014c
+#define Y_SET_ZERO       0x40050150
+#define Y_RETURN_TO_ZERO 0x40050154
+#define Y_READ_FORWARD   0x40050158
+#define Y_READ_REVERSE   0x4005015c
 
 #define SERVO_FULL_REVERSE 100000
 #define SERVO_HALF_REVERSE 125000
@@ -31,19 +31,12 @@
 #define SERVO_FULL_FORWARD 200000
 
 // Use this marco to do all the write-triggered actions
-#define servo_do(ADDR) ( *((volatile uint32_t*)ADDR) = 0 )
-
-// Use this macro to get (X|Y)_READ_(FORWARD|REVERSE)
-#define servo_read(ADDR,RETURN) ( *RETURN = *((volatile uint32_t*)ADDR) )
+#define servo_do(ADDR) ( *((volatile uint32_t*)ADDR) = (uint32_t)0x00000000 )
 
 // set the x position using any value
-// might map this to the alalog stick
+// might map this to the analog stick
 void set_x_servo_analog_pw(uint32_t new_pw);
 void set_y_servo_analog_pw(uint32_t new_pw);
 
-// move thru the servo half and full speeds
-// incrementing based on last pos
-// essentially depricated now...
-uint32_t increment_forward_speed(uint32_t pos);
-uint32_t increment_backward_speed(uint32_t pos);
-
+// Reads out the forward and reverse counts
+void servos_print_counts();

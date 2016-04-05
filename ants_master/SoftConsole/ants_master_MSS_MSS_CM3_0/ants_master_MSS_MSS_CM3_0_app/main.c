@@ -7,7 +7,7 @@
 #include "drivers/trigger_solenoid_driver.h"
 #include "drivers/servo_control.h"
 
-#define PRINT_N64_STATE 1
+#define PRINT_N64_STATE 0
 
 #define MANUAL 1
 #define AUTOMATIC 0
@@ -68,8 +68,7 @@ int main() {
 
         do_solenoid( &n64_buttons, &last_buttons );
 
-
-            do_servos_manual( &n64_buttons, &last_buttons );
+        do_servos_manual( &n64_buttons, &last_buttons );
 
         /*
          * Toggle between manual and automatic modes, with the laser indicator
@@ -146,6 +145,7 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     // Pitch control
     if (n64_pressed(Up)) {
         servo_do(Y_SET_FORWARD);
+        //set_y_servo_analog_pw(SERVO_FULL_FORWARD);
         printf("servo_do Y_SET_FORWARD\r\n");
     }
     else if (n64_pressed(Down)) {
@@ -154,20 +154,39 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     }
     else if (n64_released(Up) || n64_released(Down)) {
         servo_do(Y_SET_NEUTRAL);
-        printf("servo_do Y_SET_NETURAL\r\n");
+        printf("servo_do Y_SET_NEUTRAL\r\n");
     }
 
     // Yaw control
     if (n64_pressed(Left)) {
         servo_do(X_SET_FORWARD);
+        //set_x_servo_analog_pw(SERVO_FULL_FORWARD);
         printf("servo_do X_SET_FORWARD\r\n");
     }
     else if (n64_pressed(Right)) {
         servo_do(X_SET_REVERSE);
+        //set_x_servo_analog_pw(SERVO_FULL_REVERSE);
         printf("servo_do X_SET_REVERSE\r\n");
     }
     else if (n64_released(Left) || n64_released(Right)) {
         servo_do(X_SET_NEUTRAL);
+        //set_x_servo_analog_pw(SERVO_NEUTRAL);
         printf("servo_do X_SET_NEUTRAL\r\n");
     }
+
+    // Read out the counts
+    if (n64_pressed(C_Right)) {
+    	servos_print_counts();
+    }
+
+    // Return to Zero
+    if (n64_pressed(C_Left)) {
+    	servo_do(X_RETURN_TO_ZERO);
+    }
+
+    // Zero the counts
+    if (n64_pressed(B)) {
+    	servo_do(X_SET_ZERO);
+    }
+
 }
