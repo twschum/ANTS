@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>C:/Users/rpokeefe/repos/373/ants_master/component/work/ants_master</location>
-    <state>GENERATED ( Tue Apr 05 13:05:45 2016 )</state>
+    <state>GENERATED ( Tue Apr 05 15:52:56 2016 )</state>
     <swide-toolchain>SoftConsole workspace generated to C:\Users\rpokeefe\repos\373\ants_master\SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -70,6 +70,12 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
+    <port-name>read_x_reverse</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
     <port-name>SPI_0_DI</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
@@ -82,8 +88,20 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
+    <port-name>set_y_forward</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
     <port-name>SPI_0_SS</port-name>
     <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>set_x</port-name>
+    <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
@@ -277,9 +295,9 @@ There is one APB3 Master interface.
     </core-param>
     <core-param>
       <param-name>Number of address bits driven by master:</param-name>
-      <param-value>32</param-value>
+      <param-value>12</param-value>
       <param-hdlname>MADDR_BITS</param-hdlname>
-      <param-hdlvalue>32</param-hdlvalue>
+      <param-hdlvalue>12</param-hdlvalue>
       <param-tag>spirit:hwParameter</param-tag>
     </core-param>
     <core-param>
@@ -2464,16 +2482,16 @@ These files are required by the SmartFusion bare metal peripheral drivers to bui
         <slave>
           <name>n64_apb_interface_0</name>
           <fullPinName>n64_magic_box_0:BIF_1</fullPinName>
-          <remapAddress>0x00000000</remapAddress>
-          <fullAddressSpace>0x00000000 - 0x0FFFFFFF</fullAddressSpace>
-          <range>0x10000000</range>
+          <remapAddress>0x40050000</remapAddress>
+          <fullAddressSpace>0x40050000 - 0x400500FF</fullAddressSpace>
+          <range>0x00000100</range>
         </slave>
         <slave>
           <name>servo_control_0</name>
           <fullPinName>servo_control_0:BIF_1</fullPinName>
-          <remapAddress>0x10000000</remapAddress>
-          <fullAddressSpace>0x10000000 - 0x1FFFFFFF</fullAddressSpace>
-          <range>0x10000000</range>
+          <remapAddress>0x40050100</remapAddress>
+          <fullAddressSpace>0x40050100 - 0x400501FF</fullAddressSpace>
+          <range>0x00000100</range>
         </slave>
         <slave>
           <name>FPGA_FABRIC_BACKDOOR</name>

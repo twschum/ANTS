@@ -11,15 +11,16 @@ Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated document
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\SmartFusionMSS\MSS\2.5.200\mss_comps.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master_MSS\MSS_CCC_0\ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master_MSS\ants_master_MSS.v"
-@I::"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_apb_interface.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_write_command.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v"
+@I::"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_apb_interface.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\work\n64_magic_box\n64_magic_box.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v"
+@W: CG921 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":35:5:35:18|read_x_reverse is already declared in this scope.
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master\ants_master.v"
 @W: CG775 :"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Found Component CoreAPB3 in library COREAPB3_LIB
 Verilog syntax check successful!
@@ -86,7 +87,7 @@ Selecting top level module ants_master
 	SC_13=1'b0
 	SC_14=1'b0
 	SC_15=1'b0
-	MADDR_BITS=6'b100000
+	MADDR_BITS=6'b001100
 	UPR_NIBBLE_POSN=4'b0010
 	FAMILY=32'b00000000000000000000000000010010
 	SYNC_RESET=32'b00000000000000000000000000000000
@@ -130,7 +131,7 @@ Selecting top level module ants_master
 
 @W: CG360 :"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":244:12:244:20|No assignment to wire IA_PRDATA
 
-@N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_apb_interface.v":19:7:19:23|Synthesizing module n64_apb_interface
+@N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_apb_interface.v":2:7:2:23|Synthesizing module n64_apb_interface
 
 @N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_write_command.v":2:7:2:23|Synthesizing module n64_write_command
 
@@ -144,27 +145,27 @@ Selecting top level module ants_master
 
 @N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\component\work\n64_magic_box\n64_magic_box.v":9:7:9:19|Synthesizing module n64_magic_box
 
-@N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":144:7:144:21|Synthesizing module _tracking_servo
+@N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":148:7:148:21|Synthesizing module _tracking_servo
 
-@W: CG532 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":175:0:175:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
+@W: CG532 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":179:0:179:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
 @N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":2:7:2:19|Synthesizing module servo_control
 
 @N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master\ants_master.v":9:7:9:17|Synthesizing module ants_master
 
 @W: CL246 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":11:17:11:21|Input port bits 31 to 13 of PADDR[31:0] are unused
 
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[21] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[22] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[23] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[24] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[25] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[26] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[27] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[28] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[29] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[30] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Register bit time_count[31] is always 0, optimizing ...
-@W: CL279 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":191:0:191:5|Pruning register bits 31 to 21 of time_count[31:0] 
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[21] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[22] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[23] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[24] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[25] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[26] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[27] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[28] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[29] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[30] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[31] is always 0, optimizing ...
+@W: CL279 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Pruning register bits 31 to 21 of time_count[31:0] 
 
 @W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v":84:0:84:5|Register bit command_byte[0] is always 1, optimizing ...
 @W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[17] is always 0, optimizing ...
@@ -181,7 +182,7 @@ Selecting top level module ants_master
 @W: CL279 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v":84:0:84:5|Pruning register bits 7 to 2 of command_byte[7:1] 
 
 @A: CL153 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v":24:15:24:19|*Unassigned bits of error are referenced and tied to 0 -- simulation mismatch possible.
-@W: CL246 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_apb_interface.v":28:13:28:17|Input port bits 31 to 13 of PADDR[31:0] are unused
+@W: CL246 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_apb_interface.v":11:13:11:17|Input port bits 31 to 13 of PADDR[31:0] are unused
 
 @W: CL159 :"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":72:36:72:40|Input IADDR is unused
 @W: CL159 :"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":73:13:73:19|Input PRESETN is unused
@@ -251,6 +252,6 @@ Selecting top level module ants_master
 At c_ver Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 80MB peak: 100MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Apr 05 14:01:36 2016
+# Tue Apr 05 17:06:56 2016
 
 ###########################################################]

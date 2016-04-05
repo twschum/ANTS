@@ -14,48 +14,52 @@ module servo_control(
 
     /*** I/O PORTS DECLARATION ***/
     output x_servo_pwm,
-    output y_servo_pwm
+    output y_servo_pwm,
+
+    output set_y_forward, //J6  (F5) (0)
+    output set_x,         //B22 (F6) (2)
+    output read_x_reverse //C22 (F7) (4)
 );
 
 assign PSLVERR = 0;
 assign PREADY = 1;
 
 /*** ADDRESS COMMAND DECODING ***/
-wire set_x;
+//wire set_x;
 wire set_x_neutral;
 wire set_x_forward;
 wire set_x_reverse;
 wire set_x_zero;
 wire x_return_to_zero;
-wire read_x_forward;
+//wire read_x_forward;
 wire read_x_reverse;
 
 assign set_x            = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h100)); // WRITE DATA to 100 - 'analog' currently not working
-assign set_x_neutral    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h101)); // WRITE ANY to 101
-assign set_x_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h102)); // WRITE ANY to 102
-assign set_x_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h103)); // WRITE ANY to 103
-assign set_x_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h104)); // WRITE ANY to 104
-assign x_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h105)); // WRITE ANY to 105
-assign read_x_forward  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h108)); // READ from 108
-assign read_x_reverse  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h109)); // READ from 109
+assign set_x_neutral    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h104)); // WRITE ANY to 101
+assign set_x_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h108)); // WRITE ANY to 102
+assign set_x_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h10c)); // WRITE ANY to 103
+assign set_x_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h110)); // WRITE ANY to 104
+assign x_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h114)); // WRITE ANY to 105
+assign read_x_forward  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h118)); // READ from 108
+assign read_x_reverse  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h11c)); // READ from 109
 
 wire set_y;
 wire set_y_neutral;
-wire set_y_forward;
+//wire set_y_forward;
 wire set_y_reverse;
 wire set_y_zero;
 wire y_return_to_zero;
 wire read_y_forward;
 wire read_y_reverse;
 
-assign set_y            = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h110)); // WRITE DATA to 110 - 'analog' currently not working
-assign set_y_neutral    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h111)); // WRITE ANY to 111
-assign set_y_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h112)); // WRITE ANY to 112
-assign set_y_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h113)); // WRITE ANY to 113
-assign set_y_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h114)); // WRITE ANY to 114
-assign y_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h115)); // WRITE ANY to 115
-assign read_y_forward  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h118)); // READ from 118
-assign read_y_reverse  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h119)); // READ from 119
+assign set_y            = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h140)); // WRITE DATA to 110 - 'analog' currently not working
+assign set_y_neutral    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h144)); // WRITE ANY to 111
+assign set_y_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h148)); // WRITE ANY to 112
+assign set_y_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h14c)); // WRITE ANY to 113
+assign set_y_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h150)); // WRITE ANY to 114
+assign y_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h154)); // WRITE ANY to 115
+assign read_y_forward  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h158)); // READ from 118
+assign read_y_reverse  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h15c)); // READ from 119
 
 /*** END APB INTERFACE ***/
 /*** TRACKING SERVO INSTANTIAIONS  ***/
@@ -211,7 +215,7 @@ always @ (posedge PCLK) begin
                 next_pw <= PW_NEUTRAL;
             end
             else if (SET_PW_FORWARD) begin
-                next_pw <= PW_FULL_REVERSE;
+                next_pw <= PW_FULL_FORWARD;
             end
             else if (SET_PW_REVERSE) begin
                 next_pw <= PW_FULL_REVERSE;
