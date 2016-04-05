@@ -22,6 +22,9 @@ assign PREADY = 1;
 
 /*** ADDRESS COMMAND DECODING ***/
 wire set_x;
+wire set_x_neutral;
+wire set_x_forward;
+wire set_x_reverse;
 wire set_x_zero;
 wire x_return_to_zero;
 wire read_x_forward;
@@ -37,6 +40,9 @@ assign read_x_forward  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h108)
 assign read_x_reverse  = (PSEL && !PWRITE && PENABLE && (PADDR[12:0] == 12'h109)); // READ from 109
 
 wire set_y;
+wire set_y_neutral;
+wire set_y_forward;
+wire set_y_reverse;
 wire set_y_zero;
 wire y_return_to_zero;
 wire read_y_forward;
@@ -146,10 +152,10 @@ module _tracking_servo(
     input SET_ZERO, // set the current position as the zero point
     input RETURN_TO_ZERO, // command the module to return to the zero position
 
-    output reg pwm_signal, // the actual PWM signal
-    output reg in_return_mode, // high while executing RETURN_TO_ZERO (no other command will interrupt it)
-    output reg [31:0] forward_count,
-    output reg [31:0] reverse_count
+    output wire pwm_signal_ow, // the actual PWM signal
+    output wire in_return_mode_ow, // high while executing RETURN_TO_ZERO (no other command will interrupt it)
+    output wire [31:0] forward_count_ow,
+    output wire [31:0] reverse_count_ow
 );
 
 // all these values in cycles @ 100 MHz
@@ -162,9 +168,13 @@ parameter PW_FULL_REVERSE = 100000; // 1ms
 parameter PW_FULL_FORWARD = 200000; // 2 ms
 
 reg [31:0] time_count;
+reg [31:0] reverse_count;
+reg [31:0] forward_count;
 reg [31:0] pw;
 reg [31:0] next_pw;
 reg zero_counts_next;
+reg pwm_signal;
+reg in_return_mode;
 
 initial begin
     pwm_signal = 0;
@@ -176,6 +186,11 @@ initial begin
     next_pw = PW_NEUTRAL;
     zero_counts_next = 0;
 end
+
+assign forward_count_ow = forward_count;
+assign reverse_count_ow = reverse_count;
+assign pwm_signal_ow = pwm_signal;
+assign in_return_mode_ow = in_return_mode;
 
 
 always @ (posedge PCLK) begin
@@ -264,5 +279,5 @@ always @ (posedge PCLK) begin
         end
 
     end // else, not in reset
-
+end // end posedge clk
 endmodule

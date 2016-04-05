@@ -17,7 +17,7 @@ Imported the files:
    C:\Users\rpokeefe\repos\373\ants_master\synthesis\ants_master.edn
    C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master\ants_master.pdc
 
-The Import command succeeded ( 00:00:07 )
+The Import command succeeded ( 00:00:09 )
 =====================================================================
 Parameters used to run compile:
 ===============================
@@ -346,9 +346,9 @@ Optimized macros:
   - Buffers:                0
   - Inverters:              0
   - Tieoff:                 0
-  - Logic combining:        20
+  - Logic combining:        22
 
-    Total macros optimized  20
+    Total macros optimized  22
 
 There were 0 error(s) and 277 warning(s) in this design.
 =====================================================================
@@ -370,7 +370,7 @@ Compile report:
 ===============
 
     Microcontroller Subsystem  Used:      1  Total:      1   (100.00%)
-    Fabric                     Used:    545  Total:   4608   (11.83%)
+    Fabric                     Used:    646  Total:   4608   (14.02%)
     Fabric IO (W/ clocks)      Used:      3  Total:     94   (3.19%)
     Fabric Differential IO     Used:      0  Total:     47   (0.00%)
     Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
@@ -399,8 +399,8 @@ Core Information:
 
     Type    | Instances    | Core tiles
     --------|--------------|-----------
-    COMB    | 357          | 357
-    SEQ     | 188          | 188
+    COMB    | 436          | 436
+    SEQ     | 210          | 210
 
 I/O Function:
 
@@ -432,13 +432,17 @@ Net information report:
 The following nets have been assigned to a chip global resource:
     Fanout  Type          Name
     --------------------------
-    189     CLK_NET       Net   : FAB_CLK
+    211     CLK_NET       Net   : FAB_CLK
                           Driver: ants_master_MSS_0/MSS_CCC_0/I_MSSCCC
                           Source: ESSENTIAL
 
 High fanout nets in the post compile netlist:
     Fanout  Type          Name
     --------------------------
+    22      INT_NET       Net   : servo_control_0/y_servo/pw_1_sqmuxa
+                          Driver: servo_control_0/y_servo/time_count_RNISMCA3[16]
+    22      INT_NET       Net   : servo_control_0/x_servo/pw_1_sqmuxa
+                          Driver: servo_control_0/x_servo/time_count_RNIEJ3E6[16]
     17      INT_NET       Net   : CoreAPB3_0_APBmslave0_PSELx
                           Driver: ants_master_MSS_0/MSS_ADLIB_INST
     17      INT_NET       Net   : CoreAPB3_0_APBmslave0_PSELx_0
@@ -452,29 +456,26 @@ n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9
     16      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/con_data_37_e_0
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_39_e_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I[4]
     16      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/con_data_18_e_0
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_19_e_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I_0[4]
     16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/data_bit_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit_0
-    16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/data_bit
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit
-    11      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/write_module/index_0_sqmuxa
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/write_module/enabled_RNIQNND4
 
 Nets that are candidates for clock assignment and the resulting fanout:
     Fanout  Type          Name
     --------------------------
     33      INT_NET       Net   : CoreAPB3_0_APBmslave0_PSELx
                           Driver: ants_master_MSS_0/MSS_ADLIB_INST
+    22      INT_NET       Net   : servo_control_0/y_servo/pw_1_sqmuxa
+                          Driver: servo_control_0/y_servo/time_count_RNISMCA3[16]
+    22      INT_NET       Net   : servo_control_0/x_servo/pw_1_sqmuxa
+                          Driver: servo_control_0/x_servo/time_count_RNIEJ3E6[16]
     16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/button_data_0_sqmuxa_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
@@ -484,11 +485,11 @@ n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module_set_enabled_RNI72N9
     16      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/con_data_37_e_0
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_39_e_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I[4]
     16      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/read_module/con_data_18_e_0
+n64_magic_box_0/n64_serial_interface_0/read_module/con_data_19_e_0
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module/index_RNI553I_0[4]
     16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/data_bit_0
@@ -497,15 +498,8 @@ n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit_0
     16      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/data_bit
                           Driver:
 n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_bit
-    11      INT_NET       Net   :
-n64_magic_box_0/n64_serial_interface_0/write_module/index_0_sqmuxa
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/write_module/enabled_RNIQNND4
-    10      INT_NET       Net   : n64_magic_box_0/n64_serial_interface_0/read_module/data_valid
-                          Driver:
-n64_magic_box_0/n64_serial_interface_0/read_module/read_bit0/data_valid
 
-The Compile command succeeded ( 00:00:03 )
+The Compile command succeeded ( 00:00:05 )
 Wrote status report to file: ants_master_compile_report.txt
 
 The Report command succeeded ( 00:00:00 )
@@ -514,9 +508,9 @@ Wrote pin report to file: ants_master_report_pin_byname.txt
 The Report command succeeded ( 00:00:01 )
 Wrote pin report to file: ants_master_report_pin_bynumber.txt
 
-The Report command succeeded ( 00:00:01 )
+The Report command succeeded ( 00:00:00 )
 Design saved to file C:\Users\rpokeefe\repos\373\ants_master\designer\impl1\ants_master.adb.
 
-The Execute Script command succeeded ( 00:00:15 )
+The Execute Script command succeeded ( 00:00:19 )
 Design closed.
 

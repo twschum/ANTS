@@ -16,7 +16,7 @@
 #define N64_STATE_PTR state
 #define N64_LAST_STATE_PTR last_state
 #define n64_pressed(BUTTON)  (N64_STATE_PTR->BUTTON && !N64_LAST_STATE_PTR->BUTTON)
-#define n64_released(BUTTON)  (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->UTTON)
+#define n64_released(BUTTON)  (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->BUTTON)
 
 // make all do_ functions take the n64 args as defined to use the button macro!
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
@@ -147,22 +147,28 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     // Pitch control
     if (n64_pressed(Up)) {
         servo_do(Y_SET_FORWARD);
+        printf("servo_do Y_SET_FORWARD\r\n");
     }
     else if (n64_pressed(Down)) {
         servo_do(Y_SET_REVERSE);
+        printf("servo_do Y_SET_REVERSE\r\n");
     }
     else if (n64_released(Up) || n64_released(Down)) {
         servo_do(Y_SET_NEUTRAL);
+        printf("servo_do Y_SET_NETURAL\r\n");
     }
 
     // Yaw control
     if (n64_pressed(Left)) {
         servo_do(X_SET_FORWARD);
+        printf("servo_do X_SET_FORWARD\r\n");
     }
     else if (n64_pressed(Right)) {
         servo_do(X_SET_REVERSE);
+        printf("servo_do X_SET_REVERSE\r\n");
     }
     else if (n64_released(Left) || n64_released(Right)) {
         servo_do(X_SET_NEUTRAL);
+        printf("servo_do X_SET_NEUTRAL\r\n");
     }
 }
