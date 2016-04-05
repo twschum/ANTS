@@ -27,7 +27,9 @@ Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated document
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v"
 @I::"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v"
-@W: CG921 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":35:5:35:18|read_x_reverse is already declared in this scope.
+@W: CG921 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":29:5:29:9|set_x is already declared in this scope.
+@W: CG921 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":36:5:36:18|read_x_reverse is already declared in this scope.
+@W: CG921 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":49:5:49:17|set_y_forward is already declared in this scope.
 @I::"C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master\ants_master.v"
 @W: CG775 :"C:\Users\rpokeefe\repos\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Found Component CoreAPB3 in library COREAPB3_LIB
 Verilog syntax check successful!
@@ -152,27 +154,27 @@ Selecting top level module ants_master
 
 @N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\component\work\n64_magic_box\n64_magic_box.v":9:7:9:19|Synthesizing module n64_magic_box
 
-@N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":148:7:148:21|Synthesizing module _tracking_servo
+@N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":145:7:145:21|Synthesizing module _tracking_servo
 
-@W: CG532 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":179:0:179:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
+@W: CG532 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":176:0:176:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
 @N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":2:7:2:19|Synthesizing module servo_control
 
 @N: CG364 :"C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master\ants_master.v":9:7:9:17|Synthesizing module ants_master
 
 @W: CL246 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":11:17:11:21|Input port bits 31 to 13 of PADDR[31:0] are unused
 
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[21] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[22] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[23] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[24] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[25] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[26] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[27] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[28] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[29] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[30] is always 0, optimizing ...
-@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Register bit time_count[31] is always 0, optimizing ...
-@W: CL279 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Pruning register bits 31 to 21 of time_count[31:0] 
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[21] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[22] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[23] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[24] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[25] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[26] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[27] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[28] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[29] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[30] is always 0, optimizing ...
+@W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Register bit time_count[31] is always 0, optimizing ...
+@W: CL279 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Pruning register bits 31 to 21 of time_count[31:0] 
 
 @W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v":84:0:84:5|Register bit command_byte[0] is always 1, optimizing ...
 @W: CL189 :"C:\Users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v":61:0:61:5|Register bit long_count[17] is always 0, optimizing ...
@@ -259,7 +261,7 @@ Selecting top level module ants_master
 At c_ver Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 80MB peak: 100MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Apr 05 17:06:56 2016
+# Tue Apr 05 17:35:27 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403sp1p1, Build 095R, built Oct  9 2014
@@ -269,7 +271,7 @@ File C:\Users\rpokeefe\repos\373\ants_master\synthesis\synwork\ants_master_comp.
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 72MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Apr 05 17:06:58 2016
+# Tue Apr 05 17:35:28 2016
 
 ###########################################################]
 Pre-mapping Report
@@ -310,7 +312,7 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 50MB peak: 114MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Apr 05 17:06:58 2016
+# Tue Apr 05 17:35:29 2016
 
 ###########################################################]
 Map & Optimize Report
@@ -348,35 +350,35 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 @W: MO161 :"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Register bit command_byte[0] is always 1, optimizing ...
 @N:"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v":37:0:37:5|Found counter in view:work.n64_read_module(verilog) inst index[5:0]
 @N:"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v":80:0:80:5|Found counter in view:work._read_bit(verilog) inst count[8:0]
-@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Found counter in view:work._tracking_servo(verilog) inst reverse_count[31:0]
-@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Found counter in view:work._tracking_servo(verilog) inst forward_count[31:0]
-@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":195:0:195:5|Found counter in view:work._tracking_servo(verilog) inst time_count[20:0]
-@N: MF179 :"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":243:13:243:28|Found 32 bit by 32 bit '<' comparator, 'un1_pw'
-@N: MF179 :"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":228:20:228:49|Found 32 bit by 32 bit '<' comparator, 'next_pw15'
-@N: MF179 :"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":232:25:232:54|Found 32 bit by 32 bit '<' comparator, 'un1_forward_count'
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Found counter in view:work._tracking_servo(verilog) inst reverse_count[31:0]
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Found counter in view:work._tracking_servo(verilog) inst forward_count[31:0]
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":187:0:187:5|Found counter in view:work._tracking_servo(verilog) inst time_count[20:0]
+@N: MF179 :"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":235:13:235:28|Found 32 bit by 32 bit '<' comparator, 'un1_pw'
+@N: MF179 :"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":220:20:220:49|Found 32 bit by 32 bit '<' comparator, 'next_pw15'
+@N: MF179 :"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":224:25:224:54|Found 32 bit by 32 bit '<' comparator, 'un1_forward_count'
 
 Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 121MB peak: 122MB)
 
 
-Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 123MB)
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 122MB)
 
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 121MB peak: 125MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 122MB peak: 126MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 122MB peak: 125MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 124MB peak: 126MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 124MB peak: 125MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 124MB peak: 126MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 123MB peak: 125MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 123MB peak: 126MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 122MB peak: 125MB)
+Finished preparing to map (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 122MB peak: 126MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 129MB peak: 133MB)
+Finished technology mapping (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 133MB peak: 136MB)
 
 
 High Fanout Net Report
@@ -384,58 +386,58 @@ High Fanout Net Report
 
 Driver Instance / Pin Name                                                    Fanout, notes
 -------------------------------------------------------------------------------------------
-ants_master_MSS_0.MSS_ADLIB_INST / M2FRESETn                                  133          
-ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[2]                                45           
-ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[6]                                77           
+ants_master_MSS_0.MSS_ADLIB_INST / M2FRESETn                                  87           
+ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[2]                                48           
+ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[6]                                73           
 n64_magic_box_0.n64_serial_interface_0.read_module.read_bit0.data_bit / Q     32           
-servo_control_0.x_servo.reverse_countlde_0 / Y                                32           
-servo_control_0.m3 / Y                                                        129          
 servo_control_0.x_servo.forward_countlde_0 / Y                                32           
-servo_control_0.y_servo.un1_PRESERN / Y                                       64           
-servo_control_0.x_servo.next_pw_0_sqmuxa / Y                                  32           
+servo_control_0.x_servo.reverse_countlde_0 / Y                                32           
+servo_control_0.x_servo.un1_PRESERN / Y                                       64           
+servo_control_0.m3 / Y                                                        129          
+servo_control_0.y_servo.forward_countlde / Y                                  32           
+servo_control_0.y_servo.un1_PRESERN / Y                                       67           
+servo_control_0.y_servo.reverse_countlde / Y                                  32           
 servo_control_0.x_servo.next_pw_4_sqmuxa / Y                                  32           
+servo_control_0.x_servo.next_pw_0_sqmuxa / Y                                  32           
 servo_control_0.y_servo.next_pw_0_sqmuxa / Y                                  32           
 servo_control_0.y_servo.next_pw_4_sqmuxa / Y                                  32           
-servo_control_0.y_servo.forward_countlde_0 / Y                                32           
-n64_magic_box_0.n64_serial_interface_0.button_data_0_sqmuxa / Y               32           
+servo_control_0.y_servo.pw_0_sqmuxa / Y                                       46           
 CoreAPB3_0.iPSELS_0_a2[1] / Y                                                 33           
 n64_magic_box_0.n64_apb_interface_0.write_0_a2 / Y                            33           
-servo_control_0.y_servo.reverse_m3 / Y                                        32           
-d_m1_e / Y                                                                    49           
-d_m1_e_0 / Y                                                                  54           
-servo_control_0.x_servo.reverse_count_0_sqmuxa / Y                            33           
+n64_magic_box_0.n64_serial_interface_0.button_data_0_sqmuxa / Y               32           
+d_m1_e / Y                                                                    46           
 ===========================================================================================
 
-@N: FP130 |Promoting Net ants_master_MSS_0_M2F_RESET_N on CLKINT  I_146 
-@N: FP130 |Promoting Net servo_control_0.N_256_mux on CLKINT  I_147 
-@N: FP130 |Promoting Net CoreAPB3_0_APBmslave0_PADDR[6] on CLKINT  I_148 
+@N: FP130 |Promoting Net servo_control_0.N_258_mux on CLKINT  I_149 
+@N: FP130 |Promoting Net ants_master_MSS_0_M2F_RESET_N on CLKINT  I_150 
+@N: FP130 |Promoting Net CoreAPB3_0_APBmslave0_PADDR[6] on CLKINT  I_151 
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 130MB peak: 133MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 134MB peak: 136MB)
 
-Replicating Combinational Instance servo_control_0.x_servo.reverse_count_0_sqmuxa, fanout 33 segments 2
-Replicating Combinational Instance d_m1_e_0, fanout 54 segments 3
-Replicating Combinational Instance d_m1_e, fanout 49 segments 3
-Replicating Combinational Instance servo_control_0.y_servo.reverse_m3, fanout 32 segments 2
+Replicating Combinational Instance d_m1_e, fanout 46 segments 2
+Replicating Combinational Instance n64_magic_box_0.n64_serial_interface_0.button_data_0_sqmuxa, fanout 32 segments 2
 Replicating Combinational Instance n64_magic_box_0.n64_apb_interface_0.write_0_a2, fanout 33 segments 2
 Replicating Combinational Instance CoreAPB3_0.iPSELS_0_a2[1], fanout 33 segments 2
-Replicating Combinational Instance n64_magic_box_0.n64_serial_interface_0.button_data_0_sqmuxa, fanout 32 segments 2
-Replicating Combinational Instance servo_control_0.y_servo.forward_countlde_0, fanout 32 segments 2
+Replicating Combinational Instance servo_control_0.y_servo.pw_0_sqmuxa, fanout 46 segments 2
 Replicating Combinational Instance servo_control_0.y_servo.next_pw_4_sqmuxa, fanout 32 segments 2
 Replicating Combinational Instance servo_control_0.y_servo.next_pw_0_sqmuxa, fanout 32 segments 2
-Replicating Combinational Instance servo_control_0.x_servo.next_pw_4_sqmuxa, fanout 32 segments 2
 Replicating Combinational Instance servo_control_0.x_servo.next_pw_0_sqmuxa, fanout 32 segments 2
-Replicating Combinational Instance servo_control_0.y_servo.un1_PRESERN, fanout 64 segments 3
-Replicating Combinational Instance servo_control_0.x_servo.forward_countlde_0, fanout 32 segments 2
+Replicating Combinational Instance servo_control_0.x_servo.next_pw_4_sqmuxa, fanout 32 segments 2
+Replicating Combinational Instance servo_control_0.y_servo.reverse_countlde, fanout 32 segments 2
+Replicating Combinational Instance servo_control_0.y_servo.un1_PRESERN, fanout 68 segments 3
+Replicating Combinational Instance servo_control_0.y_servo.forward_countlde, fanout 32 segments 2
+Replicating Combinational Instance servo_control_0.x_servo.un1_PRESERN, fanout 64 segments 3
 Replicating Combinational Instance servo_control_0.x_servo.reverse_countlde_0, fanout 32 segments 2
+Replicating Combinational Instance servo_control_0.x_servo.forward_countlde_0, fanout 32 segments 2
 Replicating Sequential Instance n64_magic_box_0.n64_serial_interface_0.read_module.read_bit0.data_bit, fanout 32 segments 2
-Buffering CoreAPB3_0_APBmslave0_PADDR[2], fanout 45 segments 2
+Buffering CoreAPB3_0_APBmslave0_PADDR[2], fanout 48 segments 2
 
-Added 1 Buffers
-Added 19 Cells via replication
+Added 2 Buffers
+Added 18 Cells via replication
 	Added 1 Sequential Cells via replication
-	Added 18 Combinational Cells via replication
+	Added 17 Combinational Cells via replication
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 131MB peak: 133MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 134MB peak: 136MB)
 
 
 
@@ -457,16 +459,16 @@ Clock Tree ID     Driving Element       Drive Element Type                Fanout
 
 Writing Analyst data base C:\Users\rpokeefe\repos\373\ants_master\synthesis\ants_master.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 127MB peak: 133MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 131MB peak: 136MB)
 
 Writing Analyst data base C:\Users\rpokeefe\repos\373\ants_master\synthesis\synwork\ants_master_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 127MB peak: 133MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 131MB peak: 136MB)
 
 Writing EDIF Netlist and constraint files
 I-2014.03M-SP1
 
-Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 129MB peak: 133MB)
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 133MB peak: 136MB)
 
 @W: MT246 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\ants_master_mss.v":506:0:506:11|Blackbox TRIBUFF_MSS is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
 Found clock FAB_CLK with period 10.00ns 
@@ -474,7 +476,7 @@ Found clock FCLK with period 10.00ns
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Tue Apr 05 17:07:06 2016
+# Timing Report written on Tue Apr 05 17:35:35 2016
 #
 
 
@@ -497,12 +499,12 @@ Performance Summary
 *******************
 
 
-Worst slack in design: -8.864
+Worst slack in design: -9.654
 
                    Requested     Estimated     Requested     Estimated                Clock        Clock          
 Starting Clock     Frequency     Frequency     Period        Period        Slack      Type         Group          
 ------------------------------------------------------------------------------------------------------------------
-FAB_CLK            100.0 MHz     61.5 MHz      10.000        16.262        -6.262     declared     clk_group_0    
+FAB_CLK            100.0 MHz     56.9 MHz      10.000        17.560        -7.560     declared     clk_group_0    
 FCLK               100.0 MHz     NA            10.000        NA            NA         declared     clk_group_0    
 System             100.0 MHz     145.0 MHz     10.000        6.894         3.106      system       system_clkgroup
 ==================================================================================================================
@@ -519,9 +521,9 @@ Clocks             |    rise  to  rise    |    fall  to  fall   |    rise  to  f
 Starting  Ending   |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
 ----------------------------------------------------------------------------------------------------------
 System    System   |  10.000      3.106   |  No paths    -      |  No paths    -      |  No paths    -    
-System    FAB_CLK  |  10.000      -8.864  |  No paths    -      |  No paths    -      |  No paths    -    
+System    FAB_CLK  |  10.000      -9.654  |  No paths    -      |  No paths    -      |  No paths    -    
 FAB_CLK   System   |  10.000      7.152   |  No paths    -      |  No paths    -      |  No paths    -    
-FAB_CLK   FAB_CLK  |  10.000      -6.262  |  No paths    -      |  No paths    -      |  No paths    -    
+FAB_CLK   FAB_CLK  |  10.000      -7.560  |  No paths    -      |  No paths    -      |  No paths    -    
 ==========================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
@@ -548,37 +550,37 @@ Starting Points with Worst Slack
 Instance                                      Reference     Type       Pin     Net                     Time        Slack 
                                               Clock                                                                      
 -------------------------------------------------------------------------------------------------------------------------
-servo_control_0.x_servo.reverse_count[22]     FAB_CLK       DFN1E1     Q       x_reverse_count[22]     0.737       -6.262
-servo_control_0.x_servo.forward_count[2]      FAB_CLK       DFN1E1     Q       x_forward_count[2]      0.737       -5.996
-servo_control_0.x_servo.forward_count[22]     FAB_CLK       DFN1E1     Q       x_forward_count[22]     0.737       -5.994
-servo_control_0.x_servo.forward_count[1]      FAB_CLK       DFN1E1     Q       x_forward_count[1]      0.737       -5.990
-servo_control_0.y_servo.reverse_count[17]     FAB_CLK       DFN1E0     Q       y_reverse_count[17]     0.737       -5.934
-servo_control_0.x_servo.forward_count[0]      FAB_CLK       DFN1E1     Q       x_forward_count[0]      0.737       -5.818
-servo_control_0.y_servo.forward_count[17]     FAB_CLK       DFN1E1     Q       y_forward_count[17]     0.737       -5.715
-servo_control_0.y_servo.reverse_count[23]     FAB_CLK       DFN1E0     Q       y_reverse_count[23]     0.737       -5.699
-servo_control_0.x_servo.reverse_count[6]      FAB_CLK       DFN1E1     Q       x_reverse_count[6]      0.737       -5.598
-servo_control_0.x_servo.reverse_count[24]     FAB_CLK       DFN1E1     Q       x_reverse_count[24]     0.737       -5.487
+servo_control_0.y_servo.reverse_count[20]     FAB_CLK       DFN1E1     Q       y_reverse_count[20]     0.737       -7.560
+servo_control_0.y_servo.reverse_count[17]     FAB_CLK       DFN1E1     Q       y_reverse_count[17]     0.737       -7.452
+servo_control_0.y_servo.forward_count[20]     FAB_CLK       DFN1E1     Q       y_forward_count[20]     0.737       -7.112
+servo_control_0.y_servo.forward_count[17]     FAB_CLK       DFN1E1     Q       y_forward_count[17]     0.737       -7.004
+servo_control_0.y_servo.reverse_count[25]     FAB_CLK       DFN1E1     Q       y_reverse_count[25]     0.737       -6.702
+servo_control_0.y_servo.forward_count[18]     FAB_CLK       DFN1E1     Q       y_forward_count[18]     0.737       -6.630
+servo_control_0.y_servo.reverse_count[23]     FAB_CLK       DFN1E1     Q       y_reverse_count[23]     0.737       -6.568
+servo_control_0.y_servo.reverse_count[18]     FAB_CLK       DFN1E1     Q       y_reverse_count[18]     0.737       -6.488
+servo_control_0.y_servo.forward_count[21]     FAB_CLK       DFN1E1     Q       y_forward_count[21]     0.737       -6.464
+servo_control_0.y_servo.reverse_count[16]     FAB_CLK       DFN1E1     Q       y_reverse_count[16]     0.737       -6.420
 =========================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                              Starting                                   Required           
-Instance                                      Reference     Type       Pin     Net       Time         Slack 
-                                              Clock                                                         
-------------------------------------------------------------------------------------------------------------
-servo_control_0.x_servo.forward_count[28]     FAB_CLK       DFN1E1     D       N_9       9.461        -6.262
-servo_control_0.x_servo.reverse_count[9]      FAB_CLK       DFN1E1     D       N_703     9.461        -6.262
-servo_control_0.x_servo.forward_count[26]     FAB_CLK       DFN1E1     D       N_13      9.461        -6.243
-servo_control_0.x_servo.forward_count[27]     FAB_CLK       DFN1E1     D       N_11      9.461        -6.243
-servo_control_0.x_servo.forward_count[29]     FAB_CLK       DFN1E1     D       N_7       9.461        -6.243
-servo_control_0.x_servo.forward_count[30]     FAB_CLK       DFN1E1     D       N_5       9.461        -6.243
-servo_control_0.x_servo.reverse_count[5]      FAB_CLK       DFN1E1     D       N_35      9.461        -6.243
-servo_control_0.x_servo.reverse_count[7]      FAB_CLK       DFN1E1     D       N_31      9.461        -6.243
-servo_control_0.x_servo.reverse_count[8]      FAB_CLK       DFN1E1     D       N_29      9.461        -6.243
-servo_control_0.x_servo.reverse_count[10]     FAB_CLK       DFN1E1     D       N_702     9.461        -6.243
-============================================================================================================
+                                             Starting                                            Required           
+Instance                                     Reference     Type       Pin     Net                Time         Slack 
+                                             Clock                                                                  
+--------------------------------------------------------------------------------------------------------------------
+servo_control_0.y_servo.forward_count[0]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[1]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[2]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[3]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[4]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[5]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[6]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[7]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[8]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+servo_control_0.y_servo.forward_count[9]     FAB_CLK       DFN1E1     E       forward_counte     9.392        -7.560
+====================================================================================================================
 
 
 
@@ -588,271 +590,271 @@ Worst Path Information
 
 Path information for path number 1: 
       Requested Period:                      10.000
-    - Setup time:                            0.539
+    - Setup time:                            0.608
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         9.461
+    = Required time:                         9.392
 
-    - Propagation time:                      15.723
+    - Propagation time:                      16.952
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -6.262
+    = Slack (non-critical) :                 -7.560
 
     Number of logic level(s):                9
-    Starting point:                          servo_control_0.x_servo.reverse_count[22] / Q
-    Ending point:                            servo_control_0.x_servo.forward_count[28] / D
+    Starting point:                          servo_control_0.y_servo.reverse_count[20] / Q
+    Ending point:                            servo_control_0.y_servo.forward_count[10] / E
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
-Instance / Net                                                    Pin      Pin               Arrival     No. of    
-Name                                                   Type       Name     Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-servo_control_0.x_servo.reverse_count[22]              DFN1E1     Q        Out     0.737     0.737       -         
-x_reverse_count[22]                                    Net        -        -       1.776     -           11        
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       B        In      -         2.513       -         
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       Y        Out     0.937     3.450       -         
-un1_reverse_count_22                                   Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        C        In      -         3.771       -         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        Y        Out     0.344     4.115       -         
-un1_reverse_count_NE_7                                 Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        C        In      -         4.437       -         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        Y        Out     0.683     5.120       -         
-un1_reverse_count_NE_19                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        C        In      -         5.441       -         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        Y        Out     0.683     6.124       -         
-un1_reverse_count_NE_25                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        C        In      -         6.446       -         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        Y        Out     0.683     7.129       -         
-un1_reverse_count_NE_28                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        C        In      -         7.450       -         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        Y        Out     0.683     8.133       -         
-un1_reverse_count_NE                                   Net        -        -       1.184     -           4         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       B        In      -         9.317       -         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       Y        Out     0.553     9.870       -         
-un1_zero_counts_next[0]                                Net        -        -       1.526     -           7         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       A        In      -         11.396      -         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       Y        Out     0.933     12.329      -         
-N_324_i_0                                              Net        -        -       2.409     -           22        
-servo_control_0.x_servo.forward_count_RNO[28]          NOR3A      A        In      -         14.738      -         
-servo_control_0.x_servo.forward_count_RNO[28]          NOR3A      Y        Out     0.664     15.402      -         
-N_9                                                    Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count[28]              DFN1E1     D        In      -         15.723      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 16.262 is 7.438(45.7%) logic and 8.824(54.3%) route.
+Instance / Net                                                     Pin      Pin               Arrival     No. of    
+Name                                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+--------------------------------------------------------------------------------------------------------------------
+servo_control_0.y_servo.reverse_count[20]               DFN1E1     Q        Out     0.737     0.737       -         
+y_reverse_count[20]                                     Net        -        -       1.994     -           12        
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       B        In      -         2.730       -         
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       Y        Out     0.937     3.667       -         
+un1_reverse_count_20                                    Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        C        In      -         3.989       -         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        Y        Out     0.344     4.333       -         
+un1_reverse_count_NE_7                                  Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        C        In      -         4.654       -         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        Y        Out     0.683     5.337       -         
+un1_reverse_count_NE_19                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        C        In      -         5.659       -         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        Y        Out     0.683     6.342       -         
+un1_reverse_count_NE_25                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        C        In      -         6.663       -         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        Y        Out     0.683     7.346       -         
+un1_reverse_count_NE_28                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        B        In      -         7.668       -         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        Y        Out     0.514     8.182       -         
+un1_reverse_count_NE                                    Net        -        -       1.184     -           4         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       B        In      -         9.366       -         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       Y        Out     0.553     9.918       -         
+un1_zero_counts_next[0]                                 Net        -        -       0.806     -           3         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       A        In      -         10.725      -         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       Y        Out     0.933     11.658      -         
+N_321_i_0_1                                             Net        -        -       2.466     -           24        
+servo_control_0.y_servo.time_count_RNIM1QD21_0[16]      OAI1       C        In      -         14.124      -         
+servo_control_0.y_servo.time_count_RNIM1QD21_0[16]      OAI1       Y        Out     0.655     14.779      -         
+forward_counte_0                                        Net        -        -       2.172     -           16        
+servo_control_0.y_servo.forward_count[10]               DFN1E1     E        In      -         16.952      -         
+====================================================================================================================
+Total path delay (propagation time + setup) of 17.560 is 7.330(41.7%) logic and 10.230(58.3%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 2: 
       Requested Period:                      10.000
-    - Setup time:                            0.539
+    - Setup time:                            0.608
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         9.461
+    = Required time:                         9.392
 
-    - Propagation time:                      15.723
+    - Propagation time:                      16.952
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -6.262
+    = Slack (non-critical) :                 -7.560
 
     Number of logic level(s):                9
-    Starting point:                          servo_control_0.x_servo.reverse_count[22] / Q
-    Ending point:                            servo_control_0.x_servo.reverse_count[9] / D
+    Starting point:                          servo_control_0.y_servo.reverse_count[20] / Q
+    Ending point:                            servo_control_0.y_servo.forward_count[0] / E
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
-Instance / Net                                                    Pin      Pin               Arrival     No. of    
-Name                                                   Type       Name     Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-servo_control_0.x_servo.reverse_count[22]              DFN1E1     Q        Out     0.737     0.737       -         
-x_reverse_count[22]                                    Net        -        -       1.776     -           11        
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       B        In      -         2.513       -         
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       Y        Out     0.937     3.450       -         
-un1_reverse_count_22                                   Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        C        In      -         3.771       -         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        Y        Out     0.344     4.115       -         
-un1_reverse_count_NE_7                                 Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        C        In      -         4.437       -         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        Y        Out     0.683     5.120       -         
-un1_reverse_count_NE_19                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        C        In      -         5.441       -         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        Y        Out     0.683     6.124       -         
-un1_reverse_count_NE_25                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        C        In      -         6.446       -         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        Y        Out     0.683     7.129       -         
-un1_reverse_count_NE_28                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        C        In      -         7.450       -         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        Y        Out     0.683     8.133       -         
-un1_reverse_count_NE                                   Net        -        -       1.184     -           4         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       B        In      -         9.317       -         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       Y        Out     0.553     9.870       -         
-un1_zero_counts_next[0]                                Net        -        -       1.526     -           7         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       A        In      -         11.396      -         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       Y        Out     0.933     12.329      -         
-N_324_i_0                                              Net        -        -       2.409     -           22        
-servo_control_0.x_servo.reverse_count_RNO[9]           NOR3A      A        In      -         14.738      -         
-servo_control_0.x_servo.reverse_count_RNO[9]           NOR3A      Y        Out     0.664     15.402      -         
-N_703                                                  Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count[9]               DFN1E1     D        In      -         15.723      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 16.262 is 7.438(45.7%) logic and 8.824(54.3%) route.
+Instance / Net                                                     Pin      Pin               Arrival     No. of    
+Name                                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+--------------------------------------------------------------------------------------------------------------------
+servo_control_0.y_servo.reverse_count[20]               DFN1E1     Q        Out     0.737     0.737       -         
+y_reverse_count[20]                                     Net        -        -       1.994     -           12        
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       B        In      -         2.730       -         
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       Y        Out     0.937     3.667       -         
+un1_reverse_count_20                                    Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        C        In      -         3.989       -         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        Y        Out     0.344     4.333       -         
+un1_reverse_count_NE_7                                  Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        C        In      -         4.654       -         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        Y        Out     0.683     5.337       -         
+un1_reverse_count_NE_19                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        C        In      -         5.659       -         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        Y        Out     0.683     6.342       -         
+un1_reverse_count_NE_25                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        C        In      -         6.663       -         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        Y        Out     0.683     7.346       -         
+un1_reverse_count_NE_28                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        B        In      -         7.668       -         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        Y        Out     0.514     8.182       -         
+un1_reverse_count_NE                                    Net        -        -       1.184     -           4         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       B        In      -         9.366       -         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       Y        Out     0.553     9.918       -         
+un1_zero_counts_next[0]                                 Net        -        -       0.806     -           3         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       A        In      -         10.725      -         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       Y        Out     0.933     11.658      -         
+N_321_i_0_1                                             Net        -        -       2.466     -           24        
+servo_control_0.y_servo.time_count_RNIM1QD21_1[16]      OAI1       C        In      -         14.124      -         
+servo_control_0.y_servo.time_count_RNIM1QD21_1[16]      OAI1       Y        Out     0.655     14.779      -         
+forward_counte                                          Net        -        -       2.172     -           16        
+servo_control_0.y_servo.forward_count[0]                DFN1E1     E        In      -         16.952      -         
+====================================================================================================================
+Total path delay (propagation time + setup) of 17.560 is 7.330(41.7%) logic and 10.230(58.3%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 3: 
       Requested Period:                      10.000
-    - Setup time:                            0.539
+    - Setup time:                            0.608
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         9.461
+    = Required time:                         9.392
 
-    - Propagation time:                      15.704
+    - Propagation time:                      16.952
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -6.243
+    = Slack (non-critical) :                 -7.560
 
     Number of logic level(s):                9
-    Starting point:                          servo_control_0.x_servo.reverse_count[22] / Q
-    Ending point:                            servo_control_0.x_servo.reverse_count[24] / D
+    Starting point:                          servo_control_0.y_servo.reverse_count[20] / Q
+    Ending point:                            servo_control_0.y_servo.forward_count[25] / E
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
-Instance / Net                                                    Pin      Pin               Arrival     No. of    
-Name                                                   Type       Name     Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-servo_control_0.x_servo.reverse_count[22]              DFN1E1     Q        Out     0.737     0.737       -         
-x_reverse_count[22]                                    Net        -        -       1.776     -           11        
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       B        In      -         2.513       -         
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       Y        Out     0.937     3.450       -         
-un1_reverse_count_22                                   Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        C        In      -         3.771       -         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        Y        Out     0.344     4.115       -         
-un1_reverse_count_NE_7                                 Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        C        In      -         4.437       -         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        Y        Out     0.683     5.120       -         
-un1_reverse_count_NE_19                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        C        In      -         5.441       -         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        Y        Out     0.683     6.124       -         
-un1_reverse_count_NE_25                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        C        In      -         6.446       -         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        Y        Out     0.683     7.129       -         
-un1_reverse_count_NE_28                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        C        In      -         7.450       -         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        Y        Out     0.683     8.133       -         
-un1_reverse_count_NE                                   Net        -        -       1.184     -           4         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       B        In      -         9.317       -         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       Y        Out     0.553     9.870       -         
-un1_zero_counts_next[0]                                Net        -        -       1.526     -           7         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       A        In      -         11.396      -         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       Y        Out     0.933     12.329      -         
-N_324_i_0                                              Net        -        -       2.409     -           22        
-servo_control_0.x_servo.reverse_count_RNO[24]          XA1A       C        In      -         14.738      -         
-servo_control_0.x_servo.reverse_count_RNO[24]          XA1A       Y        Out     0.645     15.383      -         
-reverse_count_n24                                      Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count[24]              DFN1E1     D        In      -         15.704      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 16.243 is 7.419(45.7%) logic and 8.824(54.3%) route.
+Instance / Net                                                     Pin      Pin               Arrival     No. of    
+Name                                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+--------------------------------------------------------------------------------------------------------------------
+servo_control_0.y_servo.reverse_count[20]               DFN1E1     Q        Out     0.737     0.737       -         
+y_reverse_count[20]                                     Net        -        -       1.994     -           12        
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       B        In      -         2.730       -         
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       Y        Out     0.937     3.667       -         
+un1_reverse_count_20                                    Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        C        In      -         3.989       -         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        Y        Out     0.344     4.333       -         
+un1_reverse_count_NE_7                                  Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        C        In      -         4.654       -         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        Y        Out     0.683     5.337       -         
+un1_reverse_count_NE_19                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        C        In      -         5.659       -         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        Y        Out     0.683     6.342       -         
+un1_reverse_count_NE_25                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        C        In      -         6.663       -         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        Y        Out     0.683     7.346       -         
+un1_reverse_count_NE_28                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        B        In      -         7.668       -         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        Y        Out     0.514     8.182       -         
+un1_reverse_count_NE                                    Net        -        -       1.184     -           4         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       B        In      -         9.366       -         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       Y        Out     0.553     9.918       -         
+un1_zero_counts_next[0]                                 Net        -        -       0.806     -           3         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       A        In      -         10.725      -         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       Y        Out     0.933     11.658      -         
+N_321_i_0_1                                             Net        -        -       2.466     -           24        
+servo_control_0.y_servo.time_count_RNIM1QD21_0[16]      OAI1       C        In      -         14.124      -         
+servo_control_0.y_servo.time_count_RNIM1QD21_0[16]      OAI1       Y        Out     0.655     14.779      -         
+forward_counte_0                                        Net        -        -       2.172     -           16        
+servo_control_0.y_servo.forward_count[25]               DFN1E1     E        In      -         16.952      -         
+====================================================================================================================
+Total path delay (propagation time + setup) of 17.560 is 7.330(41.7%) logic and 10.230(58.3%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 4: 
       Requested Period:                      10.000
-    - Setup time:                            0.539
+    - Setup time:                            0.608
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         9.461
+    = Required time:                         9.392
 
-    - Propagation time:                      15.704
+    - Propagation time:                      16.952
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -6.243
+    = Slack (non-critical) :                 -7.560
 
     Number of logic level(s):                9
-    Starting point:                          servo_control_0.x_servo.reverse_count[22] / Q
-    Ending point:                            servo_control_0.x_servo.reverse_count[23] / D
+    Starting point:                          servo_control_0.y_servo.reverse_count[20] / Q
+    Ending point:                            servo_control_0.y_servo.forward_count[24] / E
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
-Instance / Net                                                    Pin      Pin               Arrival     No. of    
-Name                                                   Type       Name     Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-servo_control_0.x_servo.reverse_count[22]              DFN1E1     Q        Out     0.737     0.737       -         
-x_reverse_count[22]                                    Net        -        -       1.776     -           11        
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       B        In      -         2.513       -         
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       Y        Out     0.937     3.450       -         
-un1_reverse_count_22                                   Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        C        In      -         3.771       -         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        Y        Out     0.344     4.115       -         
-un1_reverse_count_NE_7                                 Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        C        In      -         4.437       -         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        Y        Out     0.683     5.120       -         
-un1_reverse_count_NE_19                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        C        In      -         5.441       -         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        Y        Out     0.683     6.124       -         
-un1_reverse_count_NE_25                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        C        In      -         6.446       -         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        Y        Out     0.683     7.129       -         
-un1_reverse_count_NE_28                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        C        In      -         7.450       -         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        Y        Out     0.683     8.133       -         
-un1_reverse_count_NE                                   Net        -        -       1.184     -           4         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       B        In      -         9.317       -         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       Y        Out     0.553     9.870       -         
-un1_zero_counts_next[0]                                Net        -        -       1.526     -           7         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       A        In      -         11.396      -         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       Y        Out     0.933     12.329      -         
-N_324_i_0                                              Net        -        -       2.409     -           22        
-servo_control_0.x_servo.reverse_count_RNO[23]          XA1A       C        In      -         14.738      -         
-servo_control_0.x_servo.reverse_count_RNO[23]          XA1A       Y        Out     0.645     15.383      -         
-reverse_count_n23                                      Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count[23]              DFN1E1     D        In      -         15.704      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 16.243 is 7.419(45.7%) logic and 8.824(54.3%) route.
+Instance / Net                                                     Pin      Pin               Arrival     No. of    
+Name                                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+--------------------------------------------------------------------------------------------------------------------
+servo_control_0.y_servo.reverse_count[20]               DFN1E1     Q        Out     0.737     0.737       -         
+y_reverse_count[20]                                     Net        -        -       1.994     -           12        
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       B        In      -         2.730       -         
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       Y        Out     0.937     3.667       -         
+un1_reverse_count_20                                    Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        C        In      -         3.989       -         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        Y        Out     0.344     4.333       -         
+un1_reverse_count_NE_7                                  Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        C        In      -         4.654       -         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        Y        Out     0.683     5.337       -         
+un1_reverse_count_NE_19                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        C        In      -         5.659       -         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        Y        Out     0.683     6.342       -         
+un1_reverse_count_NE_25                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        C        In      -         6.663       -         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        Y        Out     0.683     7.346       -         
+un1_reverse_count_NE_28                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        B        In      -         7.668       -         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        Y        Out     0.514     8.182       -         
+un1_reverse_count_NE                                    Net        -        -       1.184     -           4         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       B        In      -         9.366       -         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       Y        Out     0.553     9.918       -         
+un1_zero_counts_next[0]                                 Net        -        -       0.806     -           3         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       A        In      -         10.725      -         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       Y        Out     0.933     11.658      -         
+N_321_i_0_1                                             Net        -        -       2.466     -           24        
+servo_control_0.y_servo.time_count_RNIM1QD21_0[16]      OAI1       C        In      -         14.124      -         
+servo_control_0.y_servo.time_count_RNIM1QD21_0[16]      OAI1       Y        Out     0.655     14.779      -         
+forward_counte_0                                        Net        -        -       2.172     -           16        
+servo_control_0.y_servo.forward_count[24]               DFN1E1     E        In      -         16.952      -         
+====================================================================================================================
+Total path delay (propagation time + setup) of 17.560 is 7.330(41.7%) logic and 10.230(58.3%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 5: 
       Requested Period:                      10.000
-    - Setup time:                            0.539
+    - Setup time:                            0.608
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         9.461
+    = Required time:                         9.392
 
-    - Propagation time:                      15.704
+    - Propagation time:                      16.952
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -6.243
+    = Slack (non-critical) :                 -7.560
 
     Number of logic level(s):                9
-    Starting point:                          servo_control_0.x_servo.reverse_count[22] / Q
-    Ending point:                            servo_control_0.x_servo.reverse_count[18] / D
+    Starting point:                          servo_control_0.y_servo.reverse_count[20] / Q
+    Ending point:                            servo_control_0.y_servo.forward_count[23] / E
     The start point is clocked by            FAB_CLK [rising] on pin CLK
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
-Instance / Net                                                    Pin      Pin               Arrival     No. of    
-Name                                                   Type       Name     Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-servo_control_0.x_servo.reverse_count[22]              DFN1E1     Q        Out     0.737     0.737       -         
-x_reverse_count[22]                                    Net        -        -       1.776     -           11        
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       B        In      -         2.513       -         
-servo_control_0.x_servo.forward_count_RNIPQIG[22]      XOR2       Y        Out     0.937     3.450       -         
-un1_reverse_count_22                                   Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        C        In      -         3.771       -         
-servo_control_0.x_servo.reverse_count_RNIMRF41[6]      XO1        Y        Out     0.344     4.115       -         
-un1_reverse_count_NE_7                                 Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        C        In      -         4.437       -         
-servo_control_0.x_servo.reverse_count_RNIITV82[6]      OR3        Y        Out     0.683     5.120       -         
-un1_reverse_count_NE_19                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        C        In      -         5.441       -         
-servo_control_0.x_servo.forward_count_RNI8VNE4[21]     OR3        Y        Out     0.683     6.124       -         
-un1_reverse_count_NE_25                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        C        In      -         6.446       -         
-servo_control_0.x_servo.forward_count_RNI4H679[10]     OR3        Y        Out     0.683     7.129       -         
-un1_reverse_count_NE_28                                Net        -        -       0.322     -           1         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        C        In      -         7.450       -         
-servo_control_0.x_servo.forward_count_RNIONHJH[13]     OR3        Y        Out     0.683     8.133       -         
-un1_reverse_count_NE                                   Net        -        -       1.184     -           4         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       B        In      -         9.317       -         
-servo_control_0.x_servo.zero_counts_next_RNIBLV6I      MX2B       Y        Out     0.553     9.870       -         
-un1_zero_counts_next[0]                                Net        -        -       1.526     -           7         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       A        In      -         11.396      -         
-servo_control_0.x_servo.zero_counts_next_RNIP83LO      OA1A       Y        Out     0.933     12.329      -         
-N_324_i_0                                              Net        -        -       2.409     -           22        
-servo_control_0.x_servo.reverse_count_RNO[18]          XA1A       C        In      -         14.738      -         
-servo_control_0.x_servo.reverse_count_RNO[18]          XA1A       Y        Out     0.645     15.383      -         
-reverse_count_n18                                      Net        -        -       0.322     -           1         
-servo_control_0.x_servo.reverse_count[18]              DFN1E1     D        In      -         15.704      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 16.243 is 7.419(45.7%) logic and 8.824(54.3%) route.
+Instance / Net                                                     Pin      Pin               Arrival     No. of    
+Name                                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+--------------------------------------------------------------------------------------------------------------------
+servo_control_0.y_servo.reverse_count[20]               DFN1E1     Q        Out     0.737     0.737       -         
+y_reverse_count[20]                                     Net        -        -       1.994     -           12        
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       B        In      -         2.730       -         
+servo_control_0.y_servo.forward_count_RNIN6SH[20]       XOR2       Y        Out     0.937     3.667       -         
+un1_reverse_count_20                                    Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        C        In      -         3.989       -         
+servo_control_0.y_servo.forward_count_RNIGFO31[21]      XO1        Y        Out     0.344     4.333       -         
+un1_reverse_count_NE_7                                  Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        C        In      -         4.654       -         
+servo_control_0.y_servo.forward_count_RNI87H72[21]      OR3        Y        Out     0.683     5.337       -         
+un1_reverse_count_NE_19                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        C        In      -         5.659       -         
+servo_control_0.y_servo.forward_count_RNI891N4[24]      OR3        Y        Out     0.683     6.342       -         
+un1_reverse_count_NE_25                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        C        In      -         6.663       -         
+servo_control_0.y_servo.forward_count_RNIKF7LA[10]      OR3        Y        Out     0.683     7.346       -         
+un1_reverse_count_NE_28                                 Net        -        -       0.322     -           1         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        B        In      -         7.668       -         
+servo_control_0.y_servo.forward_count_RNIO5LAK[10]      OR2        Y        Out     0.514     8.182       -         
+un1_reverse_count_NE                                    Net        -        -       1.184     -           4         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       B        In      -         9.366       -         
+servo_control_0.y_servo.zero_counts_next_RNIDFJPK       MX2B       Y        Out     0.553     9.918       -         
+un1_zero_counts_next[0]                                 Net        -        -       0.806     -           3         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       A        In      -         10.725      -         
+servo_control_0.y_servo.zero_counts_next_RNI9604O_0     OA1A       Y        Out     0.933     11.658      -         
+N_321_i_0_1                                             Net        -        -       2.466     -           24        
+servo_control_0.y_servo.time_count_RNIM1QD21_0[16]      OAI1       C        In      -         14.124      -         
+servo_control_0.y_servo.time_count_RNIM1QD21_0[16]      OAI1       Y        Out     0.655     14.779      -         
+forward_counte_0                                        Net        -        -       2.172     -           16        
+servo_control_0.y_servo.forward_count[23]               DFN1E1     E        In      -         16.952      -         
+====================================================================================================================
+Total path delay (propagation time + setup) of 17.560 is 7.330(41.7%) logic and 10.230(58.3%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -871,37 +873,37 @@ Starting Points with Worst Slack
 Instance                             Reference     Type        Pin              Net                                        Time        Slack 
                                      Clock                                                                                                   
 ---------------------------------------------------------------------------------------------------------------------------------------------
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]      CoreAPB3_0_APBmslave0_PADDR[9]             0.000       -8.864
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL          ants_master_MSS_0_MSS_MASTER_APB_PSELx     0.000       -8.834
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]     CoreAPB3_0_APBmslave0_PADDR[10]            0.000       -8.712
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]     CoreAPB3_0_APBmslave0_PADDR[11]            0.000       -8.592
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]      CoreAPB3_0_APBmslave0_PADDR[8]             0.000       -8.062
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[0]      CoreAPB3_0_APBmslave0_PADDR[0]             0.000       -5.384
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[12]     CoreAPB3_0_APBmslave0_PADDR[12]            0.000       -5.233
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[1]      CoreAPB3_0_APBmslave0_PADDR[1]             0.000       -4.548
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPENABLE       CoreAPB3_0_APBmslave0_PENABLE              0.000       -4.371
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[7]      CoreAPB3_0_APBmslave0_PADDR[7]             0.000       -4.266
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]      CoreAPB3_0_APBmslave0_PADDR[9]             0.000       -9.654
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL          ants_master_MSS_0_MSS_MASTER_APB_PSELx     0.000       -9.625
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]     CoreAPB3_0_APBmslave0_PADDR[10]            0.000       -9.503
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]     CoreAPB3_0_APBmslave0_PADDR[11]            0.000       -9.383
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]      CoreAPB3_0_APBmslave0_PADDR[8]             0.000       -8.853
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[12]     CoreAPB3_0_APBmslave0_PADDR[12]            0.000       -5.997
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[0]      CoreAPB3_0_APBmslave0_PADDR[0]             0.000       -5.846
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[5]      CoreAPB3_0_APBmslave0_PADDR[5]             0.000       -5.182
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[7]      CoreAPB3_0_APBmslave0_PADDR[7]             0.000       -5.031
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[1]      CoreAPB3_0_APBmslave0_PADDR[1]             0.000       -4.915
 =============================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                        Starting                                              Required           
-Instance                                Reference     Type       Pin     Net                  Time         Slack 
-                                        Clock                                                                    
------------------------------------------------------------------------------------------------------------------
-servo_control_0.y_servo.next_pw[6]      System        DFN1E0     D       next_pw_6[6]         9.427        -8.864
-servo_control_0.y_servo.next_pw[8]      System        DFN1E0     D       next_pw_6[8]         9.427        -8.864
-servo_control_0.y_servo.next_pw[11]     System        DFN1E0     D       next_pw_6[11]        9.427        -8.864
-servo_control_0.y_servo.next_pw[17]     System        DFN1E0     D       next_pw_6[17]        9.427        -8.864
-servo_control_0.y_servo.next_pw[9]      System        DFN1E0     D       next_pw_6[9]         9.461        -8.829
-servo_control_0.y_servo.next_pw[15]     System        DFN1E0     D       next_pw_6[15]        9.461        -8.829
-servo_control_0.y_servo.next_pw[0]      System        DFN1E0     E       next_pw_4_sqmuxa     9.566        -8.648
-servo_control_0.y_servo.next_pw[1]      System        DFN1E0     E       next_pw_4_sqmuxa     9.566        -8.648
-servo_control_0.y_servo.next_pw[2]      System        DFN1E0     E       next_pw_4_sqmuxa     9.566        -8.648
-servo_control_0.y_servo.next_pw[3]      System        DFN1E0     E       next_pw_4_sqmuxa     9.566        -8.648
-=================================================================================================================
+                                        Starting                                                Required           
+Instance                                Reference     Type       Pin     Net                    Time         Slack 
+                                        Clock                                                                      
+-------------------------------------------------------------------------------------------------------------------
+servo_control_0.x_servo.next_pw[6]      System        DFN1E0     D       next_pw_6[6]           9.427        -9.654
+servo_control_0.x_servo.next_pw[8]      System        DFN1E0     D       next_pw_6[8]           9.427        -9.654
+servo_control_0.x_servo.next_pw[11]     System        DFN1E0     D       next_pw_6[11]          9.427        -9.654
+servo_control_0.x_servo.next_pw[17]     System        DFN1E0     D       next_pw_6[17]          9.427        -9.654
+servo_control_0.x_servo.next_pw[9]      System        DFN1E0     D       next_pw_6[9]           9.461        -9.619
+servo_control_0.x_servo.next_pw[15]     System        DFN1E0     D       next_pw_6[15]          9.461        -9.619
+servo_control_0.x_servo.next_pw[0]      System        DFN1E0     E       next_pw_4_sqmuxa_0     9.566        -9.439
+servo_control_0.x_servo.next_pw[1]      System        DFN1E0     E       next_pw_4_sqmuxa_0     9.566        -9.439
+servo_control_0.x_servo.next_pw[2]      System        DFN1E0     E       next_pw_4_sqmuxa_0     9.566        -9.439
+servo_control_0.x_servo.next_pw[3]      System        DFN1E0     E       next_pw_4_sqmuxa_0     9.566        -9.439
+===================================================================================================================
 
 
 
@@ -915,14 +917,14 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.427
 
-    - Propagation time:                      18.290
+    - Propagation time:                      19.081
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (critical) :                     -8.863
+    = Slack (critical) :                     -9.654
 
-    Number of logic level(s):                12
+    Number of logic level(s):                14
     Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[9]
-    Ending point:                            servo_control_0.y_servo.next_pw[6] / D
+    Ending point:                            servo_control_0.x_servo.next_pw[6] / D
     The start point is clocked by            System [rising]
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
@@ -937,39 +939,45 @@ iPSELS_0_a2_0_1[1]                             Net         -               -    
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       B               In      -         2.019       -         
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       Y               Out     0.607     2.626       -         
 CoreAPB3_0_APBmslave1_PSELx_0                  Net         -               -       2.218     -           17        
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       A               In      -         4.844       -         
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       Y               Out     0.641     5.485       -         
-read_x_forward_0_a2_1_3                        Net         -               -       0.386     -           2         
-servo_control_0.m230                           NOR3C       A               In      -         5.871       -         
-servo_control_0.m230                           NOR3C       Y               Out     0.464     6.335       -         
-N_231                                          Net         -               -       0.806     -           3         
-servo_control_0.m237                           NOR3B       A               In      -         7.141       -         
-servo_control_0.m237                           NOR3B       Y               Out     0.641     7.782       -         
-N_238                                          Net         -               -       1.184     -           4         
-servo_control_0.m240                           NOR3B       B               In      -         8.966       -         
-servo_control_0.m240                           NOR3B       Y               Out     0.607     9.573       -         
-set_y_forward_c                                Net         -               -       0.806     -           3         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         B               In      -         10.379      -         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         Y               Out     0.646     11.025      -         
-un1_SET_ZERO_1                                 Net         -               -       0.322     -           1         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         C               In      -         11.347      -         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         Y               Out     0.751     12.098      -         
-un1_SET_ZERO                                   Net         -               -       0.386     -           2         
-servo_control_0.y_servo.next_pw24              NOR3B       C               In      -         12.484      -         
-servo_control_0.y_servo.next_pw24              NOR3B       Y               Out     0.488     12.972      -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       A               In      -         4.844       -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       Y               Out     0.641     5.485       -         
+read_x_forward_0_a2_2_3                        Net         -               -       0.322     -           1         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       A               In      -         5.806       -         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       Y               Out     0.514     6.321       -         
+N_66                                           Net         -               -       0.386     -           2         
+servo_control_0.m231_0                         NOR2B       B               In      -         6.707       -         
+servo_control_0.m231_0                         NOR2B       Y               Out     0.627     7.334       -         
+m231_0                                         Net         -               -       0.322     -           1         
+servo_control_0.m231                           NOR2B       A               In      -         7.656       -         
+servo_control_0.m231                           NOR2B       Y               Out     0.514     8.170       -         
+N_257_mux                                      Net         -               -       0.386     -           2         
+servo_control_0.m237                           NOR2A       A               In      -         8.556       -         
+servo_control_0.m237                           NOR2A       Y               Out     0.627     9.183       -         
+N_238                                          Net         -               -       0.386     -           2         
+servo_control_0.m238                           NOR2B       A               In      -         9.569       -         
+servo_control_0.m238                           NOR2B       Y               Out     0.514     10.083      -         
+N_239                                          Net         -               -       0.806     -           3         
+servo_control_0.m249                           NOR2A       A               In      -         10.890      -         
+servo_control_0.m249                           NOR2A       Y               Out     0.627     11.517      -         
+N_250                                          Net         -               -       0.806     -           3         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         B               In      -         12.324      -         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         Y               Out     0.646     12.970      -         
+un1_SET_PW_REVERSE                             Net         -               -       0.386     -           2         
+servo_control_0.x_servo.next_pw24              NOR2A       B               In      -         13.356      -         
+servo_control_0.x_servo.next_pw24              NOR2A       Y               Out     0.407     13.762      -         
 next_pw24                                      Net         -               -       1.184     -           4         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       B               In      -         14.156      -         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       Y               Out     0.516     14.672      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       B               In      -         14.946      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       Y               Out     0.516     15.462      -         
 next_pw_0_sqmuxa_1                             Net         -               -       0.322     -           1         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         A               In      -         14.993      -         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         Y               Out     0.984     15.977      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         A               In      -         15.784      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         Y               Out     0.984     16.767      -         
 next_pw_3_sqmuxa                               Net         -               -       1.423     -           6         
-servo_control_0.y_servo.next_pw_RNO[6]         MX2A        A               In      -         17.400      -         
-servo_control_0.y_servo.next_pw_RNO[6]         MX2A        Y               Out     0.568     17.968      -         
+servo_control_0.x_servo.next_pw_RNO[6]         MX2A        A               In      -         18.191      -         
+servo_control_0.x_servo.next_pw_RNO[6]         MX2A        Y               Out     0.568     18.759      -         
 next_pw_6[6]                                   Net         -               -       0.322     -           1         
-servo_control_0.y_servo.next_pw[6]             DFN1E0      D               In      -         18.290      -         
+servo_control_0.x_servo.next_pw[6]             DFN1E0      D               In      -         19.081      -         
 ===================================================================================================================
-Total path delay (propagation time + setup) of 18.863 is 8.001(42.4%) logic and 10.862(57.6%) route.
+Total path delay (propagation time + setup) of 19.654 is 8.882(45.2%) logic and 10.772(54.8%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -979,14 +987,14 @@ Path information for path number 2:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.427
 
-    - Propagation time:                      18.290
+    - Propagation time:                      19.081
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (critical) :                     -8.863
+    = Slack (critical) :                     -9.654
 
-    Number of logic level(s):                12
+    Number of logic level(s):                14
     Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[9]
-    Ending point:                            servo_control_0.y_servo.next_pw[8] / D
+    Ending point:                            servo_control_0.x_servo.next_pw[17] / D
     The start point is clocked by            System [rising]
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
@@ -1001,39 +1009,45 @@ iPSELS_0_a2_0_1[1]                             Net         -               -    
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       B               In      -         2.019       -         
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       Y               Out     0.607     2.626       -         
 CoreAPB3_0_APBmslave1_PSELx_0                  Net         -               -       2.218     -           17        
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       A               In      -         4.844       -         
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       Y               Out     0.641     5.485       -         
-read_x_forward_0_a2_1_3                        Net         -               -       0.386     -           2         
-servo_control_0.m230                           NOR3C       A               In      -         5.871       -         
-servo_control_0.m230                           NOR3C       Y               Out     0.464     6.335       -         
-N_231                                          Net         -               -       0.806     -           3         
-servo_control_0.m237                           NOR3B       A               In      -         7.141       -         
-servo_control_0.m237                           NOR3B       Y               Out     0.641     7.782       -         
-N_238                                          Net         -               -       1.184     -           4         
-servo_control_0.m240                           NOR3B       B               In      -         8.966       -         
-servo_control_0.m240                           NOR3B       Y               Out     0.607     9.573       -         
-set_y_forward_c                                Net         -               -       0.806     -           3         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         B               In      -         10.379      -         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         Y               Out     0.646     11.025      -         
-un1_SET_ZERO_1                                 Net         -               -       0.322     -           1         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         C               In      -         11.347      -         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         Y               Out     0.751     12.098      -         
-un1_SET_ZERO                                   Net         -               -       0.386     -           2         
-servo_control_0.y_servo.next_pw24              NOR3B       C               In      -         12.484      -         
-servo_control_0.y_servo.next_pw24              NOR3B       Y               Out     0.488     12.972      -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       A               In      -         4.844       -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       Y               Out     0.641     5.485       -         
+read_x_forward_0_a2_2_3                        Net         -               -       0.322     -           1         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       A               In      -         5.806       -         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       Y               Out     0.514     6.321       -         
+N_66                                           Net         -               -       0.386     -           2         
+servo_control_0.m231_0                         NOR2B       B               In      -         6.707       -         
+servo_control_0.m231_0                         NOR2B       Y               Out     0.627     7.334       -         
+m231_0                                         Net         -               -       0.322     -           1         
+servo_control_0.m231                           NOR2B       A               In      -         7.656       -         
+servo_control_0.m231                           NOR2B       Y               Out     0.514     8.170       -         
+N_257_mux                                      Net         -               -       0.386     -           2         
+servo_control_0.m237                           NOR2A       A               In      -         8.556       -         
+servo_control_0.m237                           NOR2A       Y               Out     0.627     9.183       -         
+N_238                                          Net         -               -       0.386     -           2         
+servo_control_0.m238                           NOR2B       A               In      -         9.569       -         
+servo_control_0.m238                           NOR2B       Y               Out     0.514     10.083      -         
+N_239                                          Net         -               -       0.806     -           3         
+servo_control_0.m249                           NOR2A       A               In      -         10.890      -         
+servo_control_0.m249                           NOR2A       Y               Out     0.627     11.517      -         
+N_250                                          Net         -               -       0.806     -           3         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         B               In      -         12.324      -         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         Y               Out     0.646     12.970      -         
+un1_SET_PW_REVERSE                             Net         -               -       0.386     -           2         
+servo_control_0.x_servo.next_pw24              NOR2A       B               In      -         13.356      -         
+servo_control_0.x_servo.next_pw24              NOR2A       Y               Out     0.407     13.762      -         
 next_pw24                                      Net         -               -       1.184     -           4         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       B               In      -         14.156      -         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       Y               Out     0.516     14.672      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       B               In      -         14.946      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       Y               Out     0.516     15.462      -         
 next_pw_0_sqmuxa_1                             Net         -               -       0.322     -           1         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         A               In      -         14.993      -         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         Y               Out     0.984     15.977      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         A               In      -         15.784      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         Y               Out     0.984     16.767      -         
 next_pw_3_sqmuxa                               Net         -               -       1.423     -           6         
-servo_control_0.y_servo.next_pw_RNO[8]         MX2A        A               In      -         17.400      -         
-servo_control_0.y_servo.next_pw_RNO[8]         MX2A        Y               Out     0.568     17.968      -         
-next_pw_6[8]                                   Net         -               -       0.322     -           1         
-servo_control_0.y_servo.next_pw[8]             DFN1E0      D               In      -         18.290      -         
+servo_control_0.x_servo.next_pw_RNO[17]        MX2A        A               In      -         18.191      -         
+servo_control_0.x_servo.next_pw_RNO[17]        MX2A        Y               Out     0.568     18.759      -         
+next_pw_6[17]                                  Net         -               -       0.322     -           1         
+servo_control_0.x_servo.next_pw[17]            DFN1E0      D               In      -         19.081      -         
 ===================================================================================================================
-Total path delay (propagation time + setup) of 18.863 is 8.001(42.4%) logic and 10.862(57.6%) route.
+Total path delay (propagation time + setup) of 19.654 is 8.882(45.2%) logic and 10.772(54.8%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1043,14 +1057,14 @@ Path information for path number 3:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.427
 
-    - Propagation time:                      18.290
+    - Propagation time:                      19.081
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (critical) :                     -8.863
+    = Slack (critical) :                     -9.654
 
-    Number of logic level(s):                12
+    Number of logic level(s):                14
     Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[9]
-    Ending point:                            servo_control_0.y_servo.next_pw[11] / D
+    Ending point:                            servo_control_0.x_servo.next_pw[11] / D
     The start point is clocked by            System [rising]
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
@@ -1065,39 +1079,45 @@ iPSELS_0_a2_0_1[1]                             Net         -               -    
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       B               In      -         2.019       -         
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       Y               Out     0.607     2.626       -         
 CoreAPB3_0_APBmslave1_PSELx_0                  Net         -               -       2.218     -           17        
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       A               In      -         4.844       -         
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       Y               Out     0.641     5.485       -         
-read_x_forward_0_a2_1_3                        Net         -               -       0.386     -           2         
-servo_control_0.m230                           NOR3C       A               In      -         5.871       -         
-servo_control_0.m230                           NOR3C       Y               Out     0.464     6.335       -         
-N_231                                          Net         -               -       0.806     -           3         
-servo_control_0.m237                           NOR3B       A               In      -         7.141       -         
-servo_control_0.m237                           NOR3B       Y               Out     0.641     7.782       -         
-N_238                                          Net         -               -       1.184     -           4         
-servo_control_0.m240                           NOR3B       B               In      -         8.966       -         
-servo_control_0.m240                           NOR3B       Y               Out     0.607     9.573       -         
-set_y_forward_c                                Net         -               -       0.806     -           3         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         B               In      -         10.379      -         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         Y               Out     0.646     11.025      -         
-un1_SET_ZERO_1                                 Net         -               -       0.322     -           1         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         C               In      -         11.347      -         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         Y               Out     0.751     12.098      -         
-un1_SET_ZERO                                   Net         -               -       0.386     -           2         
-servo_control_0.y_servo.next_pw24              NOR3B       C               In      -         12.484      -         
-servo_control_0.y_servo.next_pw24              NOR3B       Y               Out     0.488     12.972      -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       A               In      -         4.844       -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       Y               Out     0.641     5.485       -         
+read_x_forward_0_a2_2_3                        Net         -               -       0.322     -           1         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       A               In      -         5.806       -         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       Y               Out     0.514     6.321       -         
+N_66                                           Net         -               -       0.386     -           2         
+servo_control_0.m231_0                         NOR2B       B               In      -         6.707       -         
+servo_control_0.m231_0                         NOR2B       Y               Out     0.627     7.334       -         
+m231_0                                         Net         -               -       0.322     -           1         
+servo_control_0.m231                           NOR2B       A               In      -         7.656       -         
+servo_control_0.m231                           NOR2B       Y               Out     0.514     8.170       -         
+N_257_mux                                      Net         -               -       0.386     -           2         
+servo_control_0.m237                           NOR2A       A               In      -         8.556       -         
+servo_control_0.m237                           NOR2A       Y               Out     0.627     9.183       -         
+N_238                                          Net         -               -       0.386     -           2         
+servo_control_0.m238                           NOR2B       A               In      -         9.569       -         
+servo_control_0.m238                           NOR2B       Y               Out     0.514     10.083      -         
+N_239                                          Net         -               -       0.806     -           3         
+servo_control_0.m249                           NOR2A       A               In      -         10.890      -         
+servo_control_0.m249                           NOR2A       Y               Out     0.627     11.517      -         
+N_250                                          Net         -               -       0.806     -           3         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         B               In      -         12.324      -         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         Y               Out     0.646     12.970      -         
+un1_SET_PW_REVERSE                             Net         -               -       0.386     -           2         
+servo_control_0.x_servo.next_pw24              NOR2A       B               In      -         13.356      -         
+servo_control_0.x_servo.next_pw24              NOR2A       Y               Out     0.407     13.762      -         
 next_pw24                                      Net         -               -       1.184     -           4         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       B               In      -         14.156      -         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       Y               Out     0.516     14.672      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       B               In      -         14.946      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       Y               Out     0.516     15.462      -         
 next_pw_0_sqmuxa_1                             Net         -               -       0.322     -           1         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         A               In      -         14.993      -         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         Y               Out     0.984     15.977      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         A               In      -         15.784      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         Y               Out     0.984     16.767      -         
 next_pw_3_sqmuxa                               Net         -               -       1.423     -           6         
-servo_control_0.y_servo.next_pw_RNO[11]        MX2A        A               In      -         17.400      -         
-servo_control_0.y_servo.next_pw_RNO[11]        MX2A        Y               Out     0.568     17.968      -         
+servo_control_0.x_servo.next_pw_RNO[11]        MX2A        A               In      -         18.191      -         
+servo_control_0.x_servo.next_pw_RNO[11]        MX2A        Y               Out     0.568     18.759      -         
 next_pw_6[11]                                  Net         -               -       0.322     -           1         
-servo_control_0.y_servo.next_pw[11]            DFN1E0      D               In      -         18.290      -         
+servo_control_0.x_servo.next_pw[11]            DFN1E0      D               In      -         19.081      -         
 ===================================================================================================================
-Total path delay (propagation time + setup) of 18.863 is 8.001(42.4%) logic and 10.862(57.6%) route.
+Total path delay (propagation time + setup) of 19.654 is 8.882(45.2%) logic and 10.772(54.8%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1107,14 +1127,14 @@ Path information for path number 4:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.427
 
-    - Propagation time:                      18.290
+    - Propagation time:                      19.081
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (critical) :                     -8.863
+    = Slack (critical) :                     -9.654
 
-    Number of logic level(s):                12
+    Number of logic level(s):                14
     Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPADDR[9]
-    Ending point:                            servo_control_0.y_servo.next_pw[17] / D
+    Ending point:                            servo_control_0.x_servo.next_pw[8] / D
     The start point is clocked by            System [rising]
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
@@ -1129,39 +1149,45 @@ iPSELS_0_a2_0_1[1]                             Net         -               -    
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       B               In      -         2.019       -         
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       Y               Out     0.607     2.626       -         
 CoreAPB3_0_APBmslave1_PSELx_0                  Net         -               -       2.218     -           17        
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       A               In      -         4.844       -         
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       Y               Out     0.641     5.485       -         
-read_x_forward_0_a2_1_3                        Net         -               -       0.386     -           2         
-servo_control_0.m230                           NOR3C       A               In      -         5.871       -         
-servo_control_0.m230                           NOR3C       Y               Out     0.464     6.335       -         
-N_231                                          Net         -               -       0.806     -           3         
-servo_control_0.m237                           NOR3B       A               In      -         7.141       -         
-servo_control_0.m237                           NOR3B       Y               Out     0.641     7.782       -         
-N_238                                          Net         -               -       1.184     -           4         
-servo_control_0.m240                           NOR3B       B               In      -         8.966       -         
-servo_control_0.m240                           NOR3B       Y               Out     0.607     9.573       -         
-set_y_forward_c                                Net         -               -       0.806     -           3         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         B               In      -         10.379      -         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         Y               Out     0.646     11.025      -         
-un1_SET_ZERO_1                                 Net         -               -       0.322     -           1         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         C               In      -         11.347      -         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         Y               Out     0.751     12.098      -         
-un1_SET_ZERO                                   Net         -               -       0.386     -           2         
-servo_control_0.y_servo.next_pw24              NOR3B       C               In      -         12.484      -         
-servo_control_0.y_servo.next_pw24              NOR3B       Y               Out     0.488     12.972      -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       A               In      -         4.844       -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       Y               Out     0.641     5.485       -         
+read_x_forward_0_a2_2_3                        Net         -               -       0.322     -           1         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       A               In      -         5.806       -         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       Y               Out     0.514     6.321       -         
+N_66                                           Net         -               -       0.386     -           2         
+servo_control_0.m231_0                         NOR2B       B               In      -         6.707       -         
+servo_control_0.m231_0                         NOR2B       Y               Out     0.627     7.334       -         
+m231_0                                         Net         -               -       0.322     -           1         
+servo_control_0.m231                           NOR2B       A               In      -         7.656       -         
+servo_control_0.m231                           NOR2B       Y               Out     0.514     8.170       -         
+N_257_mux                                      Net         -               -       0.386     -           2         
+servo_control_0.m237                           NOR2A       A               In      -         8.556       -         
+servo_control_0.m237                           NOR2A       Y               Out     0.627     9.183       -         
+N_238                                          Net         -               -       0.386     -           2         
+servo_control_0.m238                           NOR2B       A               In      -         9.569       -         
+servo_control_0.m238                           NOR2B       Y               Out     0.514     10.083      -         
+N_239                                          Net         -               -       0.806     -           3         
+servo_control_0.m249                           NOR2A       A               In      -         10.890      -         
+servo_control_0.m249                           NOR2A       Y               Out     0.627     11.517      -         
+N_250                                          Net         -               -       0.806     -           3         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         B               In      -         12.324      -         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         Y               Out     0.646     12.970      -         
+un1_SET_PW_REVERSE                             Net         -               -       0.386     -           2         
+servo_control_0.x_servo.next_pw24              NOR2A       B               In      -         13.356      -         
+servo_control_0.x_servo.next_pw24              NOR2A       Y               Out     0.407     13.762      -         
 next_pw24                                      Net         -               -       1.184     -           4         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       B               In      -         14.156      -         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       Y               Out     0.516     14.672      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       B               In      -         14.946      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       Y               Out     0.516     15.462      -         
 next_pw_0_sqmuxa_1                             Net         -               -       0.322     -           1         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         A               In      -         14.993      -         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         Y               Out     0.984     15.977      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         A               In      -         15.784      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         Y               Out     0.984     16.767      -         
 next_pw_3_sqmuxa                               Net         -               -       1.423     -           6         
-servo_control_0.y_servo.next_pw_RNO[17]        MX2A        A               In      -         17.400      -         
-servo_control_0.y_servo.next_pw_RNO[17]        MX2A        Y               Out     0.568     17.968      -         
-next_pw_6[17]                                  Net         -               -       0.322     -           1         
-servo_control_0.y_servo.next_pw[17]            DFN1E0      D               In      -         18.290      -         
+servo_control_0.x_servo.next_pw_RNO[8]         MX2A        A               In      -         18.191      -         
+servo_control_0.x_servo.next_pw_RNO[8]         MX2A        Y               Out     0.568     18.759      -         
+next_pw_6[8]                                   Net         -               -       0.322     -           1         
+servo_control_0.x_servo.next_pw[8]             DFN1E0      D               In      -         19.081      -         
 ===================================================================================================================
-Total path delay (propagation time + setup) of 18.863 is 8.001(42.4%) logic and 10.862(57.6%) route.
+Total path delay (propagation time + setup) of 19.654 is 8.882(45.2%) logic and 10.772(54.8%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1171,14 +1197,14 @@ Path information for path number 5:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.427
 
-    - Propagation time:                      18.261
+    - Propagation time:                      19.051
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (non-critical) :                 -8.834
+    = Slack (non-critical) :                 -9.625
 
-    Number of logic level(s):                12
+    Number of logic level(s):                14
     Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / MSSPSEL
-    Ending point:                            servo_control_0.y_servo.next_pw[6] / D
+    Ending point:                            servo_control_0.x_servo.next_pw[6] / D
     The start point is clocked by            System [rising]
     The end   point is clocked by            FAB_CLK [rising] on pin CLK
 
@@ -1193,39 +1219,45 @@ iPSELS_0_a2_0_0[1]                             Net         -           -       1
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       A           In      -         2.132       -         
 CoreAPB3_0.iPSELS_0_a2_0[1]                    NOR3C       Y           Out     0.464     2.596       -         
 CoreAPB3_0_APBmslave1_PSELx_0                  Net         -           -       2.218     -           17        
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       A           In      -         4.814       -         
-servo_control_0.read_x_forward_0_a2_1_3        NOR3B       Y           Out     0.641     5.455       -         
-read_x_forward_0_a2_1_3                        Net         -           -       0.386     -           2         
-servo_control_0.m230                           NOR3C       A           In      -         5.841       -         
-servo_control_0.m230                           NOR3C       Y           Out     0.464     6.305       -         
-N_231                                          Net         -           -       0.806     -           3         
-servo_control_0.m237                           NOR3B       A           In      -         7.112       -         
-servo_control_0.m237                           NOR3B       Y           Out     0.641     7.753       -         
-N_238                                          Net         -           -       1.184     -           4         
-servo_control_0.m240                           NOR3B       B           In      -         8.937       -         
-servo_control_0.m240                           NOR3B       Y           Out     0.607     9.543       -         
-set_y_forward_c                                Net         -           -       0.806     -           3         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         B           In      -         10.350      -         
-servo_control_0.y_servo.un1_SET_ZERO_1         OR2         Y           Out     0.646     10.996      -         
-un1_SET_ZERO_1                                 Net         -           -       0.322     -           1         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         C           In      -         11.318      -         
-servo_control_0.y_servo.un1_SET_ZERO           OR3         Y           Out     0.751     12.068      -         
-un1_SET_ZERO                                   Net         -           -       0.386     -           2         
-servo_control_0.y_servo.next_pw24              NOR3B       C           In      -         12.454      -         
-servo_control_0.y_servo.next_pw24              NOR3B       Y           Out     0.488     12.942      -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       A           In      -         4.814       -         
+servo_control_0.read_x_forward_0_a2_2_3        NOR3B       Y           Out     0.641     5.455       -         
+read_x_forward_0_a2_2_3                        Net         -           -       0.322     -           1         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       A           In      -         5.777       -         
+servo_control_0.read_x_forward_0_a2_2          NOR2B       Y           Out     0.514     6.291       -         
+N_66                                           Net         -           -       0.386     -           2         
+servo_control_0.m231_0                         NOR2B       B           In      -         6.677       -         
+servo_control_0.m231_0                         NOR2B       Y           Out     0.627     7.305       -         
+m231_0                                         Net         -           -       0.322     -           1         
+servo_control_0.m231                           NOR2B       A           In      -         7.626       -         
+servo_control_0.m231                           NOR2B       Y           Out     0.514     8.140       -         
+N_257_mux                                      Net         -           -       0.386     -           2         
+servo_control_0.m237                           NOR2A       A           In      -         8.526       -         
+servo_control_0.m237                           NOR2A       Y           Out     0.627     9.154       -         
+N_238                                          Net         -           -       0.386     -           2         
+servo_control_0.m238                           NOR2B       A           In      -         9.540       -         
+servo_control_0.m238                           NOR2B       Y           Out     0.514     10.054      -         
+N_239                                          Net         -           -       0.806     -           3         
+servo_control_0.m249                           NOR2A       A           In      -         10.860      -         
+servo_control_0.m249                           NOR2A       Y           Out     0.627     11.488      -         
+N_250                                          Net         -           -       0.806     -           3         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         B           In      -         12.294      -         
+servo_control_0.x_servo.un1_SET_PW_REVERSE     OR2         Y           Out     0.646     12.941      -         
+un1_SET_PW_REVERSE                             Net         -           -       0.386     -           2         
+servo_control_0.x_servo.next_pw24              NOR2A       B           In      -         13.326      -         
+servo_control_0.x_servo.next_pw24              NOR2A       Y           Out     0.407     13.733      -         
 next_pw24                                      Net         -           -       1.184     -           4         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       B           In      -         14.126      -         
-servo_control_0.y_servo.next_pw_0_sqmuxa_1     NOR2B       Y           Out     0.516     14.642      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       B           In      -         14.917      -         
+servo_control_0.x_servo.next_pw_0_sqmuxa_1     NOR2B       Y           Out     0.516     15.433      -         
 next_pw_0_sqmuxa_1                             Net         -           -       0.322     -           1         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         A           In      -         14.964      -         
-servo_control_0.y_servo.next_pw_3_sqmuxa       OA1         Y           Out     0.984     15.947      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         A           In      -         15.754      -         
+servo_control_0.x_servo.next_pw_3_sqmuxa       OA1         Y           Out     0.984     16.738      -         
 next_pw_3_sqmuxa                               Net         -           -       1.423     -           6         
-servo_control_0.y_servo.next_pw_RNO[6]         MX2A        A           In      -         17.371      -         
-servo_control_0.y_servo.next_pw_RNO[6]         MX2A        Y           Out     0.568     17.939      -         
+servo_control_0.x_servo.next_pw_RNO[6]         MX2A        A           In      -         18.161      -         
+servo_control_0.x_servo.next_pw_RNO[6]         MX2A        Y           Out     0.568     18.730      -         
 next_pw_6[6]                                   Net         -           -       0.322     -           1         
-servo_control_0.y_servo.next_pw[6]             DFN1E0      D           In      -         18.261      -         
+servo_control_0.x_servo.next_pw[6]             DFN1E0      D           In      -         19.051      -         
 ===============================================================================================================
-Total path delay (propagation time + setup) of 18.834 is 7.972(42.3%) logic and 10.862(57.7%) route.
+Total path delay (propagation time + setup) of 19.625 is 8.853(45.1%) logic and 10.772(54.9%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1237,63 +1269,62 @@ Target Part: A2F200M3F_FBGA484_STD
 Report for cell ants_master.verilog
   Core Cell usage:
               cell count     area count*area
-              AND2   113      1.0      113.0
+              AND2    49      1.0       49.0
              AND2A    14      1.0       14.0
               AND3    84      1.0       84.0
                AO1    69      1.0       69.0
-              AO1A     5      1.0        5.0
-              AO1B     3      1.0        3.0
-              AO1C    85      1.0       85.0
-              AO1D     3      1.0        3.0
-              AOI1     6      1.0        6.0
+              AO1A     2      1.0        2.0
+              AO1B     2      1.0        2.0
+              AO1C    84      1.0       84.0
+              AO1D     2      1.0        2.0
+              AOI1     5      1.0        5.0
              AOI1A    26      1.0       26.0
              AOI1B    10      1.0       10.0
-               AX1     5      1.0        5.0
-              AX1C    43      1.0       43.0
-              AX1E     2      1.0        2.0
-              BUFF     1      1.0        1.0
+               AX1    12      1.0       12.0
+              AX1A     1      1.0        1.0
+              AX1C    47      1.0       47.0
+              BUFF     2      1.0        2.0
             CLKINT     3      0.0        0.0
                GND    14      0.0        0.0
            MSS_APB     1      0.0        0.0
            MSS_CCC     1      0.0        0.0
                MX2   147      1.0      147.0
               MX2A    20      1.0       20.0
-              MX2B     2      1.0        2.0
-              MX2C    32      1.0       32.0
-              NOR2    30      1.0       30.0
-             NOR2A   236      1.0      236.0
-             NOR2B   291      1.0      291.0
-              NOR3    17      1.0       17.0
-             NOR3A    35      1.0       35.0
+              MX2B     3      1.0        3.0
+              MX2C    35      1.0       35.0
+              NOR2    33      1.0       33.0
+             NOR2A   235      1.0      235.0
+             NOR2B   303      1.0      303.0
+              NOR3    13      1.0       13.0
+             NOR3A    26      1.0       26.0
              NOR3B    24      1.0       24.0
-             NOR3C   138      1.0      138.0
-               OA1    36      1.0       36.0
-              OA1A    64      1.0       64.0
+             NOR3C   129      1.0      129.0
+               OA1    35      1.0       35.0
+              OA1A    60      1.0       60.0
               OA1B     2      1.0        2.0
-              OA1C     5      1.0        5.0
-               OR2    35      1.0       35.0
-              OR2A   167      1.0      167.0
-              OR2B    20      1.0       20.0
-               OR3    44      1.0       44.0
-              OR3A     2      1.0        2.0
-              OR3B    12      1.0       12.0
-              OR3C     7      1.0        7.0
+              OA1C     7      1.0        7.0
+              OAI1     4      1.0        4.0
+               OR2    33      1.0       33.0
+              OR2A   154      1.0      154.0
+              OR2B    21      1.0       21.0
+               OR3    49      1.0       49.0
+              OR3B    17      1.0       17.0
+              OR3C     6      1.0        6.0
              RCOSC     1      0.0        0.0
                VCC    14      0.0        0.0
-               XA1    58      1.0       58.0
-              XA1A    28      1.0       28.0
+               XA1    68      1.0       68.0
+              XA1A    30      1.0       30.0
               XA1B     7      1.0        7.0
-              XAI1     2      1.0        2.0
-             XNOR2   200      1.0      200.0
-               XO1    21      1.0       21.0
-              XOR2    92      1.0       92.0
+             XNOR2   196      1.0      196.0
+               XO1    20      1.0       20.0
+              XOR2    75      1.0       75.0
 
 
-              DFN1   218      1.0      218.0
-            DFN1E0   100      1.0      100.0
-            DFN1E1   184      1.0      184.0
+              DFN1   216      1.0      216.0
+            DFN1E0    68      1.0       68.0
+            DFN1E1   218      1.0      218.0
                    -----          ----------
-             TOTAL  2779              2745.0
+             TOTAL  2697              2663.0
 
 
   IO Cell usage:
@@ -1308,7 +1339,7 @@ Report for cell ants_master.verilog
              TOTAL    17
 
 
-Core Cells         : 2745 of 4608 (60%)
+Core Cells         : 2663 of 4608 (58%)
 IO Cells           : 17
 
   RAM/ROM Usage Summary
@@ -1316,9 +1347,9 @@ Block Rams : 0 of 8 (0%)
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 52MB peak: 133MB)
+At Mapper Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 51MB peak: 136MB)
 
-Process took 0h:00m:07s realtime, 0h:00m:07s cputime
-# Tue Apr 05 17:07:06 2016
+Process took 0h:00m:05s realtime, 0h:00m:05s cputime
+# Tue Apr 05 17:35:35 2016
 
 ###########################################################]

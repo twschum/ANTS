@@ -37,7 +37,7 @@ void servos_print_counts() {
 	volatile uint32_t* y_f_count = (volatile uint32_t*)Y_READ_FORWARD;
 	volatile uint32_t* y_r_count = (volatile uint32_t*)Y_READ_REVERSE;
 
-	printf("X Forward: %d,  X Reverse: %d\r\nY Forward: %d,  Y Reverse: %d",
+	printf("X Forward: %d,  X Reverse: %d\r\nY Forward: %d,  Y Reverse: %d\r\n",
 			*x_f_count,
 			*x_r_count,
 			*y_f_count,
