@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 05 15:52:50 2016
+// Created by SmartDesign Tue Apr 05 18:06:28 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -18,9 +18,6 @@ module ants_master(
     SPI_0_DO,
     UART_0_TXD,
     UART_1_TXD,
-    read_x_reverse,
-    set_x,
-    set_y_forward,
     x_servo_pwm,
     y_servo_pwm,
     // Inouts
@@ -44,9 +41,6 @@ output GPIO_1_OUT;
 output SPI_0_DO;
 output UART_0_TXD;
 output UART_1_TXD;
-output read_x_reverse;
-output set_x;
-output set_y_forward;
 output x_servo_pwm;
 output y_servo_pwm;
 //--------------------------------------------------------------------
@@ -83,9 +77,6 @@ wire          fab_pin;
 wire          GPIO_0_OUT_net_0;
 wire          GPIO_1_OUT_net_0;
 wire          MSS_RESET_N;
-wire          read_x_reverse_net_0;
-wire          set_x_net_0;
-wire          set_y_forward_net_0;
 wire          SPI_0_CLK;
 wire          SPI_0_DI;
 wire          SPI_0_DO_net_0;
@@ -103,9 +94,6 @@ wire          GPIO_1_OUT_net_1;
 wire          GPIO_0_OUT_net_1;
 wire          x_servo_pwm_net_1;
 wire          y_servo_pwm_net_1;
-wire          read_x_reverse_net_1;
-wire          set_x_net_1;
-wire          set_y_forward_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -158,26 +146,20 @@ assign PRDATAS16_const_net_0 = 32'h00000000;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign UART_1_TXD_net_1     = UART_1_TXD_net_0;
-assign UART_1_TXD           = UART_1_TXD_net_1;
-assign UART_0_TXD_net_1     = UART_0_TXD_net_0;
-assign UART_0_TXD           = UART_0_TXD_net_1;
-assign SPI_0_DO_net_1       = SPI_0_DO_net_0;
-assign SPI_0_DO             = SPI_0_DO_net_1;
-assign GPIO_1_OUT_net_1     = GPIO_1_OUT_net_0;
-assign GPIO_1_OUT           = GPIO_1_OUT_net_1;
-assign GPIO_0_OUT_net_1     = GPIO_0_OUT_net_0;
-assign GPIO_0_OUT           = GPIO_0_OUT_net_1;
-assign x_servo_pwm_net_1    = x_servo_pwm_net_0;
-assign x_servo_pwm          = x_servo_pwm_net_1;
-assign y_servo_pwm_net_1    = y_servo_pwm_net_0;
-assign y_servo_pwm          = y_servo_pwm_net_1;
-assign read_x_reverse_net_1 = read_x_reverse_net_0;
-assign read_x_reverse       = read_x_reverse_net_1;
-assign set_x_net_1          = set_x_net_0;
-assign set_x                = set_x_net_1;
-assign set_y_forward_net_1  = set_y_forward_net_0;
-assign set_y_forward        = set_y_forward_net_1;
+assign UART_1_TXD_net_1  = UART_1_TXD_net_0;
+assign UART_1_TXD        = UART_1_TXD_net_1;
+assign UART_0_TXD_net_1  = UART_0_TXD_net_0;
+assign UART_0_TXD        = UART_0_TXD_net_1;
+assign SPI_0_DO_net_1    = SPI_0_DO_net_0;
+assign SPI_0_DO          = SPI_0_DO_net_1;
+assign GPIO_1_OUT_net_1  = GPIO_1_OUT_net_0;
+assign GPIO_1_OUT        = GPIO_1_OUT_net_1;
+assign GPIO_0_OUT_net_1  = GPIO_0_OUT_net_0;
+assign GPIO_0_OUT        = GPIO_0_OUT_net_1;
+assign x_servo_pwm_net_1 = x_servo_pwm_net_0;
+assign x_servo_pwm       = x_servo_pwm_net_1;
+assign y_servo_pwm_net_1 = y_servo_pwm_net_0;
+assign y_servo_pwm       = y_servo_pwm_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -364,22 +346,19 @@ n64_magic_box n64_magic_box_0(
 //--------servo_control
 servo_control servo_control_0(
         // Inputs
-        .PCLK           ( ants_master_MSS_0_FAB_CLK ),
-        .PRESERN        ( ants_master_MSS_0_M2F_RESET_N ),
-        .PSEL           ( CoreAPB3_0_APBmslave1_PSELx ),
-        .PENABLE        ( CoreAPB3_0_APBmslave0_PENABLE ),
-        .PWRITE         ( CoreAPB3_0_APBmslave0_PWRITE ),
-        .PADDR          ( CoreAPB3_0_APBmslave0_PADDR ),
-        .PWDATA         ( CoreAPB3_0_APBmslave0_PWDATA ),
+        .PCLK        ( ants_master_MSS_0_FAB_CLK ),
+        .PRESERN     ( ants_master_MSS_0_M2F_RESET_N ),
+        .PSEL        ( CoreAPB3_0_APBmslave1_PSELx ),
+        .PENABLE     ( CoreAPB3_0_APBmslave0_PENABLE ),
+        .PWRITE      ( CoreAPB3_0_APBmslave0_PWRITE ),
+        .PADDR       ( CoreAPB3_0_APBmslave0_PADDR ),
+        .PWDATA      ( CoreAPB3_0_APBmslave0_PWDATA ),
         // Outputs
-        .PREADY         ( CoreAPB3_0_APBmslave1_PREADY ),
-        .PSLVERR        ( CoreAPB3_0_APBmslave1_PSLVERR ),
-        .PRDATA         ( CoreAPB3_0_APBmslave1_PRDATA ),
-        .x_servo_pwm    ( x_servo_pwm_net_0 ),
-        .y_servo_pwm    ( y_servo_pwm_net_0 ),
-        .set_y_forward  ( set_y_forward_net_0 ),
-        .set_x          ( set_x_net_0 ),
-        .read_x_reverse ( read_x_reverse_net_0 ) 
+        .PREADY      ( CoreAPB3_0_APBmslave1_PREADY ),
+        .PSLVERR     ( CoreAPB3_0_APBmslave1_PSLVERR ),
+        .PRDATA      ( CoreAPB3_0_APBmslave1_PRDATA ),
+        .x_servo_pwm ( x_servo_pwm_net_0 ),
+        .y_servo_pwm ( y_servo_pwm_net_0 ) 
         );
 
 
