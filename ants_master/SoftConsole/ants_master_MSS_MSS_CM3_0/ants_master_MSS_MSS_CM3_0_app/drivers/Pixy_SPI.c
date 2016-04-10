@@ -1,24 +1,20 @@
 
 #include "Pixy_SPI.h"
 
-// data types
-typedef enum {
-    NORMAL_BLOCK,
-    CC_BLOCK  // color code block
-} PixyBlockType;
 
-typedef struct {
-    uint16_t signature;
-    uint16_t x;
-    uint16_t y;
-    uint16_t width;
-    uint16_t height;
-    uint16_t angle;  // angle is only available for color coded blocks
-} PixyBlock;
 
 // communication routines (internal)
 static uint16_t getWord(void);
 static int sendByte(uint8_t *data, int len);
+// variables for a little circular queue
+static uint8_t g_outBuf[PIXY_OUTBUF_SIZE];
+static uint8_t g_outLen = 0;
+static uint8_t g_outWriteIndex = 0;
+static uint8_t g_outReadIndex = 0;
+
+static int g_skipStart = 0;
+PixyBlockType g_blockType;
+PixyBlock *g_blocks;
 
 ///////////////////////////////////////////////////////////////////////////////
 // SPI routines
@@ -36,11 +32,6 @@ uint8_t getByte(uint8_t out) {
     return in_rx;
 }
 
-// variables for a little circular queue
-static uint8_t g_outBuf[PIXY_OUTBUF_SIZE];
-static uint8_t g_outLen = 0;
-static uint8_t g_outWriteIndex = 0;
-static uint8_t g_outReadIndex = 0;
 
 uint16_t getWord() {
     // ordering is big endian because Pixy is sending 16 bits through SPI
@@ -80,10 +71,6 @@ int sendByte(uint8_t *data, int len) {
 }
 // end SPI routines
 ///////////////////////////////////////////////////////////////////////////////
-
-static int g_skipStart = 0;
-static PixyBlockType g_blockType;
-static PixyBlock *g_blocks;
 
 void Pixy_init() {
     g_blocks = (PixyBlock *)malloc(sizeof(PixyBlock) * PIXY_ARRAYSIZE);

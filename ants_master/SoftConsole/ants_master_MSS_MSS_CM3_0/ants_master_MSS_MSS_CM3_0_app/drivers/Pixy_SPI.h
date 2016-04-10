@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include "drivers/mss_spi/mss_spi.h"
 
+
 #define PIXY_ARRAYSIZE              100
 #define PIXY_START_WORD             0xaa55
 #define PIXY_START_WORD_CC          0xaa56
@@ -22,6 +23,24 @@
 
 #define PIXY_SYNC_BYTE              0x5a
 #define PIXY_SYNC_BYTE_DATA         0x5b
+
+// data types
+typedef enum {
+    NORMAL_BLOCK,
+    CC_BLOCK  // color code block
+} PixyBlockType;
+
+typedef struct {
+    uint16_t signature;
+    uint16_t x;
+    uint16_t y;
+    uint16_t width;
+    uint16_t height;
+    uint16_t angle;  // angle is only available for color coded blocks
+} PixyBlock;
+
+extern PixyBlockType g_blockType;
+extern PixyBlock *g_blocks;
 
 /*
  * Initialize the blocks data buffer,
