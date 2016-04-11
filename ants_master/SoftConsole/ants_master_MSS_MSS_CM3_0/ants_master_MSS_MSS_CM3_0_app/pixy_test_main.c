@@ -29,13 +29,13 @@ int main()
   {
 	curr = Pixy_get_blocks(50);
 	if(curr){
-		++i;
+		//++i;
 		//This should print roughly once per second
-		if(i%50 == 0){
+		//if(i%50 == 0){
 			printf("frame %d\r\n", i);
 			pixy_block_t *b = &g_blocks[0];
 			pixy_print(b);
-		}
+		//}
 	}
   }
 }

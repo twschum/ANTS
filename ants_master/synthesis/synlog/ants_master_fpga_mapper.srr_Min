@@ -1,7 +1,7 @@
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Tue Apr 05 18:44:26 2016
+# Timing Report written on Mon Apr 11 15:47:00 2016
 #
 
 
@@ -11,7 +11,7 @@ Requested Frequency:    100.0 MHz
 Wire load mode:         top
 Wire load model:        smartfusion
 Paths requested:        5
-Constraint File(s):    C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master_MSS\mss_tshell_syn.sdc
+Constraint File(s):    C:\Users\jknudson\Desktop\373\ants_master\component\work\ants_master_MSS\mss_tshell_syn.sdc
                        
 @N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
 
@@ -28,7 +28,7 @@ Worst slack in design: 0.225
                    Requested     Estimated     Requested     Estimated                Clock        Clock          
 Starting Clock     Frequency     Frequency     Period        Period        Slack      Type         Group          
 ------------------------------------------------------------------------------------------------------------------
-FAB_CLK            100.0 MHz     64.4 MHz      10.000        15.518        -5.518     declared     clk_group_0    
+FAB_CLK            100.0 MHz     60.1 MHz      10.000        16.644        -6.644     declared     clk_group_0    
 FCLK               100.0 MHz     NA            10.000        NA            NA         declared     clk_group_0    
 System             100.0 MHz     145.0 MHz     10.000        6.894         3.106      system       system_clkgroup
 ==================================================================================================================
@@ -68,21 +68,21 @@ Detailed Report for Clock: FAB_CLK
 Starting Points with Worst Slack
 ********************************
 
-                                                  Starting                                                           Arrival          
-Instance                                          Reference     Type     Pin     Net                                 Time        Slack
-                                                  Clock                                                                               
---------------------------------------------------------------------------------------------------------------------------------------
-servo_control_0.PRDATA[0]                         FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[0]     0.580       1.550
-servo_control_0.PRDATA[1]                         FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[1]     0.580       1.550
-n64_magic_box_0.n64_apb_interface_0.PRDATA[2]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[2]     0.580       1.550
-n64_magic_box_0.n64_apb_interface_0.PRDATA[3]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave0_PRDATA[3]     0.580       1.550
-servo_control_0.PRDATA[4]                         FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[4]     0.580       1.550
-servo_control_0.PRDATA[5]                         FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[5]     0.580       1.550
-servo_control_0.PRDATA[6]                         FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[6]     0.580       1.550
-servo_control_0.PRDATA[7]                         FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[7]     0.580       1.550
-servo_control_0.PRDATA[8]                         FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[8]     0.580       1.550
-servo_control_0.PRDATA[9]                         FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[9]     0.580       1.550
-======================================================================================================================================
+                              Starting                                                           Arrival          
+Instance                      Reference     Type     Pin     Net                                 Time        Slack
+                              Clock                                                                               
+------------------------------------------------------------------------------------------------------------------
+servo_control_0.PRDATA[0]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[0]     0.580       1.550
+servo_control_0.PRDATA[1]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[1]     0.580       1.550
+servo_control_0.PRDATA[2]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[2]     0.580       1.550
+servo_control_0.PRDATA[3]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[3]     0.580       1.550
+servo_control_0.PRDATA[4]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[4]     0.580       1.550
+servo_control_0.PRDATA[5]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[5]     0.580       1.550
+servo_control_0.PRDATA[6]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[6]     0.580       1.550
+servo_control_0.PRDATA[7]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[7]     0.580       1.550
+servo_control_0.PRDATA[8]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[8]     0.580       1.550
+servo_control_0.PRDATA[9]     FAB_CLK       DFN1     Q       CoreAPB3_0_APBmslave1_PRDATA[9]     0.580       1.550
+==================================================================================================================
 
 
 Ending Points with Worst Slack
@@ -155,7 +155,9 @@ Instance                             Reference     Type        Pin              
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     EMCCLK           MSS_ADLIB_INST_EMCCLK                      0.000       0.225
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     SPI0DO           MSS_SPI_0_DO_D                             0.000       0.225
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     SPI0DOE          MSS_SPI_0_DO_E                             0.000       0.225
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]      CoreAPB3_0_APBmslave0_PADDR[8]             0.000       3.563
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     SPI1DO           MSS_SPI_1_DO_D                             0.000       0.225
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     SPI1DOE          MSS_SPI_1_DO_E                             0.000       0.225
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]      CoreAPB3_0_APBmslave0_PADDR[8]             0.000       3.806
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]     CoreAPB3_0_APBmslave0_PADDR[11]            0.000       4.247
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]     CoreAPB3_0_APBmslave0_PADDR[10]            0.000       4.367
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL          ants_master_MSS_0_MSS_MASTER_APB_PSELx     0.000       4.407
@@ -173,13 +175,13 @@ Instance                             Reference     Type            Pin          
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         EMCCLKRTN         MSS_ADLIB_INST_EMCCLK                           0.000        0.225
 ants_master_MSS_0.MSS_SPI_0_DO       System        TRIBUFF_MSS     D                 MSS_SPI_0_DO_D                                  0.000        0.225
 ants_master_MSS_0.MSS_SPI_0_DO       System        TRIBUFF_MSS     E                 MSS_SPI_0_DO_E                                  0.000        0.225
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[2]      ants_master_MSS_0_MSS_MASTER_APB_PRDATA[2]      0.000        3.563
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[3]      ants_master_MSS_0_MSS_MASTER_APB_PRDATA[3]      0.000        3.563
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[26]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[26]     0.000        3.563
+ants_master_MSS_0.MSS_SPI_1_DO       System        TRIBUFF_MSS     D                 MSS_SPI_1_DO_D                                  0.000        0.225
+ants_master_MSS_0.MSS_SPI_1_DO       System        TRIBUFF_MSS     E                 MSS_SPI_1_DO_E                                  0.000        0.225
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[16]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[16]     0.000        3.806
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[17]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[17]     0.000        3.806
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[18]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[18]     0.000        3.806
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[19]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[19]     0.000        3.806
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[20]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[20]     0.000        3.806
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[21]     ants_master_MSS_0_MSS_MASTER_APB_PRDATA[21]     0.000        3.806
 =======================================================================================================================================================
 
 
