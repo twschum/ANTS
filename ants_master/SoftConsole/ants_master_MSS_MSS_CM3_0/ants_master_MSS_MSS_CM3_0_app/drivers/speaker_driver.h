@@ -5,18 +5,34 @@
  *      Author: rpokeefe
  */
 #include "drivers/mss_ace/mss_ace.h"
-
+#include "sound.h"
 #ifndef SPEAKER_DRIVER_H_
 #define SPEAKER_DRIVER_H_
 
 void speaker_init() {
-	ACE_configure_sdd (SDD0_OUT, SDD_24_BITS, SDD_VOLTAGE_MODE, SYNC_UPDATE);
+	ACE_init();
+	ACE_configure_sdd (SDD0_OUT, SDD_8_BITS,
+			SDD_VOLTAGE_MODE|SDD_RETURN_TO_ZERO,INDIVIDUAL_UPDATE);
+	ACE_enable_sdd(SDD0_OUT);
+
 }
 
 void play_sound() {
-	ACE_enable_sdd(SDD0_OUT);
-	ACE_set_sdd_value(SDD0_OUT, 0x00FFFFFF);
-	ACE_disable_sdd(SDD0_OUT);
+	volatile uint32_t i = 0;
+	volatile uint32_t wait = 0;
+	while (i < 15935) {
+		ACE_set_sdd_value(SDD0_OUT,(uint32_t)(systems_go[i]));
+		for (wait = 0; wait < 700; ++wait) {}
+		i++;
+	}
+//	i = 0;
+//	while (i < 34824) {
+//		ACE_set_sdd_value(SDD0_OUT,(uint32_t)(turret[i]));
+//		for (wait = 0; wait < 700; ++wait) {}
+//		i++;
+//	}
+	ACE_set_sdd_value(SDD0_OUT,(uint32_t)(0));
+	//ACE_disable_sdd(SDD0_OUT);
 }
 
 
