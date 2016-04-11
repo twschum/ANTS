@@ -22,11 +22,11 @@
 #define TARGET_UL_POS_X		78					//
 #define TARGET_UL_POS_Y		31					//
 #define TARGET_LR_POS_X		158					//
-#define TARGET_LR_POS_Y		29					//				
+#define TARGET_LR_POS_Y		23					//				
 												//
 #define N64_DBG_BOX_X1		0					//
 #define N64_DBG_BOX_Y1		0					//
-#define N64_DBG_BOX_X2		100					//
+#define N64_DBG_BOX_X2		144					//
 #define N64_DBG_BOX_Y2		12					//
 												//
 #define SHOTS_LEFT_POS_X	10					//
@@ -37,6 +37,9 @@
 												//
 #define PRESSURE_POS_X		0					//
 #define PRESSURE_POS_Y		0					//
+												//	
+#define DIST_POS_X			0					//
+#define DIST_POS_Y			0					//
 												//
 #define SET 				1 					//
 #define UNSET				0					//
@@ -65,6 +68,7 @@
 #define CHAR_WIDTH			6 					//
 #define CHAR_HEIGHT			8 					//	
 												//
+#define TARGET_RAD			2 					//										
 												//
 //////////////////////////////////////////////////
 
@@ -98,23 +102,29 @@ typedef pixel_t point_t;
 typedef struct {
 	//Pointer to the shape representing the position of the laser pointer
 	circle_t*	target_pos;
-	circle_t*	turret_pos;
+	//circle_t*	turret_pos;
+	uint8_t 	distance;
 	uint8_t 	shots_left;
 	uint8_t		target_mode; 		
 } lcd_screen_state_t;
 
-
-void updateDisplay(lcd_screen_state_t* lcd_state, n64_state_t* ctrlr_state);
+//Not sure how fast some of these will run... we may need to crank up the baud
 
 void initDisplay();
 
-void writePos(unsigned int x, unsigned int y);
+void updateDisplay(lcd_screen_state_t*, lcd_screen_state_t*, n64_state_t*);
 
-void writeShots(unsigned int shots);
+//Clears X: Y: and graphic on screen, writes new values
+void disp_write_target(unsigned int, unsigned int);
 
-void writeMode(char mode);
+void disp_write_shots(unsigned int);
 
-void writeN64State();
+//Argument is assumed to have already been scaled
+void disp_write_dist(unsigned int distance);
+
+void disp_write_mode(char);
+
+void disp_write_N64();
 
 void testBarebones();
 
