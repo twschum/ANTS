@@ -13,8 +13,8 @@ static uint8_t g_outWriteIndex = 0;
 static uint8_t g_outReadIndex = 0;
 
 static int g_skipStart = 0;
-PixyBlockType g_blockType;
-PixyBlock *g_blocks;
+block_type_enum g_blockType;
+pixy_block_t *g_blocks;
 
 ///////////////////////////////////////////////////////////////////////////////
 // SPI routines
@@ -73,7 +73,7 @@ int sendByte(uint8_t *data, int len) {
 ///////////////////////////////////////////////////////////////////////////////
 
 void Pixy_init() {
-    g_blocks = (PixyBlock *)malloc(sizeof(PixyBlock) * PIXY_ARRAYSIZE);
+    g_blocks = (pixy_block_t *)malloc(sizeof(pixy_block_t) * PIXY_ARRAYSIZE);
 
     const uint8_t frame_size = 8;  // Single byte for Pixy
 
@@ -110,7 +110,7 @@ int Pixy_get_start(void) {
 uint16_t Pixy_get_blocks(uint16_t max_blocks) {
     uint8_t i;
     uint16_t w, blockCount, checksum, sum;
-    PixyBlock *block;
+    pixy_block_t *block;
 
     if (!g_skipStart) {
         if (Pixy_get_start() == 0)
@@ -136,7 +136,7 @@ uint16_t Pixy_get_blocks(uint16_t max_blocks) {
 
         block = g_blocks + blockCount;
 
-        for (i = 0, sum = 0; i < sizeof(PixyBlock) / sizeof(uint16_t); i++) {
+        for (i = 0, sum = 0; i < sizeof(pixy_block_t) / sizeof(uint16_t); i++) {
             if (g_blockType == NORMAL_BLOCK &&
                 i >= 5)  // no angle for normal block
             {
@@ -184,4 +184,30 @@ int Pixy_set_LED(uint8_t r, uint8_t g, uint8_t b) {
     outBuf[4] = b;
 
     return sendByte(outBuf, 5);
+}
+
+pixy_block_t Pixy_get_single_block(){
+    pixy_block_t b;
+    Pixy_get_blocks(1);
+    b = g_blocks[0];
+    return b;
+}
+
+target_pos_t Pixy_get_targ_difference(){
+    pixy_block_t target = Pixy_get_single_block();
+    target_pos_t t;
+
+    t.x = target.x - PIXY_X_CENTER;
+    t.y = target.y - PIXY_Y_CENTER;
+
+    return t;
+}
+
+void pixy_print(PixyBlock *b){
+    printf("\tsignature: %d\r\n", b->signature);
+    printf("\tx: %d\r\n", b->x);
+    printf("\ty: %d\r\n", b->y);
+    printf("\tw: %d\r\n", b->width);
+    printf("\th: %d\r\n", b->height);
+    printf("\tangle: %d\r\n", b->angle);
 }

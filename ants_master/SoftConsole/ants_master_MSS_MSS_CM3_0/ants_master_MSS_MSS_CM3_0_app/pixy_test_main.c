@@ -43,10 +43,11 @@ int main()
 }
 
 void pixy_print(PixyBlock *b){
-	printf("\tsignature: %d", b->signature);
-	printf("\tx: %d", b->x);
-	printf("\ty: %d", b->y);
-	printf("\tw: %d", b->width);
-	printf("\th: %d", b->height);
-	printf("\tangle: %d", b->angle);
+	printf("\tsignature: %d\r\n", b->signature);
+	printf("\tx: %d\r\n", b->x);
+	printf("\ty: %d\r\n", b->y);
+	printf("\tw: %d\r\n", b->width);
+	printf("\th: %d\r\n", b->height);
+	printf("\tangle: %d\r\n", b->angle);
 }
+
