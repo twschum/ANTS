@@ -83,7 +83,7 @@ pixy_block_t Pixy_get_single_block();
 //Returns the absolute difference between the target and the center of the cam
 target_pos_t Pixy_get_targ_difference();
 
-void pixy_print(PixyBlock *b);
+void pixy_print(pixy_block_t *b);
 
 
 

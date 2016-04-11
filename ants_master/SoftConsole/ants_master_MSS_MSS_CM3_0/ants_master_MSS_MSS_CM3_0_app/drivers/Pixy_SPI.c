@@ -203,7 +203,7 @@ target_pos_t Pixy_get_targ_difference(){
     return t;
 }
 
-void pixy_print(PixyBlock *b){
+void pixy_print(pixy_block_t *b){
     printf("\tsignature: %d\r\n", b->signature);
     printf("\tx: %d\r\n", b->x);
     printf("\ty: %d\r\n", b->y);

@@ -20,8 +20,6 @@ prev = curr;*/
 
 //Below is an example that actually works
 
-void pixy_print(PixyBlock *b);
-
 int main()
 {
   int i=0, curr;
@@ -35,19 +33,10 @@ int main()
 		//This should print roughly once per second
 		if(i%50 == 0){
 			printf("frame %d\r\n", i);
-			PixyBlock *b = &g_blocks[0];
+			pixy_block_t *b = &g_blocks[0];
 			pixy_print(b);
 		}
 	}
   }
-}
-
-void pixy_print(PixyBlock *b){
-	printf("\tsignature: %d\r\n", b->signature);
-	printf("\tx: %d\r\n", b->x);
-	printf("\ty: %d\r\n", b->y);
-	printf("\tw: %d\r\n", b->width);
-	printf("\th: %d\r\n", b->height);
-	printf("\tangle: %d\r\n", b->angle);
 }
 
