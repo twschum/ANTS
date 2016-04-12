@@ -1,0 +1,14 @@
+/*
+ *
+ * 	Driver for our Distance Sensor
+ *
+ */
+
+#include <inttypes.h>
+#include <stdio.h>
+
+#define DSNSR_ADDR			0x40050200
+#define	inch_to_meter		0.0254
+
+void get_distance(uint32_t);
+void print_distance();

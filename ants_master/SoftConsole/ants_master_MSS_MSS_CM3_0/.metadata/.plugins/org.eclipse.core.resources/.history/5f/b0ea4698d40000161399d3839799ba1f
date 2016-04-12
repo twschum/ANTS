@@ -1,0 +1,16 @@
+/*
+ *
+ * 	Driver for our Distance Sensor
+ *
+ */
+
+#include <inttypes.h>
+#include <stdio.h>
+
+#define DSNSR_ADDR		0x40050200
+#define	IN_to_METER		0.0254
+#define CLK_PERIOD		1
+#define	SEC_to_IN		6802721.0884
+
+uint32_t get_distance();
+void print_distance();

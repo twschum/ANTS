@@ -1,0 +1,12 @@
+/*
+ *
+ */
+
+#include "dsensor_driver.h"
+
+// read the current state
+void get_distance(n64_state_t* state)
+{
+    volatile n64_state_t* address = (volatile n64_state_t*)DSNSR_ADDR;
+    *state = *address;
+}

@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 12 02:17:21 2016
+// Created by SmartDesign Tue Apr 12 12:58:04 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -12,6 +12,7 @@ module ants_master(
     SPI_0_DI,
     UART_0_RXD,
     UART_1_RXD,
+    sensor_pwm,
     stop_y,
     // Outputs
     GPIO_0_OUT,
@@ -34,6 +35,7 @@ input        MSS_RESET_N;
 input        SPI_0_DI;
 input        UART_0_RXD;
 input        UART_1_RXD;
+input        sensor_pwm;
 input  [1:0] stop_y;
 //--------------------------------------------------------------------
 // Output
@@ -75,10 +77,15 @@ wire   [31:0] CoreAPB3_0_APBmslave1_PRDATA;
 wire          CoreAPB3_0_APBmslave1_PREADY;
 wire          CoreAPB3_0_APBmslave1_PSELx;
 wire          CoreAPB3_0_APBmslave1_PSLVERR;
+wire   [31:0] CoreAPB3_0_APBmslave2_PRDATA;
+wire          CoreAPB3_0_APBmslave2_PREADY;
+wire          CoreAPB3_0_APBmslave2_PSELx;
+wire          CoreAPB3_0_APBmslave2_PSLVERR;
 wire          fab_pin;
 wire          GPIO_0_OUT_net_0;
 wire          GPIO_1_OUT_net_0;
 wire          MSS_RESET_N;
+wire          sensor_pwm;
 wire          SPI_0_CLK;
 wire          SPI_0_DI;
 wire          SPI_0_DO_net_0;
@@ -103,7 +110,6 @@ wire          y_servo_pwm_net_1;
 wire          GND_net;
 wire          VCC_net;
 wire   [31:0] IADDR_const_net_0;
-wire   [31:0] PRDATAS2_const_net_0;
 wire   [31:0] PRDATAS3_const_net_0;
 wire   [31:0] PRDATAS4_const_net_0;
 wire   [31:0] PRDATAS5_const_net_0;
@@ -131,7 +137,6 @@ wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 assign GND_net               = 1'b0;
 assign VCC_net               = 1'b1;
 assign IADDR_const_net_0     = 32'h00000000;
-assign PRDATAS2_const_net_0  = 32'h00000000;
 assign PRDATAS3_const_net_0  = 32'h00000000;
 assign PRDATAS4_const_net_0  = 32'h00000000;
 assign PRDATAS5_const_net_0  = 32'h00000000;
@@ -206,7 +211,7 @@ CoreAPB3 #(
         .APB_DWIDTH      ( 32 ),
         .APBSLOT0ENABLE  ( 1 ),
         .APBSLOT1ENABLE  ( 1 ),
-        .APBSLOT2ENABLE  ( 0 ),
+        .APBSLOT2ENABLE  ( 1 ),
         .APBSLOT3ENABLE  ( 0 ),
         .APBSLOT4ENABLE  ( 0 ),
         .APBSLOT5ENABLE  ( 0 ),
@@ -251,8 +256,8 @@ CoreAPB3_0(
         .PSLVERRS0  ( CoreAPB3_0_APBmslave0_PSLVERR ),
         .PREADYS1   ( CoreAPB3_0_APBmslave1_PREADY ),
         .PSLVERRS1  ( CoreAPB3_0_APBmslave1_PSLVERR ),
-        .PREADYS2   ( VCC_net ), // tied to 1'b1 from definition
-        .PSLVERRS2  ( GND_net ), // tied to 1'b0 from definition
+        .PREADYS2   ( CoreAPB3_0_APBmslave2_PREADY ),
+        .PSLVERRS2  ( CoreAPB3_0_APBmslave2_PSLVERR ),
         .PREADYS3   ( VCC_net ), // tied to 1'b1 from definition
         .PSLVERRS3  ( GND_net ), // tied to 1'b0 from definition
         .PREADYS4   ( VCC_net ), // tied to 1'b1 from definition
@@ -285,7 +290,7 @@ CoreAPB3_0(
         .PWDATA     ( ants_master_MSS_0_MSS_MASTER_APB_PWDATA ),
         .PRDATAS0   ( CoreAPB3_0_APBmslave0_PRDATA ),
         .PRDATAS1   ( CoreAPB3_0_APBmslave1_PRDATA ),
-        .PRDATAS2   ( PRDATAS2_const_net_0 ), // tied to 32'h00000000 from definition
+        .PRDATAS2   ( CoreAPB3_0_APBmslave2_PRDATA ),
         .PRDATAS3   ( PRDATAS3_const_net_0 ), // tied to 32'h00000000 from definition
         .PRDATAS4   ( PRDATAS4_const_net_0 ), // tied to 32'h00000000 from definition
         .PRDATAS5   ( PRDATAS5_const_net_0 ), // tied to 32'h00000000 from definition
@@ -308,7 +313,7 @@ CoreAPB3_0(
         .PENABLES   ( CoreAPB3_0_APBmslave0_PENABLE ),
         .PSELS0     ( CoreAPB3_0_APBmslave0_PSELx ),
         .PSELS1     ( CoreAPB3_0_APBmslave1_PSELx ),
-        .PSELS2     (  ),
+        .PSELS2     ( CoreAPB3_0_APBmslave2_PSELx ),
         .PSELS3     (  ),
         .PSELS4     (  ),
         .PSELS5     (  ),
@@ -326,6 +331,23 @@ CoreAPB3_0(
         .PRDATA     ( ants_master_MSS_0_MSS_MASTER_APB_PRDATA ),
         .PADDRS     ( CoreAPB3_0_APBmslave0_PADDR ),
         .PWDATAS    ( CoreAPB3_0_APBmslave0_PWDATA ) 
+        );
+
+//--------Dsensor
+Dsensor Dsensor_0(
+        // Inputs
+        .PCLK       ( ants_master_MSS_0_FAB_CLK ),
+        .PRESERN    ( ants_master_MSS_0_M2F_RESET_N ),
+        .PSEL       ( CoreAPB3_0_APBmslave2_PSELx ),
+        .PENABLE    ( CoreAPB3_0_APBmslave0_PENABLE ),
+        .PWRITE     ( CoreAPB3_0_APBmslave0_PWRITE ),
+        .PADDR      ( CoreAPB3_0_APBmslave0_PADDR ),
+        .PWDATA     ( CoreAPB3_0_APBmslave0_PWDATA ),
+        .sensor_pwm ( sensor_pwm ),
+        // Outputs
+        .PREADY     ( CoreAPB3_0_APBmslave2_PREADY ),
+        .PSLVERR    ( CoreAPB3_0_APBmslave2_PSLVERR ),
+        .PRDATA     ( CoreAPB3_0_APBmslave2_PRDATA ) 
         );
 
 //--------n64_magic_box

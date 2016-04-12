@@ -2,7 +2,7 @@
 #define ants_master_HW_PLATFORM_H_
 /*****************************************************************************
 *
-*Created by Microsemi SmartDesign  Tue Apr 12 02:17:26 2016
+*Created by Microsemi SmartDesign  Tue Apr 12 12:58:08 2016
 *
 *Memory map specification for peripherals in ants_master
 */
@@ -13,6 +13,7 @@
 *---------------------------------------------------------------------------*/
 #define N64_MAGIC_BOX_0                 0x40050000U
 #define SERVO_CONTROL_0                 0x40050100U
+#define DSENSOR_0                       0x40050200U
 
 
 #endif /* ants_master_HW_PLATFORM_H_*/

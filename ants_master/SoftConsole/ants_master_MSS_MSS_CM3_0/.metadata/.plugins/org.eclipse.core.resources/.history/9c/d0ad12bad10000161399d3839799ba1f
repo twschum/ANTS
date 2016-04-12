@@ -1,0 +1,12 @@
+/*
+ *
+ */
+
+#include "dsensor_driver.h"
+
+// read current distance
+void get_distance(uint32_t distance_count)
+{
+	volatile uint32_t* address = (volatile uint32_t*)DSNSR_ADDR;
+	    *address = N64_GET_BUTTONS;
+}

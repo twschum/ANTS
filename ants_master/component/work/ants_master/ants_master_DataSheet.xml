@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>C:/Users/collmae/Documents/GitHub/373/ants_master/component/work/ants_master</location>
-    <state>GENERATED ( Tue Apr 12 02:17:27 2016 )</state>
+    <state>GENERATED ( Tue Apr 12 12:58:09 2016 )</state>
     <swide-toolchain>SoftConsole workspace generated to C:\Users\collmae\Documents\GitHub\373\ants_master\SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -28,6 +28,7 @@
     <file>C:\Users\collmae\Documents\GitHub\373\ants_master\component\work\ants_master_MSS\MSS_CCC_0\ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC.v</file>
     <file>C:\Users\collmae\Documents\GitHub\373\ants_master\component\work\ants_master_MSS\mss_tshell.v</file>
     <file>C:\Users\collmae\Documents\GitHub\373\ants_master\component\work\n64_magic_box\n64_magic_box.v</file>
+    <file>C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v</file>
     <file>C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\n64_apb_interface.v</file>
     <file>C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\n64_read_controller.v</file>
     <file>C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\n64_read_module.v</file>
@@ -37,7 +38,7 @@
   </fileset>
   <fileset>
     <name>Flash Memory File(s)</name>
-    <file>C:\Users\collmae\Documents\GitHub\373\ants_master\component\work\./MSS_ENVM_0/MSS_ENVM_0.efc</file>
+    <file>C:\Users\collmae\Documents\GitHub\373\ants_master\component\work\C:/Users/collmae/Documents/GitHub/373/ants_master/component/work/ants_master_MSS/MSS_ENVM_0/MSS_ENVM_0.efc</file>
   </fileset>
   <io>
     <port-name>MSS_RESET_N</port-name>
@@ -83,6 +84,12 @@
   </io>
   <io>
     <port-name>UART_1_RXD</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>sensor_pwm</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -177,9 +184,9 @@ There is one APB3 Master interface.
     </core-param>
     <core-param>
       <param-name>Slot 2:</param-name>
-      <param-value>false</param-value>
+      <param-value>true</param-value>
       <param-hdlname>APBSLOT2ENABLE</param-hdlname>
-      <param-hdlvalue>0</param-hdlvalue>
+      <param-hdlvalue>1</param-hdlvalue>
       <param-tag>spirit:hwParameter</param-tag>
     </core-param>
     <core-param>
@@ -414,6 +421,9 @@ There is one APB3 Master interface.
       <param-tag>spirit:hwParameter</param-tag>
     </core-param>
     <core-name>CoreAPB3_0</core-name>
+  </core>
+  <core>
+    <core-name>Dsensor_0</core-name>
   </core>
   <core type="ComponentModule">
     <core-type>ComponentModule</core-type>
@@ -2485,6 +2495,13 @@ These files are required by the SmartFusion bare metal peripheral drivers to bui
           <fullPinName>servo_control_0:BIF_1</fullPinName>
           <remapAddress>0x40050100</remapAddress>
           <fullAddressSpace>0x40050100 - 0x400501FF</fullAddressSpace>
+          <range>0x00000100</range>
+        </slave>
+        <slave>
+          <name>Dsensor_0</name>
+          <fullPinName>Dsensor_0:BIF_1</fullPinName>
+          <remapAddress>0x40050200</remapAddress>
+          <fullAddressSpace>0x40050200 - 0x400502FF</fullAddressSpace>
           <range>0x00000100</range>
         </slave>
         <slave>

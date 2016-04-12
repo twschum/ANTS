@@ -2,6 +2,8 @@
 @W: CG775 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Found Component CoreAPB3 in library COREAPB3_LIB
 @W: CG775 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":31:7:31:14|Found Component CoreAPB3 in library COREAPB3_LIB
 @W: CG360 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":244:12:244:20|No assignment to wire IA_PRDATA
+@W: CG532 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":66:0:66:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
+@W: CS263 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":35:20:35:33|Port-width mismatch for port distance_count. Formal has width 32, Actual 1
 @W: CG532 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\n64_read_module.v":29:0:29:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
 @W: CG133 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\n64_read_module.v":24:15:24:19|No assignment to error
 @W: CG532 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\servo_hdl.v":180:0:180:6|Initial statement will only initialize memories through the usage of $readmemh and $readmemb. Everything else is ignored
@@ -30,10 +32,22 @@
 @W: CL260 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\n64_serial_interface.v":84:0:84:5|Pruning register bit 0 of command_byte[7:0] 
 @W: CL279 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\n64_serial_interface.v":84:0:84:5|Pruning register bits 7 to 2 of command_byte[7:1] 
 @W: CL246 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\n64_apb_interface.v":11:13:11:17|Input port bits 31 to 13 of PADDR[31:0] are unused
+@W: CL279 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":40:0:40:5|Pruning register bits 31 to 2 of PRDATA[31:0] 
+@W: CL246 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":16:17:16:21|Input port bits 31 to 13 of PADDR[31:0] are unused
+@W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":17:22:17:27|Input PWDATA is unused
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[23] is always 0, optimizing ...
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[24] is always 0, optimizing ...
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[25] is always 0, optimizing ...
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[26] is always 0, optimizing ...
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[27] is always 0, optimizing ...
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[28] is always 0, optimizing ...
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[29] is always 0, optimizing ...
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[30] is always 0, optimizing ...
+@W: CL189 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Register bit count_clk[31] is always 0, optimizing ...
+@W: CL279 :"C:\Users\collmae\Documents\GitHub\373\ants_master\hdl\distance_sensor_hdl.v":73:0:73:5|Pruning register bits 31 to 23 of count_clk[31:0] 
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":72:36:72:40|Input IADDR is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":73:13:73:19|Input PRESETN is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":74:13:74:16|Input PCLK is unused
-@W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":106:18:106:25|Input PRDATAS2 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":107:18:107:25|Input PRDATAS3 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":108:18:108:25|Input PRDATAS4 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":109:18:109:25|Input PRDATAS5 is unused
@@ -47,7 +61,6 @@
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":117:18:117:26|Input PRDATAS13 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":118:18:118:26|Input PRDATAS14 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":119:18:119:26|Input PRDATAS15 is unused
-@W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":123:13:123:20|Input PREADYS2 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":124:13:124:20|Input PREADYS3 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":125:13:125:20|Input PREADYS4 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":126:13:126:20|Input PREADYS5 is unused
@@ -61,7 +74,6 @@
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":134:13:134:21|Input PREADYS13 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":135:13:135:21|Input PREADYS14 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":136:13:136:21|Input PREADYS15 is unused
-@W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":140:13:140:21|Input PSLVERRS2 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":141:13:141:21|Input PSLVERRS3 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":142:13:142:21|Input PSLVERRS4 is unused
 @W: CL159 :"C:\Users\collmae\Documents\GitHub\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v":143:13:143:21|Input PSLVERRS5 is unused

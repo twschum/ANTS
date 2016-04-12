@@ -1,0 +1,21 @@
+/*
+ * get distance
+ */
+
+#include "dsensor_driver.h"
+
+// read current distance
+uint32_t get_distance()
+{
+	volatile uint32_t* address = (volatile uint32_t*)DSNSR_ADDR;
+	uint32_t distance_count = *address;
+
+	return ((distance_count * SEC_to_IN * IN_to_METER)/(CLK_FREQ));
+}
+
+void print_distance()
+{
+	volatile uint32_t* address = (volatile uint32_t*)DSNSR_ADDR;
+	uint32_t distance = ((*address) * (CLK_PERIOD>>8) * SEC_to_IN * IN_to_METER);
+	printf("Distance (m): %d", distance);
+}
