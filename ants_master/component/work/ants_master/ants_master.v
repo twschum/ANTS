@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 05 18:06:28 2016
+// Created by SmartDesign Tue Apr 12 00:11:26 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -12,6 +12,7 @@ module ants_master(
     SPI_0_DI,
     UART_0_RXD,
     UART_1_RXD,
+    stop_y,
     // Outputs
     GPIO_0_OUT,
     GPIO_1_OUT,
@@ -29,26 +30,27 @@ module ants_master(
 //--------------------------------------------------------------------
 // Input
 //--------------------------------------------------------------------
-input  MSS_RESET_N;
-input  SPI_0_DI;
-input  UART_0_RXD;
-input  UART_1_RXD;
+input        MSS_RESET_N;
+input        SPI_0_DI;
+input        UART_0_RXD;
+input        UART_1_RXD;
+input  [1:0] stop_y;
 //--------------------------------------------------------------------
 // Output
 //--------------------------------------------------------------------
-output GPIO_0_OUT;
-output GPIO_1_OUT;
-output SPI_0_DO;
-output UART_0_TXD;
-output UART_1_TXD;
-output x_servo_pwm;
-output y_servo_pwm;
+output       GPIO_0_OUT;
+output       GPIO_1_OUT;
+output       SPI_0_DO;
+output       UART_0_TXD;
+output       UART_1_TXD;
+output       x_servo_pwm;
+output       y_servo_pwm;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
-inout  SPI_0_CLK;
-inout  SPI_0_SS;
-inout  fab_pin;
+inout        SPI_0_CLK;
+inout        SPI_0_SS;
+inout        fab_pin;
 //--------------------------------------------------------------------
 // Nets
 //--------------------------------------------------------------------
@@ -81,6 +83,7 @@ wire          SPI_0_CLK;
 wire          SPI_0_DI;
 wire          SPI_0_DO_net_0;
 wire          SPI_0_SS;
+wire   [1:0]  stop_y;
 wire          UART_0_RXD;
 wire          UART_0_TXD_net_0;
 wire          UART_1_RXD;
@@ -118,10 +121,10 @@ wire   [31:0] PRDATAS16_const_net_0;
 //--------------------------------------------------------------------
 // Bus Interface Nets Declarations - Unequal Pin Widths
 //--------------------------------------------------------------------
+wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 wire   [31:20]ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_31to20;
 wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_19to0;
 wire   [31:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0;
-wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
@@ -353,6 +356,7 @@ servo_control servo_control_0(
         .PWRITE      ( CoreAPB3_0_APBmslave0_PWRITE ),
         .PADDR       ( CoreAPB3_0_APBmslave0_PADDR ),
         .PWDATA      ( CoreAPB3_0_APBmslave0_PWDATA ),
+        .stop_y      ( stop_y ),
         // Outputs
         .PREADY      ( CoreAPB3_0_APBmslave1_PREADY ),
         .PSLVERR     ( CoreAPB3_0_APBmslave1_PSLVERR ),

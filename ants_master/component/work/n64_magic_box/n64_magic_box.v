@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Mar 31 12:48:48 2016
+// Created by SmartDesign Tue Apr 12 00:06:25 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -60,18 +60,18 @@ wire          n64_apb_interface_0_polling_enable;
 wire   [31:0] n64_serial_interface_0_button_data;
 wire          PCLK;
 wire          PRESERN;
-wire   [31:0] BIF_1_PRDATA_net_0;
 wire          BIF_1_PREADY_net_0;
 wire          BIF_1_PSLVERR_net_0;
+wire   [31:0] BIF_1_PRDATA_net_0;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign BIF_1_PRDATA_net_0  = BIF_1_PRDATA;
-assign PRDATA[31:0]        = BIF_1_PRDATA_net_0;
 assign BIF_1_PREADY_net_0  = BIF_1_PREADY;
 assign PREADY              = BIF_1_PREADY_net_0;
 assign BIF_1_PSLVERR_net_0 = BIF_1_PSLVERR;
 assign PSLVERR             = BIF_1_PSLVERR_net_0;
+assign BIF_1_PRDATA_net_0  = BIF_1_PRDATA;
+assign PRDATA[31:0]        = BIF_1_PRDATA_net_0;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -89,9 +89,9 @@ n64_apb_interface n64_apb_interface_0(
         // Outputs
         .PREADY           ( BIF_1_PREADY ),
         .PSLVERR          ( BIF_1_PSLVERR ),
-        .PRDATA           ( BIF_1_PRDATA ),
         .polling_enable   ( n64_apb_interface_0_polling_enable ),
-        .controller_reset ( n64_apb_interface_0_controller_reset ) 
+        .controller_reset ( n64_apb_interface_0_controller_reset ),
+        .PRDATA           ( BIF_1_PRDATA ) 
         );
 
 //--------n64_serial_interface

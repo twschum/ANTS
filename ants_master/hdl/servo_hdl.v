@@ -13,6 +13,7 @@ module servo_control(
     output reg [31:0] PRDATA, // data to processor from I/O device (32-bits)
 
     /*** I/O PORTS DECLARATION ***/
+    input [1:0] stop_y, // stop_y[1] for upper kill switch; stop_y[0] for lower kill switch
     output x_servo_pwm,
     output y_servo_pwm
 );
@@ -64,6 +65,10 @@ wire [31:0] x_reverse_count;
 wire [31:0] y_forward_count;
 wire [31:0] y_reverse_count;
 
+///*** KILL SWITCH LOGIC ***/
+wire neutral_or_kill = (set_y_neutral || ((stop_y[1]) && (!set_y_reverse)) || ((stop_y[0]) && (!set_y_forward)));
+
+
 _tracking_servo x_servo(
     .PCLK           (PCLK),
     .PRESERN        (PRESERN),
@@ -84,7 +89,7 @@ _tracking_servo y_servo(
     .PRESERN        (PRESERN),
     .PWDATA         (PWDATA),
     .SET_PW         (set_y),
-    .SET_PW_NEUTRAL (set_y_neutral),
+    .SET_PW_NEUTRAL (neutral_or_kill),
     .SET_PW_FORWARD (set_y_forward),
     .SET_PW_REVERSE (set_y_reverse),
     .SET_ZERO       (set_y_zero),
@@ -159,8 +164,8 @@ module _tracking_servo(
 // 100 000 cycles = 1 ms
 parameter PWM_PERIOD = 2000000; // 20ms
 parameter PW_NEUTRAL = 150000;  // 1.5ms
-parameter PW_FULL_REVERSE = 100000; // 1ms
-parameter PW_FULL_FORWARD = 200000; // 2 ms
+parameter PW_FULL_REVERSE = 120000; // 1 ms (1.2)
+parameter PW_FULL_FORWARD = 180000; // 2 ms (1.8)
 
 reg [31:0] time_count;
 reg [31:0] pw;
