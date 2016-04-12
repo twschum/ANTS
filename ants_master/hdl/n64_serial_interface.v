@@ -4,7 +4,10 @@ module n64_serial_interface(
     input polling_enable,
     input controller_reset,
     inout fab_pin,
-    output reg [31:0] button_data
+    output reg [31:0] button_data,
+
+    //DEBUG
+    output wire cDataSync
 );
 
 // used by the sync and count block
@@ -28,6 +31,7 @@ wire [31:0] button_data_raw; // since this changes, needs to write to button_dat
 wire read_module_active;
 wire read_module_error;
 
+assign cDataSync = data_in;
 
 
 //reg write_module_set_enabled = 0; // tracks that it has been enabled

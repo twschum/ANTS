@@ -2,7 +2,7 @@ Timing Report Min Delay Analysis
 
 SmartTime Version v11.5 SP3
 Microsemi Corporation - Microsemi Libero Software Release v11.5 SP3 (Version 11.5.3.10)
-Date: Thu Apr 07 13:51:57 2016
+Date: Tue Apr 12 12:28:28 2016
 
 
 Design: ants_master
@@ -34,8 +34,8 @@ Min Clock-To-Out (ns):      N/A
 Max Clock-To-Out (ns):      N/A
 
 Clock Domain:               mss_fabric_interface_clock
-Period (ns):                9.952
-Frequency (MHz):            100.482
+Period (ns):                11.479
+Frequency (MHz):            87.116
 Required Period (ns):       10.000
 Required Frequency (MHz):   100.000
 External Setup (ns):        N/A
@@ -54,14 +54,14 @@ Min Clock-To-Out (ns):      6.406
 Max Clock-To-Out (ns):      12.465
 
 Clock Domain:               mss_ccc_gla1
-Period (ns):                16.557
-Frequency (MHz):            60.397
+Period (ns):                15.881
+Frequency (MHz):            62.968
 Required Period (ns):       10.000
 Required Frequency (MHz):   100.000
-External Setup (ns):        -2.679
-External Hold (ns):         3.060
-Min Clock-To-Out (ns):      6.150
-Max Clock-To-Out (ns):      12.534
+External Setup (ns):        -3.397
+External Hold (ns):         3.444
+Min Clock-To-Out (ns):      6.122
+Max Clock-To-Out (ns):      12.758
 
 Clock Domain:               mss_ccc_gla0
 Period (ns):                12.500
@@ -147,45 +147,45 @@ SET Register to Register
 Path 1
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
-  Delay (ns):                  3.323
-  Slack (ns):                  1.946
-  Arrival (ns):                5.880
+  Delay (ns):                  3.346
+  Slack (ns):                  1.969
+  Arrival (ns):                5.903
   Required (ns):               3.934
   Hold (ns):                   1.377
 
 Path 2
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[17]
-  Delay (ns):                  3.571
-  Slack (ns):                  2.188
-  Arrival (ns):                6.128
+  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[13]
+  Delay (ns):                  3.659
+  Slack (ns):                  2.276
+  Arrival (ns):                6.216
   Required (ns):               3.940
   Hold (ns):                   1.383
 
 Path 3
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[21]
-  Delay (ns):                  3.666
-  Slack (ns):                  2.283
-  Arrival (ns):                6.223
-  Required (ns):               3.940
-  Hold (ns):                   1.383
+  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24]
+  Delay (ns):                  3.728
+  Slack (ns):                  2.347
+  Arrival (ns):                6.285
+  Required (ns):               3.938
+  Hold (ns):                   1.381
 
 Path 4
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[29]
-  Delay (ns):                  3.668
-  Slack (ns):                  2.288
-  Arrival (ns):                6.225
-  Required (ns):               3.937
-  Hold (ns):                   1.380
+  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[21]
+  Delay (ns):                  3.773
+  Slack (ns):                  2.390
+  Arrival (ns):                6.330
+  Required (ns):               3.940
+  Hold (ns):                   1.383
 
 Path 5
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[18]
-  Delay (ns):                  3.678
-  Slack (ns):                  2.299
-  Arrival (ns):                6.235
+  Delay (ns):                  3.783
+  Slack (ns):                  2.404
+  Arrival (ns):                6.340
   Required (ns):               3.936
   Hold (ns):                   1.379
 
@@ -193,9 +193,9 @@ Path 5
 Expanded Path 1
   From: ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To: ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
-  data arrival time                              5.880
+  data arrival time                              5.903
   data required time                         -   3.934
-  slack                                          1.946
+  slack                                          1.969
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_fabric_interface_clock
@@ -213,22 +213,22 @@ Expanded Path 1
   4.497                        CoreAPB3_0/iPSELS_0_a2_0_0[1]:B (r)
                +     0.168          cell: ADLIB:NOR2A
   4.665                        CoreAPB3_0/iPSELS_0_a2_0_0[1]:Y (f)
-               +     0.176          net: CoreAPB3_0_iPSELS_0_a2_0_0[1]
-  4.841                        CoreAPB3_0/iPSELS_0_a2_0[1]:A (f)
+               +     0.269          net: CoreAPB3_0_iPSELS_0_a2_0_0[1]
+  4.934                        CoreAPB3_0/iPSELS_0_a2_0[1]:A (f)
                +     0.157          cell: ADLIB:NOR3C
-  4.998                        CoreAPB3_0/iPSELS_0_a2_0[1]:Y (f)
-               +     0.239          net: CoreAPB3_0_APBmslave1_PSELx_0
-  5.237                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_1[0]:B (f)
+  5.091                        CoreAPB3_0/iPSELS_0_a2_0[1]:Y (f)
+               +     0.169          net: CoreAPB3_0_APBmslave1_PSELx_0
+  5.260                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_1[0]:B (f)
                +     0.260          cell: ADLIB:AO1
-  5.497                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_1[0]:Y (f)
+  5.520                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_1[0]:Y (f)
                +     0.140          net: ants_master_MSS_0_MSS_MASTER_APB_PRDATA[0]
-  5.637                        ants_master_MSS_0/MSS_ADLIB_INST/U_36:PIN6 (f)
+  5.660                        ants_master_MSS_0/MSS_ADLIB_INST/U_36:PIN6 (f)
                +     0.044          cell: ADLIB:MSS_IF
-  5.681                        ants_master_MSS_0/MSS_ADLIB_INST/U_36:PIN6INT (f)
+  5.704                        ants_master_MSS_0/MSS_ADLIB_INST/U_36:PIN6INT (f)
                +     0.199          net: ants_master_MSS_0/MSS_ADLIB_INST/MSSPRDATA[0]INT_NET
-  5.880                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0] (f)
+  5.903                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0] (f)
                                     
-  5.880                        data arrival time
+  5.903                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_fabric_interface_clock
@@ -289,57 +289,57 @@ END SET Asynchronous to Register
 SET mss_ccc_gla1 to mss_fabric_interface_clock
 
 Path 1
-  From:                        servo_control_0/PRDATA[31]:CLK
-  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[31]
-  Delay (ns):                  1.009
-  Slack (ns):                  0.908
-  Arrival (ns):                4.861
-  Required (ns):               3.953
-  Hold (ns):                   1.396
+  From:                        servo_control_0/PRDATA[24]:CLK
+  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24]
+  Delay (ns):                  1.285
+  Slack (ns):                  1.185
+  Arrival (ns):                5.140
+  Required (ns):               3.955
+  Hold (ns):                   1.398
 
 Path 2
-  From:                        servo_control_0/PRDATA[28]:CLK
-  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[28]
-  Delay (ns):                  1.127
-  Slack (ns):                  1.019
-  Arrival (ns):                4.976
+  From:                        servo_control_0/PRDATA[17]:CLK
+  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[17]
+  Delay (ns):                  1.289
+  Slack (ns):                  1.191
+  Arrival (ns):                5.148
   Required (ns):               3.957
   Hold (ns):                   1.400
 
 Path 3
-  From:                        servo_control_0/PRDATA[30]:CLK
-  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[30]
-  Delay (ns):                  1.245
-  Slack (ns):                  1.149
-  Arrival (ns):                5.107
-  Required (ns):               3.958
-  Hold (ns):                   1.401
-
-Path 4
-  From:                        servo_control_0/PRDATA[29]:CLK
-  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[29]
-  Delay (ns):                  1.422
-  Slack (ns):                  1.321
-  Arrival (ns):                5.274
-  Required (ns):               3.953
-  Hold (ns):                   1.396
-
-Path 5
-  From:                        n64_magic_box_0/n64_apb_interface_0/PRDATA[17]:CLK
-  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[17]
-  Delay (ns):                  1.445
-  Slack (ns):                  1.340
-  Arrival (ns):                5.297
+  From:                        servo_control_0/PRDATA[15]:CLK
+  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[15]
+  Delay (ns):                  1.297
+  Slack (ns):                  1.199
+  Arrival (ns):                5.156
   Required (ns):               3.957
   Hold (ns):                   1.400
 
+Path 4
+  From:                        servo_control_0/PRDATA[13]:CLK
+  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[13]
+  Delay (ns):                  1.353
+  Slack (ns):                  1.251
+  Arrival (ns):                5.208
+  Required (ns):               3.957
+  Hold (ns):                   1.400
+
+Path 5
+  From:                        servo_control_0/PRDATA[12]:CLK
+  To:                          ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[12]
+  Delay (ns):                  1.355
+  Slack (ns):                  1.254
+  Arrival (ns):                5.214
+  Required (ns):               3.960
+  Hold (ns):                   1.403
+
 
 Expanded Path 1
-  From: servo_control_0/PRDATA[31]:CLK
-  To: ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[31]
-  data arrival time                              4.861
-  data required time                         -   3.953
-  slack                                          0.908
+  From: servo_control_0/PRDATA[24]:CLK
+  To: ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24]
+  data arrival time                              5.140
+  data required time                         -   3.955
+  slack                                          1.185
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_ccc_gla1
@@ -351,22 +351,22 @@ Expanded Path 1
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.294          net: FAB_CLK
-  3.852                        servo_control_0/PRDATA[31]:CLK (r)
+               +     0.297          net: FAB_CLK
+  3.855                        servo_control_0/PRDATA[24]:CLK (r)
                +     0.249          cell: ADLIB:DFN1
-  4.101                        servo_control_0/PRDATA[31]:Q (r)
-               +     0.161          net: CoreAPB3_0_APBmslave1_PRDATA[31]
-  4.262                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_1[31]:A (r)
+  4.104                        servo_control_0/PRDATA[24]:Q (r)
+               +     0.434          net: CoreAPB3_0_APBmslave1_PRDATA[24]
+  4.538                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_1[24]:A (r)
                +     0.206          cell: ADLIB:AO1
-  4.468                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_1[31]:Y (r)
-               +     0.136          net: ants_master_MSS_0_MSS_MASTER_APB_PRDATA[31]
-  4.604                        ants_master_MSS_0/MSS_ADLIB_INST/U_58:PIN5 (r)
-               +     0.037          cell: ADLIB:MSS_IF
-  4.641                        ants_master_MSS_0/MSS_ADLIB_INST/U_58:PIN5INT (r)
-               +     0.220          net: ants_master_MSS_0/MSS_ADLIB_INST/MSSPRDATA[31]INT_NET
-  4.861                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[31] (r)
+  4.744                        CoreAPB3_0/u_mux_p_to_b3/PRDATA_1[24]:Y (r)
+               +     0.142          net: ants_master_MSS_0_MSS_MASTER_APB_PRDATA[24]
+  4.886                        ants_master_MSS_0/MSS_ADLIB_INST/U_55:PIN6 (r)
+               +     0.036          cell: ADLIB:MSS_IF
+  4.922                        ants_master_MSS_0/MSS_ADLIB_INST/U_55:PIN6INT (r)
+               +     0.218          net: ants_master_MSS_0/MSS_ADLIB_INST/MSSPRDATA[24]INT_NET
+  5.140                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24] (r)
                                     
-  4.861                        data arrival time
+  5.140                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_fabric_interface_clock
@@ -374,10 +374,10 @@ Expanded Path 1
   0.000                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
                +     2.557          Clock generation
   2.557
-               +     1.396          Library hold time: ADLIB:MSS_APB_IP
-  3.953                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[31]
+               +     1.398          Library hold time: ADLIB:MSS_APB_IP
+  3.955                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24]
                                     
-  3.953                        data required time
+  3.955                        data required time
 
 
 END SET mss_ccc_gla1 to mss_fabric_interface_clock
@@ -490,57 +490,57 @@ Clock Domain mss_ccc_gla1
 SET Register to Register
 
 Path 1
-  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[3]:CLK
-  To:                          n64_magic_box_0/n64_serial_interface_0/button_data[3]:D
-  Delay (ns):                  0.402
-  Slack (ns):                  0.321
-  Arrival (ns):                4.265
-  Required (ns):               3.944
+  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[10]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/button_data[10]:D
+  Delay (ns):                  0.395
+  Slack (ns):                  0.338
+  Arrival (ns):                4.275
+  Required (ns):               3.937
   Hold (ns):                   0.000
 
 Path 2
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[8]:CLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[8]:D
+  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[7]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/button_data[7]:D
   Delay (ns):                  0.395
-  Slack (ns):                  0.337
-  Arrival (ns):                4.277
-  Required (ns):               3.940
+  Slack (ns):                  0.338
+  Arrival (ns):                4.275
+  Required (ns):               3.937
   Hold (ns):                   0.000
 
 Path 3
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[2]:CLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[2]:D
+  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[6]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/button_data[6]:D
   Delay (ns):                  0.395
-  Slack (ns):                  0.357
-  Arrival (ns):                4.268
-  Required (ns):               3.911
+  Slack (ns):                  0.340
+  Arrival (ns):                4.277
+  Required (ns):               3.937
   Hold (ns):                   0.000
 
 Path 4
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[28]:CLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[28]:D
+  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[30]:CLK
+  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[30]:D
   Delay (ns):                  0.395
-  Slack (ns):                  0.364
-  Arrival (ns):                4.308
-  Required (ns):               3.944
+  Slack (ns):                  0.359
+  Arrival (ns):                4.259
+  Required (ns):               3.900
   Hold (ns):                   0.000
 
 Path 5
-  From:                        n64_magic_box_0/n64_serial_interface_0/button_data[14]:CLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/PRDATA[14]:D
+  From:                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[11]:CLK
+  To:                          n64_magic_box_0/n64_serial_interface_0/button_data[11]:D
   Delay (ns):                  0.395
-  Slack (ns):                  0.367
-  Arrival (ns):                4.311
-  Required (ns):               3.944
+  Slack (ns):                  0.366
+  Arrival (ns):                4.265
+  Required (ns):               3.899
   Hold (ns):                   0.000
 
 
 Expanded Path 1
-  From: n64_magic_box_0/n64_serial_interface_0/read_module/con_data[3]:CLK
-  To: n64_magic_box_0/n64_serial_interface_0/button_data[3]:D
-  data arrival time                              4.265
-  data required time                         -   3.944
-  slack                                          0.321
+  From: n64_magic_box_0/n64_serial_interface_0/read_module/con_data[10]:CLK
+  To: n64_magic_box_0/n64_serial_interface_0/button_data[10]:D
+  data arrival time                              4.275
+  data required time                         -   3.937
+  slack                                          0.338
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_ccc_gla1
@@ -552,14 +552,14 @@ Expanded Path 1
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.305          net: FAB_CLK
-  3.863                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[3]:CLK (r)
+               +     0.322          net: FAB_CLK
+  3.880                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[10]:CLK (r)
                +     0.249          cell: ADLIB:DFN1E1
-  4.112                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[3]:Q (r)
-               +     0.153          net: n64_magic_box_0/n64_serial_interface_0/button_data_raw[3]
-  4.265                        n64_magic_box_0/n64_serial_interface_0/button_data[3]:D (r)
+  4.129                        n64_magic_box_0/n64_serial_interface_0/read_module/con_data[10]:Q (r)
+               +     0.146          net: n64_magic_box_0/n64_serial_interface_0/button_data_raw[10]
+  4.275                        n64_magic_box_0/n64_serial_interface_0/button_data[10]:D (r)
                                     
-  4.265                        data arrival time
+  4.275                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_ccc_gla1
@@ -571,12 +571,12 @@ Expanded Path 1
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.386          net: FAB_CLK
-  3.944                        n64_magic_box_0/n64_serial_interface_0/button_data[3]:CLK (r)
+               +     0.379          net: FAB_CLK
+  3.937                        n64_magic_box_0/n64_serial_interface_0/button_data[10]:CLK (r)
                +     0.000          Library hold time: ADLIB:DFN1E1
-  3.944                        n64_magic_box_0/n64_serial_interface_0/button_data[3]:D
+  3.937                        n64_magic_box_0/n64_serial_interface_0/button_data[10]:D
                                     
-  3.944                        data required time
+  3.937                        data required time
 
 
 END SET Register to Register
@@ -588,18 +588,18 @@ SET External Hold
 Path 1
   From:                        fab_pin
   To:                          n64_magic_box_0/n64_serial_interface_0/sync_reg[0]:D
-  Delay (ns):                  0.848
+  Delay (ns):                  0.461
   Slack (ns):
-  Arrival (ns):                0.848
+  Arrival (ns):                0.461
   Required (ns):
   Hold (ns):                   0.000
-  External Hold (ns):          3.060
+  External Hold (ns):          3.444
 
 
 Expanded Path 1
   From: fab_pin
   To: n64_magic_box_0/n64_serial_interface_0/sync_reg[0]:D
-  data arrival time                              0.848
+  data arrival time                              0.461
   data required time                         -   N/C
   slack                                          N/C
   ________________________________________________________
@@ -613,10 +613,10 @@ Expanded Path 1
   0.293                        fab_pin_pad/U0/U1:YIN (f)
                +     0.017          cell: ADLIB:IOBI_IB_OB_EB
   0.310                        fab_pin_pad/U0/U1:Y (f)
-               +     0.538          net: fab_pin_in
-  0.848                        n64_magic_box_0/n64_serial_interface_0/sync_reg[0]:D (f)
+               +     0.151          net: fab_pin_in
+  0.461                        n64_magic_box_0/n64_serial_interface_0/sync_reg[0]:D (f)
                                     
-  0.848                        data arrival time
+  0.461                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          mss_ccc_gla1
@@ -628,7 +628,7 @@ Expanded Path 1
   N/C                          ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   N/C                          ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.350          net: FAB_CLK
+               +     0.347          net: FAB_CLK
   N/C                          n64_magic_box_0/n64_serial_interface_0/sync_reg[0]:CLK (r)
                +     0.000          Library hold time: ADLIB:DFN1
   N/C                          n64_magic_box_0/n64_serial_interface_0/sync_reg[0]:D
@@ -641,46 +641,55 @@ END SET External Hold
 SET Clock to Output
 
 Path 1
-  From:                        servo_control_0/y_servo/pwm_signal:CLK
-  To:                          y_servo_pwm
-  Delay (ns):                  2.297
+  From:                        n64_magic_box_0/n64_serial_interface_0/data_in:CLK
+  To:                          cDataSync
+  Delay (ns):                  2.274
   Slack (ns):
-  Arrival (ns):                6.150
+  Arrival (ns):                6.122
   Required (ns):
-  Clock to Out (ns):           6.150
+  Clock to Out (ns):           6.122
 
 Path 2
-  From:                        servo_control_0/x_servo/pwm_signal:CLK
-  To:                          x_servo_pwm
-  Delay (ns):                  2.322
-  Slack (ns):
-  Arrival (ns):                6.178
-  Required (ns):
-  Clock to Out (ns):           6.178
-
-Path 3
   From:                        n64_magic_box_0/n64_serial_interface_0/write_module/data_out:CLK
   To:                          fab_pin
-  Delay (ns):                  2.813
+  Delay (ns):                  2.677
   Slack (ns):
-  Arrival (ns):                6.686
+  Arrival (ns):                6.542
   Required (ns):
-  Clock to Out (ns):           6.686
+  Clock to Out (ns):           6.542
+
+Path 3
+  From:                        servo_control_0/x_servo/pwm_signal:CLK
+  To:                          x_servo_pwm
+  Delay (ns):                  2.778
+  Slack (ns):
+  Arrival (ns):                6.643
+  Required (ns):
+  Clock to Out (ns):           6.643
 
 Path 4
+  From:                        servo_control_0/y_servo/pwm_signal:CLK
+  To:                          y_servo_pwm
+  Delay (ns):                  2.957
+  Slack (ns):
+  Arrival (ns):                6.813
+  Required (ns):
+  Clock to Out (ns):           6.813
+
+Path 5
   From:                        n64_magic_box_0/n64_serial_interface_0/write_module/enabled:CLK
   To:                          fab_pin
-  Delay (ns):                  2.838
+  Delay (ns):                  2.967
   Slack (ns):
-  Arrival (ns):                6.711
+  Arrival (ns):                6.832
   Required (ns):
-  Clock to Out (ns):           6.711
+  Clock to Out (ns):           6.832
 
 
 Expanded Path 1
-  From: servo_control_0/y_servo/pwm_signal:CLK
-  To: y_servo_pwm
-  data arrival time                              6.150
+  From: n64_magic_box_0/n64_serial_interface_0/data_in:CLK
+  To: cDataSync
+  data arrival time                              6.122
   data required time                         -   N/C
   slack                                          N/C
   ________________________________________________________
@@ -694,22 +703,22 @@ Expanded Path 1
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.295          net: FAB_CLK
-  3.853                        servo_control_0/y_servo/pwm_signal:CLK (r)
+               +     0.290          net: FAB_CLK
+  3.848                        n64_magic_box_0/n64_serial_interface_0/data_in:CLK (r)
                +     0.249          cell: ADLIB:DFN1
-  4.102                        servo_control_0/y_servo/pwm_signal:Q (r)
-               +     0.672          net: y_servo_pwm_c
-  4.774                        y_servo_pwm_pad/U0/U1:D (r)
+  4.097                        n64_magic_box_0/n64_serial_interface_0/data_in:Q (r)
+               +     0.649          net: cDataSync_c
+  4.746                        cDataSync_pad/U0/U1:D (r)
                +     0.257          cell: ADLIB:IOTRI_OB_EB
-  5.031                        y_servo_pwm_pad/U0/U1:DOUT (r)
-               +     0.000          net: y_servo_pwm_pad/U0/NET1
-  5.031                        y_servo_pwm_pad/U0/U0:D (r)
+  5.003                        cDataSync_pad/U0/U1:DOUT (r)
+               +     0.000          net: cDataSync_pad/U0/NET1
+  5.003                        cDataSync_pad/U0/U0:D (r)
                +     1.119          cell: ADLIB:IOPAD_TRI
-  6.150                        y_servo_pwm_pad/U0/U0:PAD (r)
-               +     0.000          net: y_servo_pwm
-  6.150                        y_servo_pwm (r)
+  6.122                        cDataSync_pad/U0/U0:PAD (r)
+               +     0.000          net: cDataSync
+  6.122                        cDataSync (r)
                                     
-  6.150                        data arrival time
+  6.122                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          mss_ccc_gla1
@@ -718,7 +727,7 @@ Expanded Path 1
                +     3.558          Clock generation
   N/C
                                     
-  N/C                          y_servo_pwm (r)
+  N/C                          cDataSync (r)
 
 
 END SET Clock to Output
@@ -753,56 +762,56 @@ SET mss_fabric_interface_clock to mss_ccc_gla1
 
 Path 1
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          servo_control_0/x_servo/next_pw[13]:D
-  Delay (ns):                  2.622
-  Slack (ns):                  1.268
-  Arrival (ns):                5.179
-  Required (ns):               3.911
+  To:                          servo_control_0/x_servo/next_pw[19]:D
+  Delay (ns):                  3.162
+  Slack (ns):                  1.816
+  Arrival (ns):                5.719
+  Required (ns):               3.903
   Hold (ns):                   0.000
 
 Path 2
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          servo_control_0/x_servo/next_pw[12]:D
-  Delay (ns):                  2.680
-  Slack (ns):                  1.326
-  Arrival (ns):                5.237
-  Required (ns):               3.911
+  To:                          servo_control_0/x_servo/next_pw[22]:D
+  Delay (ns):                  3.172
+  Slack (ns):                  1.826
+  Arrival (ns):                5.729
+  Required (ns):               3.903
   Hold (ns):                   0.000
 
 Path 3
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          servo_control_0/x_servo/next_pw[21]:D
-  Delay (ns):                  2.872
-  Slack (ns):                  1.537
-  Arrival (ns):                5.429
-  Required (ns):               3.892
+  To:                          servo_control_0/x_servo/next_pw[24]:D
+  Delay (ns):                  3.182
+  Slack (ns):                  1.866
+  Arrival (ns):                5.739
+  Required (ns):               3.873
   Hold (ns):                   0.000
 
 Path 4
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          servo_control_0/y_servo/next_pw[25]:D
-  Delay (ns):                  2.897
-  Slack (ns):                  1.554
-  Arrival (ns):                5.454
-  Required (ns):               3.900
+  To:                          servo_control_0/y_servo/next_pw[13]:D
+  Delay (ns):                  3.267
+  Slack (ns):                  1.898
+  Arrival (ns):                5.824
+  Required (ns):               3.926
   Hold (ns):                   0.000
 
 Path 5
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          servo_control_0/x_servo/next_pw[3]:D
-  Delay (ns):                  2.911
-  Slack (ns):                  1.557
-  Arrival (ns):                5.468
-  Required (ns):               3.911
+  To:                          servo_control_0/x_servo/next_pw[30]:D
+  Delay (ns):                  3.264
+  Slack (ns):                  1.918
+  Arrival (ns):                5.821
+  Required (ns):               3.903
   Hold (ns):                   0.000
 
 
 Expanded Path 1
   From: ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To: servo_control_0/x_servo/next_pw[13]:D
-  data arrival time                              5.179
-  data required time                         -   3.911
-  slack                                          1.268
+  To: servo_control_0/x_servo/next_pw[19]:D
+  data arrival time                              5.719
+  data required time                         -   3.903
+  slack                                          1.816
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_fabric_interface_clock
@@ -810,20 +819,20 @@ Expanded Path 1
   0.000                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
                +     2.557          Clock generation
   2.557
-               +     1.618          cell: ADLIB:MSS_APB_IP
-  4.175                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPWDATA[13] (f)
-               +     0.079          net: ants_master_MSS_0/MSS_ADLIB_INST/MSSPWDATA[13]INT_NET
-  4.254                        ants_master_MSS_0/MSS_ADLIB_INST/U_41:PIN1INT (f)
+               +     1.633          cell: ADLIB:MSS_APB_IP
+  4.190                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPWDATA[19] (f)
+               +     0.079          net: ants_master_MSS_0/MSS_ADLIB_INST/MSSPWDATA[19]INT_NET
+  4.269                        ants_master_MSS_0/MSS_ADLIB_INST/U_54:PIN1INT (f)
                +     0.042          cell: ADLIB:MSS_IF
-  4.296                        ants_master_MSS_0/MSS_ADLIB_INST/U_41:PIN1 (f)
-               +     0.456          net: CoreAPB3_0_APBmslave0_PWDATA[13]
-  4.752                        servo_control_0/x_servo/next_pw_RNO[13]:C (f)
+  4.311                        ants_master_MSS_0/MSS_ADLIB_INST/U_54:PIN1 (f)
+               +     0.981          net: CoreAPB3_0_APBmslave0_PWDATA[19]
+  5.292                        servo_control_0/x_servo/next_pw_RNO[19]:C (f)
                +     0.279          cell: ADLIB:NOR3C
-  5.031                        servo_control_0/x_servo/next_pw_RNO[13]:Y (f)
-               +     0.148          net: servo_control_0/x_servo/next_pw_5[13]
-  5.179                        servo_control_0/x_servo/next_pw[13]:D (f)
+  5.571                        servo_control_0/x_servo/next_pw_RNO[19]:Y (f)
+               +     0.148          net: servo_control_0/x_servo/next_pw_5[19]
+  5.719                        servo_control_0/x_servo/next_pw[19]:D (f)
                                     
-  5.179                        data arrival time
+  5.719                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_ccc_gla1
@@ -835,12 +844,12 @@ Expanded Path 1
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.353          net: FAB_CLK
-  3.911                        servo_control_0/x_servo/next_pw[13]:CLK (r)
+               +     0.345          net: FAB_CLK
+  3.903                        servo_control_0/x_servo/next_pw[19]:CLK (r)
                +     0.000          Library hold time: ADLIB:DFN1E1
-  3.911                        servo_control_0/x_servo/next_pw[13]:D
+  3.903                        servo_control_0/x_servo/next_pw[19]:D
                                     
-  3.911                        data required time
+  3.903                        data required time
 
 
 END SET mss_fabric_interface_clock to mss_ccc_gla1
@@ -851,56 +860,56 @@ SET mss_ccc_gla0 to mss_ccc_gla1
 
 Path 1
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          n64_magic_box_0/n64_apb_interface_0/controller_reset:D
-  Delay (ns):                  3.981
-  Slack (ns):                  2.625
-  Arrival (ns):                6.538
-  Required (ns):               3.913
+  To:                          servo_control_0/x_servo/pw[7]:D
+  Delay (ns):                  4.114
+  Slack (ns):                  2.760
+  Arrival (ns):                6.671
+  Required (ns):               3.911
   Hold (ns):                   0.000
 
 Path 2
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          servo_control_0/x_servo/next_pw[0]:D
-  Delay (ns):                  3.987
-  Slack (ns):                  2.633
-  Arrival (ns):                6.544
+  To:                          servo_control_0/x_servo/next_pw[3]:D
+  Delay (ns):                  4.118
+  Slack (ns):                  2.764
+  Arrival (ns):                6.675
   Required (ns):               3.911
   Hold (ns):                   0.000
 
 Path 3
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          servo_control_0/x_servo/next_pw[3]:D
-  Delay (ns):                  3.988
-  Slack (ns):                  2.634
-  Arrival (ns):                6.545
+  To:                          servo_control_0/y_servo/next_pw[22]:D
+  Delay (ns):                  4.118
+  Slack (ns):                  2.764
+  Arrival (ns):                6.675
   Required (ns):               3.911
   Hold (ns):                   0.000
 
 Path 4
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
   To:                          servo_control_0/x_servo/next_pw[1]:D
-  Delay (ns):                  3.988
-  Slack (ns):                  2.634
-  Arrival (ns):                6.545
+  Delay (ns):                  4.118
+  Slack (ns):                  2.764
+  Arrival (ns):                6.675
   Required (ns):               3.911
   Hold (ns):                   0.000
 
 Path 5
   From:                        ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To:                          servo_control_0/x_servo/next_pw[12]:D
-  Delay (ns):                  3.997
-  Slack (ns):                  2.643
-  Arrival (ns):                6.554
-  Required (ns):               3.911
+  To:                          servo_control_0/y_servo/next_pw[13]:D
+  Delay (ns):                  4.142
+  Slack (ns):                  2.773
+  Arrival (ns):                6.699
+  Required (ns):               3.926
   Hold (ns):                   0.000
 
 
 Expanded Path 1
   From: ants_master_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
-  To: n64_magic_box_0/n64_apb_interface_0/controller_reset:D
-  data arrival time                              6.538
-  data required time                         -   3.913
-  slack                                          2.625
+  To: servo_control_0/x_servo/pw[7]:D
+  data arrival time                              6.671
+  data required time                         -   3.911
+  slack                                          2.760
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_ccc_gla0
@@ -916,18 +925,18 @@ Expanded Path 1
   4.274                        ants_master_MSS_0/MSS_ADLIB_INST/U_46:PIN2INT (f)
                +     0.045          cell: ADLIB:MSS_IF
   4.319                        ants_master_MSS_0/MSS_ADLIB_INST/U_46:PIN2 (f)
-               +     1.233          net: ants_master_MSS_0/MSS_ADLIB_INST_M2FRESETn
-  5.552                        ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3/U_CLKSRC:A (f)
+               +     1.366          net: ants_master_MSS_0/MSS_ADLIB_INST_M2FRESETn
+  5.685                        ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3/U_CLKSRC:A (f)
                +     0.343          cell: ADLIB:CLKSRC
-  5.895                        ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3/U_CLKSRC:Y (f)
-               +     0.291          net: ants_master_MSS_0_M2F_RESET_N
-  6.186                        n64_magic_box_0/n64_apb_interface_0/controller_reset_RNO:A (f)
+  6.028                        ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3/U_CLKSRC:Y (f)
+               +     0.297          net: ants_master_MSS_0_M2F_RESET_N
+  6.325                        servo_control_0/x_servo/pw_RNO[7]:A (f)
                +     0.200          cell: ADLIB:OR2A
-  6.386                        n64_magic_box_0/n64_apb_interface_0/controller_reset_RNO:Y (r)
-               +     0.152          net: n64_magic_box_0/n64_apb_interface_0/controller_reset_RNO
-  6.538                        n64_magic_box_0/n64_apb_interface_0/controller_reset:D (r)
+  6.525                        servo_control_0/x_servo/pw_RNO[7]:Y (r)
+               +     0.146          net: servo_control_0/x_servo/pw_RNO[7]
+  6.671                        servo_control_0/x_servo/pw[7]:D (r)
                                     
-  6.538                        data arrival time
+  6.671                        data arrival time
   ________________________________________________________
   Data required time calculation
   0.000                        mss_ccc_gla1
@@ -939,12 +948,12 @@ Expanded Path 1
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   3.558                        ants_master_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.355          net: FAB_CLK
-  3.913                        n64_magic_box_0/n64_apb_interface_0/controller_reset:CLK (r)
+               +     0.353          net: FAB_CLK
+  3.911                        servo_control_0/x_servo/pw[7]:CLK (r)
                +     0.000          Library hold time: ADLIB:DFN1
-  3.913                        n64_magic_box_0/n64_apb_interface_0/controller_reset:D
+  3.911                        servo_control_0/x_servo/pw[7]:D
                                     
-  3.913                        data required time
+  3.911                        data required time
 
 
 END SET mss_ccc_gla0 to mss_ccc_gla1

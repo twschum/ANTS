@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Apr 07 13:49:19 2016
+// Created by SmartDesign Tue Apr 12 12:18:27 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -19,6 +19,7 @@ module n64_magic_box(
     PRDATA,
     PREADY,
     PSLVERR,
+    cDataSync,
     // Inouts
     fab_pin
 );
@@ -39,6 +40,7 @@ input         PWRITE;
 output [31:0] PRDATA;
 output        PREADY;
 output        PSLVERR;
+output        cDataSync;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -54,6 +56,7 @@ wire          PSEL;
 wire          BIF_1_PSLVERR;
 wire   [31:0] PWDATA;
 wire          PWRITE;
+wire          cDataSync_net_0;
 wire          fab_pin;
 wire          n64_apb_interface_0_controller_reset;
 wire          n64_apb_interface_0_polling_enable;
@@ -63,6 +66,7 @@ wire          PRESERN;
 wire          BIF_1_PREADY_net_0;
 wire          BIF_1_PSLVERR_net_0;
 wire   [31:0] BIF_1_PRDATA_net_0;
+wire          cDataSync_net_1;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
@@ -72,6 +76,8 @@ assign BIF_1_PSLVERR_net_0 = BIF_1_PSLVERR;
 assign PSLVERR             = BIF_1_PSLVERR_net_0;
 assign BIF_1_PRDATA_net_0  = BIF_1_PRDATA;
 assign PRDATA[31:0]        = BIF_1_PRDATA_net_0;
+assign cDataSync_net_1     = cDataSync_net_0;
+assign cDataSync           = cDataSync_net_1;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -102,6 +108,7 @@ n64_serial_interface n64_serial_interface_0(
         .controller_reset ( n64_apb_interface_0_controller_reset ),
         // Outputs
         .button_data      ( n64_serial_interface_0_button_data ),
+        .cDataSync        ( cDataSync_net_0 ),
         // Inouts
         .fab_pin          ( fab_pin ) 
         );

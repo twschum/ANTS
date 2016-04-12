@@ -17,7 +17,7 @@ Imported the files:
    C:\Users\rpokeefe\repos\373\ants_master\synthesis\ants_master.edn
    C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master\ants_master.pdc
 
-The Import command succeeded ( 00:00:12 )
+The Import command succeeded ( 00:00:09 )
 =====================================================================
 Parameters used to run compile:
 ===============================
@@ -369,8 +369,8 @@ Compile report:
 ===============
 
     Microcontroller Subsystem  Used:      1  Total:      1   (100.00%)
-    Fabric                     Used:   2736  Total:   4608   (59.38%)
-    Fabric IO (W/ clocks)      Used:      3  Total:     94   (3.19%)
+    Fabric                     Used:   2710  Total:   4608   (58.81%)
+    Fabric IO (W/ clocks)      Used:      4  Total:     94   (4.26%)
     Fabric Differential IO     Used:      0  Total:     47   (0.00%)
     Dedicated Analog IO        Used:      2  Total:     32   (6.25%)
     Dedicated MSS IO           Used:     11  Total:     43   (25.58%)
@@ -398,7 +398,7 @@ Core Information:
 
     Type    | Instances    | Core tiles
     --------|--------------|-----------
-    COMB    | 2233         | 2233
+    COMB    | 2207         | 2207
     SEQ     | 503          | 503
 
 I/O Function:
@@ -406,7 +406,7 @@ I/O Function:
     Type                                  | w/o register  | w/ register  | w/ DDR register
     --------------------------------------|---------------|--------------|----------------
     Input I/O                             | 0             | 0            | 0
-    Output I/O                            | 2             | 0            | 0
+    Output I/O                            | 3             | 0            | 0
     Bidirectional I/O                     | 1             | 0            | 0
     Differential Input I/O Pairs          | 0             | 0            | 0
     Differential Output I/O Pairs         | 0             | 0            | 0
@@ -417,13 +417,15 @@ I/O Technology:
     --------------------------------|-------|-------|-------|--------|--------------
     I/O Standard(s)                 | Vcci  | Vref  | Input | Output | Bidirectional
     --------------------------------|-------|-------|-------|--------|--------------
-    LVTTL                           | 3.30v | N/A   | 0     | 2      | 1
+    LVTTL                           | 3.30v | N/A   | 0     | 3      | 1
 
 I/O Placement:
 
-    Locked  :   3 ( 100.00% )
+    Locked  :   3 ( 75.00% )
     Placed  :   0
-    UnPlaced:   0
+    UnPlaced:   1 ( 25.00% )
+
+Warning: Only some I/Os are locked
 
 Net information report:
 =======================
@@ -452,24 +454,21 @@ High fanout nets in the post compile netlist:
     24      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR_1[6]
                           Driver: ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3_0
     24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1
-                          Driver:
-servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_0_o3_0_a3_a0_RNIPCUI3
-    24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_1
-                          Driver:
-servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_0_o3_0_a3_a0_RNIPCUI3_0
+                          Driver: servo_control_0/x_servo/time_count_RNITDEI9_1[8]
+    24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_0
+                          Driver: servo_control_0/x_servo/time_count_RNITDEI9[8]
     24      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_0
-                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4[9]
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4[7]
     23      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR_2[6]
                           Driver: ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3_2
-    23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_0
-                          Driver:
-servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_0_o3_0_a3_a0_RNIPCUI3_1
-    23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1
-                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_1[9]
+    23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_1
+                          Driver: servo_control_0/x_servo/time_count_RNITDEI9_0[8]
     23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_1
-                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_0[9]
-    22      INT_NET       Net   : servo_control_0/y_servo/pw_0_sqmuxa_0
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_0[7]
+    23      INT_NET       Net   : servo_control_0/y_servo/pw_0_sqmuxa_0
                           Driver: servo_control_0/y_servo/time_count_RNISMCA3[16]
+    23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_1[7]
 
 Nets that are candidates for clock assignment and the resulting fanout:
     Fanout  Type          Name
@@ -479,23 +478,20 @@ Nets that are candidates for clock assignment and the resulting fanout:
     49      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR[2]
                           Driver: ants_master_MSS_0/MSS_ADLIB_INST
     24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1
-                          Driver:
-servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_0_o3_0_a3_a0_RNIPCUI3
-    24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_1
-                          Driver:
-servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_0_o3_0_a3_a0_RNIPCUI3_0
+                          Driver: servo_control_0/x_servo/time_count_RNITDEI9_1[8]
+    24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_0
+                          Driver: servo_control_0/x_servo/time_count_RNITDEI9[8]
     24      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_0
-                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4[9]
-    23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_0
-                          Driver:
-servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_0_o3_0_a3_a0_RNIPCUI3_1
-    23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1
-                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_1[9]
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4[7]
+    23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_1
+                          Driver: servo_control_0/x_servo/time_count_RNITDEI9_0[8]
     23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_1
-                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_0[9]
-    22      INT_NET       Net   : servo_control_0/y_servo/pw_0_sqmuxa_0
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_0[7]
+    23      INT_NET       Net   : servo_control_0/y_servo/pw_0_sqmuxa_0
                           Driver: servo_control_0/y_servo/time_count_RNISMCA3[16]
-    21      INT_NET       Net   : servo_control_0/y_servo/pw_0_sqmuxa
+    23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_1[7]
+    22      INT_NET       Net   : servo_control_0/y_servo/pw_0_sqmuxa
                           Driver: servo_control_0/y_servo/time_count_RNISMCA3_0[16]
 
 The Compile command succeeded ( 00:00:07 )
@@ -510,6 +506,6 @@ Wrote pin report to file: ants_master_report_pin_bynumber.txt
 The Report command succeeded ( 00:00:01 )
 Design saved to file C:\Users\rpokeefe\repos\373\ants_master\designer\impl1\ants_master.adb.
 
-The Execute Script command succeeded ( 00:00:24 )
+The Execute Script command succeeded ( 00:00:21 )
 Design closed.
 

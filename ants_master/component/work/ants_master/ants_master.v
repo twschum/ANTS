@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Apr 07 13:49:25 2016
+// Created by SmartDesign Tue Apr 12 12:18:29 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -20,6 +20,7 @@ module ants_master(
     SPI_0_DO,
     UART_0_TXD,
     UART_1_TXD,
+    cDataSync,
     x_servo_pwm,
     y_servo_pwm,
     // Inouts
@@ -45,6 +46,7 @@ output SDD_0;
 output SPI_0_DO;
 output UART_0_TXD;
 output UART_1_TXD;
+output cDataSync;
 output x_servo_pwm;
 output y_servo_pwm;
 //--------------------------------------------------------------------
@@ -65,6 +67,7 @@ wire          ants_master_MSS_0_MSS_MASTER_APB_PSELx;
 wire          ants_master_MSS_0_MSS_MASTER_APB_PSLVERR;
 wire   [31:0] ants_master_MSS_0_MSS_MASTER_APB_PWDATA;
 wire          ants_master_MSS_0_MSS_MASTER_APB_PWRITE;
+wire          cDataSync_net_0;
 wire   [31:0] CoreAPB3_0_APBmslave0_PADDR;
 wire          CoreAPB3_0_APBmslave0_PENABLE;
 wire   [31:0] CoreAPB3_0_APBmslave0_PRDATA;
@@ -101,6 +104,7 @@ wire          GPIO_0_OUT_net_1;
 wire          x_servo_pwm_net_1;
 wire          y_servo_pwm_net_1;
 wire          SDD_0_net_1;
+wire          cDataSync_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -169,6 +173,8 @@ assign y_servo_pwm_net_1 = y_servo_pwm_net_0;
 assign y_servo_pwm       = y_servo_pwm_net_1;
 assign SDD_0_net_1       = SDD_0_net_0;
 assign SDD_0             = SDD_0_net_1;
+assign cDataSync_net_1   = cDataSync_net_0;
+assign cDataSync         = cDataSync_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -339,19 +345,20 @@ CoreAPB3_0(
 //--------n64_magic_box
 n64_magic_box n64_magic_box_0(
         // Inputs
-        .PCLK    ( ants_master_MSS_0_FAB_CLK ),
-        .PRESERN ( ants_master_MSS_0_M2F_RESET_N ),
-        .PENABLE ( CoreAPB3_0_APBmslave0_PENABLE ),
-        .PWRITE  ( CoreAPB3_0_APBmslave0_PWRITE ),
-        .PSEL    ( CoreAPB3_0_APBmslave0_PSELx ),
-        .PADDR   ( CoreAPB3_0_APBmslave0_PADDR ),
-        .PWDATA  ( CoreAPB3_0_APBmslave0_PWDATA ),
+        .PCLK      ( ants_master_MSS_0_FAB_CLK ),
+        .PRESERN   ( ants_master_MSS_0_M2F_RESET_N ),
+        .PENABLE   ( CoreAPB3_0_APBmslave0_PENABLE ),
+        .PWRITE    ( CoreAPB3_0_APBmslave0_PWRITE ),
+        .PSEL      ( CoreAPB3_0_APBmslave0_PSELx ),
+        .PADDR     ( CoreAPB3_0_APBmslave0_PADDR ),
+        .PWDATA    ( CoreAPB3_0_APBmslave0_PWDATA ),
         // Outputs
-        .PREADY  ( CoreAPB3_0_APBmslave0_PREADY ),
-        .PSLVERR ( CoreAPB3_0_APBmslave0_PSLVERR ),
-        .PRDATA  ( CoreAPB3_0_APBmslave0_PRDATA ),
+        .PREADY    ( CoreAPB3_0_APBmslave0_PREADY ),
+        .PSLVERR   ( CoreAPB3_0_APBmslave0_PSLVERR ),
+        .PRDATA    ( CoreAPB3_0_APBmslave0_PRDATA ),
+        .cDataSync ( cDataSync_net_0 ),
         // Inouts
-        .fab_pin ( fab_pin ) 
+        .fab_pin   ( fab_pin ) 
         );
 
 //--------servo_control
