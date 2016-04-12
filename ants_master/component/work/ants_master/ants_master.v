@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 12 00:11:26 2016
+// Created by SmartDesign Tue Apr 12 02:17:21 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -121,10 +121,10 @@ wire   [31:0] PRDATAS16_const_net_0;
 //--------------------------------------------------------------------
 // Bus Interface Nets Declarations - Unequal Pin Widths
 //--------------------------------------------------------------------
-wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 wire   [31:20]ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_31to20;
 wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_19to0;
 wire   [31:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0;
+wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
@@ -360,9 +360,9 @@ servo_control servo_control_0(
         // Outputs
         .PREADY      ( CoreAPB3_0_APBmslave1_PREADY ),
         .PSLVERR     ( CoreAPB3_0_APBmslave1_PSLVERR ),
-        .PRDATA      ( CoreAPB3_0_APBmslave1_PRDATA ),
         .x_servo_pwm ( x_servo_pwm_net_0 ),
-        .y_servo_pwm ( y_servo_pwm_net_0 ) 
+        .y_servo_pwm ( y_servo_pwm_net_0 ),
+        .PRDATA      ( CoreAPB3_0_APBmslave1_PRDATA ) 
         );
 
 

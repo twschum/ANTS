@@ -143,12 +143,12 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 
     // Digital Pitch control
-    if (n64_pressed(Up)) {
+    if (n64_pressed(Down)) {
         servo_do(Y_SET_FORWARD);
         //set_y_servo_analog_pw(SERVO_FULL_FORWARD);
         printf("servo_do Y_SET_FORWARD\r\n");
     }
-    else if (n64_pressed(Down)) {
+    else if (n64_pressed(Up)) {
         servo_do(Y_SET_REVERSE);
         printf("servo_do Y_SET_REVERSE\r\n");
     }

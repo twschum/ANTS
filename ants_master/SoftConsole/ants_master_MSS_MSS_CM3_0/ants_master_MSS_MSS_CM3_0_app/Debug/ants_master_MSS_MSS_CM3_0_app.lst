@@ -23,19 +23,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_abbrev 00000d6e  00000000  00000000  00017e27  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_line   00002862  00000000  00000000  00018b95  2**0
+ 10 .debug_line   00002894  00000000  00000000  00018b95  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_frame  000018a4  00000000  00000000  0001b3f8  2**2
+ 11 .debug_frame  000018a4  00000000  00000000  0001b42c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_str    00002682  00000000  00000000  0001cc9c  2**0
+ 12 .debug_str    00002696  00000000  00000000  0001ccd0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_loc    000014e8  00000000  00000000  0001f31e  2**0
+ 13 .debug_loc    000014e8  00000000  00000000  0001f366  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_macinfo 0004012a  00000000  00000000  00020806  2**0
+ 14 .debug_macinfo 0004012a  00000000  00000000  0002084e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .ARM.attributes 00000025  00000000  00000000  00060930  2**0
+ 15 .ARM.attributes 00000025  00000000  00000000  00060978  2**0
                   CONTENTS, READONLY
- 16 .debug_ranges 000003a8  00000000  00000000  00060955  2**0
+ 16 .debug_ranges 000003a8  00000000  00000000  0006099d  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1094,15 +1094,15 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 2000071c:	6039      	str	r1, [r7, #0]
 
     // Digital Pitch control
-    if (n64_pressed(Up)) {
+    if (n64_pressed(Down)) {
 2000071e:	687b      	ldr	r3, [r7, #4]
 20000720:	781b      	ldrb	r3, [r3, #0]
-20000722:	f003 0310 	and.w	r3, r3, #16
+20000722:	f003 0320 	and.w	r3, r3, #32
 20000726:	2b00      	cmp	r3, #0
 20000728:	d013      	beq.n	20000752 <do_servos_manual+0x3e>
 2000072a:	683b      	ldr	r3, [r7, #0]
 2000072c:	781b      	ldrb	r3, [r3, #0]
-2000072e:	f003 0310 	and.w	r3, r3, #16
+2000072e:	f003 0320 	and.w	r3, r3, #32
 20000732:	2b00      	cmp	r3, #0
 20000734:	d10d      	bne.n	20000752 <do_servos_manual+0x3e>
         servo_do(Y_SET_FORWARD);
@@ -1120,21 +1120,21 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 
     // Digital Pitch control
-    if (n64_pressed(Up)) {
+    if (n64_pressed(Down)) {
 20000750:	e03e      	b.n	200007d0 <do_servos_manual+0xbc>
         servo_do(Y_SET_FORWARD);
         //set_y_servo_analog_pw(SERVO_FULL_FORWARD);
         printf("servo_do Y_SET_FORWARD\r\n");
     }
-    else if (n64_pressed(Down)) {
+    else if (n64_pressed(Up)) {
 20000752:	687b      	ldr	r3, [r7, #4]
 20000754:	781b      	ldrb	r3, [r3, #0]
-20000756:	f003 0320 	and.w	r3, r3, #32
+20000756:	f003 0310 	and.w	r3, r3, #16
 2000075a:	2b00      	cmp	r3, #0
 2000075c:	d013      	beq.n	20000786 <do_servos_manual+0x72>
 2000075e:	683b      	ldr	r3, [r7, #0]
 20000760:	781b      	ldrb	r3, [r3, #0]
-20000762:	f003 0320 	and.w	r3, r3, #32
+20000762:	f003 0310 	and.w	r3, r3, #16
 20000766:	2b00      	cmp	r3, #0
 20000768:	d10d      	bne.n	20000786 <do_servos_manual+0x72>
         servo_do(Y_SET_REVERSE);
@@ -1146,12 +1146,12 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 20000778:	f248 00e0 	movw	r0, #32992	; 0x80e0
 2000077c:	f2c2 0000 	movt	r0, #8192	; 0x2000
 20000780:	f001 feca 	bl	20002518 <puts>
-    if (n64_pressed(Up)) {
+    if (n64_pressed(Down)) {
         servo_do(Y_SET_FORWARD);
         //set_y_servo_analog_pw(SERVO_FULL_FORWARD);
         printf("servo_do Y_SET_FORWARD\r\n");
     }
-    else if (n64_pressed(Down)) {
+    else if (n64_pressed(Up)) {
 20000784:	e024      	b.n	200007d0 <do_servos_manual+0xbc>
         servo_do(Y_SET_REVERSE);
         printf("servo_do Y_SET_REVERSE\r\n");

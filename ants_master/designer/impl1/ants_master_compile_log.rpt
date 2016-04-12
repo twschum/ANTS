@@ -9,15 +9,15 @@ Opened an existing Libero design ants_master.adb.
 'IDE_DESIGNERVIEW_COUNT' set to '1'
 'IDE_DESIGNERVIEW_REV0' set to 'Impl1'
 'IDE_DESIGNERVIEW_REVNUM0' set to '1'
-'IDE_DESIGNERVIEW_ROOTDIR' set to 'C:\Users\rpokeefe\repos\373\ants_master\designer'
+'IDE_DESIGNERVIEW_ROOTDIR' set to 'C:\Users\collmae\Documents\GitHub\373\ants_master\designer'
 'IDE_DESIGNERVIEW_LASTREV' set to '1'
 
- Netlist Reading Time = 1.0 seconds
+ Netlist Reading Time = 0.0 seconds
 Imported the files:
-   C:\Users\rpokeefe\repos\373\ants_master\synthesis\ants_master.edn
-   C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master\ants_master.pdc
+   C:\Users\collmae\Documents\GitHub\373\ants_master\synthesis\ants_master.edn
+   C:\Users\collmae\Documents\GitHub\373\ants_master\component\work\ants_master\ants_master.pdc
 
-The Import command succeeded ( 00:00:14 )
+The Import command succeeded ( 00:00:13 )
 =====================================================================
 Parameters used to run compile:
 ===============================
@@ -25,8 +25,9 @@ Parameters used to run compile:
 Family      : SmartFusion
 Device      : A2F200M3F
 Package     : 484 FBGA
-Source      : C:\Users\rpokeefe\repos\373\ants_master\synthesis\ants_master.edn
-              C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master\ants_master.pdc
+Source      : C:\Users\collmae\Documents\GitHub\373\ants_master\synthesis\ants_master.edn
+
+C:\Users\collmae\Documents\GitHub\373\ants_master\component\work\ants_master\ants_master.pdc
 Format      : EDIF
 Topcell     : ants_master
 Speed grade : STD
@@ -346,9 +347,9 @@ Optimized macros:
   - Buffers:                0
   - Inverters:              0
   - Tieoff:                 0
-  - Logic combining:        63
+  - Logic combining:        79
 
-    Total macros optimized  63
+    Total macros optimized  79
 
 There were 0 error(s) and 277 warning(s) in this design.
 =====================================================================
@@ -370,8 +371,8 @@ Compile report:
 ===============
 
     Microcontroller Subsystem  Used:      1  Total:      1   (100.00%)
-    Fabric                     Used:   2688  Total:   4608   (58.33%)
-    Fabric IO (W/ clocks)      Used:      3  Total:     94   (3.19%)
+    Fabric                     Used:   2739  Total:   4608   (59.44%)
+    Fabric IO (W/ clocks)      Used:      5  Total:     94   (5.32%)
     Fabric Differential IO     Used:      0  Total:     47   (0.00%)
     Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
     Dedicated MSS IO           Used:     11  Total:     43   (25.58%)
@@ -399,14 +400,14 @@ Core Information:
 
     Type    | Instances    | Core tiles
     --------|--------------|-----------
-    COMB    | 2188         | 2188
-    SEQ     | 500          | 500
+    COMB    | 2236         | 2236
+    SEQ     | 503          | 503
 
 I/O Function:
 
     Type                                  | w/o register  | w/ register  | w/ DDR register
     --------------------------------------|---------------|--------------|----------------
-    Input I/O                             | 0             | 0            | 0
+    Input I/O                             | 2             | 0            | 0
     Output I/O                            | 2             | 0            | 0
     Bidirectional I/O                     | 1             | 0            | 0
     Differential Input I/O Pairs          | 0             | 0            | 0
@@ -418,11 +419,11 @@ I/O Technology:
     --------------------------------|-------|-------|-------|--------|--------------
     I/O Standard(s)                 | Vcci  | Vref  | Input | Output | Bidirectional
     --------------------------------|-------|-------|-------|--------|--------------
-    LVTTL                           | 3.30v | N/A   | 0     | 2      | 1
+    LVTTL                           | 3.30v | N/A   | 2     | 2      | 1
 
 I/O Placement:
 
-    Locked  :   3 ( 100.00% )
+    Locked  :   5 ( 100.00% )
     Placed  :   0
     UnPlaced:   0
 
@@ -432,79 +433,80 @@ Net information report:
 The following nets have been assigned to a chip global resource:
     Fanout  Type          Name
     --------------------------
-    501     CLK_NET       Net   : FAB_CLK
+    504     CLK_NET       Net   : FAB_CLK
                           Driver: ants_master_MSS_0/MSS_CCC_0/I_MSSCCC
                           Source: ESSENTIAL
-    128     INT_NET       Net   : servo_control_0.m3_0
-                          Driver: I_82/U_CLKSRC
+    128     INT_NET       Net   : servo_control_0.N_259_mux
+                          Driver: I_87/U_CLKSRC
                           Source: NETLIST
-    128     INT_NET       Net   : servo_control_0.m3_1
-                          Driver: I_83/U_CLKSRC
-                          Source: NETLIST
-    121     INT_NET       Net   : ants_master_MSS_0_M2F_RESET_N
+    125     INT_NET       Net   : ants_master_MSS_0_M2F_RESET_N
                           Driver: ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3/U_CLKSRC
+                          Source: NETLIST
+    77      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR[2]
+                          Driver: ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3_0/U_CLKSRC
                           Source: NETLIST
 
 High fanout nets in the post compile netlist:
     Fanout  Type          Name
     --------------------------
-    24      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR[2]
-                          Driver: ants_master_MSS_0/MSS_ADLIB_INST
-    24      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR_0[6]
-                          Driver: ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3_1
-    24      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR_1[6]
-                          Driver: ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3_0
-    24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_0
-                          Driver: servo_control_0/x_servo/time_count_RNIVKG68[11]
-    23      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR_2[6]
-                          Driver: ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3_2
-    23      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR_0[2]
-                          Driver: ants_master_MSS_0/MSS_ADLIB_INST_RNIRLU3_3
-    23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_1
-                          Driver: servo_control_0/x_servo/time_count_RNIVKG68_0[11]
+    24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_1
+                          Driver: servo_control_0/x_servo/time_count_RNIJEK16[15]
+    24      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4[11]
+    24      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_1
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_0[11]
+    23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_0
+                          Driver: servo_control_0/x_servo/time_count_RNIJEK16_0[15]
     23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1
-                          Driver: servo_control_0/x_servo/time_count_RNIVKG68_1[11]
-    23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_1
-                          Driver: servo_control_0/y_servo/time_count_RNIDFO35[15]
-    22      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1
-                          Driver: servo_control_0/y_servo/time_count_RNIDFO35_2[15]
+                          Driver: servo_control_0/x_servo/time_count_RNIJEK16_1[15]
+    23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_0
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_1[11]
+    22      INT_NET       Net   : servo_control_0/y_servo/N_37_0
+                          Driver: servo_control_0/y_servo/time_count_RNISMCA3[16]
+    21      INT_NET       Net   : servo_control_0/y_servo/N_37_1
+                          Driver: servo_control_0/y_servo/time_count_RNISMCA3_0[16]
+    20      INT_NET       Net   : servo_control_0/x_servo/N_37_0
+                          Driver: servo_control_0/x_servo/time_count_RNI8OEG3_0[15]
+    20      INT_NET       Net   : servo_control_0/x_servo/N_37_1
+                          Driver: servo_control_0/x_servo/time_count_RNI8OEG3[15]
 
 Nets that are candidates for clock assignment and the resulting fanout:
     Fanout  Type          Name
     --------------------------
-    71      INT_NET       Net   : ants_master_MSS_0/CoreAPB3_0_APBmslave0_PADDR[6]
+    49      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR[6]
                           Driver: ants_master_MSS_0/MSS_ADLIB_INST
-    46      INT_NET       Net   : CoreAPB3_0_APBmslave0_PADDR[2]
-                          Driver: ants_master_MSS_0/MSS_ADLIB_INST
-    24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_0
-                          Driver: servo_control_0/x_servo/time_count_RNIVKG68[11]
-    23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_1
-                          Driver: servo_control_0/x_servo/time_count_RNIVKG68_0[11]
+    24      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_1
+                          Driver: servo_control_0/x_servo/time_count_RNIJEK16[15]
+    24      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4[11]
+    24      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_1
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_0[11]
+    23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1_0
+                          Driver: servo_control_0/x_servo/time_count_RNIJEK16_0[15]
     23      INT_NET       Net   : servo_control_0/x_servo/zero_counts_next_0_sqmuxa_i_1
-                          Driver: servo_control_0/x_servo/time_count_RNIVKG68_1[11]
-    23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_1
-                          Driver: servo_control_0/y_servo/time_count_RNIDFO35[15]
-    22      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1
-                          Driver: servo_control_0/y_servo/time_count_RNIDFO35_2[15]
-    21      INT_NET       Net   : servo_control_0/y_servo/un1_time_count
-                          Driver: servo_control_0/y_servo/time_count_RNI11E63[16]
-    20      INT_NET       Net   : servo_control_0/set_x_0
-                          Driver: servo_control_0/m252_0
-    19      INT_NET       Net   : servo_control_0/set_x
-                          Driver: servo_control_0/m252
+                          Driver: servo_control_0/x_servo/time_count_RNIJEK16_1[15]
+    23      INT_NET       Net   : servo_control_0/y_servo/zero_counts_next_0_sqmuxa_i_1_0
+                          Driver: servo_control_0/y_servo/time_count_RNIGPSM4_1[11]
+    22      INT_NET       Net   : servo_control_0/y_servo/N_37_0
+                          Driver: servo_control_0/y_servo/time_count_RNISMCA3[16]
+    21      INT_NET       Net   : servo_control_0/y_servo/N_37_1
+                          Driver: servo_control_0/y_servo/time_count_RNISMCA3_0[16]
+    20      INT_NET       Net   : servo_control_0/x_servo/N_37_0
+                          Driver: servo_control_0/x_servo/time_count_RNI8OEG3_0[15]
 
-The Compile command succeeded ( 00:00:08 )
+The Compile command succeeded ( 00:00:07 )
 Wrote status report to file: ants_master_compile_report.txt
 
 The Report command succeeded ( 00:00:00 )
 Wrote pin report to file: ants_master_report_pin_byname.txt
 
-The Report command succeeded ( 00:00:01 )
+The Report command succeeded ( 00:00:02 )
 Wrote pin report to file: ants_master_report_pin_bynumber.txt
 
 The Report command succeeded ( 00:00:00 )
-Design saved to file C:\Users\rpokeefe\repos\373\ants_master\designer\impl1\ants_master.adb.
+Design saved to file
+C:\Users\collmae\Documents\GitHub\373\ants_master\designer\impl1\ants_master.adb.
 
-The Execute Script command succeeded ( 00:00:27 )
+The Execute Script command succeeded ( 00:00:26 )
 Design closed.
 

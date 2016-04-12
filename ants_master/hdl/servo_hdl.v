@@ -51,8 +51,8 @@ wire read_y_reverse;
 
 assign set_y            = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h140)); // WRITE DATA to 110 - 'analog' currently not working
 assign set_y_neutral    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h144)); // WRITE ANY to 111
-assign set_y_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h148)); // WRITE ANY to 112
-assign set_y_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h14c)); // WRITE ANY to 113
+assign set_y_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h148)); // WRITE ANY to 112 ** Forward = down
+assign set_y_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h14c)); // WRITE ANY to 113 ** Reverse = up
 assign set_y_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h150)); // WRITE ANY to 114
 assign y_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h154)); // WRITE ANY to 115
 assign read_y_forward  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h158)); // READ from 118
@@ -66,7 +66,11 @@ wire [31:0] y_forward_count;
 wire [31:0] y_reverse_count;
 
 ///*** KILL SWITCH LOGIC ***/
-wire neutral_or_kill = (set_y_neutral || ((stop_y[1]) && (!set_y_reverse)) || ((stop_y[0]) && (!set_y_forward)));
+wire neutral_or_kill;
+assign neutral_or_kill =    (set_y_neutral || 
+                            ((!stop_y[1]) && (set_y_reverse)) || 
+                            ((!stop_y[0]) && (set_y_forward))
+                            );
 
 
 _tracking_servo x_servo(
@@ -164,8 +168,8 @@ module _tracking_servo(
 // 100 000 cycles = 1 ms
 parameter PWM_PERIOD = 2000000; // 20ms
 parameter PW_NEUTRAL = 150000;  // 1.5ms
-parameter PW_FULL_REVERSE = 120000; // 1 ms (1.2)
-parameter PW_FULL_FORWARD = 180000; // 2 ms (1.8)
+parameter PW_FULL_REVERSE = 125000; // 1 ms (1.25)
+parameter PW_FULL_FORWARD = 175000; // 2 ms (1.75)
 
 reg [31:0] time_count;
 reg [31:0] pw;

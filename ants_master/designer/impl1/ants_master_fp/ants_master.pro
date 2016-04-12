@@ -1,6 +1,6 @@
 <project name="ants_master" version="1.1">
     <ProjectDirectory>
-        N:/windat.V2/373/ants_master/designer/impl1/ants_master_fp
+        C:/Users/collmae/Documents/GitHub/373/ants_master/designer/impl1/ants_master_fp
     </ProjectDirectory>
     <View>
         SingleSTAPLView
@@ -9,7 +9,7 @@
         
     </LiberoTargetDevice>
     <LogFile>
-        N:/windat.V2/373/ants_master/designer/impl1/ants_master_fp/ants_master.log
+        C:/Users/collmae/Documents/GitHub/373/ants_master/designer/impl1/ants_master_fp/ants_master.log
     </LogFile>
     <SerializationOption>
         Skip
@@ -83,7 +83,7 @@
         </Hardware>
         <Algo type="PDB">
             <filename>
-                N:\windat.V2\373\ants_master\designer\impl1\ants_master_fp\ants_master.pdb
+                C:\Users\collmae\Documents\GitHub\373\ants_master\designer\impl1\ants_master_fp\ants_master.pdb
             </filename>
             <local>
                 projectData\ants_master.pdb
