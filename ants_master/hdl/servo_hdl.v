@@ -158,9 +158,9 @@ module _tracking_servo(
 // 100 cycles = 1 us
 // 100 000 cycles = 1 ms
 parameter PWM_PERIOD = 2000000; // 20ms
-parameter PW_NEUTRAL = 150000;  // 1.5ms
-parameter PW_FULL_REVERSE = 100000; // 1ms
-parameter PW_FULL_FORWARD = 200000; // 2 ms
+parameter PW_NEUTRAL = 150000;  // 1.5ms 
+parameter PW_FULL_REVERSE = 137000; // 1ms full, 1.25 half
+parameter PW_FULL_FORWARD = 163000; // 2 ms full, 1.75 half
 
 reg [31:0] time_count;
 reg [31:0] pw;
