@@ -61,31 +61,36 @@ void disp_write_target(circle_t *targ, circle_t *lasttarg){
 	uint8_t lx = lasttarg->x;
 	uint8_t ly = lasttarg->y;
 
+	char horz[4];
+	char vert[4];
 
-	LCD_eraseBlock(TARGET_UL_POS_X, TARGET_UL_POS_Y, TARGET_LR_POS_X, TARGET_LR_POS_Y); //Clear X:aaaY:bbb
+	sprintf(horz, "%3d", tx);
+	sprintf(vert, "%3d", ty);
+	//LCD_eraseBlock(TARGET_UL_POS_X, TARGET_UL_POS_Y, TARGET_LR_POS_X, TARGET_LR_POS_Y); //Clear X:aaaY:bbb
 	//LCD_eraseBlock(TARGET_BOX_X1+1, TARGET_BOX_Y1+1, TARGET_BOX_X2-1, TARGET_BOX_Y2-1); //Clear entire target area
-	LCD_drawCircle(lx, ly, TARGET_RAD, LCD_UNSET); //Clear the old circle
+	LCD_drawCircle(lx + TARGET_UL_POS_X, ly + TARGET_UL_POS_Y, TARGET_RAD, LCD_UNSET); //Clear the old circle
 	//X:
-	LCD_setPos(TARGET_HORZ_POS_X, TARGET_HORZ_POS_Y);
-	LCD_printStr(TARGET_HORZ_STR);
-	LCD_printNum(tx);
+	LCD_setPos(TARGET_HORZ_POS_X + TARGET_HORZ_STR_SZ*CHAR_WIDTH, TARGET_HORZ_POS_Y);
+	//LCD_printStr(TARGET_HORZ_STR);
+	LCD_printStr(horz);
 	//Y:
-	LCD_setPos(TARGET_VERT_POS_X, TARGET_VERT_POS_Y);
-	LCD_printStr(TARGET_VERT_STR);
-	LCD_printNum(ty);
+	LCD_setPos(TARGET_VERT_POS_X + TRAGET_VERT_STR_SZ*CHAR_WIDTH, TARGET_VERT_POS_Y);
+	//LCD_printStr(TARGET_VERT_STR);
+	LCD_printNum(vert);
 
 	//Draw the new target
-	LCD_drawCircle(tx,ty, TARGET_RAD, LCD_SET);
+	LCD_drawCircle(tx + TARGET_UL_POS_X,ty + TARGET_UL_POS_Y, TARGET_RAD, LCD_SET);
 }
 
 //This can be made more efficient:
 //	use sprintf to print a number of three digits; this eliminates the need
 //	for clearing the previous count
 void disp_write_shots(unsigned int shots){
+	char num[4];
 	LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
-	LCD_printStr("   "); //Clear shot count
 	LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
-	LCD_printNum(shots);
+	sprintf(num, "%3d", shots);
+	LCD_printStr(num);
 }
 
 
@@ -94,10 +99,11 @@ void disp_write_shots(unsigned int shots){
 //	for clearing the previous count
 //Argument is assumed to have already been scaled
 void disp_write_dist(unsigned int distance){
+	char num[4];
 	LCD_setPos(DIST_POS_X, DIST_POS_Y);
-	LCD_printStr("   ");
 	LCD_setPos(DIST_POS_X, DIST_POS_Y);
-	LCD_printNum(distance);
+	sprintf(num, "%3d", distance);
+	LCD_printStr(distance);
 }
 
 void disp_write_mode(char newmode){

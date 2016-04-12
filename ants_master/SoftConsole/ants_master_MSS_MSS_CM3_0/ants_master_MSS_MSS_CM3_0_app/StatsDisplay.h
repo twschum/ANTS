@@ -50,11 +50,11 @@
 #define MODE_STR 			"Mode:"				//
 #define MODE_STR_SZ			6 					//
 												//
-#define AUTO_STR			"AUTO-TARGETING"	//
-#define AUTO_STR_SZ 		15					//
+#define AUTO_STR			"AUTO"				//
+#define AUTO_STR_SZ 		5					//
 												//
-#define MANUAL_STR			"MANUAL TARGETING"	//
-#define MANUAL_STR_SZ		17					//
+#define MANUAL_STR			"MANUAL"			//
+#define MANUAL_STR_SZ		7					//
 												//
 #define TARGET_HORZ_STR 	"X:"				//
 #define TARGET_HORZ_STR_SZ	3 					//
