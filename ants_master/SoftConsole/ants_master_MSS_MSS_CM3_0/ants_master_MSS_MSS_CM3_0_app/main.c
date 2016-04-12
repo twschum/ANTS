@@ -6,8 +6,9 @@
 #include "drivers/n64_driver.h"
 #include "drivers/trigger_solenoid_driver.h"
 #include "drivers/servo_control.h"
+#include "drivers/dsensor_driver.h"
 
-#define PRINT_N64_STATE 0
+#define PRINT_N64_STATE 1
 
 #define MANUAL 1
 #define AUTOMATIC 0
@@ -70,6 +71,8 @@ int main() {
 
         do_servos_manual( &n64_buttons, &last_buttons );
 
+        //print_distance();
+
         /*
          * Toggle between manual and automatic modes, with the laser indicator
          */
@@ -91,9 +94,9 @@ int main() {
 
         if (PRINT_N64_STATE) {
             n64_print_state( &n64_buttons );
-            while (x < 10000000) {
-            	x = x + 1;
-            }
+            //while (x < 10000000) {
+            //	x = x + 1;
+            //}
             x = 0;
         }
 

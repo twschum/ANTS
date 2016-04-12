@@ -17,5 +17,5 @@ void print_distance()
 	volatile uint32_t* address = (volatile uint32_t*)DSNSR_ADDR;
 	float distance_count = (float)(*address);
 	float distance =((distance_count * SEC_to_IN * IN_to_METER)/((float)(CLK_FREQ)));
-	printf("Distance (m): %f", distance);
+	printf("Distance (clk_counts): %d. \t Distance (m): %f\r\n", distance_count, distance);
 }
