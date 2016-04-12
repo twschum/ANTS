@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 12 12:18:29 2016
+// Created by SmartDesign Tue Apr 12 13:10:59 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -21,6 +21,8 @@ module ants_master(
     UART_0_TXD,
     UART_1_TXD,
     cDataSync,
+    dataBit,
+    dataValid,
     x_servo_pwm,
     y_servo_pwm,
     // Inouts
@@ -47,6 +49,8 @@ output SPI_0_DO;
 output UART_0_TXD;
 output UART_1_TXD;
 output cDataSync;
+output dataBit;
+output dataValid;
 output x_servo_pwm;
 output y_servo_pwm;
 //--------------------------------------------------------------------
@@ -80,6 +84,8 @@ wire   [31:0] CoreAPB3_0_APBmslave1_PRDATA;
 wire          CoreAPB3_0_APBmslave1_PREADY;
 wire          CoreAPB3_0_APBmslave1_PSELx;
 wire          CoreAPB3_0_APBmslave1_PSLVERR;
+wire          dataBit_net_0;
+wire          dataValid_net_0;
 wire          fab_pin;
 wire          GPIO_0_OUT_net_0;
 wire          GPIO_1_OUT_net_0;
@@ -105,6 +111,8 @@ wire          x_servo_pwm_net_1;
 wire          y_servo_pwm_net_1;
 wire          SDD_0_net_1;
 wire          cDataSync_net_1;
+wire          dataBit_net_1;
+wire          dataValid_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -175,6 +183,10 @@ assign SDD_0_net_1       = SDD_0_net_0;
 assign SDD_0             = SDD_0_net_1;
 assign cDataSync_net_1   = cDataSync_net_0;
 assign cDataSync         = cDataSync_net_1;
+assign dataBit_net_1     = dataBit_net_0;
+assign dataBit           = dataBit_net_1;
+assign dataValid_net_1   = dataValid_net_0;
+assign dataValid         = dataValid_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -355,8 +367,10 @@ n64_magic_box n64_magic_box_0(
         // Outputs
         .PREADY    ( CoreAPB3_0_APBmslave0_PREADY ),
         .PSLVERR   ( CoreAPB3_0_APBmslave0_PSLVERR ),
-        .PRDATA    ( CoreAPB3_0_APBmslave0_PRDATA ),
         .cDataSync ( cDataSync_net_0 ),
+        .PRDATA    ( CoreAPB3_0_APBmslave0_PRDATA ),
+        .dataValid ( dataValid_net_0 ),
+        .dataBit   ( dataBit_net_0 ),
         // Inouts
         .fab_pin   ( fab_pin ) 
         );

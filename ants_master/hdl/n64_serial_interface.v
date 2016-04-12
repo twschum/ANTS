@@ -7,7 +7,9 @@ module n64_serial_interface(
     output reg [31:0] button_data,
 
     //DEBUG
-    output wire cDataSync
+    output wire cDataSync,
+    output wire dataBit,
+    output wire dataValid
 );
 
 // used by the sync and count block
@@ -54,7 +56,9 @@ n64_read_module read_module(
     data_in,
     read_module_error,
     read_module_active,
-    button_data_raw
+    button_data_raw,
+    dataBit,
+    dataValid
 );
 
 // open collector output circuit
