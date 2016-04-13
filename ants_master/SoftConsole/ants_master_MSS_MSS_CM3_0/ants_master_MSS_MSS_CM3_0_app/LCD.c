@@ -157,7 +157,7 @@ Colleen
 		uint8_t message2[] = {0x10};
 		uint8_t message3[] = {x};
 		uint8_t message4[] = {y};
-		uint8_t message5[] = {0x01};
+		uint8_t message5[] = {set};
 		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
 		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
@@ -177,7 +177,7 @@ Colleen
 		uint8_t message4[] = {y1};
 		uint8_t message5[] = {x2};
 		uint8_t message6[] = {y2};
-		uint8_t message7[] = {0x01};
+		uint8_t message7[] = {set};
 		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
 		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
@@ -231,7 +231,7 @@ Colleen
 		uint8_t message3[] = {x};
 		uint8_t message4[] = {y};
 		uint8_t message5[] = {rad};
-		uint8_t message6[] = {0x01};
+		uint8_t message6[] = {set};
 		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
 		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
 		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );

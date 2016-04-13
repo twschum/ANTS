@@ -25,14 +25,14 @@
 #define TARGET_LR_POS_Y		23					//				
 												//
 #define N64_DBG_BOX_X1		0					//
-#define N64_DBG_BOX_Y1		0					//
-#define N64_DBG_BOX_X2		144					//
-#define N64_DBG_BOX_Y2		12					//
+#define N64_DBG_BOX_Y1		12					//
+#define N64_DBG_BOX_X2		159					//
+#define N64_DBG_BOX_Y2		0					//
 												//
-#define SHOTS_LEFT_POS_X	10					//
+#define SHOTS_LEFT_POS_X	3					//
 #define SHOTS_LEFT_POS_Y	110					//
 												//
-#define MODE_POS_X			10					//
+#define MODE_POS_X			3					//
 #define MODE_POS_Y			80					//
 												//
 #define PRESSURE_POS_X		0					//
@@ -50,8 +50,8 @@
 #define MODE_STR 			"Mode:"				//
 #define MODE_STR_SZ			6 					//
 												//
-#define AUTO_STR			"AUTO"				//
-#define AUTO_STR_SZ 		5					//
+#define AUTO_STR			"AUTO  "			//
+#define AUTO_STR_SZ 		7					//
 												//
 #define MANUAL_STR			"MANUAL"			//
 #define MANUAL_STR_SZ		7					//
@@ -68,7 +68,7 @@
 #define CHAR_WIDTH			6 					//
 #define CHAR_HEIGHT			8 					//	
 												//
-#define TARGET_RAD			2 					//										
+#define TARGET_RAD			3 					//
 												//
 //////////////////////////////////////////////////
 
@@ -112,6 +112,7 @@ typedef struct {
 
 void disp_init();
 
+//Pass NULL to 2nd arg to force an update (e.g. on first write)
 void disp_update(lcd_screen_state_t*, lcd_screen_state_t*, n64_state_t*);
 
 //Clears X: Y: and graphic on screen, writes new values

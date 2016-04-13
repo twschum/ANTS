@@ -1,15 +1,19 @@
+#include <stdlib.h>
+
 #include "mss_uart/mss_uart.h"
 #include "StatsDisplay.h"
 
 int main()
 {
 	disp_init();
+
 	lcd_screen_state_t states[20];
 	int i;
 	for(i = 0; i < 20; i++){
 		circle_t* c = malloc(sizeof(circle_t));
 		c->x=i;
 		c->y=i;
+		c->r=TARGET_RAD;
 		states[i].target_pos = c;
 		states[i].distance = i;
 		states[i].shots = 20-i;
@@ -57,11 +61,14 @@ int main()
 		uint8_t last = 19;
 		int i;
 		for(i = 0; i <20; i++){
+			int j, dummy;
+			for(j=0; j<10000000; j++){dummy+=j;}
 			if(i%2)
 				disp_update(&states[i], &states[last], &on);
 			else
 				disp_update(&states[i], &states[last], &off);
 			last = i;
+			printf("%d",dummy);
 		}
 	}
 }
