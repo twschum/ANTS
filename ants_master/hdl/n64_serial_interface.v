@@ -4,7 +4,7 @@ module n64_serial_interface(
     input polling_enable,
     input controller_reset,
     inout fab_pin,
-    output reg [31:0] button_data
+    output wire [31:0] button_data_rev
 );
 
 // used by the sync and count block
@@ -27,6 +27,29 @@ wire read_module_begin; // active signal to the read module, from write module(1
 wire [31:0] button_data_raw; // since this changes, needs to write to button_data atomically
 wire read_module_active;
 wire read_module_error;
+
+//compensating for reversed data from controller
+reg [31:0] button_data;
+assign button_data_rev [15:0] = button_data[15:0];
+assign button_data_rev [31] = button_data[24];
+assign button_data_rev [30] = button_data[25];
+assign button_data_rev [29] = button_data[26];
+assign button_data_rev [28] = button_data[27];
+assign button_data_rev [27] = button_data[28];
+assign button_data_rev [26] = button_data[29];
+assign button_data_rev [25] = button_data[30];
+assign button_data_rev [24] = button_data[31];
+
+assign button_data_rev [23] = button_data[16];
+assign button_data_rev [22] = button_data[17];
+assign button_data_rev [21] = button_data[18];
+assign button_data_rev [20] = button_data[19];
+assign button_data_rev [19] = button_data[20];
+assign button_data_rev [18] = button_data[21];
+assign button_data_rev [17] = button_data[22];
+assign button_data_rev [16] = button_data[23];
+
+//End compensation block
 
 
 

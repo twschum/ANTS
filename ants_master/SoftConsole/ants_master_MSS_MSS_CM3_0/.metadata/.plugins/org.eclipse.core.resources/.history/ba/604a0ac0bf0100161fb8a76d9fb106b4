@@ -1,0 +1,57 @@
+/*
+ * Driver for our N64 Controller Module
+ *
+ */
+
+#include <inttypes.h>
+#include <stdio.h>
+
+#define N64_ADDR         0x40050000
+#define N64_RESET        0xff
+#define N64_GET_STATUS   0x00
+#define N64_GET_BUTTONS  0x01
+#define N64_READ_MEMPK   0x02
+#define N64_WRITE_MEMPK  0x03
+#define N64_READ_EEPROM  0x04
+#define N64_WRITE_EEPROM 0x05
+
+#define N64_ANALOG_MAX 83
+#define N64_ANALOG_DEADZONE 7
+
+typedef struct {
+    // byte 0
+    uint8_t A : 1;
+    uint8_t B : 1;
+    uint8_t Z : 1;
+    uint8_t Start : 1;
+    uint8_t Up : 1;
+    uint8_t Down : 1;
+    uint8_t Left : 1;
+    uint8_t Right : 1;
+
+    uint8_t Reserved_8 : 1;
+    uint8_t Reserved_9 : 1;
+    uint8_t L : 1;
+    uint8_t R : 1;
+    uint8_t C_Up : 1;
+    uint8_t C_Down : 1;
+    uint8_t C_Left : 1;
+    uint8_t C_Right : 1;
+
+    int8_t X_axis;
+    int8_t Y_axis;
+} n64_state_t;
+
+// read the current state
+void n64_get_state(n64_state_t* state);
+
+// send a reset signal
+void n64_reset();
+
+// enable button polling
+void n64_enable();
+
+// print the state thru printf
+void n64_print_state(n64_state_t* state);
+
+

@@ -2,7 +2,7 @@
 * (c) Copyright  Actel Corporation. All rights reserved.
 *
 *ACE configuration .h file
-*Created by Actel MSS_ACE Configurator Tue Apr 12 12:57:54 2016
+*Created by Actel MSS_ACE Configurator Wed Apr 13 16:10:41 2016
 *
 */
 
@@ -18,7 +18,8 @@ extern "C" {
 *Analog input channel handles
 *---------------------------------------------------------------------------*/
 typedef enum {
-    NB_OF_ACE_CHANNEL_HANDLES = 0
+    SDD_0 = 0,
+    NB_OF_ACE_CHANNEL_HANDLES
 } ace_channel_handle_t;
 
 /*-----------------------------------------------------------------------------

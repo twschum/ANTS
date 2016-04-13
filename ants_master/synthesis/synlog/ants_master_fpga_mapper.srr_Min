@@ -1,7 +1,7 @@
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Tue Apr 12 13:49:46 2016
+# Timing Report written on Wed Apr 13 17:28:38 2016
 #
 
 
@@ -28,9 +28,9 @@ Worst slack in design: 0.225
                    Requested     Estimated     Requested     Estimated                Clock        Clock          
 Starting Clock     Frequency     Frequency     Period        Period        Slack      Type         Group          
 ------------------------------------------------------------------------------------------------------------------
-FAB_CLK            100.0 MHz     60.0 MHz      10.000        16.658        -6.658     declared     clk_group_0    
+FAB_CLK            100.0 MHz     58.7 MHz      10.000        17.037        -7.037     declared     clk_group_0    
 FCLK               100.0 MHz     NA            10.000        NA            NA         declared     clk_group_0    
-System             100.0 MHz     77.7 MHz      10.000        12.865        -2.865     system       system_clkgroup
+System             100.0 MHz     89.8 MHz      10.000        11.135        -1.135     system       system_clkgroup
 ==================================================================================================================
 
 
@@ -151,19 +151,21 @@ Detailed Report for Clock: System
 Starting Points with Worst Slack
 ********************************
 
-                                     Starting                                                                              Arrival          
-Instance                             Reference     Type        Pin              Net                                        Time        Slack
-                                     Clock                                                                                                  
---------------------------------------------------------------------------------------------------------------------------------------------
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     EMCCLK           MSS_ADLIB_INST_EMCCLK                      0.000       0.225
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     SPI0DO           MSS_SPI_0_DO_D                             0.000       0.225
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     SPI0DOE          MSS_SPI_0_DO_E                             0.000       0.225
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[8]      CoreAPB3_0_APBmslave0_PADDR[8]             0.000       2.752
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[9]      CoreAPB3_0_APBmslave0_PADDR[9]             0.000       3.172
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPSEL          ants_master_MSS_0_MSS_MASTER_APB_PSELx     0.000       3.446
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[10]     CoreAPB3_0_APBmslave0_PADDR[10]            0.000       4.011
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB     MSSPADDR[11]     CoreAPB3_0_APBmslave0_PADDR[11]            0.000       4.163
-============================================================================================================================================
+                                       Starting                                                                              Arrival          
+Instance                               Reference     Type        Pin              Net                                        Time        Slack
+                                       Clock                                                                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ACE_0_VAREF0     System        INBUF_A     Y                MSS_ACE_0_VAREF0_Y                         0.000       0.225
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     EMCCLK           MSS_ADLIB_INST_EMCCLK                      0.000       0.225
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     SDD0             MSS_ACE_0_SDD0_D                           0.000       0.225
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     SPI0DO           MSS_SPI_0_DO_D                             0.000       0.225
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     SPI0DOE          MSS_SPI_0_DO_E                             0.000       0.225
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     MSSPADDR[8]      CoreAPB3_0_APBmslave0_PADDR[8]             0.000       3.052
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     MSSPADDR[9]      CoreAPB3_0_APBmslave0_PADDR[9]             0.000       3.140
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     MSSPADDR[10]     CoreAPB3_0_APBmslave0_PADDR[10]            0.000       3.223
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     MSSPSEL          ants_master_MSS_0_MSS_MASTER_APB_PSELx     0.000       3.460
+ants_master_MSS_0.MSS_ADLIB_INST       System        MSS_APB     MSSPADDR[11]     CoreAPB3_0_APBmslave0_PADDR[11]            0.000       3.505
+==============================================================================================================================================
 
 
 Ending Points with Worst Slack
@@ -173,16 +175,16 @@ Ending Points with Worst Slack
 Instance                             Reference     Type            Pin              Net                       Time         Slack
                                      Clock                                                                                      
 --------------------------------------------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ACE_0_SDD0     System        OUTBUF_A        D                MSS_ACE_0_SDD0_D          0.000        0.225
 ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         EMCCLKRTN        MSS_ADLIB_INST_EMCCLK     0.000        0.225
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         VAREF0           MSS_ACE_0_VAREF0_Y        0.000        0.225
 ants_master_MSS_0.MSS_SPI_0_DO       System        TRIBUFF_MSS     D                MSS_SPI_0_DO_D            0.000        0.225
 ants_master_MSS_0.MSS_SPI_0_DO       System        TRIBUFF_MSS     E                MSS_SPI_0_DO_E            0.000        0.225
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[0]     N_7                       0.000        2.752
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[1]     N_9                       0.000        3.075
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[2]     N_11                      0.000        3.075
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[3]     N_13                      0.000        3.075
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[4]     PRDATA_0_iv_i[4]          0.000        3.075
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[5]     PRDATA_0_iv_i[5]          0.000        3.075
-ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[6]     PRDATA_0_iv_i[6]          0.000        3.075
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[0]     N_7                       0.000        3.052
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[1]     N_9                       0.000        3.140
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[2]     N_11                      0.000        3.140
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[3]     N_13                      0.000        3.140
+ants_master_MSS_0.MSS_ADLIB_INST     System        MSS_APB         MSSPRDATA[4]     PRDATA_0_iv_i[4]          0.000        3.140
 ================================================================================================================================
 
 
@@ -202,18 +204,18 @@ Path information for path number 1:
     = Slack (critical) :                     0.225
 
     Number of logic level(s):                0
-    Starting point:                          ants_master_MSS_0.MSS_ADLIB_INST / EMCCLK
-    Ending point:                            ants_master_MSS_0.MSS_ADLIB_INST / EMCCLKRTN
+    Starting point:                          ants_master_MSS_0.MSS_ACE_0_VAREF0 / Y
+    Ending point:                            ants_master_MSS_0.MSS_ADLIB_INST / VAREF0
     The start point is clocked by            System [rising]
     The end   point is clocked by            System [rising]
 
-Instance / Net                                   Pin           Pin               Arrival     No. of    
-Name                                 Type        Name          Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------
-ants_master_MSS_0.MSS_ADLIB_INST     MSS_APB     EMCCLK        Out     0.000     0.000       -         
-MSS_ADLIB_INST_EMCCLK                Net         -             -       0.225     -           1         
-ants_master_MSS_0.MSS_ADLIB_INST     MSS_APB     EMCCLKRTN     In      -         0.225       -         
-=======================================================================================================
+Instance / Net                                     Pin        Pin               Arrival     No. of    
+Name                                   Type        Name       Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------
+ants_master_MSS_0.MSS_ACE_0_VAREF0     INBUF_A     Y          Out     0.000     0.000       -         
+MSS_ACE_0_VAREF0_Y                     Net         -          -       0.225     -           1         
+ants_master_MSS_0.MSS_ADLIB_INST       MSS_APB     VAREF0     In      -         0.225       -         
+======================================================================================================
 
 
 

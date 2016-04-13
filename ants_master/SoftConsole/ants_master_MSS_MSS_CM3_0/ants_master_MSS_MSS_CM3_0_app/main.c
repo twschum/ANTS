@@ -8,8 +8,9 @@
 #include "drivers/servo_control.h"
 #include "drivers/dsensor_driver.h"
 #include "drivers/Pixy_SPI.h"
+#include "drivers/speaker_driver.h"
 
-#define PRINT_N64_STATE 1
+#define PRINT_N64_STATE 0
 
 #define MANUAL 1
 #define AUTOMATIC 0
@@ -44,7 +45,7 @@ int main() {
      */
     n64_state_t n64_buttons;
     n64_state_t last_buttons;
-    uint8_t mode = MANUAL;
+    //uint8_t mode = MANUAL;
 
     n64_reset();
     n64_enable();
@@ -182,26 +183,27 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     }
 
     // Return to Zero
-    if (n64_pressed(C_Left)) {
+    //if (n64_pressed(C_Left)) {
     	//servo_do(X_RETURN_TO_ZERO);
-		printf("X Servo beginning Return to Zero\r\n");
-    }
+		//printf("X Servo beginning Return to Zero\r\n");
+    //}
 
     // Zero the counts
     if (n64_pressed(B)) {
     	servo_do(X_SET_ZERO);
-    	printf("Setting zero location for X servo\r\n");
+    	servo_do(Y_SET_ZERO);
+    	printf("Setting zero location for servos\r\n");
     }
 
     // Analog Pitch and Yaw
-    static uint8_t last_x_axis = 0;
-    if (state->X_axis != last_x_axis) {
-    	n64_print_state(state);
-    	// mapping maths
-    	//set_x_servo_analog_pw();
-    	last_x_axis = state->X_axis;
-    }
+    static n64_to_pwm_t analog_pwm_vals;
+    if (state->X_axis != last_state->X_axis ||
+    	state->Y_axis != last_state->Y_axis ) {
 
+		map_n64_analog_to_servo_pwm(state, &analog_pwm_vals);
+		set_x_servo_analog_pw(analog_pwm_vals.x_pwm);
+		set_y_servo_analog_pw(analog_pwm_vals.y_pwm);
+    }
 }
 
 /*

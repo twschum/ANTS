@@ -15,6 +15,10 @@
 #define N64_READ_EEPROM  0x04
 #define N64_WRITE_EEPROM 0x05
 
+#define N64_ANALOG_MAX 80
+#define N64_ANALOG_DEADZONE 7
+#define N64_ANALOG_TO_PWM_CYCLES 625
+
 typedef struct {
     // byte 0
     uint8_t A : 1;
@@ -35,9 +39,14 @@ typedef struct {
     uint8_t C_Left : 1;
     uint8_t C_Right : 1;
 
-    uint8_t X_axis;
-    uint8_t Y_axis;
+    int8_t X_axis;
+    int8_t Y_axis;
 } n64_state_t;
+
+typedef struct {
+	uint32_t x_pwm;
+	uint32_t y_pwm;
+} n64_to_pwm_t;
 
 // read the current state
 void n64_get_state(n64_state_t* state);
@@ -50,4 +59,7 @@ void n64_enable();
 
 // print the state thru printf
 void n64_print_state(n64_state_t* state);
+
+// map n64 analog value to pwm cycles from neutral
+void map_n64_analog_to_servo_pwm(n64_state_t* state, n64_to_pwm_t* pwm_vals);
 

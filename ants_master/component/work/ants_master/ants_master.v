@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Apr 12 12:58:04 2016
+// Created by SmartDesign Wed Apr 13 16:10:51 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -12,11 +12,13 @@ module ants_master(
     SPI_0_DI,
     UART_0_RXD,
     UART_1_RXD,
+    VAREF0,
     sensor_pwm,
     stop_y,
     // Outputs
     GPIO_0_OUT,
     GPIO_1_OUT,
+    SDD_0,
     SPI_0_DO,
     UART_0_TXD,
     UART_1_TXD,
@@ -35,6 +37,7 @@ input        MSS_RESET_N;
 input        SPI_0_DI;
 input        UART_0_RXD;
 input        UART_1_RXD;
+input        VAREF0;
 input        sensor_pwm;
 input  [1:0] stop_y;
 //--------------------------------------------------------------------
@@ -42,6 +45,7 @@ input  [1:0] stop_y;
 //--------------------------------------------------------------------
 output       GPIO_0_OUT;
 output       GPIO_1_OUT;
+output       SDD_0;
 output       SPI_0_DO;
 output       UART_0_TXD;
 output       UART_1_TXD;
@@ -85,6 +89,7 @@ wire          fab_pin;
 wire          GPIO_0_OUT_net_0;
 wire          GPIO_1_OUT_net_0;
 wire          MSS_RESET_N;
+wire          SDD_0_net_0;
 wire          sensor_pwm;
 wire          SPI_0_CLK;
 wire          SPI_0_DI;
@@ -95,6 +100,7 @@ wire          UART_0_RXD;
 wire          UART_0_TXD_net_0;
 wire          UART_1_RXD;
 wire          UART_1_TXD_net_0;
+wire          VAREF0;
 wire          x_servo_pwm_net_0;
 wire          y_servo_pwm_net_0;
 wire          UART_1_TXD_net_1;
@@ -104,6 +110,7 @@ wire          GPIO_1_OUT_net_1;
 wire          GPIO_0_OUT_net_1;
 wire          x_servo_pwm_net_1;
 wire          y_servo_pwm_net_1;
+wire          SDD_0_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -168,6 +175,8 @@ assign x_servo_pwm_net_1 = x_servo_pwm_net_0;
 assign x_servo_pwm       = x_servo_pwm_net_1;
 assign y_servo_pwm_net_1 = y_servo_pwm_net_0;
 assign y_servo_pwm       = y_servo_pwm_net_1;
+assign SDD_0_net_1       = SDD_0_net_0;
+assign SDD_0             = SDD_0_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -188,6 +197,7 @@ ants_master_MSS ants_master_MSS_0(
         .MSSPREADY   ( ants_master_MSS_0_MSS_MASTER_APB_PREADY ),
         .MSSPSLVERR  ( ants_master_MSS_0_MSS_MASTER_APB_PSLVERR ),
         .MSSPRDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PRDATA ),
+        .VAREF0      ( VAREF0 ),
         // Outputs
         .UART_0_TXD  ( UART_0_TXD_net_0 ),
         .UART_1_TXD  ( UART_1_TXD_net_0 ),
@@ -201,6 +211,7 @@ ants_master_MSS ants_master_MSS_0(
         .FAB_CLK     ( ants_master_MSS_0_FAB_CLK ),
         .MSSPADDR    ( ants_master_MSS_0_MSS_MASTER_APB_PADDR ),
         .MSSPWDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PWDATA ),
+        .SDD_0       ( SDD_0_net_0 ),
         // Inouts
         .SPI_0_CLK   ( SPI_0_CLK ),
         .SPI_0_SS    ( SPI_0_SS ) 
@@ -341,9 +352,9 @@ Dsensor Dsensor_0(
         .PSEL       ( CoreAPB3_0_APBmslave2_PSELx ),
         .PENABLE    ( CoreAPB3_0_APBmslave0_PENABLE ),
         .PWRITE     ( CoreAPB3_0_APBmslave0_PWRITE ),
+        .sensor_pwm ( sensor_pwm ),
         .PADDR      ( CoreAPB3_0_APBmslave0_PADDR ),
         .PWDATA     ( CoreAPB3_0_APBmslave0_PWDATA ),
-        .sensor_pwm ( sensor_pwm ),
         // Outputs
         .PREADY     ( CoreAPB3_0_APBmslave2_PREADY ),
         .PSLVERR    ( CoreAPB3_0_APBmslave2_PSLVERR ),
