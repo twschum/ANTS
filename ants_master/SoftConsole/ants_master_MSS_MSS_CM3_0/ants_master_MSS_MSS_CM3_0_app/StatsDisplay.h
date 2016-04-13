@@ -108,11 +108,35 @@ typedef struct {
 	uint8_t		target_mode; 		
 } lcd_screen_state_t;
 
-//Not sure how fast some of these will run... we may need to crank up the baud
+//Arguments for timeout handlers
+typedef struct{
+
+} upd_targ_arg_t;
+
+typedef struct{
+
+} upd_shots_arg_t;
+
+typedef struct{
+
+} upd_dist_arg_t;
+
+typedef struct{
+
+} upd_mode_arg_t;
 
 void disp_init();
 
 //Pass NULL to 2nd arg to force an update (e.g. on first write)
+//Latency with the LCD screen is a problem: output becomes garbled if UART
+//writes are taking place before the screen has handled the last request.
+//The bottleneck here isn't the baud rate, since the amount of data being
+//sent via UART is relatively small. The bottleneck lies in the slow (~ms)
+//update speed of the LCD itself compared to the UART xfer speed. Delays
+//on the order of ms are necessary in between updating individual
+//components of the display. To accomplish this, we use something similar
+//to the virtual timers designed in lab. A sequence of one-shot timers
+//are used to interrupt and update after the LCD has updated. 
 void disp_update(lcd_screen_state_t*, lcd_screen_state_t*, n64_state_t*);
 
 //Clears X: Y: and graphic on screen, writes new values

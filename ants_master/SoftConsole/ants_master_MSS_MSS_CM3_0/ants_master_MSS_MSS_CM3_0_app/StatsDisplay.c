@@ -1,5 +1,6 @@
 #include "StatsDisplay.h"
 #include "LCD.h"
+#include "timer_t.h"
 
 void disp_init(){
 	LCD_init();
@@ -9,7 +10,7 @@ void disp_init(){
 	//Draws targeting box
 	LCD_drawBox(TARGET_BOX_X1, TARGET_BOX_Y1, TARGET_BOX_X2, TARGET_BOX_Y2, SET);
 	//Draws N64 debug box
-	LCD_drawBox(N64_DBG_BOX_X1, N64_DBG_BOX_Y1, N64_DBG_BOX_X2, N64_DBG_BOX_Y2, SET);
+	//LCD_drawBox(N64_DBG_BOX_X1, N64_DBG_BOX_Y1, N64_DBG_BOX_X2, N64_DBG_BOX_Y2, SET);
 	//Draw pos data
 	LCD_setPos(TARGET_HORZ_POS_X, TARGET_HORZ_POS_Y);
 	LCD_printStr(TARGET_HORZ_STR);
@@ -54,14 +55,14 @@ void disp_update(lcd_screen_state_t* lcd_state, lcd_screen_state_t* last_state,
 	}
 	else
 		disp_write_target(targ, NULL);
-	//if(dist != lastdist)
-		//disp_write_dist(dist);
+	if(dist != lastdist)
+		disp_write_dist(dist);
 	if(shots != lastshots)
 		disp_write_shots(shots);
 	if(mode != lastmode)
 		disp_write_mode(mode);
-
-	disp_write_N64(ctrlr_state);
+	//Refrain from updating n64 debug box b/c of latency issues
+	//disp_write_N64(ctrlr_state);
 }
 
 

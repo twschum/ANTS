@@ -10,8 +10,7 @@ Colleen
 #include "LCD.h"
 #include "mss_uart/mss_uart.h"
 
-
-
+//See if batching messages is possible, refactor if it is
 	void LCD_init() 
 	{
 		MSS_UART_init(
@@ -77,17 +76,106 @@ Colleen
 		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
 		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
 	}
-	
-	// void LCD_setBaud(byte baud)
-	// {
+/*
+	void LCD_setBaud(byte baud)
+	{
+		//changes the baud rate.
+		serial.write(0x7C);
+		serial.write(0x07); //CTRL g
+		serial.write(baud); //send a value of 49 - 54
+		delay(100);
 
-	// }
+		/*
+		“1” = 4800bps - 0x31 = 49
+		“2” = 9600bps - 0x32 = 50
+		“3” = 19,200bps - 0x33 = 51
+		“4” = 38,400bps - 0x34 = 52
+		“5” = 57,600bps - 0x35 = 53
+		“6” = 115,200bps - 0x36 = 54
+		*/
+	/*
+		//these statements change the SoftwareSerial baud rate to match the baud rate of the LCD. 
+		if(baud == 49){
+			serial.end();
+			serial.begin(4800);
+		}
+		if(baud == 50){
+			serial.end();
+			serial.begin(9600);
+		}
+		if(baud == 51){
+			serial.end();
+			serial.begin(19200);
+		}
+		if(baud == 52){
+			serial.end();
+			serial.begin(38400);
+		}
+		if(baud == 53){
+			serial.end();
+			serial.begin(57600);
+		}
+		if(baud == 54){
+			serial.end();
+			serial.begin(115200);
+		}
+	}
 	
-	// void LCD_restoreDefaultBaud()
-	// {
+	void LCD_restoreDefaultBaud()
+	{
+		MSS_UART_init(
+			&g_mss_uart1,
+			MSS_UART_115200_BAUD,
+			MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT
+			);
+		uint8_t message[] = {0x7C};
+		uint8_t message2[] = {0x02};
+		uint8_t message3[] = {duty};
+		MSS_UART_polled_tx( &g_mss_uart1, message, sizeof(message) );
+		MSS_UART_polled_tx( &g_mss_uart1, message2, sizeof(message2) );
+		MSS_UART_polled_tx( &g_mss_uart1, message3, sizeof(message3) );
 
-	// }
-	
+		serial.end();//end the transmission at whatever the current baud rate is
+
+		//cycle through every other possible buad rate and attemp to change the rate back to 115200
+		serial.begin(4800);
+		serial.write(0x7C);
+		serial.write(0x07);
+		serial.write(54);//set back to 115200
+		serial.end();
+
+		serial.begin(9600);
+		serial.write(0x7C);
+		serial.write(0x07);
+		serial.write(54);//set back to 115200
+		serial.end();
+
+		serial.begin(19200);
+		serial.write(0x7C);
+		serial.write(0x07);
+		serial.write(54);//set back to 115200
+		serial.end();
+
+		serial.begin(38400);
+		serial.write(0x7C);
+		serial.write(0x07);
+		serial.write(54);//set back to 115200
+		serial.end();
+
+		serial.begin(57600);
+		serial.write(0x7C);
+		serial.write(0x07);
+		serial.write(54);//set back to 115200
+		serial.end();
+
+		serial.begin(115200);
+		delay(10);
+		serial.write(0x7C);
+		serial.write((byte)0); //clearScreen
+		serial.print("Baud restored to 115200!");
+		delay(5000);
+	}
+	*/	
  	void LCD_setX(posX)
  	{
 		//posX needs to be one byte
