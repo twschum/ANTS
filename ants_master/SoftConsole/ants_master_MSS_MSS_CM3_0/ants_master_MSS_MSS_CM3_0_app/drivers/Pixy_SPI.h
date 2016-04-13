@@ -5,7 +5,6 @@
 // 4. Slave select is active low
 //
 // Code adapted from http://cmucam.org/projects/cmucam5/wiki/Porting_Guide
-
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,6 +26,7 @@
 // center location of the pixy's field of view
 #define PIXY_X_CENTER 200
 #define PIXY_Y_CENTER 160
+#define PIXY_DEADZONE 5
 
 // data types
 typedef enum {
@@ -93,5 +93,5 @@ int Pixy_get_target_location(target_pos_t* target);
 /*
  * Prints out the given block's values
  */
-void pixy_print(pixy_block_t *b);
+void Pixy_print(pixy_block_t *b);
 

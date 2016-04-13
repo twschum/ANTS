@@ -13,6 +13,8 @@
 #define MS_MULT 100000
 #define CYCLE_MULT 10000 //  TODO
 
+#define TRIGGER_DURATION 30
+
 void trigger_solenoid_pin_init() {
     MSS_GPIO_init();
     MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE);

@@ -203,7 +203,7 @@ int Pixy_get_target_location(target_pos_t* target) {
     return 0;
 }
 
-void pixy_print(pixy_block_t *b) {
+void Pixy_print(pixy_block_t *b) {
 
     printf("signature: %d\tx: %d\ty: %d\tw: %d\th: %d\tangle: %d\r\n",
             b->signature,

@@ -7,6 +7,7 @@
 #include "drivers/trigger_solenoid_driver.h"
 #include "drivers/servo_control.h"
 #include "drivers/dsensor_driver.h"
+#include "drivers/Pixy_SPI.h"
 
 #define PRINT_N64_STATE 1
 
@@ -22,6 +23,7 @@
 // make all do_ functions take the n64 args as defined to use the button macro!
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state);
+void do_automatic(n64_state_t* state, n64_state_t* last_state);
 
 int main() {
 
@@ -53,15 +55,10 @@ int main() {
 
     printf("A.N.T.S. 3000, ready for action!\r\n");
 
-    /* Pixy test
-    int i=0, curr, prev=0;
-    while (1) {
-        curr = Pixy_get_start());
-        if (prev && curr) // two start codes means start of new frame
-            printf("%d\r\n", i++);
-        prev = curr;
-    }
-    */
+    /*
+     * Pixy initalization
+     */
+    Pixy_init();
 
 
     while (1) {
@@ -71,11 +68,12 @@ int main() {
 
         do_servos_manual( &n64_buttons, &last_buttons );
 
+        do_automatic( &n64_buttons, &last_buttons );
+
         //print_distance();
 
         /*
          * Toggle between manual and automatic modes, with the laser indicator
-         */
         if (n64_buttons.A && !last_buttons.A) {
             printf("A pressed: ");
 
@@ -91,6 +89,7 @@ int main() {
                 MSS_GPIO_set_output(MSS_GPIO_0, 0);
             }
         }
+        */
 
         if (PRINT_N64_STATE) {
             n64_print_state( &n64_buttons );
@@ -184,7 +183,7 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 
     // Return to Zero
     if (n64_pressed(C_Left)) {
-    	servo_do(X_RETURN_TO_ZERO);
+    	//servo_do(X_RETURN_TO_ZERO);
 		printf("X Servo beginning Return to Zero\r\n");
     }
 
@@ -203,4 +202,87 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     	last_x_axis = state->X_axis;
     }
 
+}
+
+/*
+ * Automated target acquisition and firing
+ *
+ * Pressing the R trigger will enter this mode
+ * Press B to abort this mode
+ *
+ * This mode runs as its own decision loop, using the camera and
+ * distance sensor to find the targets, and taking control of
+ * the servos and trigger to accomplish this.
+ */
+void do_automatic(n64_state_t* state, n64_state_t* last_state) {
+
+    if (! n64_pressed(R)) {
+        return;
+    }
+
+    printf("Beginning seek-and-destroy!\r\n");
+
+    int active = 1;
+    target_pos_t target;
+
+    uint32_t x_pw = SERVO_NEUTRAL;
+    uint32_t y_pw = SERVO_NEUTRAL;
+    uint8_t x_on_target = 0;
+    uint8_t y_on_target = 0;
+
+    while (active) {
+
+        if ( Pixy_get_target_location(&target) == -1 ) {
+            // start a failure timeout timer
+        }
+        // else, target found, coordinates valid
+
+        // X servo adjustment
+        if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
+            x_pw = SERVO_FULL_REVERSE; // go left
+            x_on_target = 0;
+        }
+        else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
+            x_pw = SERVO_FULL_FORWARD; // go right
+            x_on_target = 0;
+        }
+        else {
+            x_pw = SERVO_NEUTRAL;
+            x_on_target = 1;
+        }
+
+        // Y servo adjustment
+        if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
+            y_pw = SERVO_FULL_FORWARD; // go down
+            y_on_target = 0;
+        }
+        else if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
+            y_pw = SERVO_FULL_REVERSE; // go up
+            y_on_target = 0;
+        }
+        else {
+            y_pw = SERVO_NEUTRAL;
+            y_on_target = 1;
+        }
+
+        // set the servos
+        set_x_servo_analog_pw(x_pw);
+        set_y_servo_analog_pw(y_pw);
+
+        // fire a dart, then exit the loop after getting n64 state
+        if (x_on_target && y_on_target) {
+            trigger_solenoid_activate(TRIGGER_DURATION);
+            active = 0;
+        }
+
+        if (n64_pressed(B)) {
+            active = 0;
+            servo_do(X_SET_NEUTRAL);
+            servo_do(Y_SET_NEUTRAL);
+            printf("Aborting seek-and-destroy\r\n");
+        }
+
+        *last_state = *state;
+        n64_get_state( state );
+    }
 }
