@@ -123,8 +123,11 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
         trigger_solenoid_activate(milliseconds);
 
         // now go thru the 'reload' motion
-        //while(
-
+        servo_do(Y_SET_FORWARD);
+        while (stop_switch(READ_LOWER_STOP)) { }
+        servo_do(Y_SET_REVERSE);
+        for(volatile uint32_t i = 0; i < TRIGGER_DURATION*CYCLE_MULT; i++) { }
+        servo_do(Y_SET_NEUTRAL);
     }
 
     if (n64_pressed(C_Up)) {
