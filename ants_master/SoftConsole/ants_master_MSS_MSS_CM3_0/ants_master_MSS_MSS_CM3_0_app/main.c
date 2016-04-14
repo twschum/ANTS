@@ -9,7 +9,6 @@
 #include "drivers/dsensor_driver.h"
 #include "drivers/Pixy_SPI.h"
 #include "drivers/speaker_driver.h"
-#include "drivers/stats_display.h"
 
 #define PRINT_N64_STATE 0
 
@@ -195,7 +194,6 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 #define Y_SLACE_PW 500
 #define Y_SLACE_OFFSET 20
 
-
 void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     if (! n64_pressed(R)) {
@@ -205,7 +203,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     printf("Beginning seek-and-destroy!\r\n");
 
     // turn on the laser
-    MSS_GPIO_set_output(MSS_GPIO_0, 1);
+    //MSS_GPIO_set_output(MSS_GPIO_0, 1);
 
     int active = 1;
     target_pos_t target;
@@ -214,14 +212,17 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     uint32_t y_pw = SERVO_NEUTRAL;
     uint8_t x_on_target = 0;
     uint8_t y_on_target = 0;
+    set_x_servo_analog_pw(SERVO_NEUTRAL);
+    set_y_servo_analog_pw(SERVO_NEUTRAL);
 
     while (active) {
 
         if ( Pixy_get_target_location(&target) == -1 ) {
-            // start a failure timeout timer?
-            servo_do(X_SET_NEUTRAL);
-            servo_do(Y_SET_NEUTRAL);
+        	// This seems to be resetting the servos immeadiately after setting them
+        	// so we might have a problem with reading too fast from the pixy...
 
+    		//set_x_servo_analog_pw(SERVO_NEUTRAL);
+    		//set_y_servo_analog_pw(SERVO_NEUTRAL);
         }
         // else, target found, coordinates valid
         else {
@@ -260,11 +261,12 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	}
 
         	// set the servos
-        	//set_x_servo_analog_pw(x_pw);
+        	set_x_servo_analog_pw(x_pw);
         	set_y_servo_analog_pw(y_pw);
 
         	// fire a dart, then exit the loop after getting n64 state
         	if (x_on_target && y_on_target) {
+        		printf("Target acquired, firing!\r\n");
         		trigger_solenoid_activate(TRIGGER_DURATION);
         		active = 0;
         	}
@@ -275,13 +277,16 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
             servo_do(X_SET_NEUTRAL);
             servo_do(Y_SET_NEUTRAL);
             printf("Aborting seek-and-destroy\r\n");
-
         }
 
         *last_state = *state;
         n64_get_state( state );
+
+        // TODO proper timer to make sure polling < 50 Hz
+        //volatile int i;
+        //for(i=0; i < 50*10000; i++) {}
     }
 
     // shut off the laser
-    MSS_GPIO_set_output(MSS_GPIO_0, 0);
+    //MSS_GPIO_set_output(MSS_GPIO_0, 0);
 }
