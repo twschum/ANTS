@@ -12,7 +12,7 @@ void Timer1_IRQHandler(void);
 
 
 // declare function pointer type
-typedef void (*handler_t)(void);
+typedef void (*handler_t)(void*);
 
 // virtual down Timer
 struct Timer {
@@ -21,6 +21,7 @@ struct Timer {
   uint32_t period;      // period
   uint32_t mode; // continuous or one shot timer
   struct Timer* next;   // points to next timer
+  void *arg;
 };
 
 struct Handler {
@@ -33,10 +34,10 @@ struct Handler {
 void start_hardware_timer();
 
 // add a continuous (periodic) timer to linked list.
-void add_timer_periodic(handler_t handler, uint32_t period);
+void add_timer_periodic(handler_t handler, void *arg, uint32_t period);
 
 // add a one shot timer to the linked list.
-void add_timer_single(handler_t handler, uint32_t period);
+void add_timer_single(handler_t handler, void *arg, uint32_t period);
 
 // update down count with elapsed time, call fnc if timer zero,
 // update continuous timers with new down count
