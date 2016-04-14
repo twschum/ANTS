@@ -10,7 +10,7 @@
 #include "drivers/Pixy_SPI.h"
 #include "drivers/speaker_driver.h"
 
-#define PRINT_N64_STATE 1
+#define PRINT_N64_STATE 0
 
 #define MANUAL 1
 #define AUTOMATIC 0
@@ -204,6 +204,8 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
  * distance sensor to find the targets, and taking control of
  * the servos and trigger to accomplish this.
  */
+#define X_SCALE_PW 625
+#define X_SCALE_OFFSET 20
 void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     if (! n64_pressed(R)) {
@@ -234,11 +236,13 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
         	// X servo adjustment
         	if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
-        		x_pw = SERVO_HALF_REVERSE; // go left
+        		//x_pw = SERVO_HALF_REVERSE; // go left
+        		x_pw = SERVO_NEUTRAL - X_SCALE_PW*(X_SCALE_OFFSET + PIXY_X_CENTER - target.x); // go left
         		x_on_target = 0;
         	}
         	else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
-        		x_pw = SERVO_HALF_FORWARD; // go right
+        		//x_pw = SERVO_HALF_FORWARD; // go right
+        		x_pw = SERVO_NEUTRAL + X_SCALE_PW*(X_SCALE_OFFSET + target.x - PIXY_X_CENTER); // go right
         		x_on_target = 0;
         	}
         	else {
