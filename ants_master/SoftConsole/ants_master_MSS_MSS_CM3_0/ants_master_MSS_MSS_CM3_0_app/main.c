@@ -12,8 +12,6 @@
 
 #define PRINT_N64_STATE 0
 
-#define MANUAL 1
-#define AUTOMATIC 0
 
 // convenience button macros in the do_ functions
 #define N64_STATE_PTR state
@@ -59,8 +57,8 @@ int main() {
      */
     Pixy_init();
 
-
     while (1) {
+
         n64_get_state( &n64_buttons );
 
         do_solenoid( &n64_buttons, &last_buttons );
@@ -170,19 +168,6 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     	servos_print_counts();
     }
 
-    // Return to Zero
-    //if (n64_pressed(C_Left)) {
-    	//servo_do(X_RETURN_TO_ZERO);
-		//printf("X Servo beginning Return to Zero\r\n");
-    //}
-
-    // Zero the counts
-    if (n64_pressed(B)) {
-    	servo_do(X_SET_ZERO);
-    	servo_do(Y_SET_ZERO);
-    	printf("Setting zero location for servos\r\n");
-    }
-
     // Analog Pitch and Yaw
     static n64_to_pwm_t analog_pwm_vals;
     if (state->X_axis != last_state->X_axis ||
@@ -206,6 +191,10 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
  */
 #define X_SCALE_PW 625
 #define X_SCALE_OFFSET 20
+#define Y_SLACE_PW 500
+#define Y_SLACE_OFFSET 20
+
+
 void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     if (! n64_pressed(R)) {
@@ -229,6 +218,9 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
         if ( Pixy_get_target_location(&target) == -1 ) {
             // start a failure timeout timer?
+            servo_do(X_SET_NEUTRAL);
+            servo_do(Y_SET_NEUTRAL);
+
         }
         // else, target found, coordinates valid
         else {
@@ -236,13 +228,13 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
         	// X servo adjustment
         	if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
-        		//x_pw = SERVO_HALF_REVERSE; // go left
-        		x_pw = SERVO_NEUTRAL - X_SCALE_PW*(X_SCALE_OFFSET + PIXY_X_CENTER - target.x); // go left
+        		x_pw = SERVO_HALF_REVERSE; // go left
+        		//x_pw = SERVO_NEUTRAL - X_SCALE_PW*(X_SCALE_OFFSET + PIXY_X_CENTER - target.x); // go left
         		x_on_target = 0;
         	}
         	else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
-        		//x_pw = SERVO_HALF_FORWARD; // go right
-        		x_pw = SERVO_NEUTRAL + X_SCALE_PW*(X_SCALE_OFFSET + target.x - PIXY_X_CENTER); // go right
+        		x_pw = SERVO_HALF_FORWARD; // go right
+        		//x_pw = SERVO_NEUTRAL + X_SCALE_PW*(X_SCALE_OFFSET + target.x - PIXY_X_CENTER); // go right
         		x_on_target = 0;
         	}
         	else {
@@ -252,11 +244,11 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	}
 
         	// Y servo adjustment
-        	if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
+        	if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
         		y_pw = SERVO_HALF_FORWARD; // go down
         		y_on_target = 0;
         	}
-        	else if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
+        	else if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
         		y_pw = SERVO_HALF_REVERSE; // go up
         		y_on_target = 0;
         	}
@@ -267,7 +259,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	}
 
         	// set the servos
-        	set_x_servo_analog_pw(x_pw);
+        	//set_x_servo_analog_pw(x_pw);
         	set_y_servo_analog_pw(y_pw);
 
         	// fire a dart, then exit the loop after getting n64 state
