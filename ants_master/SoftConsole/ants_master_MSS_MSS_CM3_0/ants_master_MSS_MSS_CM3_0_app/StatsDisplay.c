@@ -69,8 +69,9 @@ void disp_update(lcd_screen_state_t* lcd_state, lcd_screen_state_t* last_state,
 //This can be made more efficient:
 //	use sprintf to print a number of three digits; this eliminates the need
 //	for clearing the previous count
-void disp_write_target(circle_t *targ, circle_t *lasttarg){
-	//This just clears the whole screen, inefficient
+void disp_write_target(upd_targ_arg_t* t){
+	circle_t* targ = t->targ;
+	circle_t* lasttarg = t->lasttarg;
 	uint8_t tx = targ->x;
 	uint8_t ty = targ->y;
 	uint8_t lx;
@@ -81,6 +82,7 @@ void disp_write_target(circle_t *targ, circle_t *lasttarg){
 
 	sprintf(horz, "%03d", tx);
 	sprintf(vert, "%03d", ty);
+	//This just clears the whole screen, inefficient
 	//LCD_eraseBlock(TARGET_UL_POS_X, TARGET_UL_POS_Y, TARGET_LR_POS_X, TARGET_LR_POS_Y); //Clear X:aaaY:bbb
 	//LCD_eraseBlock(TARGET_BOX_X1+1, TARGET_BOX_Y1+1, TARGET_BOX_X2-1, TARGET_BOX_Y2-1); //Clear entire target area
 	//erase last circle only if the second arg isn't null
@@ -106,7 +108,8 @@ void disp_write_target(circle_t *targ, circle_t *lasttarg){
 //This can be made more efficient:
 //	use sprintf to print a number of three digits; this eliminates the need
 //	for clearing the previous count
-void disp_write_shots(unsigned int shots){
+void disp_write_shots(upd_shots_arg_t* s){
+	uint8_t shots = s->shots;
 	char num[3];
 	//LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
 	LCD_setPos(SHOTS_LEFT_POS_X + SHOTS_STR_SZ * CHAR_WIDTH, SHOTS_LEFT_POS_Y);
@@ -119,7 +122,8 @@ void disp_write_shots(unsigned int shots){
 //	use sprintf to print a number of three digits; this eliminates the need
 //	for clearing the previous count
 //Argument is assumed to have already been scaled
-void disp_write_dist(unsigned int distance){
+void disp_write_dist(upd_dist_targ_t* d){
+	uint8_t distance = d->dist;
 	char num[4];
 	//LCD_setPos(DIST_POS_X, DIST_POS_Y);
 	LCD_setPos(DIST_POS_X, DIST_POS_Y);
@@ -127,8 +131,9 @@ void disp_write_dist(unsigned int distance){
 	LCD_printStr(num);
 }
 
-void disp_write_mode(char newmode){
+void disp_write_mode(upd_mode_arg_t* m){
 	//redundant, for clarity
+	uint8_t mode = m->mode;
 	if(newmode == AUTO_MODE){
 		//New mode is auto, erase manual
 		//LCD_eraseBlock(MODE_POS_X, MODE_POS_Y, MODE_POS_X + MANUAL_STR_SZ * CHAR_WIDTH, MODE_POS_Y - CHAR_HEIGHT);

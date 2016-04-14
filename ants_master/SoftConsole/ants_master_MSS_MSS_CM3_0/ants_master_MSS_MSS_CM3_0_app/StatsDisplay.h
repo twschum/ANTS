@@ -102,52 +102,60 @@ typedef pixel_t point_t;
 typedef struct {
 	//Pointer to the shape representing the position of the laser pointer
 	circle_t*	target_pos;
-	//circle_t*	turret_pos;
 	uint8_t 	distance;
 	uint8_t 	shots;
 	uint8_t		target_mode; 		
 } lcd_screen_state_t;
 
-//Arguments for timeout handlers
+//Wrapper structs for timeout handler arguments//
 typedef struct{
-
+	circle_t *targ;
+	circle_t *lasttarg;
 } upd_targ_arg_t;
 
 typedef struct{
-
+	uint8_t shots;
 } upd_shots_arg_t;
 
 typedef struct{
-
+	uint8_t dist;
 } upd_dist_arg_t;
 
 typedef struct{
-
+	uint8_t mode;
 } upd_mode_arg_t;
 
 void disp_init();
 
-//Pass NULL to 2nd arg to force an update (e.g. on first write)
+//NOTE////////////////////////////////////////////////////////////////////
 //Latency with the LCD screen is a problem: output becomes garbled if UART
 //writes are taking place before the screen has handled the last request.
+//
 //The bottleneck here isn't the baud rate, since the amount of data being
 //sent via UART is relatively small. The bottleneck lies in the slow (~ms)
 //update speed of the LCD itself compared to the UART xfer speed. Delays
 //on the order of ms are necessary in between updating individual
-//components of the display. To accomplish this, we use something similar
+//components of the display. 
+//
+//To accomplish this, we use something similar
 //to the virtual timers designed in lab. A sequence of one-shot timers
 //are used to interrupt and update after the LCD has updated. 
+//////////////////////////////////////////////////////////////////////////
+
+//Pass NULL to 2nd arg to force an update (e.g. on first write)
+//This function will take on the order of tens of ms to complete
+//
 void disp_update(lcd_screen_state_t*, lcd_screen_state_t*, n64_state_t*);
 
 //Clears X: Y: and graphic on screen, writes new values
-void disp_write_target(circle_t *, circle_t *);
+void disp_write_target(upd_targ_arg_t*);
 
-void disp_write_shots(unsigned int);
+void disp_write_shots(upd_shots_arg_t*);
 
 //Argument is assumed to have already been scaled
-void disp_write_dist(unsigned int);
+void disp_write_dist(upd_dist_arg_t*);
 
-void disp_write_mode(char);
+void disp_write_mode(upd_mode_arg_t*);
 
 void disp_write_N64();
 
