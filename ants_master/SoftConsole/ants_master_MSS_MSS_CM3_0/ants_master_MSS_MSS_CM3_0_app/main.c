@@ -9,6 +9,7 @@
 #include "drivers/dsensor_driver.h"
 #include "drivers/Pixy_SPI.h"
 #include "drivers/speaker_driver.h"
+#include "drivers/stats_display.h"
 
 #define PRINT_N64_STATE 0
 
