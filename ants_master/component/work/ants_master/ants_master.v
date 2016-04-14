@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Apr 13 16:10:51 2016
+// Created by SmartDesign Wed Apr 13 21:34:28 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -134,10 +134,10 @@ wire   [31:0] PRDATAS16_const_net_0;
 //--------------------------------------------------------------------
 // Bus Interface Nets Declarations - Unequal Pin Widths
 //--------------------------------------------------------------------
+wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 wire   [31:20]ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_31to20;
 wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_19to0;
 wire   [31:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0;
-wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
@@ -196,8 +196,8 @@ ants_master_MSS ants_master_MSS_0(
         .MSS_RESET_N ( MSS_RESET_N ),
         .MSSPREADY   ( ants_master_MSS_0_MSS_MASTER_APB_PREADY ),
         .MSSPSLVERR  ( ants_master_MSS_0_MSS_MASTER_APB_PSLVERR ),
-        .MSSPRDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PRDATA ),
         .VAREF0      ( VAREF0 ),
+        .MSSPRDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PRDATA ),
         // Outputs
         .UART_0_TXD  ( UART_0_TXD_net_0 ),
         .UART_1_TXD  ( UART_1_TXD_net_0 ),
@@ -209,9 +209,9 @@ ants_master_MSS ants_master_MSS_0(
         .MSSPENABLE  ( ants_master_MSS_0_MSS_MASTER_APB_PENABLE ),
         .MSSPWRITE   ( ants_master_MSS_0_MSS_MASTER_APB_PWRITE ),
         .FAB_CLK     ( ants_master_MSS_0_FAB_CLK ),
+        .SDD_0       ( SDD_0_net_0 ),
         .MSSPADDR    ( ants_master_MSS_0_MSS_MASTER_APB_PADDR ),
         .MSSPWDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PWDATA ),
-        .SDD_0       ( SDD_0_net_0 ),
         // Inouts
         .SPI_0_CLK   ( SPI_0_CLK ),
         .SPI_0_SS    ( SPI_0_SS ) 
@@ -352,9 +352,9 @@ Dsensor Dsensor_0(
         .PSEL       ( CoreAPB3_0_APBmslave2_PSELx ),
         .PENABLE    ( CoreAPB3_0_APBmslave0_PENABLE ),
         .PWRITE     ( CoreAPB3_0_APBmslave0_PWRITE ),
-        .sensor_pwm ( sensor_pwm ),
         .PADDR      ( CoreAPB3_0_APBmslave0_PADDR ),
         .PWDATA     ( CoreAPB3_0_APBmslave0_PWDATA ),
+        .sensor_pwm ( sensor_pwm ),
         // Outputs
         .PREADY     ( CoreAPB3_0_APBmslave2_PREADY ),
         .PSLVERR    ( CoreAPB3_0_APBmslave2_PSLVERR ),
@@ -393,9 +393,9 @@ servo_control servo_control_0(
         // Outputs
         .PREADY      ( CoreAPB3_0_APBmslave1_PREADY ),
         .PSLVERR     ( CoreAPB3_0_APBmslave1_PSLVERR ),
+        .PRDATA      ( CoreAPB3_0_APBmslave1_PRDATA ),
         .x_servo_pwm ( x_servo_pwm_net_0 ),
-        .y_servo_pwm ( y_servo_pwm_net_0 ),
-        .PRDATA      ( CoreAPB3_0_APBmslave1_PRDATA ) 
+        .y_servo_pwm ( y_servo_pwm_net_0 ) 
         );
 
 

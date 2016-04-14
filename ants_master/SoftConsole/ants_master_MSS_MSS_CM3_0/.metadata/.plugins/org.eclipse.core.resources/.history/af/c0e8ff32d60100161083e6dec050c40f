@@ -1,0 +1,21 @@
+/*
+ * get distance
+ */
+
+#include "dsensor_driver.h"
+
+// read current distance
+float get_distance()
+{
+	volatile uint32_t* address = (volatile uint32_t*)DSNSR_ADDR;
+	float distance_count = (float)(*address);
+	return ((distance_count * SEC_to_IN * IN_to_METER)/((float)(CLK_FREQ)));
+}
+
+void print_distance()
+{
+	volatile uint32_t* address = (volatile uint32_t*)DSNSR_ADDR;
+	float distance_count = (float)(*address);
+	float distance = distance_count * MULTIPLIER;
+	printf("Mult: %d. \t Distance (clk_counts): %d. \t Distance (m): %f\r\n\r\n", MULTIPLIER, distance_count, distance);
+}

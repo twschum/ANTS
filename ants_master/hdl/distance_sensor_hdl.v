@@ -20,13 +20,12 @@ module Dsensor(
     input sensor_pwm // input pwm from distance sensor
     );
 
-
+wire [31:0] distance_count;
 wire valid_read;
 
-assign valid_read = (PSEL && PENABLE && (!PWRITE) && (PADDR[12:0] == 12'h200));
+assign valid_read = (PSEL && !PWRITE && (PADDR[12:0] == 12'h200));
 assign PSLVERR = 0;
 assign PREADY = 1;
-
 
 _get_distance dist1( 
     .PCLK(PCLK),
@@ -34,7 +33,6 @@ _get_distance dist1(
     .sensor_pwm(sensor_pwm),
     .distance_count(distance_count)
 );
-
 
 /*** APB READ DATA LOGIC ***/
 always @ (posedge PCLK) begin
@@ -57,63 +55,48 @@ module _get_distance(
     output reg [31:0] distance_count
     );
 
-reg [31:0] count_clk; 
+reg [31:0] clk_count; 
 reg [31:0] next_distance_count;
 
 parameter DSENSE_PERIOD = 5000000; // 50 ms = distance sensor period (20Hz)
+parameter SEND_DIST     = 2500000;
 
 
 initial begin
-    count_clk <= 0;
-    distance_count <= 0;
-    next_distance_count <= 0;
+    clk_count             <= 0;
+    distance_count        <= 0;
+    next_distance_count   <= 0;
 end
 
 
 always @ (posedge PCLK) begin
 
     if (~PRESERN) begin
-        count_clk <= 0;
+        clk_count <= 0;
         distance_count <= 0;
         next_distance_count <= 0;
     end
     else begin
-
-        // Logic to count sensor's next pwm
-        if(sensor_pwm) begin
-
-            if(next_distance_count == distance_count) 
-                next_distance_count <= 1;
-            else
+        
+        if(clk_count < SEND_DIST) begin
+            if(sensor_pwm) begin
                 next_distance_count <= next_distance_count + 1;
+            end
+            clk_count <= clk_count+1;
+        end
+        else if(clk_count == SEND_DIST) begin 
+            distance_count <= next_distance_count; // write to final distance
+            clk_count <= clk_count+1;
+        end
+        else if(clk_count < DSENSE_PERIOD) begin
+            clk_count <= clk_count+1;
+        end else begin //(clk_count >= DSENSE_PERIOD)
+            clk_count <= 0;
+            next_distance_count <= 0;
         end
 
-        // Logic to track sensor's clock and set to current distance_count
-        if(count_clk >= DSENSE_PERIOD) begin
-            count_clk <= 0;
-            distance_count <= next_distance_count;
-        end
-        else begin
-            count_clk <= count_clk + 1;
-        end
 
     end //else, !reset case
-
 end // always @ PCLK
 
 endmodule
-
-
-/*
-    end else if(count_clk == `period) begin
-        send_dist <= 1;
-        count_clk <=0;
-    end else begin
-        send_dist <= 0;
-        count_clk <= count_clk + 1;
-    end
-
-
-    else if(send_dist)
-        distance <= count_pwm;
-*/

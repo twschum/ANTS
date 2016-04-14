@@ -3,7 +3,7 @@
 
 # Version: v11.5 SP3 11.5.3.10
 # Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
-# Date generated: Wed Apr 13 16:10:51 2016 
+# Date generated: Wed Apr 13 21:34:28 2016 
 
 
 # 
@@ -45,6 +45,61 @@ define_group -name SPI_0
 # the other listed attributes have been applied
 # 
 
+set_io GPIO_0_OUT      \
+    -iostd LVTTL       \
+    -DIRECTION OUTPUT
+
+
+set_io GPIO_1_OUT      \
+    -iostd LVTTL       \
+    -DIRECTION OUTPUT
+
+
+set_io MSS_RESET_N    \
+    -iostd LVTTL      \
+    -DIRECTION INPUT
+
+
+set_io SPI_0_CLK      \
+    -iostd LVTTL      \
+    -DIRECTION INOUT
+
+
+set_io SPI_0_DI       \
+    -iostd LVTTL      \
+    -DIRECTION INPUT
+
+
+set_io SPI_0_DO        \
+    -iostd LVTTL       \
+    -DIRECTION OUTPUT
+
+
+set_io SPI_0_SS       \
+    -iostd LVTTL      \
+    -DIRECTION INOUT
+
+
+set_io UART_0_RXD     \
+    -iostd LVTTL      \
+    -DIRECTION INPUT
+
+
+set_io UART_0_TXD      \
+    -iostd LVTTL       \
+    -DIRECTION OUTPUT
+
+
+set_io UART_1_RXD     \
+    -iostd LVTTL      \
+    -DIRECTION INPUT
+
+
+set_io UART_1_TXD      \
+    -iostd LVTTL       \
+    -DIRECTION OUTPUT
+
+
 
 #
 # Non IO constraints
@@ -55,14 +110,3 @@ define_group -name SPI_0
 # Old IO constraints, commented out for reference
 #
 
-# set_io GPIO_0_OUT -iostd LVTTL -DIRECTION OUTPUT 
-# set_io GPIO_1_OUT -iostd LVTTL -DIRECTION OUTPUT 
-# set_io MSS_RESET_N -iostd LVTTL -DIRECTION INPUT 
-# set_io SPI_0_CLK -iostd LVTTL -DIRECTION INOUT 
-# set_io SPI_0_DI -iostd LVTTL -DIRECTION INPUT 
-# set_io SPI_0_DO -iostd LVTTL -DIRECTION OUTPUT 
-# set_io SPI_0_SS -iostd LVTTL -DIRECTION INOUT 
-# set_io UART_0_RXD -iostd LVTTL -DIRECTION INPUT 
-# set_io UART_0_TXD -iostd LVTTL -DIRECTION OUTPUT 
-# set_io UART_1_RXD -iostd LVTTL -DIRECTION INPUT 
-# set_io UART_1_TXD -iostd LVTTL -DIRECTION OUTPUT 

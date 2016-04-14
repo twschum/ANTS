@@ -58,6 +58,13 @@ assign y_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h154)
 assign read_y_forward  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h158)); // READ from 118
 assign read_y_reverse  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h15c)); // READ from 119
 
+wire read_upper_stop_switch;
+wire read_lower_stop_switch;
+
+assign read_upper_stop_switch = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h1A0));
+assign read_lower_stop_switch = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h1A4));
+
+
 /*** END APB INTERFACE ***/
 /*** TRACKING SERVO INSTANTIAIONS  ***/
 wire [31:0] x_forward_count;
@@ -117,6 +124,12 @@ always @ (posedge PCLK) begin
  
     else if (read_y_reverse)
         PRDATA <= y_reverse_count;
+
+    else if (read_upper_stop_switch)
+        PRDATA <= stop_y[1];
+
+    else if (read_lower_stop_switch)
+        PRDATA <= stop_y[0];
 
     else
         PRDATA <= 32'hFFFFFFFF;

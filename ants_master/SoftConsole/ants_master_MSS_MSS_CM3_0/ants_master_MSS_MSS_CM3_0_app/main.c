@@ -71,7 +71,7 @@ int main() {
 
         do_automatic( &n64_buttons, &last_buttons );
 
-        //print_distance();
+        print_distance();
 
         /*
          * Toggle between manual and automatic modes, with the laser indicator
