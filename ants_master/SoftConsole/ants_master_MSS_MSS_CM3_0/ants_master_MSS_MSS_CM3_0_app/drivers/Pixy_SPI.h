@@ -24,8 +24,8 @@
 #define PIXY_SYNC_BYTE_DATA 0x5b
 
 // center location of the pixy's field of view
-#define PIXY_X_CENTER 200
-#define PIXY_Y_CENTER 160
+#define PIXY_X_CENTER 160
+#define PIXY_Y_CENTER 100
 #define PIXY_DEADZONE 5
 
 // data types

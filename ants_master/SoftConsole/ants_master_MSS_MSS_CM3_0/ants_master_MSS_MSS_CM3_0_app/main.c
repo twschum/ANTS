@@ -241,30 +241,32 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
         // X servo adjustment
         if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
-            x_pw = SERVO_FULL_REVERSE; // go left
+            x_pw = SERVO_HALF_REVERSE; // go left
             x_on_target = 0;
         }
         else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
-            x_pw = SERVO_FULL_FORWARD; // go right
+            x_pw = SERVO_HALF_FORWARD; // go right
             x_on_target = 0;
         }
         else {
             x_pw = SERVO_NEUTRAL;
             x_on_target = 1;
+            printf("X on target!\r\n");
         }
 
         // Y servo adjustment
         if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
-            y_pw = SERVO_FULL_FORWARD; // go down
+            y_pw = SERVO_HALF_FORWARD; // go down
             y_on_target = 0;
         }
         else if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
-            y_pw = SERVO_FULL_REVERSE; // go up
+            y_pw = SERVO_HALF_REVERSE; // go up
             y_on_target = 0;
         }
         else {
             y_pw = SERVO_NEUTRAL;
             y_on_target = 1;
+            printf("Y on target!\r\n");
         }
 
         // set the servos
