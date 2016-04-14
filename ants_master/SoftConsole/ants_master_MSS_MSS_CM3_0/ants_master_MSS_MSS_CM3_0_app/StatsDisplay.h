@@ -114,12 +114,12 @@ typedef struct{
 } upd_targ_arg_t;
 
 typedef struct{
-	uint8_t shots;
-} upd_shots_arg_t;
-
-typedef struct{
 	uint8_t dist;
 } upd_dist_arg_t;
+
+typedef struct{
+	uint8_t shots;
+} upd_shots_arg_t;
 
 typedef struct{
 	uint8_t mode;
@@ -148,14 +148,14 @@ void disp_init();
 void disp_update(lcd_screen_state_t*, lcd_screen_state_t*, n64_state_t*);
 
 //Clears X: Y: and graphic on screen, writes new values
-void disp_write_target(upd_targ_arg_t*);
-
-void disp_write_shots(upd_shots_arg_t*);
+void disp_write_target(void*);
 
 //Argument is assumed to have already been scaled
-void disp_write_dist(upd_dist_arg_t*);
+void disp_write_dist(void*);
 
-void disp_write_mode(upd_mode_arg_t*);
+void disp_write_shots(void*);
+
+void disp_write_mode(void*);
 
 void disp_write_N64();
 

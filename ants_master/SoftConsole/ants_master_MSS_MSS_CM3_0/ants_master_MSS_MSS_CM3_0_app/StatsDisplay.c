@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #include "StatsDisplay.h"
 #include "LCD.h"
 #include "timer_t.h"
@@ -27,8 +29,10 @@ void disp_init(){
 void disp_update(lcd_screen_state_t* lcd_state, lcd_screen_state_t* last_state,
 	n64_state_t* ctrlr_state){
 	
-	circle_t *targ = lcd_state->target_pos;
-	circle_t *lasttarg = last_state->target_pos;
+	//circle_t *targ = lcd_state->target_pos;
+	//circle_t *lasttarg = last_state->target_pos;
+	circle_t *targ = malloc(sizeof(circle_t));
+	circle_t *lasttarg = NULL;
 
 	uint8_t dist 		= lcd_state->distance;
 	uint8_t shots 		= lcd_state->shots;
@@ -39,7 +43,17 @@ void disp_update(lcd_screen_state_t* lcd_state, lcd_screen_state_t* last_state,
 	uint8_t lastshots;
 	uint8_t lastmode;
 
+	upd_targ_arg_t* t_arg = NULL;
+	upd_dist_arg_t* d_arg = NULL;
+	upd_shots_arg_t* s_arg = NULL;
+	upd_mode_arg_t* m_arg = NULL;
+
+	*targ = *(lcd_state->target_pos);
+	
 	if(last_state){
+		lasttarg = malloc(sizeof(circle_t));
+		*lasttarg = *(last_state->target_pos);
+
 		lastdist= last_state->distance;
  		lastshots= last_state->shots;
  		lastmode= last_state->target_mode;
@@ -49,18 +63,47 @@ void disp_update(lcd_screen_state_t* lcd_state, lcd_screen_state_t* last_state,
 		lastmode = mode+1;
 	}
 
+	//Don't need a timer for our first UART xfer
+	//Need to delay subsequent requests to LCD
+	//May need to change this depending on how often this function is being called
+	t_arg = malloc(sizeof(upd_targ_arg_t));
 	if(last_state){
-		if(targ->x != lasttarg->x || targ->y != lasttarg->y)
-			disp_write_target(targ, lasttarg);
+		if(targ->x != lasttarg->x || targ->y != lasttarg->y){
+			t_arg->targ = targ;
+			t_arg->lasttarg = lasttarg;
+			disp_write_target(t_arg);
+		}
 	}
-	else
-		disp_write_target(targ, NULL);
-	if(dist != lastdist)
-		disp_write_dist(dist);
-	if(shots != lastshots)
-		disp_write_shots(shots);
-	if(mode != lastmode)
-		disp_write_mode(mode);
+	else{
+		t_arg->targ = targ;
+		t_arg->lasttarg = NULL;
+		disp_write_target(t_arg);
+	}
+	//The following functions exit as soon as the handler is added to the 
+	//list, and therefore this function may go out of scope before the LCD
+	//refreshes its display
+	//
+	//Therefore, all arguments must be malloc'd to avoid problems w/stack
+	//cleanup
+
+	if(dist != lastdist){ //Add to timer queue
+		d_arg = malloc(sizeof(upd_dist_arg_t));
+		d_arg->dist = dist;
+		add_timer_single((handler_t)disp_write_dist, d_arg, 5 );
+		//disp_write_dist(d_arg);
+	}
+	if(shots != lastshots){
+		s_arg = malloc(sizeof(upd_shots_arg_t));
+		s_arg = shots;
+		add_timer_single((handler_t)disp_write_shots, s_arg, 10 );
+		//disp_write_shots(shots);
+	}
+	if(mode != lastmode){
+		m_arg = malloc(sizeof(upd_mode_arg_t));
+		m_arg = mode;
+		add_timer_single((handler_t)disp_write_mode, m_arg, 15 );
+		//disp_write_mode(mode);
+	}
 	//Refrain from updating n64 debug box b/c of latency issues
 	//disp_write_N64(ctrlr_state);
 }
@@ -69,7 +112,9 @@ void disp_update(lcd_screen_state_t* lcd_state, lcd_screen_state_t* last_state,
 //This can be made more efficient:
 //	use sprintf to print a number of three digits; this eliminates the need
 //	for clearing the previous count
-void disp_write_target(upd_targ_arg_t* t){
+void disp_write_target(void *t){
+	upd_targ_arg_t* t = (upd_targ_arg_t*) t;
+
 	circle_t* targ = t->targ;
 	circle_t* lasttarg = t->lasttarg;
 	uint8_t tx = targ->x;
@@ -103,18 +148,28 @@ void disp_write_target(upd_targ_arg_t* t){
 	//Draw the new target
 	//add radius + 1 to prevent clipping with edges of target box
 	LCD_drawCircle(tx + TARGET_BOX_X1 +TARGET_RAD +1 ,ty + TARGET_BOX_Y1 + TARGET_RAD +1, TARGET_RAD, LCD_SET);
+
+	//Argument is assumed to have been malloc'd
+	free(t);
+	free(targ);
+	free(lasttarg);
 }
 
 //This can be made more efficient:
 //	use sprintf to print a number of three digits; this eliminates the need
 //	for clearing the previous count
-void disp_write_shots(upd_shots_arg_t* s){
+void disp_write_shots(void *s){
+	upd_shots_arg_t* s = (upd_shots_arg_t*) s;
+
 	uint8_t shots = s->shots;
 	char num[3];
 	//LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
 	LCD_setPos(SHOTS_LEFT_POS_X + SHOTS_STR_SZ * CHAR_WIDTH, SHOTS_LEFT_POS_Y);
 	sprintf(num, "%02d", shots);
 	LCD_printStr(num);
+
+	//Argument is assumed to have been malloc'd
+	free(s);
 }
 
 
@@ -122,16 +177,23 @@ void disp_write_shots(upd_shots_arg_t* s){
 //	use sprintf to print a number of three digits; this eliminates the need
 //	for clearing the previous count
 //Argument is assumed to have already been scaled
-void disp_write_dist(upd_dist_targ_t* d){
+void disp_write_dist(void *d){
+	upd_dist_targ_t* d = (upd_dist_targ_t*) d;
+
 	uint8_t distance = d->dist;
 	char num[4];
 	//LCD_setPos(DIST_POS_X, DIST_POS_Y);
 	LCD_setPos(DIST_POS_X, DIST_POS_Y);
 	sprintf(num, "%03d", distance);
 	LCD_printStr(num);
+
+	//Argument is assumed to have been malloc'd
+	free(d);
 }
 
-void disp_write_mode(upd_mode_arg_t* m){
+void disp_write_mode(void *m){
+	upd_mode_arg_t* m = (upd_mode_arg_t*) m;
+
 	//redundant, for clarity
 	uint8_t mode = m->mode;
 	if(newmode == AUTO_MODE){
@@ -145,6 +207,9 @@ void disp_write_mode(upd_mode_arg_t* m){
 		LCD_setPos(MODE_POS_X +(MODE_STR_SZ-1)*CHAR_WIDTH, MODE_POS_Y);
 		LCD_printStr(MANUAL_STR);
 	}
+
+	//Argument is assumed to have been malloc'd
+	free(m);
 }
 
 //It'd be a pain in the ass to do selective clearing,

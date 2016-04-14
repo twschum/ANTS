@@ -34,10 +34,10 @@ struct Handler {
 void start_hardware_timer();
 
 // add a continuous (periodic) timer to linked list.
-void add_timer_periodic(handler_t handler, void* arg, uint32_t period);
+void add_timer_periodic(handler_t handler, void *arg, uint32_t period);
 
 // add a one shot timer to the linked list.
-void add_timer_single(handler_t handler, void* arg, uint32_t period);
+void add_timer_single(handler_t handler, void *arg, uint32_t period);
 
 // update down count with elapsed time, call fnc if timer zero,
 // update continuous timers with new down count

@@ -66,8 +66,7 @@ void insert_timer(struct Timer* newtimer) {
     pos->next = newtimer;
 }
 
-void add_timer(handler_t handler, void* arg, uint32_t period, uint32_t mode) {
-
+void add_timer(handler_t handler, void *arg, uint32_t period, uint32_t mode) {
     struct Timer* newtimer = malloc(sizeof(struct Timer));
 
     newtimer->handler = handler;
@@ -76,17 +75,16 @@ void add_timer(handler_t handler, void* arg, uint32_t period, uint32_t mode) {
     newtimer->mode = mode;
     newtimer->next = NULL;
     newtimer->arg = arg;
-
     insert_timer(newtimer);
 }
 
 // add a continuous (periodic) timer to linked list.
-void add_timer_periodic(handler_t handler, void* argc, uint32_t period) {
+void add_timer_periodic(handler_t handler, void *arg, uint32_t period) {
     add_timer(handler, arg, period, PERIODIC);
 }
 
 // add a one shot timer to the linked list.
-void add_timer_single(handler_t handler, void* arg, uint32_t period) {
+void add_timer_single(handler_t handler, void *arg, uint32_t period) {
     add_timer(handler, arg, period, ONE_SHOT);
 }
 
