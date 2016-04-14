@@ -78,7 +78,7 @@ void Pixy_init() {
     MSS_SPI_init(&g_mss_spi1);
     MSS_SPI_configure_master_mode(
           &g_mss_spi1, MSS_SPI_SLAVE_0,
-          MSS_SPI_MODE0,         // based on Pix documentation
+          MSS_SPI_MODE0,         // based on Pixy documentation
           MSS_SPI_PCLK_DIV_256,  // can be between 256 and 2
           frame_size);
 }

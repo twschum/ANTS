@@ -3,16 +3,12 @@
 
 # Version: v11.5 SP3 11.5.3.10
 # Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
-# Date generated: Thu Apr 14 00:40:09 2016 
+# Date generated: Thu Apr 14 00:39:34 2016 
 
 
 # 
 # User Groups
 # 
-
-define_group -name UART_1
-
-define_group -name UART_0
 
 define_group -name SPI_1_PADs
 
@@ -77,18 +73,3 @@ set_io SPI_1_SS             \
 # Old IO constraints, commented out for reference
 #
 
-# set_io GPIO_0_OUT -iostd LVTTL -DIRECTION OUTPUT 
-# set_io GPIO_1_OUT -iostd LVTTL -DIRECTION OUTPUT 
-# set_io MSS_RESET_N -iostd LVTTL -DIRECTION INPUT 
-# set_io SPI_0_CLK -iostd LVTTL -DIRECTION INOUT 
-# set_io SPI_0_DI -iostd LVTTL -DIRECTION INPUT 
-# set_io SPI_0_DO -iostd LVTTL -DIRECTION OUTPUT 
-# set_io SPI_0_SS -iostd LVTTL -DIRECTION INOUT 
-# set_io UART_0_RXD -iostd LVTTL -DIRECTION INPUT 
-# set_io UART_0_TXD -iostd LVTTL -DIRECTION OUTPUT 
-# set_io UART_1_RXD -iostd LVTTL -DIRECTION INPUT 
-# set_io UART_1_TXD -iostd LVTTL -DIRECTION OUTPUT 
-# set_io SPI_1_CLK -GROUP_NAME SPI_1_PADs -DIRECTION INOUT 
-# set_io SPI_1_DI -GROUP_NAME SPI_1_PADs -DIRECTION INPUT 
-# set_io SPI_1_DO -GROUP_NAME SPI_1_PADs -DIRECTION OUTPUT 
-# set_io SPI_1_SS -GROUP_NAME SPI_1_PADs -DIRECTION INOUT 

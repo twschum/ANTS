@@ -73,10 +73,19 @@ wire [31:0] y_forward_count;
 wire [31:0] y_reverse_count;
 
 ///*** KILL SWITCH LOGIC ***/
+
+// Need to add logic for the analog positioning
+wire y_up_more;
+wire y_down_more;
+
+parameter NEUTRAL_PW = 150000;
+assign y_up_more = (set_y_reverse || (set_y && PWDATA < NEUTRAL_PW));
+assign y_down_more = (set_y_forward || (set_y && PWDATA > NEUTRAL_PW));
+
 wire neutral_or_kill;
 assign neutral_or_kill =    (set_y_neutral || 
-                            ((!stop_y[1]) && (set_y_reverse)) || 
-                            ((!stop_y[0]) && (set_y_forward))
+                            ((!stop_y[1]) && (y_up_more)) || 
+                            ((!stop_y[0]) && (y_down_more))
                             );
 
 
@@ -216,12 +225,12 @@ always @ (posedge PCLK) begin
     else begin
 
         /*** Commands, determine next period's pw ***/
-            if (SET_PW) begin
-                next_pw <= PWDATA;
+            if (SET_PW_NEUTRAL) begin
+                next_pw <= PW_NEUTRAL;
                 in_return_mode <= 0;
             end
-            else if (SET_PW_NEUTRAL) begin
-                next_pw <= PW_NEUTRAL;
+            else if (SET_PW) begin
+                next_pw <= PWDATA;
                 in_return_mode <= 0;
             end
             else if (SET_PW_FORWARD) begin

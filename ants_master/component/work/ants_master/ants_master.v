@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Apr 13 21:34:28 2016
+// Created by SmartDesign Thu Apr 14 00:40:10 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -9,7 +9,7 @@
 module ants_master(
     // Inputs
     MSS_RESET_N,
-    SPI_0_DI,
+    SPI_1_DI,
     UART_0_RXD,
     UART_1_RXD,
     VAREF0,
@@ -19,14 +19,14 @@ module ants_master(
     GPIO_0_OUT,
     GPIO_1_OUT,
     SDD_0,
-    SPI_0_DO,
+    SPI_1_DO,
     UART_0_TXD,
     UART_1_TXD,
     x_servo_pwm,
     y_servo_pwm,
     // Inouts
-    SPI_0_CLK,
-    SPI_0_SS,
+    SPI_1_CLK,
+    SPI_1_SS,
     fab_pin
 );
 
@@ -34,7 +34,7 @@ module ants_master(
 // Input
 //--------------------------------------------------------------------
 input        MSS_RESET_N;
-input        SPI_0_DI;
+input        SPI_1_DI;
 input        UART_0_RXD;
 input        UART_1_RXD;
 input        VAREF0;
@@ -46,7 +46,7 @@ input  [1:0] stop_y;
 output       GPIO_0_OUT;
 output       GPIO_1_OUT;
 output       SDD_0;
-output       SPI_0_DO;
+output       SPI_1_DO;
 output       UART_0_TXD;
 output       UART_1_TXD;
 output       x_servo_pwm;
@@ -54,8 +54,8 @@ output       y_servo_pwm;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
-inout        SPI_0_CLK;
-inout        SPI_0_SS;
+inout        SPI_1_CLK;
+inout        SPI_1_SS;
 inout        fab_pin;
 //--------------------------------------------------------------------
 // Nets
@@ -91,10 +91,10 @@ wire          GPIO_1_OUT_net_0;
 wire          MSS_RESET_N;
 wire          SDD_0_net_0;
 wire          sensor_pwm;
-wire          SPI_0_CLK;
-wire          SPI_0_DI;
-wire          SPI_0_DO_net_0;
-wire          SPI_0_SS;
+wire          SPI_1_CLK;
+wire          SPI_1_DI;
+wire          SPI_1_DO_0;
+wire          SPI_1_SS;
 wire   [1:0]  stop_y;
 wire          UART_0_RXD;
 wire          UART_0_TXD_net_0;
@@ -105,12 +105,12 @@ wire          x_servo_pwm_net_0;
 wire          y_servo_pwm_net_0;
 wire          UART_1_TXD_net_1;
 wire          UART_0_TXD_net_1;
-wire          SPI_0_DO_net_1;
 wire          GPIO_1_OUT_net_1;
 wire          GPIO_0_OUT_net_1;
 wire          x_servo_pwm_net_1;
 wire          y_servo_pwm_net_1;
 wire          SDD_0_net_1;
+wire          SPI_1_DO_0_net_0;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -134,10 +134,10 @@ wire   [31:0] PRDATAS16_const_net_0;
 //--------------------------------------------------------------------
 // Bus Interface Nets Declarations - Unequal Pin Widths
 //--------------------------------------------------------------------
-wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 wire   [31:20]ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_31to20;
 wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_19to0;
 wire   [31:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0;
+wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
@@ -165,8 +165,6 @@ assign UART_1_TXD_net_1  = UART_1_TXD_net_0;
 assign UART_1_TXD        = UART_1_TXD_net_1;
 assign UART_0_TXD_net_1  = UART_0_TXD_net_0;
 assign UART_0_TXD        = UART_0_TXD_net_1;
-assign SPI_0_DO_net_1    = SPI_0_DO_net_0;
-assign SPI_0_DO          = SPI_0_DO_net_1;
 assign GPIO_1_OUT_net_1  = GPIO_1_OUT_net_0;
 assign GPIO_1_OUT        = GPIO_1_OUT_net_1;
 assign GPIO_0_OUT_net_1  = GPIO_0_OUT_net_0;
@@ -177,6 +175,8 @@ assign y_servo_pwm_net_1 = y_servo_pwm_net_0;
 assign y_servo_pwm       = y_servo_pwm_net_1;
 assign SDD_0_net_1       = SDD_0_net_0;
 assign SDD_0             = SDD_0_net_1;
+assign SPI_1_DO_0_net_0  = SPI_1_DO_0;
+assign SPI_1_DO          = SPI_1_DO_0_net_0;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -192,16 +192,15 @@ ants_master_MSS ants_master_MSS_0(
         // Inputs
         .UART_0_RXD  ( UART_0_RXD ),
         .UART_1_RXD  ( UART_1_RXD ),
-        .SPI_0_DI    ( SPI_0_DI ),
         .MSS_RESET_N ( MSS_RESET_N ),
         .MSSPREADY   ( ants_master_MSS_0_MSS_MASTER_APB_PREADY ),
         .MSSPSLVERR  ( ants_master_MSS_0_MSS_MASTER_APB_PSLVERR ),
         .VAREF0      ( VAREF0 ),
         .MSSPRDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PRDATA ),
+        .SPI_1_DI    ( SPI_1_DI ),
         // Outputs
         .UART_0_TXD  ( UART_0_TXD_net_0 ),
         .UART_1_TXD  ( UART_1_TXD_net_0 ),
-        .SPI_0_DO    ( SPI_0_DO_net_0 ),
         .M2F_RESET_N ( ants_master_MSS_0_M2F_RESET_N ),
         .GPIO_1_OUT  ( GPIO_1_OUT_net_0 ),
         .GPIO_0_OUT  ( GPIO_0_OUT_net_0 ),
@@ -212,9 +211,10 @@ ants_master_MSS ants_master_MSS_0(
         .SDD_0       ( SDD_0_net_0 ),
         .MSSPADDR    ( ants_master_MSS_0_MSS_MASTER_APB_PADDR ),
         .MSSPWDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PWDATA ),
+        .SPI_1_DO    ( SPI_1_DO_0 ),
         // Inouts
-        .SPI_0_CLK   ( SPI_0_CLK ),
-        .SPI_0_SS    ( SPI_0_SS ) 
+        .SPI_1_CLK   ( SPI_1_CLK ),
+        .SPI_1_SS    ( SPI_1_SS ) 
         );
 
 //--------CoreAPB3   -   Actel:DirectCore:CoreAPB3:4.1.100
@@ -352,9 +352,9 @@ Dsensor Dsensor_0(
         .PSEL       ( CoreAPB3_0_APBmslave2_PSELx ),
         .PENABLE    ( CoreAPB3_0_APBmslave0_PENABLE ),
         .PWRITE     ( CoreAPB3_0_APBmslave0_PWRITE ),
+        .sensor_pwm ( sensor_pwm ),
         .PADDR      ( CoreAPB3_0_APBmslave0_PADDR ),
         .PWDATA     ( CoreAPB3_0_APBmslave0_PWDATA ),
-        .sensor_pwm ( sensor_pwm ),
         // Outputs
         .PREADY     ( CoreAPB3_0_APBmslave2_PREADY ),
         .PSLVERR    ( CoreAPB3_0_APBmslave2_PSLVERR ),
@@ -380,7 +380,9 @@ n64_magic_box n64_magic_box_0(
         );
 
 //--------servo_control
-servo_control servo_control_0(
+servo_control #( 
+        .NEUTRAL_PW ( 150000 ) )
+servo_control_0(
         // Inputs
         .PCLK        ( ants_master_MSS_0_FAB_CLK ),
         .PRESERN     ( ants_master_MSS_0_M2F_RESET_N ),

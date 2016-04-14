@@ -10,7 +10,7 @@
 #include "drivers/Pixy_SPI.h"
 #include "drivers/speaker_driver.h"
 
-#define PRINT_N64_STATE 0
+#define PRINT_N64_STATE 1
 
 #define MANUAL 1
 #define AUTOMATIC 0
@@ -52,8 +52,6 @@ int main() {
 
     n64_get_state(&last_buttons);
 
-    volatile int x = 0;
-
     printf("A.N.T.S. 3000, ready for action!\r\n");
 
     /*
@@ -71,33 +69,10 @@ int main() {
 
         do_automatic( &n64_buttons, &last_buttons );
 
-        print_distance();
-
-        /*
-         * Toggle between manual and automatic modes, with the laser indicator
-        if (n64_buttons.A && !last_buttons.A) {
-            printf("A pressed: ");
-
-            if (mode == AUTOMATIC) {
-                mode = MANUAL;
-                printf("manual mode, laser on!\r\n");
-                MSS_GPIO_set_output(MSS_GPIO_0, 1);
-                // do thing
-            }
-            else if (mode == MANUAL) {
-                mode = AUTOMATIC;
-                printf("automatic mode, laser off :(\r\n");
-                MSS_GPIO_set_output(MSS_GPIO_0, 0);
-            }
-        }
-        */
+        //print_distance();
 
         if (PRINT_N64_STATE) {
             n64_print_state( &n64_buttons );
-            //while (x < 10000000) {
-            //	x = x + 1;
-            //}
-            x = 0;
         }
 
         last_buttons = n64_buttons;
@@ -111,7 +86,7 @@ int main() {
  */
 void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
 
-    static uint32_t milliseconds=40, increment=5;
+    static uint32_t milliseconds=40, increment=10;
     /*
      * trigger the solenoid:
      *   Z to fire
@@ -123,13 +98,14 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
         trigger_solenoid_activate(milliseconds);
 
         // now go thru the 'reload' motion
-        servo_do(Y_SET_FORWARD);
+        set_y_servo_analog_pw(SERVO_HALF_FORWARD);
         while (stop_switch(READ_LOWER_STOP)) { }
-        servo_do(Y_SET_REVERSE);
+
         // TODO timing on this (how long to run it)
+        set_y_servo_analog_pw(SERVO_HALF_REVERSE);
         volatile uint32_t i;
-        for(i = 0; i < TRIGGER_DURATION*CYCLE_MULT; i++) { }
-        servo_do(Y_SET_NEUTRAL);
+        for(i = 0; i < 120*CYCLE_MULT; i++) { }
+        set_y_servo_analog_pw(SERVO_NEUTRAL);
     }
 
     if (n64_pressed(C_Up)) {
@@ -236,6 +212,9 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     printf("Beginning seek-and-destroy!\r\n");
 
+    // turn on the laser
+    MSS_GPIO_set_output(MSS_GPIO_0, 1);
+
     int active = 1;
     target_pos_t target;
 
@@ -247,48 +226,51 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     while (active) {
 
         if ( Pixy_get_target_location(&target) == -1 ) {
-            // start a failure timeout timer
+            // start a failure timeout timer?
         }
         // else, target found, coordinates valid
-
-        // X servo adjustment
-        if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
-            x_pw = SERVO_HALF_REVERSE; // go left
-            x_on_target = 0;
-        }
-        else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
-            x_pw = SERVO_HALF_FORWARD; // go right
-            x_on_target = 0;
-        }
         else {
-            x_pw = SERVO_NEUTRAL;
-            x_on_target = 1;
-            printf("X on target!\r\n");
-        }
+        	printf("x: %d\ty: %d\r\n", target.x, target.y);
 
-        // Y servo adjustment
-        if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
-            y_pw = SERVO_HALF_FORWARD; // go down
-            y_on_target = 0;
-        }
-        else if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
-            y_pw = SERVO_HALF_REVERSE; // go up
-            y_on_target = 0;
-        }
-        else {
-            y_pw = SERVO_NEUTRAL;
-            y_on_target = 1;
-            printf("Y on target!\r\n");
-        }
+        	// X servo adjustment
+        	if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
+        		x_pw = SERVO_HALF_REVERSE; // go left
+        		x_on_target = 0;
+        	}
+        	else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
+        		x_pw = SERVO_HALF_FORWARD; // go right
+        		x_on_target = 0;
+        	}
+        	else {
+        		x_pw = SERVO_NEUTRAL;
+        		x_on_target = 1;
+        		printf("X on target!\r\n");
+        	}
 
-        // set the servos
-        set_x_servo_analog_pw(x_pw);
-        set_y_servo_analog_pw(y_pw);
+        	// Y servo adjustment
+        	if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
+        		y_pw = SERVO_HALF_FORWARD; // go down
+        		y_on_target = 0;
+        	}
+        	else if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
+        		y_pw = SERVO_HALF_REVERSE; // go up
+        		y_on_target = 0;
+        	}
+        	else {
+        		y_pw = SERVO_NEUTRAL;
+        		y_on_target = 1;
+        		printf("Y on target!\r\n");
+        	}
 
-        // fire a dart, then exit the loop after getting n64 state
-        if (x_on_target && y_on_target) {
-            trigger_solenoid_activate(TRIGGER_DURATION);
-            active = 0;
+        	// set the servos
+        	set_x_servo_analog_pw(x_pw);
+        	set_y_servo_analog_pw(y_pw);
+
+        	// fire a dart, then exit the loop after getting n64 state
+        	if (x_on_target && y_on_target) {
+        		trigger_solenoid_activate(TRIGGER_DURATION);
+        		active = 0;
+        	}
         }
 
         if (n64_pressed(B)) {
@@ -296,9 +278,13 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
             servo_do(X_SET_NEUTRAL);
             servo_do(Y_SET_NEUTRAL);
             printf("Aborting seek-and-destroy\r\n");
+
         }
 
         *last_state = *state;
         n64_get_state( state );
     }
+
+    // shut off the laser
+    MSS_GPIO_set_output(MSS_GPIO_0, 0);
 }

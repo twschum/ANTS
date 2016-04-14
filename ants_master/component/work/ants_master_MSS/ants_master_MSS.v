@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Apr 13 16:10:46 2016
+// Created by SmartDesign Thu Apr 14 00:39:43 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -12,7 +12,7 @@ module ants_master_MSS(
     MSSPREADY,
     MSSPSLVERR,
     MSS_RESET_N,
-    SPI_0_DI,
+    SPI_1_DI,
     UART_0_RXD,
     UART_1_RXD,
     VAREF0,
@@ -27,12 +27,12 @@ module ants_master_MSS(
     MSSPWDATA,
     MSSPWRITE,
     SDD_0,
-    SPI_0_DO,
+    SPI_1_DO,
     UART_0_TXD,
     UART_1_TXD,
     // Inouts
-    SPI_0_CLK,
-    SPI_0_SS
+    SPI_1_CLK,
+    SPI_1_SS
 );
 
 //--------------------------------------------------------------------
@@ -42,7 +42,7 @@ input  [31:0] MSSPRDATA;
 input         MSSPREADY;
 input         MSSPSLVERR;
 input         MSS_RESET_N;
-input         SPI_0_DI;
+input         SPI_1_DI;
 input         UART_0_RXD;
 input         UART_1_RXD;
 input         VAREF0;
@@ -59,14 +59,14 @@ output        MSSPSEL;
 output [31:0] MSSPWDATA;
 output        MSSPWRITE;
 output        SDD_0;
-output        SPI_0_DO;
+output        SPI_1_DO;
 output        UART_0_TXD;
 output        UART_1_TXD;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
-inout         SPI_0_CLK;
-inout         SPI_0_SS;
+inout         SPI_1_CLK;
+inout         SPI_1_SS;
 //--------------------------------------------------------------------
 // Nets
 //--------------------------------------------------------------------
@@ -84,14 +84,14 @@ wire   [0:0]  MSS_GPIO_0_GPIO_0_OUT_D;
 wire   [1:1]  MSS_GPIO_0_GPIO_1_OUT_D;
 wire          MSS_RESET_0_MSS_RESET_N_Y;
 wire          MSS_RESET_N;
-wire          MSS_SPI_0_CLK_D;
-wire          MSS_SPI_0_CLK_Y;
-wire          MSS_SPI_0_DI_Y;
-wire          MSS_SPI_0_DO_D;
-wire          MSS_SPI_0_DO_E;
-wire   [0:0]  MSS_SPI_0_SS_D;
-wire          MSS_SPI_0_SS_E;
-wire          MSS_SPI_0_SS_Y;
+wire          MSS_SPI_1_CLK_D;
+wire          MSS_SPI_1_CLK_Y;
+wire          MSS_SPI_1_DI_Y;
+wire          MSS_SPI_1_DO_D;
+wire          MSS_SPI_1_DO_E;
+wire   [0:0]  MSS_SPI_1_SS_D;
+wire          MSS_SPI_1_SS_E;
+wire          MSS_SPI_1_SS_Y;
 wire          MSS_UART_0_RXD_Y;
 wire          MSS_UART_0_TXD_D;
 wire          MSS_UART_1_RXD_Y;
@@ -106,10 +106,10 @@ wire          MSSPSLVERR;
 wire   [31:0] net_72_PWDATA;
 wire          net_72_PWRITE;
 wire          SDD_0_net_0;
-wire          SPI_0_CLK;
-wire          SPI_0_DI;
-wire          SPI_0_DO_net_0;
-wire          SPI_0_SS;
+wire          SPI_1_CLK;
+wire          SPI_1_DI;
+wire          SPI_1_DO_net_0;
+wire          SPI_1_SS;
 wire          UART_0_RXD;
 wire          UART_0_TXD_net_0;
 wire          UART_1_RXD;
@@ -124,12 +124,12 @@ wire   [19:0] net_72_PADDR_net_0;
 wire   [31:0] net_72_PWDATA_net_0;
 wire          UART_0_TXD_net_1;
 wire          UART_1_TXD_net_1;
-wire          SPI_0_DO_net_1;
+wire          SPI_1_DO_net_1;
 wire          SDD_0_net_1;
 wire          GPIO_1_OUT_net_1;
 wire          GPIO_0_OUT_net_1;
 wire   [31:0] GPO_net_0;
-wire   [7:0]  SPI0SSO_net_0;
+wire   [7:0]  SPI1SSO_net_0;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -175,8 +175,8 @@ assign UART_0_TXD_net_1                 = UART_0_TXD_net_0;
 assign UART_0_TXD                       = UART_0_TXD_net_1;
 assign UART_1_TXD_net_1                 = UART_1_TXD_net_0;
 assign UART_1_TXD                       = UART_1_TXD_net_1;
-assign SPI_0_DO_net_1                   = SPI_0_DO_net_0;
-assign SPI_0_DO                         = SPI_0_DO_net_1;
+assign SPI_1_DO_net_1                   = SPI_1_DO_net_0;
+assign SPI_1_DO                         = SPI_1_DO_net_1;
 assign SDD_0_net_1                      = SDD_0_net_0;
 assign SDD_0                            = SDD_0_net_1;
 assign GPIO_1_OUT_net_1                 = GPIO_1_OUT_net_0;
@@ -188,7 +188,7 @@ assign GPIO_0_OUT                       = GPIO_0_OUT_net_1;
 //--------------------------------------------------------------------
 assign MSS_GPIO_0_GPIO_0_OUT_D[0] = GPO_net_0[0:0];
 assign MSS_GPIO_0_GPIO_1_OUT_D[1] = GPO_net_0[1:1];
-assign MSS_SPI_0_SS_D[0]          = SPI0SSO_net_0[0:0];
+assign MSS_SPI_1_SS_D[0]          = SPI1SSO_net_0[0:0];
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -275,15 +275,15 @@ MSS_ADLIB_INST(
         .MACCLK         ( MSS_ADLIB_INST_MACCLK ),
         .PLLLOCK        ( MSS_ADLIB_INST_PLLLOCK ),
         .MSSRESETn      ( MSS_RESET_0_MSS_RESET_N_Y ),
-        .SPI0DI         ( MSS_SPI_0_DI_Y ),
-        .SPI0CLKI       ( MSS_SPI_0_CLK_Y ),
-        .SPI0SSI        ( MSS_SPI_0_SS_Y ),
+        .SPI0DI         ( GND_net ), // tied to 1'b0 from definition
+        .SPI0CLKI       ( GND_net ), // tied to 1'b0 from definition
+        .SPI0SSI        ( GND_net ), // tied to 1'b0 from definition
         .UART0RXD       ( MSS_UART_0_RXD_Y ),
         .I2C0SDAI       ( GND_net ), // tied to 1'b0 from definition
         .I2C0SCLI       ( GND_net ), // tied to 1'b0 from definition
-        .SPI1DI         ( GND_net ), // tied to 1'b0 from definition
-        .SPI1CLKI       ( GND_net ), // tied to 1'b0 from definition
-        .SPI1SSI        ( GND_net ), // tied to 1'b0 from definition
+        .SPI1DI         ( MSS_SPI_1_DI_Y ),
+        .SPI1CLKI       ( MSS_SPI_1_CLK_Y ),
+        .SPI1SSI        ( MSS_SPI_1_SS_Y ),
         .UART1RXD       ( MSS_UART_1_RXD_Y ),
         .I2C1SDAI       ( GND_net ), // tied to 1'b0 from definition
         .I2C1SCLI       ( GND_net ), // tied to 1'b0 from definition
@@ -396,19 +396,19 @@ MSS_ADLIB_INST(
         .VCC15GOOD      (  ),
         .VCC33GOOD      (  ),
         .GPOE           (  ),
-        .SPI0DO         ( MSS_SPI_0_DO_D ),
-        .SPI0DOE        ( MSS_SPI_0_DO_E ),
-        .SPI0CLKO       ( MSS_SPI_0_CLK_D ),
-        .SPI0MODE       ( MSS_SPI_0_SS_E ),
-        .SPI0SSO        ( SPI0SSO_net_0 ),
+        .SPI0DO         (  ),
+        .SPI0DOE        (  ),
+        .SPI0CLKO       (  ),
+        .SPI0MODE       (  ),
+        .SPI0SSO        (  ),
         .UART0TXD       ( MSS_UART_0_TXD_D ),
         .I2C0SDAO       (  ),
         .I2C0SCLO       (  ),
-        .SPI1DO         (  ),
-        .SPI1DOE        (  ),
-        .SPI1CLKO       (  ),
-        .SPI1MODE       (  ),
-        .SPI1SSO        (  ),
+        .SPI1DO         ( MSS_SPI_1_DO_D ),
+        .SPI1DOE        ( MSS_SPI_1_DO_E ),
+        .SPI1CLKO       ( MSS_SPI_1_CLK_D ),
+        .SPI1MODE       ( MSS_SPI_1_SS_E ),
+        .SPI1SSO        ( SPI1SSO_net_0 ),
         .UART1TXD       ( MSS_UART_1_TXD_D ),
         .I2C1SDAO       (  ),
         .I2C1SCLO       (  ),
@@ -504,52 +504,52 @@ MSS_RESET_0_MSS_RESET_N(
 //--------BIBUF_MSS
 BIBUF_MSS #( 
         .ACT_CONFIG ( 0 ),
-        .ACT_PIN    ( "W19" ) )
-MSS_SPI_0_CLK(
+        .ACT_PIN    ( "AA22" ) )
+MSS_SPI_1_CLK(
         // Inputs
-        .D   ( MSS_SPI_0_CLK_D ),
-        .E   ( MSS_SPI_0_SS_E ),
+        .D   ( MSS_SPI_1_CLK_D ),
+        .E   ( MSS_SPI_1_SS_E ),
         // Outputs
-        .Y   ( MSS_SPI_0_CLK_Y ),
+        .Y   ( MSS_SPI_1_CLK_Y ),
         // Inouts
-        .PAD ( SPI_0_CLK ) 
+        .PAD ( SPI_1_CLK ) 
         );
 
 //--------INBUF_MSS
 INBUF_MSS #( 
         .ACT_CONFIG ( 0 ),
-        .ACT_PIN    ( "V18" ) )
-MSS_SPI_0_DI(
+        .ACT_PIN    ( "V19" ) )
+MSS_SPI_1_DI(
         // Inputs
-        .PAD ( SPI_0_DI ),
+        .PAD ( SPI_1_DI ),
         // Outputs
-        .Y   ( MSS_SPI_0_DI_Y ) 
+        .Y   ( MSS_SPI_1_DI_Y ) 
         );
 
 //--------TRIBUFF_MSS
 TRIBUFF_MSS #( 
         .ACT_CONFIG ( 0 ),
-        .ACT_PIN    ( "U17" ) )
-MSS_SPI_0_DO(
+        .ACT_PIN    ( "T17" ) )
+MSS_SPI_1_DO(
         // Inputs
-        .D   ( MSS_SPI_0_DO_D ),
-        .E   ( MSS_SPI_0_DO_E ),
+        .D   ( MSS_SPI_1_DO_D ),
+        .E   ( MSS_SPI_1_DO_E ),
         // Outputs
-        .PAD ( SPI_0_DO_net_0 ) 
+        .PAD ( SPI_1_DO_net_0 ) 
         );
 
 //--------BIBUF_MSS
 BIBUF_MSS #( 
         .ACT_CONFIG ( 0 ),
-        .ACT_PIN    ( "Y20" ) )
-MSS_SPI_0_SS(
+        .ACT_PIN    ( "W21" ) )
+MSS_SPI_1_SS(
         // Inputs
-        .D   ( MSS_SPI_0_SS_D ),
-        .E   ( MSS_SPI_0_SS_E ),
+        .D   ( MSS_SPI_1_SS_D ),
+        .E   ( MSS_SPI_1_SS_E ),
         // Outputs
-        .Y   ( MSS_SPI_0_SS_Y ),
+        .Y   ( MSS_SPI_1_SS_Y ),
         // Inouts
-        .PAD ( SPI_0_SS ) 
+        .PAD ( SPI_1_SS ) 
         );
 
 //--------INBUF_MSS
