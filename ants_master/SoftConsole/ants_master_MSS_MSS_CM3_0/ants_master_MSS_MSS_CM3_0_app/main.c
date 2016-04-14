@@ -121,6 +121,10 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
     if (n64_pressed(Z)) {
         printf("Z pressed, activating trigger solenoid\r\n");
         trigger_solenoid_activate(milliseconds);
+
+        // now go thru the 'reload' motion
+        //while(
+
     }
 
     if (n64_pressed(C_Up)) {

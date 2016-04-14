@@ -36,6 +36,9 @@
 // Use this marco to do all the write-triggered actions
 #define servo_do(ADDR) ( *((volatile uint32_t*)ADDR) = (uint32_t)0x00000000 )
 
+// read (for stop switches)
+#define stop_switch(ADDR) *((volatile uint32_t*)ADDR)
+
 // set the x position using any value
 // might map this to the analog stick
 void set_x_servo_analog_pw(uint32_t new_pw);
