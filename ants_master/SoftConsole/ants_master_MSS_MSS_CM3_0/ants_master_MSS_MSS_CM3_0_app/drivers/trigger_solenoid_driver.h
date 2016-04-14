@@ -33,4 +33,7 @@ void trigger_solenoid_activate(uint32_t ms) {
 	volatile uint32_t i;
 	for(i = 0; i < ms * CYCLE_MULT; i++) { }
 	MSS_GPIO_set_output(MSS_GPIO_1, 0);
+
+    // second delay for safety
+	for(i = 0; i < ms * CYCLE_MULT; i++) { }
 }

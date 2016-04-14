@@ -111,7 +111,7 @@ int main() {
  */
 void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
 
-    static uint32_t milliseconds=200, increment=20;
+    static uint32_t milliseconds=40, increment=5;
     /*
      * trigger the solenoid:
      *   Z to fire
@@ -126,7 +126,9 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
         servo_do(Y_SET_FORWARD);
         while (stop_switch(READ_LOWER_STOP)) { }
         servo_do(Y_SET_REVERSE);
-        for(volatile uint32_t i = 0; i < TRIGGER_DURATION*CYCLE_MULT; i++) { }
+        // TODO timing on this (how long to run it)
+        volatile uint32_t i;
+        for(i = 0; i < TRIGGER_DURATION*CYCLE_MULT; i++) { }
         servo_do(Y_SET_NEUTRAL);
     }
 
@@ -148,6 +150,9 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
 /*
  * This checks the D-pad and adjusts the servos accordingly,
  * moving them for as long as the button is held
+ *
+ * The analog stick also works and is even better
+ * for fine control of the turret
  *
  */
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
