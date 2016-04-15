@@ -3,7 +3,7 @@
 
 #include <inttypes.h>
 #include "LCD.h"
-#include "n64_driver.h"
+//#include "n64_driver.h"
 
 //POSITIONING MACROS//////////////////////////////
 #define	TARGET_BOX_X1 		69					//
@@ -38,8 +38,8 @@
 #define PRESSURE_POS_X		0					//
 #define PRESSURE_POS_Y		0					//
 												//	
-#define DIST_POS_X			0					//
-#define DIST_POS_Y			0					//
+#define DIST_POS_X			3					//
+#define DIST_POS_Y			50					//
 												//
 #define SET 				1 					//
 #define UNSET				0					//
@@ -53,8 +53,11 @@
 #define AUTO_STR			"AUTO  "			//
 #define AUTO_STR_SZ 		7					//
 												//
-#define MANUAL_STR			"MANUAL"			//
+#define MANUAL_STR			"NORMAL"			//
 #define MANUAL_STR_SZ		7					//
+												//
+#define DIST_STR			"Distance:"			//
+#define DIST_STR_SZ			10					//
 												//
 #define TARGET_HORZ_STR 	"X:"				//
 #define TARGET_HORZ_STR_SZ	3 					//
@@ -70,7 +73,14 @@
 												//
 #define TARGET_RAD			3 					//
 												//
+//UPDATE DELAYS///////////////////////////////////
+#define TRG_DELAY_MS 		5					//
+#define DIST_DELAY_MS		5					//
+#define SHOTS_DELAY_MS		5					//
+#define MODE_DELAY_MS		5					//
 //////////////////////////////////////////////////
+//#define
+
 
 typedef struct{
 	uint8_t start_x;
@@ -106,6 +116,12 @@ typedef struct {
 	uint8_t 	shots;
 	uint8_t		target_mode; 		
 } lcd_screen_state_t;
+
+typedef struct{
+	lcd_screen_state_t *lcd_state;
+	lcd_screen_state_t *last_state;//Forces an update if this is NULL
+	//n64_state_t *ctrlr_state;
+} upd_disp_arg_t;
 
 //Wrapper structs for timeout handler arguments//
 typedef struct{
@@ -145,19 +161,21 @@ void disp_init();
 //Pass NULL to 2nd arg to force an update (e.g. on first write)
 //This function will take on the order of tens of ms to complete
 //
-void disp_update(lcd_screen_state_t*, lcd_screen_state_t*, n64_state_t*);
+
+void disp_update(void*);
 
 //Clears X: Y: and graphic on screen, writes new values
 void disp_write_target(void*);
 
-//Argument is assumed to have already been scaled
 void disp_write_dist(void*);
 
 void disp_write_shots(void*);
 
 void disp_write_mode(void*);
 
-void disp_write_N64();
+void disp_upd_finish(void* u_arg_v);
+
+//void disp_write_N64();
 
 void testBarebones();
 

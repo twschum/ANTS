@@ -9,8 +9,13 @@
 #include "drivers/dsensor_driver.h"
 #include "drivers/Pixy_SPI.h"
 #include "drivers/speaker_driver.h"
+#include "drivers/timer_t.h"
+#include "drivers/stats_display.h"
 
 #define PRINT_N64_STATE 0
+
+#define DISPLAY_UPDATE_MS 30//ms
+#define CLK_SPEED 100000000//hz
 
 
 // convenience button macros in the do_ functions
@@ -18,6 +23,9 @@
 #define N64_LAST_STATE_PTR last_state
 #define n64_pressed(BUTTON)  (N64_STATE_PTR->BUTTON && !N64_LAST_STATE_PTR->BUTTON)
 #define n64_released(BUTTON)  (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->BUTTON)
+
+
+upd_disp_arg_t g_disp_update_argument;
 
 // make all do_ functions take the n64 args as defined to use the button macro!
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
@@ -49,6 +57,15 @@ int main() {
     n64_enable();
 
     n64_get_state(&last_buttons);
+
+    /*
+     * Initialize display and refresh timer
+     */
+    disp_init();
+    set_clk(CLK_SPEED); //Only for scaling
+    g_disp_update_argument.lcd_state=NULL;
+    g_disp_update_argument.last_state=NULL;
+    add_timer_periodic(disp_update, (void*) &g_disp_update_argument, to_ticks(DISPLAY_UPDATE_MS));
 
     printf("A.N.T.S. 3000, ready for action!\r\n");
 
@@ -89,7 +106,7 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
      * trigger the solenoid:
      *   Z to fire
      *   C Up to increment the time
-     *   C Down to decrement the itme
+     *   C Down to decrement the time
      */
     if (n64_pressed(Z)) {
         printf("Z pressed, activating trigger solenoid\r\n");
@@ -223,11 +240,20 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     		//set_x_servo_analog_pw(SERVO_NEUTRAL);
     		//set_y_servo_analog_pw(SERVO_NEUTRAL);
+        	printf("x: %d\ty: %d\r\n", -1, -1);
         }
         // else, target found, coordinates valid
         else {
         	printf("x: %d\ty: %d\r\n", target.x, target.y);
-
+        	lcd_screen_state_t *lcd= malloc(sizeof(lcd_screen_state_t));
+        	circle_t *trg = malloc(sizeof(circle_t));
+        	trg->x = target.x;
+        	trg->y = target.y;
+        	lcd->target_pos = trg;
+        	lcd->distance = 50;
+        	lcd->shots = 22;
+        	lcd->target_mode = 1;
+        	g_disp_update_argument.lcd_state = lcd;
         	// X servo adjustment
         	if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
         		x_pw = SERVO_HALF_REVERSE; // go left
