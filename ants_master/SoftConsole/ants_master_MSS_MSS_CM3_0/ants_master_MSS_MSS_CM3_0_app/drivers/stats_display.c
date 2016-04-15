@@ -182,8 +182,6 @@ void disp_write_target(void *t_v){
 	DBG("drawing target (%u,%u)", tx, ty);
 	//Argument is assumed to have been malloc'd
 	free(t);
-	//free(targ);
-	//free(lasttarg);
 }
 
 //This can be made more efficient:

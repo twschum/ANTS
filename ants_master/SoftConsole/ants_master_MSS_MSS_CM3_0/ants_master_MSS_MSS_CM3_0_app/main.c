@@ -14,6 +14,10 @@
 
 #define PRINT_N64_STATE 0
 
+// Use these to distinguish between rapid-fire and
+// the safer single fire mode
+#define REPEATED_FIRING_MODE 0
+
 #define DISPLAY_UPDATE_MS 30//ms
 #define CLK_SPEED 100000000//hz
 
@@ -24,16 +28,17 @@
 #define n64_pressed(BUTTON)  (N64_STATE_PTR->BUTTON && !N64_LAST_STATE_PTR->BUTTON)
 #define n64_released(BUTTON)  (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->BUTTON)
 
-
 upd_disp_arg_t g_disp_update_argument;
 
 // make all do_ functions take the n64 args as defined to use the button macro!
+void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state);
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state);
 void do_automatic(n64_state_t* state, n64_state_t* last_state);
 
+static uint8_t g_live_fire_enabled = 0;
 static lcd_screen_state_t lcd_state;
-static lcd_screen_state_t last_state;
+static lcd_screen_state_t lcd_last_state;
 static circle_t trg;
 
 int main() {
@@ -55,7 +60,6 @@ int main() {
      */
     n64_state_t n64_buttons;
     n64_state_t last_buttons;
-    //uint8_t mode = MANUAL;
 
     n64_reset();
     n64_enable();
@@ -66,11 +70,19 @@ int main() {
      * Initialize display and refresh timer
      */
     disp_init();
-    set_clk(CLK_SPEED); //Only for scaling
+    set_clk(CLK_SPEED); // Only for scaling
+
+    trg.x = 20;
+    trg.y=20;
+    lcd_state.target_pos = &trg;
+    lcd_state.distance=4;
+    lcd_state.shots = 4;
+    lcd_state.target_mode=1;
     //g_disp_update_argument.lcd_state=NULL;
     //g_disp_update_argument.last_state=NULL;
     g_disp_update_argument.lcd_state = &lcd_state;
     g_disp_update_argument.last_state = NULL;
+    disp_update(&g_disp_update_argument);
     //add_timer_periodic(disp_update, (void*) &g_disp_update_argument, to_ticks(DISPLAY_UPDATE_MS));
 
     printf("A.N.T.S. 3000, ready for action!\r\n");
@@ -80,9 +92,14 @@ int main() {
      */
     Pixy_init();
 
+    /*
+     * Top-level control loop
+     */
     while (1) {
 
         n64_get_state( &n64_buttons );
+
+        do_ready_live_fire( &n64_buttons, &last_buttons );
 
         do_solenoid( &n64_buttons, &last_buttons );
 
@@ -100,6 +117,18 @@ int main() {
     }
 }
 
+void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state) {
+	// This global only gets set here, read anywhere, cleared after firing (not repeat mode)
+	if ( !g_live_fire_enabled && n64_released(Start)) {
+		g_live_fire_enabled = 1;
+		printf("DANGER: Live-fire enabled.\r\n");
+	}
+	else if (g_live_fire_enabled && n64_released(Start)) {
+		g_live_fire_enabled = 0;
+		printf("Live-fire disabled.\r\n");
+	}
+}
+
 /*
  * Helper function to execute the 'reload' motion
  *
@@ -112,9 +141,27 @@ void _reload_motion() {
 
     // magic numbers from real-world testing
     set_y_servo_analog_pw(SERVO_HALF_REVERSE);
-    volatile uint32_t i;
-    for(i = 0; i < 120*CYCLE_MULT; i++) { }
+    use_me_carefully_ms_delay_timer(200);
     set_y_servo_analog_pw(SERVO_NEUTRAL);
+}
+/*
+ * Helper to be called in manual and automatic modes
+ * to fire, reload (action), and clear g_ready_live_fire
+ */
+void _fire_dart() {
+	if ( ! g_live_fire_enabled) {
+		printf("ERROR: Attempted to fire without live fire enabledr\r\n");
+		return;
+	}
+
+	trigger_solenoid_activate(TRIGGER_DURATION);
+    _reload_motion();
+
+    // Safer single-shot mode
+    if ( ! REPEATED_FIRING_MODE) {
+    	g_live_fire_enabled = 0;
+    	printf("Live-fire disabled.\r\n");
+    }
 }
 
 /*
@@ -123,19 +170,19 @@ void _reload_motion() {
  */
 void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
 
-    static uint32_t milliseconds=40, increment=10;
+    //static uint32_t milliseconds=TRIGGER_DURATION;//, increment=10;
     /*
      * trigger the solenoid:
      *   Z to fire
      *   C Up to increment the time
      *   C Down to decrement the time
      */
-    if (n64_pressed(Z)) {
+    if (g_live_fire_enabled && n64_pressed(Z)) {
         printf("Z pressed, activating trigger solenoid\r\n");
-        trigger_solenoid_activate(milliseconds);
-        _reload_motion();
+		_fire_dart();
     }
 
+    /* DISABLED FOR EXPO
     if (n64_pressed(C_Up)) {
         milliseconds += increment;
         printf("Incrementing solenoid time to: %d ms\r\n", milliseconds);
@@ -149,6 +196,7 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
             printf("Decrementing solenoid time to: %d ms\r\n", milliseconds);
         }
     }
+    */
 }
 
 /*
@@ -193,11 +241,6 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
         printf("servo_do X_SET_NEUTRAL\r\n");
     }
 
-    // Read out the counts
-    if (n64_pressed(C_Right)) {
-    	servos_print_counts();
-    }
-
     // Analog Pitch and Yaw
     static n64_to_pwm_t analog_pwm_vals;
     if (state->X_axis != last_state->X_axis ||
@@ -224,17 +267,20 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 #define X_SCALE_PW 625
 #define Y_SCALE_PW 500
 
+// amount of frames on target required before firing
+#define ON_TARGET_FRAMES 5
+
 // lambda value for the exponentially weighted moving average
 #define EWMA_LAMBDA 0.25
 #define EWMA_LAMBDA_INVERSE 0.75
 
 void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
-    if (! n64_pressed(R)) {
+    if ( ! g_live_fire_enabled || ! n64_pressed(R)) {
         return;
     }
 
-    printf("Beginning seek-and-destroy!\r\n");
+    printf("Beginning automated seek-and-destroy!\r\n");
 
     // just a good idea
     servo_do(X_SET_NEUTRAL);
@@ -335,10 +381,9 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	//while (g_disp_update_lock) {}
 
         	// fire a dart, then exit the loop after getting n64 state
-        	if (x_on_target && y_on_target) {
+        	if (x_on_target > ON_TARGET_FRAMES && y_on_target > ON_TARGET_FRAMES) {
         		printf("Target acquired, firing!\r\n");
-        		trigger_solenoid_activate(TRIGGER_DURATION);// TODO, rename and/or tie to ms count
-        		//_reload_motion();
+        		_fire_dart();
         		active = 0;
         	}
         }

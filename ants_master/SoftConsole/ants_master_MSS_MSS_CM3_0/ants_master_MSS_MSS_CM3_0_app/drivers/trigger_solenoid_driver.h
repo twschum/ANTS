@@ -6,14 +6,10 @@
 
 #include <inttypes.h>
 #include "drivers/mss_gpio/mss_gpio.h"
+#include "timer_t.h"
 
-
-#define SOLENOID_ADDR 0x40050100
-#define US_MULT 100
-#define MS_MULT 100000
-#define CYCLE_MULT 10000 //  TODO
-
-#define TRIGGER_DURATION 30
+#define TRIGGER_DURATION 250
+#define AFTER_FIRING_DELAY 500
 
 void trigger_solenoid_pin_init() {
     MSS_GPIO_init();
@@ -24,16 +20,14 @@ void trigger_solenoid_pin_init() {
 // activate the trigger for ms miliseconds
 void trigger_solenoid_activate(uint32_t ms) {
 
-	//uint32_t cycles = ms * MS_MULT;
-	//volatile uint32_t* address = (volatile uint32_t *)SOLENOID_ADDR;
-	//*address = cycles;
-
-	// Use a GPIO pin and a forced loop
+	// Use a GPIO pin and a delay
 	MSS_GPIO_set_output(MSS_GPIO_1, 1);
-	volatile uint32_t i;
-	for(i = 0; i < ms * CYCLE_MULT; i++) { }
+	use_me_carefully_ms_delay_timer(ms);
+
+	//volatile uint32_t i;
+	//for(i = 0; i < ms * CYCLE_MULT; i++) { }
 	MSS_GPIO_set_output(MSS_GPIO_1, 0);
 
     // second delay for safety
-	for(i = 0; i < 300 * CYCLE_MULT; i++) { }
+	use_me_carefully_ms_delay_timer(AFTER_FIRING_DELAY);
 }
