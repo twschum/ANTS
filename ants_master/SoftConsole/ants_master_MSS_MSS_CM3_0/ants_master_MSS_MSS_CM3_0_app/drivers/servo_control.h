@@ -33,6 +33,9 @@
 #define SERVO_HALF_FORWARD 175000
 #define SERVO_FULL_FORWARD 200000
 
+#define SERVO_DEADBAND_LOWER 147000
+#define SERVO_DEADBAND_UPPER 155000
+
 // Use this marco to do all the write-triggered actions
 #define servo_do(ADDR) ( *((volatile uint32_t*)ADDR) = (uint32_t)0x00000000 )
 

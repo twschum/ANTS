@@ -100,6 +100,22 @@ int main() {
     }
 }
 
+/*
+ * Helper function to execute the 'reload' motion
+ *
+ * called by do_solenoid and the auto mode firing
+ */
+void _reload_motion() {
+    // now go thru the 'reload' motion
+    set_y_servo_analog_pw(SERVO_HALF_FORWARD);
+    while (stop_switch(READ_LOWER_STOP)) { }
+
+    // magic numbers from real-world testing
+    set_y_servo_analog_pw(SERVO_HALF_REVERSE);
+    volatile uint32_t i;
+    for(i = 0; i < 120*CYCLE_MULT; i++) { }
+    set_y_servo_analog_pw(SERVO_NEUTRAL);
+}
 
 /*
  * Checks the controller state and then triggers the solenoid
@@ -117,16 +133,7 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
     if (n64_pressed(Z)) {
         printf("Z pressed, activating trigger solenoid\r\n");
         trigger_solenoid_activate(milliseconds);
-
-        // now go thru the 'reload' motion
-        set_y_servo_analog_pw(SERVO_HALF_FORWARD);
-        while (stop_switch(READ_LOWER_STOP)) { }
-
-        // TODO timing on this (how long to run it)
-        set_y_servo_analog_pw(SERVO_HALF_REVERSE);
-        volatile uint32_t i;
-        for(i = 0; i < 120*CYCLE_MULT; i++) { }
-        set_y_servo_analog_pw(SERVO_NEUTRAL);
+        _reload_motion();
     }
 
     if (n64_pressed(C_Up)) {
@@ -212,10 +219,14 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
  * distance sensor to find the targets, and taking control of
  * the servos and trigger to accomplish this.
  */
+
+// SCALE_PW translates a numeric value to clock cycles for PW
 #define X_SCALE_PW 625
-#define X_SCALE_OFFSET 20
-#define Y_SLACE_PW 500
-#define Y_SLACE_OFFSET 20
+#define Y_SCALE_PW 500
+
+// lambda value for the exponentially weighted moving average
+#define EWMA_LAMBDA 0.25
+#define EWMA_LAMBDA_INVERSE 0.75
 
 void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
@@ -225,6 +236,10 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     printf("Beginning seek-and-destroy!\r\n");
 
+    // just a good idea
+    servo_do(X_SET_NEUTRAL);
+    servo_do(Y_SET_NEUTRAL);
+
     // turn on the laser
     //MSS_GPIO_set_output(MSS_GPIO_0, 1);
 
@@ -233,10 +248,10 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     uint32_t x_pw = SERVO_NEUTRAL;
     uint32_t y_pw = SERVO_NEUTRAL;
+    uint32_t new_x_pw, new_y_pw;
     uint8_t x_on_target = 0;
     uint8_t y_on_target = 0;
-    set_x_servo_analog_pw(SERVO_NEUTRAL);
-    set_y_servo_analog_pw(SERVO_NEUTRAL);
+    uint32_t junk_frame_count = 0;
 
     while (active) {
 
@@ -249,45 +264,56 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	printf("x: %d\ty: %d\r\n", -1, -1);
 
         	// TODO use a defined value
+        	use_me_carefully_ms_delay_timer(5);
+        	junk_frame_count++;
 
-        	use_me_carefully_ms_delay_timer(25);
+        	if (junk_frame_count == 20) {
+        		//servo_do(X_SET_NEUTRAL);
+        		//servo_do(Y_SET_NEUTRAL);
+            	set_x_servo_analog_pw(SERVO_NEUTRAL);
+            	set_y_servo_analog_pw(SERVO_NEUTRAL);
+        	}
         }
         // else, target found, coordinates valid
         else {
         	printf("x: %d\ty: %d\r\n", target.x, target.y);
-
+		    junk_frame_count = 0;
 
         	// X servo adjustment
-        	if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
-        		x_pw = SERVO_HALF_REVERSE; // go left
-        		//x_pw = SERVO_NEUTRAL - X_SCALE_PW*(X_SCALE_OFFSET + PIXY_X_CENTER - target.x); // go left
-        		x_on_target = 0;
-        	}
-        	else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
-        		x_pw = SERVO_HALF_FORWARD; // go right
-        		//x_pw = SERVO_NEUTRAL + X_SCALE_PW*(X_SCALE_OFFSET + target.x - PIXY_X_CENTER); // go right
-        		x_on_target = 0;
-        	}
-        	else {
-        		x_pw = SERVO_NEUTRAL;
-        		x_on_target = 1;
-        		printf("X on target!\r\n");
-        	}
+		    if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
+		        // go left (reverse -> 1ms)
+		    	new_x_pw = SERVO_DEADBAND_LOWER - X_SCALE_PW*(PIXY_X_CENTER - target.x);
+		    	x_on_target = 0;
+		    }
+		    else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
+		        // go right (forward -> 2ms)
+		    	new_x_pw = SERVO_DEADBAND_UPPER + X_SCALE_PW*(target.x - PIXY_X_CENTER);
+		    	x_on_target = 0;
+		    }
+		    else {
+		    	new_x_pw = SERVO_NEUTRAL;
+		    	x_on_target++; // use to enforce on target count before firing
+		    	printf("X on target!\r\n");
+		    }
+		    x_pw = (uint32_t)(EWMA_LAMBDA * new_x_pw) + (uint32_t)(EWMA_LAMBDA_INVERSE * x_pw);
 
-        	// Y servo adjustment
-        	if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
-        		y_pw = SERVO_HALF_FORWARD; // go down
-        		y_on_target = 0;
-        	}
-        	else if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
-        		y_pw = SERVO_HALF_REVERSE; // go up
-        		y_on_target = 0;
-        	}
-        	else {
-        		y_pw = SERVO_NEUTRAL;
-        		y_on_target = 1;
-        		printf("Y on target!\r\n");
-        	}
+		    // Y servo adjustment
+		    if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
+		        // go up (reverse -> 1ms)
+		    	new_y_pw = SERVO_DEADBAND_LOWER - Y_SCALE_PW*(PIXY_Y_CENTER - target.y);
+		    	y_on_target = 0;
+		    }
+		    else if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
+		        // go up (forward -> 2ms)
+		    	new_y_pw = SERVO_DEADBAND_UPPER + Y_SCALE_PW*(target.y - PIXY_X_CENTER);
+		    	y_on_target = 0;
+		    }
+		    else {
+		    	new_y_pw = SERVO_NEUTRAL;
+		    	y_on_target++;
+		    	printf("Y on target!\r\n");
+		    }
+		    y_pw = (uint32_t)(EWMA_LAMBDA * new_y_pw) + (uint32_t)(EWMA_LAMBDA_INVERSE * y_pw);
 
         	// set the servos
         	set_x_servo_analog_pw(x_pw);
@@ -306,12 +332,13 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	disp_update((void*)&g_disp_update_argument);
         	start_hardware_timer();
         	// spin lock until screen finishes updating
-        	while (g_disp_update_lock) {}
+        	//while (g_disp_update_lock) {}
 
         	// fire a dart, then exit the loop after getting n64 state
         	if (x_on_target && y_on_target) {
         		printf("Target acquired, firing!\r\n");
-        		trigger_solenoid_activate(TRIGGER_DURATION);
+        		trigger_solenoid_activate(TRIGGER_DURATION);// TODO, rename and/or tie to ms count
+        		//_reload_motion();
         		active = 0;
         	}
         }
