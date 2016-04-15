@@ -6,26 +6,19 @@
 #include <inttypes.h>
 #include <stdio.h>
 
-#define X_SET_SERVO      0x40050100
-#define X_SET_NEUTRAL    0x40050104
-#define X_SET_FORWARD    0x40050108
-#define X_SET_REVERSE    0x4005010c
-#define X_SET_ZERO       0x40050110
-#define X_RETURN_TO_ZERO 0x40050114
-#define X_READ_FORWARD   0x40050118
-#define X_READ_REVERSE   0x4005011c
+#define X_SET_SERVO       0x40050100
+#define X_SET_NEUTRAL     0x40050104
+#define X_SET_FORWARD     0x40050108
+#define X_SET_REVERSE     0x4005010c
+#define READ_FORWARD_STOP 0x40050110
+#define READ_REVERSE_STOP 0x40050114
 
-#define Y_SET_SERVO      0x40050140
-#define Y_SET_NEUTRAL    0x40050144
-#define Y_SET_FORWARD    0x40050148
-#define Y_SET_REVERSE    0x4005014c
-#define Y_SET_ZERO       0x40050150
-#define Y_RETURN_TO_ZERO 0x40050154
-#define Y_READ_FORWARD   0x40050158
-#define Y_READ_REVERSE   0x4005015c
-
-#define READ_UPPER_STOP   0x400501A0
-#define READ_LOWER_STOP   0x400501A4
+#define Y_SET_SERVO       0x40050140
+#define Y_SET_NEUTRAL     0x40050144
+#define Y_SET_FORWARD     0x40050148
+#define Y_SET_REVERSE     0x4005014c
+#define READ_UPPER_STOP   0x40050150
+#define READ_LOWER_STOP   0x40050154
 
 #define SERVO_FULL_REVERSE 100000
 #define SERVO_HALF_REVERSE 125000
@@ -36,11 +29,18 @@
 #define SERVO_DEADBAND_LOWER 147000
 #define SERVO_DEADBAND_UPPER 155000
 
+// from observation
+#define Y_FORWARD_MIN 161000
+#define Y_REVERSE_MIN 138000
+#define X_FORWARD_MIN 164500
+#define X_REVERSE_MIN 138000
+
 // Use this marco to do all the write-triggered actions
 #define servo_do(ADDR) ( *((volatile uint32_t*)ADDR) = (uint32_t)0x00000000 )
 
-// read (for stop switches)
-#define stop_switch(ADDR) *((volatile uint32_t*)ADDR)
+// read and write
+#define servo_r(ADDR) *((volatile uint32_t*)ADDR)
+#define servo_w(ADDR, VALUE) (*((volatile uint32_t*)ADDR) = (uint32_t)VALUE)
 
 // set the x position using any value
 // might map this to the analog stick

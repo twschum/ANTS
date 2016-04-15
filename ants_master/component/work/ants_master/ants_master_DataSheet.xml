@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>C:/Users/twschum/373/ants_master/component/work/ants_master</location>
-    <state>GENERATED ( Thu Apr 14 00:40:13 2016 )</state>
+    <state>GENERATED ( Fri Apr 15 14:09:20 2016 )</state>
     <swide-toolchain>SoftConsole workspace generated to C:\Users\twschum\373\ants_master\SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -38,22 +38,46 @@
   </fileset>
   <fileset>
     <name>Flash Memory File(s)</name>
-    <file>C:\Users\twschum\373\ants_master\component\work\C:/Users/twschum/373/ants_master/component/work/ants_master_MSS/MSS_ENVM_0/MSS_ENVM_0.efc</file>
+    <file>C:\Users\twschum\373\ants_master\component\work\./MSS_ENVM_0/MSS_ENVM_0.efc</file>
   </fileset>
   <io>
-    <port-name>SPI_1_DO</port-name>
+    <port-name>stop_x[0]</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>SPI_1_SS</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>GPIO_1_OUT</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>UART_0_TXD</port-name>
+    <port-name>SPI_1_DI</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>GPIO_0_OUT</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>stop_y[1]</port-name>
+    <port-name>SDD_0</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>UART_0_RXD</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -65,14 +89,8 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>SPI_1_SS</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>stop_y[0]</port-name>
-    <direction>IN</direction>
+    <port-name>UART_1_TXD</port-name>
+    <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
@@ -89,55 +107,19 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>VAREF0</port-name>
+    <port-name>UART_0_TXD</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>stop_y[0]</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>GPIO_0_OUT</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>SPI_1_DI</port-name>
-    <direction>IN</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>SDD_0</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>x_servo_pwm</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>UART_0_RXD</port-name>
-    <direction>IN</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>GPIO_1_OUT</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>UART_1_TXD</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>MSS_RESET_N</port-name>
+    <port-name>stop_x[1]</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -149,7 +131,37 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
+    <port-name>VAREF0</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>x_servo_pwm</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>stop_y[1]</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>MSS_RESET_N</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
     <port-name>y_servo_pwm</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>SPI_1_DO</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>

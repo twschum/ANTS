@@ -13,7 +13,8 @@ module servo_control(
     output reg [31:0] PRDATA, // data to processor from I/O device (32-bits)
 
     /*** I/O PORTS DECLARATION ***/
-    input [1:0] stop_y, // stop_y[1] for upper kill switch; stop_y[0] for lower kill switch
+    input [1:0] stop_x, // stop_x[1] for forward stop switch; stop_x[0] for reverse stop switch
+    input [1:0] stop_y, // stop_y[1] for upper stop switch; stop_y[0] for lower stop switch
     output x_servo_pwm,
     output y_servo_pwm
 );
@@ -26,82 +27,68 @@ wire set_x;
 wire set_x_neutral;
 wire set_x_forward;
 wire set_x_reverse;
-wire set_x_zero;
-wire x_return_to_zero;
-wire read_x_forward;
-wire read_x_reverse;
+wire read_forward_stop;
+wire read_reverse_stop;
 
-assign set_x            = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h100)); // WRITE DATA to 100 - 'analog' currently not working
-assign set_x_neutral    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h104)); // WRITE ANY to 101
-assign set_x_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h108)); // WRITE ANY to 102
-assign set_x_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h10c)); // WRITE ANY to 103
-assign set_x_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h110)); // WRITE ANY to 104
-assign x_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h114)); // WRITE ANY to 105
-assign read_x_forward  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h118)); // READ from 108
-assign read_x_reverse  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h11c)); // READ from 109
+assign set_x             = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h100)); // WRITE DATA
+assign set_x_neutral     = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h104)); // WRITE ANY
+assign set_x_forward     = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h108)); // WRITE ANY
+assign set_x_reverse     = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h10c)); // WRITE ANY
+assign read_forward_stop = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h110));  // READ 
+assign read_reverse_stop = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h114));  // READ 
+
 
 wire set_y;
 wire set_y_neutral;
 wire set_y_forward;
 wire set_y_reverse;
-wire set_y_zero;
-wire y_return_to_zero;
-wire read_y_forward;
-wire read_y_reverse;
+wire read_upper_stop;
+wire read_lower_stop;
 
-assign set_y            = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h140)); // WRITE DATA to 110 - 'analog' currently not working
-assign set_y_neutral    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h144)); // WRITE ANY to 111
-assign set_y_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h148)); // WRITE ANY to 112 ** Forward = down
-assign set_y_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h14c)); // WRITE ANY to 113 ** Reverse = up
-assign set_y_zero       = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h150)); // WRITE ANY to 114
-assign y_return_to_zero = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h154)); // WRITE ANY to 115
-assign read_y_forward  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h158)); // READ from 118
-assign read_y_reverse  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h15c)); // READ from 119
-
-wire read_upper_stop_switch;
-wire read_lower_stop_switch;
-
-assign read_upper_stop_switch = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h1A0));
-assign read_lower_stop_switch = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h1A4));
-
+assign set_y            = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h140)); // WRITE DATA
+assign set_y_neutral    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h144)); // WRITE ANY
+assign set_y_forward    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h148)); // WRITE ANY
+assign set_y_reverse    = (PSEL && PWRITE && PENABLE && (PADDR[12:0] == 12'h14c)); // WRITE ANY
+assign read_upper_stop  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h150));  // READ 
+assign read_lower_stop  = (PSEL && !PWRITE &&  (PADDR[12:0] == 12'h154));  // READ 
 
 /*** END APB INTERFACE ***/
-/*** TRACKING SERVO INSTANTIAIONS  ***/
-wire [31:0] x_forward_count;
-wire [31:0] x_reverse_count;
-wire [31:0] y_forward_count;
-wire [31:0] y_reverse_count;
 
-///*** KILL SWITCH LOGIC ***/
 
-// Need to add logic for the analog positioning
+/*** KILL SWITCH LOGIC ***/
+parameter NEUTRAL_PW = 150000;
 wire y_up_more;
 wire y_down_more;
+wire x_forward_more;
+wire x_reverse_more;
 
-parameter NEUTRAL_PW = 150000;
 assign y_up_more = (set_y_reverse || (set_y && PWDATA < NEUTRAL_PW));
 assign y_down_more = (set_y_forward || (set_y && PWDATA > NEUTRAL_PW));
 
-wire neutral_or_kill;
-assign neutral_or_kill =    (set_y_neutral || 
+assign x_forward_more = (set_x_forward || (set_x && PWDATA > NEUTRAL_PW));
+assign x_reverse_more = (set_x_reverse || (set_x && PWDATA < NEUTRAL_PW));
+
+wire set_y_neutral_or_stop;
+assign set_y_neutral_or_stop = (set_y_neutral || 
                             ((!stop_y[1]) && (y_up_more)) || 
-                            ((!stop_y[0]) && (y_down_more))
-                            );
+                            ((!stop_y[0]) && (y_down_more)) );
+
+wire set_x_neutral_or_stop;
+assign set_x_neutral_or_stop = (set_x_neutral || 
+                            ((!stop_x[1]) && (x_forward_more)) || 
+                            ((!stop_x[0]) && (x_reverse_more)) );
 
 
+/*** TRACKING SERVO INSTANTIAIONS  ***/
 _tracking_servo x_servo(
     .PCLK           (PCLK),
     .PRESERN        (PRESERN),
     .PWDATA         (PWDATA),
     .SET_PW         (set_x),
-    .SET_PW_NEUTRAL (set_x_neutral),
+    .SET_PW_NEUTRAL (set_x_neutral_or_stop),
     .SET_PW_FORWARD (set_x_forward),
     .SET_PW_REVERSE (set_x_reverse),
-    .SET_ZERO       (set_x_zero),
-    .RETURN_TO_ZERO (x_return_to_zero),
-    .pwm_signal     (x_servo_pwm),
-    .forward_count  (x_forward_count),
-    .reverse_count  (x_reverse_count)
+    .pwm_signal     (x_servo_pwm)
 );
 
 _tracking_servo y_servo(
@@ -109,35 +96,25 @@ _tracking_servo y_servo(
     .PRESERN        (PRESERN),
     .PWDATA         (PWDATA),
     .SET_PW         (set_y),
-    .SET_PW_NEUTRAL (neutral_or_kill),
+    .SET_PW_NEUTRAL (set_y_neutral_or_stop),
     .SET_PW_FORWARD (set_y_forward),
     .SET_PW_REVERSE (set_y_reverse),
-    .SET_ZERO       (set_y_zero),
-    .RETURN_TO_ZERO (y_return_to_zero),
-    .pwm_signal     (y_servo_pwm),
-    .forward_count  (y_forward_count),
-    .reverse_count  (y_reverse_count)
+    .pwm_signal     (y_servo_pwm)
 );
 
 /*** APB READ DATA LOGIC ***/
 always @ (posedge PCLK) begin
 
-    if (read_x_forward)
-        PRDATA <= x_forward_count;
-        
-    else if (read_y_forward)
-        PRDATA <= y_forward_count;
+    if (read_forward_stop)
+        PRDATA <= stop_x[1];
 
-    else if (read_x_reverse)
-        PRDATA <= x_reverse_count;
- 
-    else if (read_y_reverse)
-        PRDATA <= y_reverse_count;
+    else if (read_reverse_stop)
+        PRDATA <= stop_x[0];
 
-    else if (read_upper_stop_switch)
+    else if (read_upper_stop)
         PRDATA <= stop_y[1];
 
-    else if (read_lower_stop_switch)
+    else if (read_lower_stop)
         PRDATA <= stop_y[0];
 
     else
@@ -148,6 +125,8 @@ endmodule
 
 /*** TRACKING SERVO MODULE ***/
 /*
+*   DEPRICATED because of mechanical issues :(
+*
 *   This servo controller functions just like the basic one, with the ability
 *  to set a specific pulse width (in cycles) with SET_PW and the ported
 *  PWDATA. The tracking feature is used when the servo is operated at
@@ -176,12 +155,7 @@ module _tracking_servo(
     input SET_PW_NEUTRAL, // set next pw to neutral
     input SET_PW_FORWARD, // set next pw to full forward
     input SET_PW_REVERSE, // set next pw to full reverse
-    input SET_ZERO, // set the current position as the zero point
-    input RETURN_TO_ZERO, // command the module to return to the zero position
-
-    output reg pwm_signal, // the actual PWM signal
-    output reg [31:0] forward_count,
-    output reg [31:0] reverse_count
+    output reg pwm_signal // the actual PWM signal
 );
 
 // all these values in cycles @ 100 MHz
@@ -196,104 +170,48 @@ parameter PW_FULL_FORWARD = 200000; // 2 ms (1.75)
 reg [31:0] time_count;
 reg [31:0] pw;
 reg [31:0] next_pw;
-reg zero_counts_next;
-reg in_return_mode; // high while executing RETURN_TO_ZERO (no other command will interrupt it)
 
 initial begin
     pwm_signal = 0;
-    in_return_mode = 0;
-    forward_count = 0;
-    reverse_count = 0;
     time_count = 0;
     pw = PW_NEUTRAL;
     next_pw = PW_NEUTRAL;
-    zero_counts_next = 0;
 end
 
 always @ (posedge PCLK) begin
 
     if (~PRESERN) begin
         pwm_signal <= 0;
-        in_return_mode <= 0;
-        forward_count <= 0;
-        reverse_count <= 0;
         time_count <= 0;
         pw <= PW_NEUTRAL;
         next_pw <= PW_NEUTRAL;
-        zero_counts_next <= 0;
     end
     else begin
 
         /*** Commands, determine next period's pw ***/
             if (SET_PW_NEUTRAL) begin
                 next_pw <= PW_NEUTRAL;
-                in_return_mode <= 0;
             end
             else if (SET_PW) begin
                 next_pw <= PWDATA;
-                in_return_mode <= 0;
             end
             else if (SET_PW_FORWARD) begin
                 next_pw <= PW_FULL_FORWARD;
-                in_return_mode <= 0;
             end
             else if (SET_PW_REVERSE) begin
                 next_pw <= PW_FULL_REVERSE;
-                in_return_mode <= 0;
             end
-            else if (SET_ZERO) begin
-                next_pw <= PW_NEUTRAL;
-                zero_counts_next <= 1;
-                in_return_mode <= 0;
-            end
-            else if (RETURN_TO_ZERO) begin
-                // go into return mode, setting next_pw and the return mode flag
-                if (forward_count > reverse_count) begin
-                    next_pw <= PW_FULL_REVERSE;
-                    in_return_mode <= 1;
-                end
-                else if (forward_count < reverse_count) begin
-                    next_pw <= PW_FULL_FORWARD;
-                    in_return_mode <= 1;
-                end
-                // else, ignore (already there!)
-            end
-        /*** Period timer, tracking counts, and return to zero logic ***/
-        /*** PW ouput logic ***/
+
+        /*** PW ouput logic and period timer ***/
         if ((time_count > pw) && (time_count < PWM_PERIOD)) begin
             pwm_signal <= 0;
             time_count <= time_count + 1;
         end
-        else if (time_count >= PWM_PERIOD)
-        begin
-
+        else if (time_count >= PWM_PERIOD) begin
             // setup next PWM_PERIOD
             time_count <= 0;
             pwm_signal <= 1;
-            //pw <= next_pw;
-
-            // Zeroing condition
-            if (zero_counts_next) begin
-                forward_count <= 0;
-                reverse_count <= 0;
-                zero_counts_next <= 0;
-                pw <= PW_NEUTRAL;
-            end
-            // Ending condition for return mode
-            else if (in_return_mode && (forward_count == reverse_count)) begin
-                in_return_mode <= 0;
-                pw <= PW_NEUTRAL;
-            end
-            // if not at any reset conditions, update the counters
-            else begin
-                pw <= next_pw;
-                if (next_pw == PW_FULL_FORWARD) begin
-                    forward_count <= forward_count + 1;
-                end
-                else if (next_pw == PW_FULL_REVERSE) begin
-                    reverse_count <= reverse_count + 1;
-                end
-            end
+            pw <= next_pw;
         end
         else begin
             time_count <= time_count + 1;

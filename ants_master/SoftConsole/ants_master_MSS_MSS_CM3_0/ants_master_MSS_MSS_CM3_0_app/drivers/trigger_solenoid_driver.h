@@ -8,7 +8,7 @@
 #include "drivers/mss_gpio/mss_gpio.h"
 #include "timer_t.h"
 
-#define TRIGGER_DURATION 250
+#define TRIGGER_DURATION 100
 #define AFTER_FIRING_DELAY 500
 
 void trigger_solenoid_pin_init() {

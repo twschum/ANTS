@@ -69,9 +69,10 @@ int main() {
     /*
      * Initialize display and refresh timer
      */
+
     disp_init();
     set_clk(CLK_SPEED); // Only for scaling
-
+    /*
     trg.x = 20;
     trg.y=20;
     lcd_state.target_pos = &trg;
@@ -82,9 +83,9 @@ int main() {
     //g_disp_update_argument.last_state=NULL;
     g_disp_update_argument.lcd_state = &lcd_state;
     g_disp_update_argument.last_state = NULL;
-    disp_update(&g_disp_update_argument);
+    //disp_update(&g_disp_update_argument);
     //add_timer_periodic(disp_update, (void*) &g_disp_update_argument, to_ticks(DISPLAY_UPDATE_MS));
-
+	*/
     printf("A.N.T.S. 3000, ready for action!\r\n");
 
     /*
@@ -137,11 +138,11 @@ void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state) {
 void _reload_motion() {
     // now go thru the 'reload' motion
     set_y_servo_analog_pw(SERVO_HALF_FORWARD);
-    while (stop_switch(READ_LOWER_STOP)) { }
+    while (servo_r(READ_LOWER_STOP)) { }
 
     // magic numbers from real-world testing
     set_y_servo_analog_pw(SERVO_HALF_REVERSE);
-    use_me_carefully_ms_delay_timer(200);
+    use_me_carefully_ms_delay_timer(250);
     set_y_servo_analog_pw(SERVO_NEUTRAL);
 }
 /*
@@ -264,7 +265,7 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
  */
 
 // SCALE_PW translates a numeric value to clock cycles for PW
-#define X_SCALE_PW 625
+#define X_SCALE_PW 600
 #define Y_SCALE_PW 500
 
 // amount of frames on target required before firing
@@ -307,7 +308,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     		//set_x_servo_analog_pw(SERVO_NEUTRAL);
     		//set_y_servo_analog_pw(SERVO_NEUTRAL);
-        	printf("x: %d\ty: %d\r\n", -1, -1);
+        	//printf("x: %d\ty: %d\r\n", -1, -1);
 
         	// TODO use a defined value
         	use_me_carefully_ms_delay_timer(5);
@@ -327,13 +328,13 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
         	// X servo adjustment
 		    if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
-		        // go left (reverse -> 1ms)
-		    	new_x_pw = SERVO_DEADBAND_LOWER - X_SCALE_PW*(PIXY_X_CENTER - target.x);
+		        // go left (forward -> 2ms)
+		    	new_x_pw = SERVO_DEADBAND_UPPER + X_SCALE_PW*(target.x - PIXY_X_CENTER);
 		    	x_on_target = 0;
 		    }
 		    else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
-		        // go right (forward -> 2ms)
-		    	new_x_pw = SERVO_DEADBAND_UPPER + X_SCALE_PW*(target.x - PIXY_X_CENTER);
+		        // go right (reverse -> 1ms)
+		    	new_x_pw = SERVO_DEADBAND_LOWER - X_SCALE_PW*(PIXY_X_CENTER - target.x);
 		    	x_on_target = 0;
 		    }
 		    else {
@@ -344,20 +345,23 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 		    x_pw = (uint32_t)(EWMA_LAMBDA * new_x_pw) + (uint32_t)(EWMA_LAMBDA_INVERSE * x_pw);
 
 		    // Y servo adjustment
-		    if (target.y < (PIXY_Y_CENTER - PIXY_DEADZONE)) {
+		    if (target.y < PIXY_Y_CENTER) {
 		        // go up (reverse -> 1ms)
 		    	new_y_pw = SERVO_DEADBAND_LOWER - Y_SCALE_PW*(PIXY_Y_CENTER - target.y);
+		    	new_y_pw = (new_y_pw > Y_REVERSE_MIN) ? Y_REVERSE_MIN : new_y_pw;
 		    	y_on_target = 0;
 		    }
-		    else if (target.y > (PIXY_Y_CENTER + PIXY_DEADZONE)) {
+		    else if (target.y > PIXY_Y_CENTER) {
 		        // go up (forward -> 2ms)
 		    	new_y_pw = SERVO_DEADBAND_UPPER + Y_SCALE_PW*(target.y - PIXY_X_CENTER);
+		    	new_y_pw = (new_y_pw < Y_FORWARD_MIN) ? Y_FORWARD_MIN : new_y_pw;
 		    	y_on_target = 0;
 		    }
-		    else {
-		    	new_y_pw = SERVO_NEUTRAL;
-		    	y_on_target++;
+
+		    if (target.y > (PIXY_Y_CENTER-PIXY_DEADZONE)
+		    		 && target.y < (PIXY_Y_CENTER+PIXY_DEADZONE)){
 		    	printf("Y on target!\r\n");
+		    	y_on_target++;
 		    }
 		    y_pw = (uint32_t)(EWMA_LAMBDA * new_y_pw) + (uint32_t)(EWMA_LAMBDA_INVERSE * y_pw);
 
@@ -365,6 +369,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	set_x_servo_analog_pw(x_pw);
         	set_y_servo_analog_pw(y_pw);
 
+        	/*
         	// Update the display
         	//start_hardware_timer();
         	trg.x = target.x;
@@ -379,7 +384,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	start_hardware_timer();
         	// spin lock until screen finishes updating
         	//while (g_disp_update_lock) {}
-
+			*/
         	// fire a dart, then exit the loop after getting n64 state
         	if (x_on_target > ON_TARGET_FRAMES && y_on_target > ON_TARGET_FRAMES) {
         		printf("Target acquired, firing!\r\n");
@@ -392,7 +397,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
             active = 0;
             servo_do(X_SET_NEUTRAL);
             servo_do(Y_SET_NEUTRAL);
-            printf("Aborting seek-and-destroy\r\n");
+            g_live_fire_enabled = 0;
+            printf("Aborting seek-and-destroy & disabling live-fire\r\n");
         }
 
         *last_state = *state;

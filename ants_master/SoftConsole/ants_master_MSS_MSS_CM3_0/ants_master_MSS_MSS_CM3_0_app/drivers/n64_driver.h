@@ -17,7 +17,7 @@
 
 #define N64_ANALOG_MAX 80
 #define N64_ANALOG_DEADZONE 7
-#define N64_ANALOG_TO_PWM_CYCLES 625
+#define N64_ANALOG_TO_PWM_CYCLES 500//625
 
 typedef struct {
     // byte 0

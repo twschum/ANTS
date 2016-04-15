@@ -1,4 +1,4 @@
-#OPTIONS:"|-top|ants_master|-prodtype|synplify_pro|-nram|-fixsmult|-divnmod|-I|C:\\Users\\twschum\\373\\ants_master\\synthesis\\|-I|C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\lib|-v2001|-devicelib|C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\lib\\proasic\\smartfusion.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|work"
+#OPTIONS:"|-top|ants_master|-prodtype|synplify_pro|-nram|-fixsmult|-divnmod|-I|C:\\Users\\twschum\\373\\ants_master\\synthesis\\|-I|C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\lib|-v2001|-devicelib|C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\lib\\proasic\\smartfusion.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|COREAPB3_LIB|-lib|work|-lib|work"
 #CUR:"C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\bin64\\c_ver.exe":1412907378
 #CUR:"C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\lib\\proasic\\smartfusion.v":1412951262
 #CUR:"C:\\Microsemi\\Libero_v11.5\\Synopsys\\synplify_I201403MSP1\\lib\\vlog\\umr_capim.v":1412907298
@@ -15,11 +15,11 @@
 #CUR:"C:\\Users\\twschum\\373\\ants_master\\hdl\\n64_read_module.v":1460601430
 #CUR:"C:\\Users\\twschum\\373\\ants_master\\hdl\\n64_serial_interface.v":1460601430
 #CUR:"C:\\Users\\twschum\\373\\ants_master\\component\\work\\n64_magic_box\\n64_magic_box.v":1460601428
-#CUR:"C:\\Users\\twschum\\373\\ants_master\\hdl\\servo_hdl.v":1460608689
 #CUR:"C:\\Users\\twschum\\373\\ants_master\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3_muxptob3.v":1443803220
 #CUR:"C:\\Users\\twschum\\373\\ants_master\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3_iaddr_reg.v":1443803220
 #CUR:"C:\\Users\\twschum\\373\\ants_master\\component\\Actel\\DirectCore\\CoreAPB3\\4.1.100\\rtl\\vlog\\core\\coreapb3.v":1443803220
-#CUR:"C:\\Users\\twschum\\373\\ants_master\\component\\work\\ants_master\\ants_master.v":1460608810
+#CUR:"C:\\Users\\twschum\\373\\ants_master\\hdl\\servo_hdl.v":1460745075
+#CUR:"C:\\Users\\twschum\\373\\ants_master\\component\\work\\ants_master\\ants_master.v":1460743757
 #numinternalfiles:5
 #defaultlanguage:verilog
 0			"C:\Users\twschum\373\ants_master\component\work\ants_master_MSS\mss_tshell.v" verilog
@@ -32,10 +32,10 @@
 7			"C:\Users\twschum\373\ants_master\hdl\n64_read_module.v" verilog
 8			"C:\Users\twschum\373\ants_master\hdl\n64_serial_interface.v" verilog
 9			"C:\Users\twschum\373\ants_master\component\work\n64_magic_box\n64_magic_box.v" verilog
-10			"C:\Users\twschum\373\ants_master\hdl\servo_hdl.v" verilog
-11			"C:\Users\twschum\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v" verilog
-12			"C:\Users\twschum\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v" verilog
-13			"C:\Users\twschum\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v" verilog
+10			"C:\Users\twschum\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_muxptob3.v" verilog
+11			"C:\Users\twschum\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3_iaddr_reg.v" verilog
+12			"C:\Users\twschum\373\ants_master\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v" verilog
+13			"C:\Users\twschum\373\ants_master\hdl\servo_hdl.v" verilog
 14			"C:\Users\twschum\373\ants_master\component\work\ants_master\ants_master.v" verilog
 #Dependency Lists(Uses List)
 0 -1
@@ -50,9 +50,9 @@
 9 5 8
 10 -1
 11 -1
-12 -1
-13 11 12
-14 3 13 4 9 10
+12 10 11
+13 -1
+14 3 12 4 9 13
 #Dependency Lists(Users Of)
 0 -1
 1 -1
@@ -64,9 +64,9 @@
 7 8
 8 9
 9 14
-10 14
-11 13
-12 13
+10 12
+11 12
+12 14
 13 14
 14 -1
 #Design Unit to File Association
@@ -94,9 +94,9 @@ module work _read_bit 7
 module work n64_read_module 7
 module work n64_serial_interface 8
 module work n64_magic_box 9
-module work _tracking_servo 10
-module work servo_control 10
+module work _tracking_servo 13
+module work servo_control 13
 module work ants_master 14
-module COREAPB3_LIB COREAPB3_MUXPTOB3 11
-module COREAPB3_LIB coreapb3_iaddr_reg 12
-module COREAPB3_LIB CoreAPB3 13
+module COREAPB3_LIB COREAPB3_MUXPTOB3 10
+module COREAPB3_LIB coreapb3_iaddr_reg 11
+module COREAPB3_LIB CoreAPB3 12

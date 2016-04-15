@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Apr 14 00:40:10 2016
+// Created by SmartDesign Fri Apr 15 14:09:16 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -14,6 +14,7 @@ module ants_master(
     UART_1_RXD,
     VAREF0,
     sensor_pwm,
+    stop_x,
     stop_y,
     // Outputs
     GPIO_0_OUT,
@@ -39,6 +40,7 @@ input        UART_0_RXD;
 input        UART_1_RXD;
 input        VAREF0;
 input        sensor_pwm;
+input  [1:0] stop_x;
 input  [1:0] stop_y;
 //--------------------------------------------------------------------
 // Output
@@ -95,6 +97,7 @@ wire          SPI_1_CLK;
 wire          SPI_1_DI;
 wire          SPI_1_DO_0;
 wire          SPI_1_SS;
+wire   [1:0]  stop_x;
 wire   [1:0]  stop_y;
 wire          UART_0_RXD;
 wire          UART_0_TXD_net_0;
@@ -134,10 +137,10 @@ wire   [31:0] PRDATAS16_const_net_0;
 //--------------------------------------------------------------------
 // Bus Interface Nets Declarations - Unequal Pin Widths
 //--------------------------------------------------------------------
+wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 wire   [31:20]ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_31to20;
 wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0_19to0;
 wire   [31:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR_0;
-wire   [19:0] ants_master_MSS_0_MSS_MASTER_APB_PADDR;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
@@ -196,8 +199,8 @@ ants_master_MSS ants_master_MSS_0(
         .MSSPREADY   ( ants_master_MSS_0_MSS_MASTER_APB_PREADY ),
         .MSSPSLVERR  ( ants_master_MSS_0_MSS_MASTER_APB_PSLVERR ),
         .VAREF0      ( VAREF0 ),
-        .MSSPRDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PRDATA ),
         .SPI_1_DI    ( SPI_1_DI ),
+        .MSSPRDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PRDATA ),
         // Outputs
         .UART_0_TXD  ( UART_0_TXD_net_0 ),
         .UART_1_TXD  ( UART_1_TXD_net_0 ),
@@ -209,9 +212,9 @@ ants_master_MSS ants_master_MSS_0(
         .MSSPWRITE   ( ants_master_MSS_0_MSS_MASTER_APB_PWRITE ),
         .FAB_CLK     ( ants_master_MSS_0_FAB_CLK ),
         .SDD_0       ( SDD_0_net_0 ),
+        .SPI_1_DO    ( SPI_1_DO_0 ),
         .MSSPADDR    ( ants_master_MSS_0_MSS_MASTER_APB_PADDR ),
         .MSSPWDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PWDATA ),
-        .SPI_1_DO    ( SPI_1_DO_0 ),
         // Inouts
         .SPI_1_CLK   ( SPI_1_CLK ),
         .SPI_1_SS    ( SPI_1_SS ) 
@@ -392,6 +395,7 @@ servo_control_0(
         .PADDR       ( CoreAPB3_0_APBmslave0_PADDR ),
         .PWDATA      ( CoreAPB3_0_APBmslave0_PWDATA ),
         .stop_y      ( stop_y ),
+        .stop_x      ( stop_x ),
         // Outputs
         .PREADY      ( CoreAPB3_0_APBmslave1_PREADY ),
         .PSLVERR     ( CoreAPB3_0_APBmslave1_PSLVERR ),
