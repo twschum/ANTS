@@ -40,6 +40,10 @@ void add_timer_periodic(handler_t handler, void *arg, uint32_t period);
 // add a one shot timer to the linked list.
 void add_timer_single(handler_t handler, void *arg, uint32_t period);
 
+void set_clk(uint32_t clk_hz);
+
+uint32_t to_ticks(uint32_t dur_ms);
+
 // update down count with elapsed time, call fnc if timer zero,
 // update continuous timers with new down count
 struct Handler* update_timers(void);

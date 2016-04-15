@@ -4,6 +4,8 @@
 #define ONE_SHOT 1
 #define PERIODIC 0
 
+#define MS_TO_S 1000
+
 // pointer to start of linked list
 struct Timer* root = NULL;
 
@@ -86,6 +88,15 @@ void add_timer_periodic(handler_t handler, void *arg, uint32_t period) {
 // add a one shot timer to the linked list.
 void add_timer_single(handler_t handler, void *arg, uint32_t period) {
     add_timer(handler, arg, period, ONE_SHOT);
+}
+
+static uint32_t g_clk_hz;
+void set_clk(uint32_t clk_hz){
+	g_clk_hz = clk_hz;
+}
+uint32_t to_ticks(uint32_t dur_ms){
+	uint32_t ticks = g_clk_hz/(MS_TO_S/dur_ms);
+	return ticks;
 }
 
 // update down count with elapsed time, call fnc if timer zero,

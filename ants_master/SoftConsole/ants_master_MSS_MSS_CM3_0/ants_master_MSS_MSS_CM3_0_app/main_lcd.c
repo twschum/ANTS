@@ -1,4 +1,4 @@
-#include <stdlib.h>
+/*#include <stdlib.h>
 
 #include "mss_uart/mss_uart.h"
 #include "StatsDisplay.h"
@@ -72,3 +72,4 @@ int main()
 		}
 	}
 }
+*/
