@@ -1463,7 +1463,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 200009c2:	893b      	ldrh	r3, [r7, #8]
 200009c4:	b21b      	sxth	r3, r3
 200009c6:	f1c3 03a4 	rsb	r3, r3, #164	; 0xa4
-200009ca:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+200009ca:	f44f 72c8 	mov.w	r2, #400	; 0x190
 200009ce:	fb02 f303 	mul.w	r3, r2, r3
 200009d2:	f503 3316 	add.w	r3, r3, #153600	; 0x25800
 200009d6:	f503 63af 	add.w	r3, r3, #1400	; 0x578
@@ -1489,11 +1489,11 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 		    	new_x_pw = SERVO_DEADBAND_LOWER - X_SCALE_PW*(target.x - PIXY_X_CENTER);
 200009f8:	893b      	ldrh	r3, [r7, #8]
 200009fa:	b21a      	sxth	r2, r3
-200009fc:	f64f 630c 	movw	r3, #65036	; 0xfe0c
+200009fc:	f64f 6370 	movw	r3, #65136	; 0xfe70
 20000a00:	f6cf 73ff 	movt	r3, #65535	; 0xffff
 20000a04:	fb03 f302 	mul.w	r3, r3, r2
-20000a08:	f503 335e 	add.w	r3, r3, #227328	; 0x37800
-20000a0c:	f503 63d1 	add.w	r3, r3, #1672	; 0x688
+20000a08:	f503 334e 	add.w	r3, r3, #210944	; 0x33800
+20000a0c:	f503 63cf 	add.w	r3, r3, #1656	; 0x678
 20000a10:	61bb      	str	r3, [r7, #24]
 		    	// upper and lower pw bounds
 		    	//new_x_pw = (new_x_pw > X_REVERSE_MIN) ? X_REVERSE_MIN : new_x_pw;
@@ -1622,13 +1622,13 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 20000adc:	2b6a      	cmp	r3, #106	; 0x6a
 20000ade:	dd13      	ble.n	20000b08 <do_automatic+0x240>
 		        // go up (forward -> 2ms)
-		    	new_y_pw = SERVO_DEADBAND_UPPER + Y_SCALE_PW*(target.y - PIXY_X_CENTER);
+		    	new_y_pw = SERVO_DEADBAND_UPPER + Y_SCALE_PW*(target.y - PIXY_Y_CENTER);
 20000ae0:	897b      	ldrh	r3, [r7, #10]
 20000ae2:	b21b      	sxth	r3, r3
 20000ae4:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
 20000ae8:	fb02 f303 	mul.w	r3, r2, r3
-20000aec:	f503 338e 	add.w	r3, r3, #72704	; 0x11c00
-20000af0:	f503 7394 	add.w	r3, r3, #296	; 0x128
+20000aec:	f503 33c6 	add.w	r3, r3, #101376	; 0x18c00
+20000af0:	f503 731c 	add.w	r3, r3, #624	; 0x270
 20000af4:	61fb      	str	r3, [r7, #28]
 		    	// upper and lower pw bounds
 		    	//new_y_pw = (new_y_pw < Y_FORWARD_MIN) ? Y_FORWARD_MIN : new_y_pw;

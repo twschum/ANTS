@@ -271,7 +271,7 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
  */
 
 // SCALE_PW translates a numeric value to clock cycles for PW
-#define X_SCALE_PW 500
+#define X_SCALE_PW 400
 #define Y_SCALE_PW 500
 
 // amount of frames on target required before firing
@@ -368,7 +368,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 		    }
 		    else if (target.y > PIXY_Y_CENTER) {
 		        // go up (forward -> 2ms)
-		    	new_y_pw = SERVO_DEADBAND_UPPER + Y_SCALE_PW*(target.y - PIXY_X_CENTER);
+		    	new_y_pw = SERVO_DEADBAND_UPPER + Y_SCALE_PW*(target.y - PIXY_Y_CENTER);
 		    	// upper and lower pw bounds
 		    	//new_y_pw = (new_y_pw < Y_FORWARD_MIN) ? Y_FORWARD_MIN : new_y_pw;
 		    	new_y_pw = (new_y_pw > SERVO_HALF_FORWARD) ? SERVO_HALF_FORWARD : new_y_pw;
