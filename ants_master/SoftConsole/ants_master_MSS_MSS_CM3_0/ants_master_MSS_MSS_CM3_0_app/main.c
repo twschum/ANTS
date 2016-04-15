@@ -265,15 +265,15 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
  */
 
 // SCALE_PW translates a numeric value to clock cycles for PW
-#define X_SCALE_PW 600
+#define X_SCALE_PW 400
 #define Y_SCALE_PW 500
 
 // amount of frames on target required before firing
 #define ON_TARGET_FRAMES 5
 
 // lambda value for the exponentially weighted moving average
-#define EWMA_LAMBDA 0.25
-#define EWMA_LAMBDA_INVERSE 0.75
+#define EWMA_LAMBDA 0.15
+#define EWMA_LAMBDA_INVERSE 0.85
 
 void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
@@ -327,18 +327,25 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 		    junk_frame_count = 0;
 
         	// X servo adjustment
-		    if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
+		    if (target.x < PIXY_X_CENTER) {
 		        // go left (forward -> 2ms)
-		    	new_x_pw = SERVO_DEADBAND_UPPER + X_SCALE_PW*(target.x - PIXY_X_CENTER);
+		    	new_x_pw = SERVO_DEADBAND_UPPER + X_SCALE_PW*(PIXY_X_CENTER - target.x);
+		    	// upper and lower pw bounds
+		    	new_x_pw = (new_x_pw < X_FORWARD_MIN) ? X_FORWARD_MIN : new_x_pw;
+		    	new_x_pw = (new_x_pw > SERVO_HALF_FORWARD) ? SERVO_HALF_FORWARD : new_x_pw;
 		    	x_on_target = 0;
 		    }
-		    else if (target.x > (PIXY_X_CENTER + PIXY_DEADZONE)) {
+		    else if (target.x > PIXY_X_CENTER) {
 		        // go right (reverse -> 1ms)
-		    	new_x_pw = SERVO_DEADBAND_LOWER - X_SCALE_PW*(PIXY_X_CENTER - target.x);
+		    	new_x_pw = SERVO_DEADBAND_LOWER - X_SCALE_PW*(target.x - PIXY_X_CENTER);
+		    	// upper and lower pw bounds
+		    	new_x_pw = (new_x_pw > X_REVERSE_MIN) ? X_REVERSE_MIN : new_x_pw;
+		    	new_x_pw = (new_x_pw < SERVO_HALF_REVERSE) ? SERVO_HALF_REVERSE : new_x_pw;
 		    	x_on_target = 0;
 		    }
-		    else {
-		    	new_x_pw = SERVO_NEUTRAL;
+
+		    if (target.x > (PIXY_X_CENTER-PIXY_X_DEADZONE)
+		    		 && target.x < (PIXY_X_CENTER+PIXY_X_DEADZONE)){
 		    	x_on_target++; // use to enforce on target count before firing
 		    	printf("X on target!\r\n");
 		    }
@@ -348,18 +355,22 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 		    if (target.y < PIXY_Y_CENTER) {
 		        // go up (reverse -> 1ms)
 		    	new_y_pw = SERVO_DEADBAND_LOWER - Y_SCALE_PW*(PIXY_Y_CENTER - target.y);
+		    	// upper and lower pw bounds
 		    	new_y_pw = (new_y_pw > Y_REVERSE_MIN) ? Y_REVERSE_MIN : new_y_pw;
+		    	new_y_pw = (new_y_pw < SERVO_HALF_REVERSE) ? SERVO_HALF_REVERSE : new_y_pw;
 		    	y_on_target = 0;
 		    }
 		    else if (target.y > PIXY_Y_CENTER) {
 		        // go up (forward -> 2ms)
 		    	new_y_pw = SERVO_DEADBAND_UPPER + Y_SCALE_PW*(target.y - PIXY_X_CENTER);
+		    	// upper and lower pw bounds
 		    	new_y_pw = (new_y_pw < Y_FORWARD_MIN) ? Y_FORWARD_MIN : new_y_pw;
+		    	new_y_pw = (new_y_pw > SERVO_HALF_FORWARD) ? SERVO_HALF_FORWARD : new_y_pw;
 		    	y_on_target = 0;
 		    }
 
-		    if (target.y > (PIXY_Y_CENTER-PIXY_DEADZONE)
-		    		 && target.y < (PIXY_Y_CENTER+PIXY_DEADZONE)){
+		    if (target.y > (PIXY_Y_CENTER-PIXY_Y_DEADZONE)
+		    		 && target.y < (PIXY_Y_CENTER+PIXY_Y_DEADZONE)){
 		    	printf("Y on target!\r\n");
 		    	y_on_target++;
 		    }
@@ -386,7 +397,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	//while (g_disp_update_lock) {}
 			*/
         	// fire a dart, then exit the loop after getting n64 state
-        	if (x_on_target > ON_TARGET_FRAMES && y_on_target > ON_TARGET_FRAMES) {
+        	if ((x_on_target > ON_TARGET_FRAMES) && (y_on_target > ON_TARGET_FRAMES)) {
         		printf("Target acquired, firing!\r\n");
         		_fire_dart();
         		active = 0;

@@ -30,10 +30,10 @@
 #define SERVO_DEADBAND_UPPER 155000
 
 // from observation
-#define Y_FORWARD_MIN 161000
-#define Y_REVERSE_MIN 138000
+#define Y_FORWARD_MIN 163000
+#define Y_REVERSE_MIN 137000
 #define X_FORWARD_MIN 164500
-#define X_REVERSE_MIN 138000
+#define X_REVERSE_MIN 137000
 
 // Use this marco to do all the write-triggered actions
 #define servo_do(ADDR) ( *((volatile uint32_t*)ADDR) = (uint32_t)0x00000000 )
