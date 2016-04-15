@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 #ifdef DNDEBUG
 	#define DBG(...)
 #else
@@ -9,6 +8,6 @@ using namespace std;
 	printf("%s:", __func__);\
 	printf("%d ", __LINE__);\
 	printf(__VA_ARGS__);\
-	cout << endl;\
+	printf("\n");\
 	}while(0)
 #endif

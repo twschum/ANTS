@@ -245,15 +245,17 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         // else, target found, coordinates valid
         else {
         	printf("x: %d\ty: %d\r\n", target.x, target.y);
-        	lcd_screen_state_t *lcd= malloc(sizeof(lcd_screen_state_t));
-        	circle_t *trg = malloc(sizeof(circle_t));
-        	trg->x = target.x;
-        	trg->y = target.y;
-        	lcd->target_pos = trg;
-        	lcd->distance = 50;
-        	lcd->shots = 22;
-        	lcd->target_mode = 1;
-        	g_disp_update_argument.lcd_state = lcd;
+        	static lcd_screen_state_t lcd_state;
+        	static lcd_screen_state_t last_state;
+        	static circle_t trg;
+        	trg.x = target.x;
+        	trg.y = target.y;
+        	lcd_state.target_pos = &trg;
+        	lcd_state.distance = 50;
+        	lcd_state.shots = 22;
+        	lcd_state.target_mode = 1;
+        	g_disp_update_argument.lcd_state = &lcd_state;
+        	g_disp_update_argument.last_state = NULL;
         	// X servo adjustment
         	if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
         		x_pw = SERVO_HALF_REVERSE; // go left

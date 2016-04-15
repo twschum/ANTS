@@ -96,6 +96,7 @@ void set_clk(uint32_t clk_hz){
 }
 uint32_t to_ticks(uint32_t dur_ms){
 	uint32_t ticks = g_clk_hz/(MS_TO_S/dur_ms);
+	return ticks;
 }
 
 // update down count with elapsed time, call fnc if timer zero,
