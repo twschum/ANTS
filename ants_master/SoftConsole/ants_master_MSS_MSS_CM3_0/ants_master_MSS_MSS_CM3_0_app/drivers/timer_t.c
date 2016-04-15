@@ -1,5 +1,6 @@
 
 #include "timer_t.h"
+#include "debug_macros.h"
 
 #define ONE_SHOT 1
 #define PERIODIC 0
@@ -10,7 +11,7 @@
 struct Timer* root = NULL;
 
 void Timer1_IRQHandler(void) {
-
+	DBG("TIOMER INTERURUPT");
     struct Handler* handlers = update_timers();
 
     MSS_TIM1_clear_irq();
@@ -42,7 +43,7 @@ void start_hardware_timer() {
 
 // put new timer in list maintaining order least time remaining to most
 void insert_timer(struct Timer* newtimer) {
-
+	DBG("inserting timer");
     // insert empty case
     if (root == NULL) {
         root = newtimer;
@@ -51,6 +52,7 @@ void insert_timer(struct Timer* newtimer) {
 
     // front insert case
     if (newtimer->time_left < root->time_left) {
+    	DBG("inserting timer at root");
         newtimer->next = root;
         root = newtimer;
         return;
@@ -60,7 +62,8 @@ void insert_timer(struct Timer* newtimer) {
 
     // pos will be the "insert after" location list_t* pos = head;
     while (pos->next != NULL && pos->next->time_left < newtimer->time_left) {
-        pos = pos->next;
+        DBG("inserting timer in middle of list");
+    	pos = pos->next;
     }
 
     // insert after pos
@@ -71,17 +74,20 @@ void insert_timer(struct Timer* newtimer) {
 void add_timer(handler_t handler, void *arg, uint32_t period, uint32_t mode) {
     struct Timer* newtimer = malloc(sizeof(struct Timer));
 
+
     newtimer->handler = handler;
     newtimer->time_left = period;
     newtimer->period = period;
     newtimer->mode = mode;
     newtimer->next = NULL;
     newtimer->arg = arg;
+
     insert_timer(newtimer);
 }
 
 // add a continuous (periodic) timer to linked list.
 void add_timer_periodic(handler_t handler, void *arg, uint32_t period) {
+	DBG("Adding periodic timer: %d", period);
     add_timer(handler, arg, period, PERIODIC);
 }
 
@@ -102,7 +108,7 @@ uint32_t to_ticks(uint32_t dur_ms){
 // update down count with elapsed time, call fnc if timer zero,
 // update continuous timers with new down count
 struct Handler* update_timers(void) {
-
+	DBG("updating timers");
     // first, update all the time_left fields
     struct Timer* node = root;
     uint32_t elapsed = root->time_left;
@@ -125,10 +131,12 @@ struct Handler* update_timers(void) {
         new_handler->next = NULL;
 
         if (handlers_root == NULL) {
+        	DBG("returining one handler");
             handlers_root = new_handler;
             handlers_tail = new_handler;
         }
         else {
+        	DBG("returining multiple handlers");
             handlers_tail->next = new_handler;
             handlers_tail = new_handler;
         }
@@ -153,5 +161,22 @@ struct Handler* update_timers(void) {
     }
 
     return handlers_root;
+}
+
+// dumb delay timer callback lock
+uint8_t delay_timer_lock;
+void _end_delay_timer(void* null_arg) {
+	DBG("unlocking");
+	delay_timer_lock = 0;
+}
+
+void use_me_carefully_ms_delay_timer(uint32_t ms) {
+
+	delay_timer_lock = 1;
+	DBG("delaying for %d", ms);
+	// start hardware timer with _end_timer callback
+	add_timer_single((handler_t)_end_delay_timer, NULL, to_ticks(ms));
+	start_hardware_timer();
+	while (delay_timer_lock) {}
 }
 

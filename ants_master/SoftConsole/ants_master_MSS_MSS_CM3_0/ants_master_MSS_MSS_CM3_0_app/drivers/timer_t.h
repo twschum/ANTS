@@ -30,6 +30,7 @@ struct Handler {
     void *arg;
 };
 
+
 // used to initialize hardware
 // using MSS_TIM1
 void start_hardware_timer();
@@ -47,5 +48,11 @@ uint32_t to_ticks(uint32_t dur_ms);
 // update down count with elapsed time, call fnc if timer zero,
 // update continuous timers with new down count
 struct Handler* update_timers(void);
+
+// uses a poor man's lock and busy wait to implement ms sleep
+// (don't worry, we've taken 482............ and were out other of ideas)
+// will act as a sequential block or sleep() in code, while not
+// blocking other timer events
+void use_me_carefully_ms_delay_timer(uint32_t ms);
 
 #endif // TIMER_T_H

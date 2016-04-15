@@ -8,6 +8,6 @@
 	printf("%s:", __func__);\
 	printf("%d ", __LINE__);\
 	printf(__VA_ARGS__);\
-	printf("\n");\
+	printf("\r\n");\
 	}while(0)
 #endif

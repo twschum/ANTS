@@ -32,6 +32,10 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state);
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state);
 void do_automatic(n64_state_t* state, n64_state_t* last_state);
 
+static lcd_screen_state_t lcd_state;
+static lcd_screen_state_t last_state;
+static circle_t trg;
+
 int main() {
 
     /*
@@ -63,9 +67,11 @@ int main() {
      */
     disp_init();
     set_clk(CLK_SPEED); //Only for scaling
-    g_disp_update_argument.lcd_state=NULL;
-    g_disp_update_argument.last_state=NULL;
-    add_timer_periodic(disp_update, (void*) &g_disp_update_argument, to_ticks(DISPLAY_UPDATE_MS));
+    //g_disp_update_argument.lcd_state=NULL;
+    //g_disp_update_argument.last_state=NULL;
+    g_disp_update_argument.lcd_state = &lcd_state;
+    g_disp_update_argument.last_state = NULL;
+    //add_timer_periodic(disp_update, (void*) &g_disp_update_argument, to_ticks(DISPLAY_UPDATE_MS));
 
     printf("A.N.T.S. 3000, ready for action!\r\n");
 
@@ -241,21 +247,16 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     		//set_x_servo_analog_pw(SERVO_NEUTRAL);
     		//set_y_servo_analog_pw(SERVO_NEUTRAL);
         	printf("x: %d\ty: %d\r\n", -1, -1);
+
+        	// TODO use a defined value
+
+        	use_me_carefully_ms_delay_timer(25);
         }
         // else, target found, coordinates valid
         else {
         	printf("x: %d\ty: %d\r\n", target.x, target.y);
-        	static lcd_screen_state_t lcd_state;
-        	static lcd_screen_state_t last_state;
-        	static circle_t trg;
-        	trg.x = target.x;
-        	trg.y = target.y;
-        	lcd_state.target_pos = &trg;
-        	lcd_state.distance = 50;
-        	lcd_state.shots = 22;
-        	lcd_state.target_mode = 1;
-        	g_disp_update_argument.lcd_state = &lcd_state;
-        	g_disp_update_argument.last_state = NULL;
+
+
         	// X servo adjustment
         	if (target.x < (PIXY_X_CENTER - PIXY_DEADZONE)) {
         		x_pw = SERVO_HALF_REVERSE; // go left
@@ -292,6 +293,21 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	set_x_servo_analog_pw(x_pw);
         	set_y_servo_analog_pw(y_pw);
 
+        	// Update the display
+        	//start_hardware_timer();
+        	trg.x = target.x;
+        	trg.y = target.y;
+        	lcd_state.target_pos = &trg;
+        	lcd_state.distance = 50;
+        	lcd_state.shots = 22;
+        	lcd_state.target_mode = 1;
+        	g_disp_update_argument.lcd_state = &lcd_state;
+        	g_disp_update_argument.last_state = NULL;
+        	disp_update((void*)&g_disp_update_argument);
+        	start_hardware_timer();
+        	// spin lock until screen finishes updating
+        	while (g_disp_update_lock) {}
+
         	// fire a dart, then exit the loop after getting n64 state
         	if (x_on_target && y_on_target) {
         		printf("Target acquired, firing!\r\n");
@@ -309,10 +325,6 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
         *last_state = *state;
         n64_get_state( state );
-
-        // TODO proper timer to make sure polling < 50 Hz
-        //volatile int i;
-        //for(i=0; i < 50*10000; i++) {}
     }
 
     // shut off the laser

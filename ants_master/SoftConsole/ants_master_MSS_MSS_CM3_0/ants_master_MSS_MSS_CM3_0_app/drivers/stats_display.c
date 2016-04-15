@@ -31,17 +31,17 @@ void disp_init(){
 	LCD_printStr(MODE_STR);
 }
 
-uint8_t updating;
+
 void disp_update(void *u_arg_v){
 	upd_disp_arg_t *u_arg_global = (upd_disp_arg_t*) u_arg_v;
-	if(updating || u_arg_v == NULL){//This will probably drop some updates, and idgaf
+	if(g_disp_update_lock || u_arg_v == NULL){//This will probably drop some updates, and idgaf
 		//free(u_arg_global->lcd_state);
 		//if(u_arg_global->last_state)
 		//	free(u_arg_global->last_state);
 		DBG("screen is already updating, current update dropped");
 		return; //add frees
 	}
-	updating = 1;
+	g_disp_update_lock = 1;
 
 	DBG("beginning update");
 	//This is a pointer to a global in main: copy state to prevent
@@ -248,7 +248,7 @@ void disp_write_mode(void *m_v){
 //Clear the way for subsequent calls to update
 //This guy should free the initial argument
 void disp_upd_finish(void* u_arg_v){
-	updating = 0;
+	g_disp_update_lock = 0;
 	DBG("cleaning up update");
 	//upd_disp_arg_t* u_arg = (upd_dist_arg_t*) u_arg_v;
 	//free(u_arg->lcd_state);

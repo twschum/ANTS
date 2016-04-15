@@ -162,6 +162,10 @@ void disp_init();
 //This function will take on the order of tens of ms to complete
 //
 
+// unidirectional spin lock to enable sequential
+// blocking while the display updates
+uint8_t g_disp_update_lock;
+
 void disp_update(void*);
 
 //Clears X: Y: and graphic on screen, writes new values
