@@ -51,13 +51,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1460608810"
+TIME="1460743756"
 SIZE="2736"
 PARENT="<project>\component\work\ants_master\ants_master.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\coreparameters.v,tb_hdl"
 STATE="utd"
-TIME="1460608810"
+TIME="1460743756"
 SIZE="1284"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\CoreAPB3.cxf"
 IS_READONLY="TRUE"
@@ -260,13 +260,13 @@ PARENT="<project>\component\work\ants_master_MSS\ants_master_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\work\ants_master\ants_master.cxf,actgen_cxf"
 STATE="utd"
-TIME="1460608814"
-SIZE="8114"
+TIME="1460743762"
+SIZE="8297"
 ENDFILE
 VALUE "<project>\component\work\ants_master\ants_master.pdc,pdc"
 STATE="utd"
-TIME="1460608809"
-SIZE="2092"
+TIME="1460743756"
+SIZE="2189"
 PARENT="<project>\component\work\ants_master\ants_master.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -276,8 +276,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\ants_master\ants_master.v,hdl"
 STATE="utd"
-TIME="1460608810"
-SIZE="17339"
+TIME="1460743757"
+SIZE="17431"
 PARENT="<project>\component\work\ants_master\ants_master.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -384,8 +384,8 @@ SIZE="3015680"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master.fdb,fdb"
 STATE="utd"
-TIME="1460699651"
-SIZE="99468"
+TIME="1460745346"
+SIZE="71942"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master.ide_des,ide_des"
 STATE="utd"
@@ -409,8 +409,8 @@ SIZE="816"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_compile_log.rpt,log"
 STATE="utd"
-TIME="1460608868"
-SIZE="32329"
+TIME="1460745268"
+SIZE="32311"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_fp\ants_master.pdb,pdb"
 STATE="utd"
@@ -429,17 +429,17 @@ SIZE="105230"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1460609071"
+TIME="1460745324"
 SIZE="2667"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1460609099"
+TIME="1460745348"
 SIZE="659"
 ENDFILE
 VALUE "<project>\designer\impl1\ants_master_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1460609081"
+TIME="1460745332"
 SIZE="1168"
 ENDFILE
 VALUE "<project>\hdl\distance_sensor_hdl.v,hdl"
@@ -474,8 +474,8 @@ SIZE="1683"
 ENDFILE
 VALUE "<project>\hdl\servo_hdl.v,hdl"
 STATE="utd"
-TIME="1460608689"
-SIZE="10922"
+TIME="1460745075"
+SIZE="7568"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
@@ -507,7 +507,7 @@ SIZE="1413"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1460608810"
+TIME="1460743757"
 SIZE="704"
 PARENT="<project>\component\work\ants_master\ants_master.cxf"
 ENDFILE
@@ -608,17 +608,6 @@ VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\b
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\amba_bfm\bfm_apbslave.v,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\test\user\testbench.v,tb_hdl"
 ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
@@ -714,8 +703,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microsemi\Libero_v11.5\Synopsys\synplify_I201403MSP1\bin\synplify_pro.exe"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -761,17 +750,6 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -785,8 +763,13 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Program Device:ants_master_program.log
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+SmartDesign;ants_master;0
+SmartDesign;ants_master_MSS;0
+HDL;hdl\servo_hdl.v;0
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "_get_distance::work","hdl\distance_sensor_hdl.v","FALSE","FALSE"
@@ -799,8 +782,8 @@ LIST "ants_master::work","component\work\ants_master\ants_master.v","TRUE","FALS
 SUBBLOCK "ants_master_MSS::work","component\work\ants_master_MSS\ants_master_MSS.v","TRUE","FALSE"
 SUBBLOCK "Dsensor::work","hdl\distance_sensor_hdl.v","FALSE","FALSE"
 SUBBLOCK "n64_magic_box::work","component\work\n64_magic_box\n64_magic_box.v","TRUE","FALSE"
-SUBBLOCK "servo_control::work","hdl\servo_hdl.v","FALSE","FALSE"
 SUBBLOCK "CoreAPB3::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.1.100\rtl\vlog\core\coreapb3.v","FALSE","FALSE"
+SUBBLOCK "servo_control::work","hdl\servo_hdl.v","FALSE","FALSE"
 ENDLIST
 LIST "ants_master_MSS::work","component\work\ants_master_MSS\ants_master_MSS.v","TRUE","FALSE"
 SUBBLOCK "MSS_APB::work","component\work\ants_master_MSS\mss_tshell.v","FALSE","FALSE"

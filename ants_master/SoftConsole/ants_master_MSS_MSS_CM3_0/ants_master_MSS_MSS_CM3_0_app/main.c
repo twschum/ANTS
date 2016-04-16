@@ -35,6 +35,7 @@ void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state);
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state);
 void do_automatic(n64_state_t* state, n64_state_t* last_state);
+void do_manual_reload(n64_state_t* state, n64_state_t* last_state);
 void _reload_motion();
 void _fire_dart();
 
@@ -114,6 +115,8 @@ int main() {
 
         do_automatic( &n64_buttons, &last_buttons );
 
+        do_manual_reload( &n64_buttons, &last_buttons );
+
         //print_distance();
 
         if (PRINT_N64_STATE) {
@@ -124,6 +127,10 @@ int main() {
     }
 }
 
+/*
+ * Checks that the Start button has been pressed to enable
+ * or diable the firing enable
+ */
 void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state) {
 	// This global only gets set here, read anywhere, cleared after firing (not repeat mode)
 	if ( !g_live_fire_enabled && n64_released(Start)) {
@@ -133,6 +140,31 @@ void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state) {
 	else if (g_live_fire_enabled && n64_released(Start)) {
 		g_live_fire_enabled = 0;
 		printf("Live-fire disabled.\r\n");
+	}
+}
+
+/*
+ * Press A to start a manual reload, then load a single dart in the chamber.
+ * When finished, press A again to return to firing position
+ * Allows screen to keep track of if loaded
+ */
+void do_manual_reload(n64_state_t* state, n64_state_t* last_state) {
+	static uint8_t in_reload_position = 0;
+
+	// LCD hook to get the ammo loaded
+
+	if (!n64_pressed(A)) {
+		return;
+	}
+
+	if (in_reload_position) {
+		_reload_motion();
+		in_reload_position = 0;
+	}
+	else {
+	    set_y_servo_analog_pw(SERVO_HALF_FORWARD);
+	    while (servo_r(READ_LOWER_STOP)) { }
+	    servo_do(Y_SET_NEUTRAL);
 	}
 }
 
@@ -219,12 +251,12 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     // Digital Pitch control
     if (n64_pressed(Down)) {
         servo_do(Y_SET_FORWARD);
-        //set_y_servo_analog_pw(SERVO_FULL_FORWARD);
-        printf("servo_do Y_SET_FORWARD\r\n");
+
+        //printf("servo_do Y_SET_FORWARD\r\n");
     }
     else if (n64_pressed(Up)) {
         servo_do(Y_SET_REVERSE);
-        printf("servo_do Y_SET_REVERSE\r\n");
+        //printf("servo_do Y_SET_REVERSE\r\n");
     }
     else if (n64_released(Up) || n64_released(Down)) {
         servo_do(Y_SET_NEUTRAL);
@@ -408,6 +440,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	if ((x_on_target > ON_TARGET_FRAMES) && (y_on_target > ON_TARGET_FRAMES)) {
         		printf("Target acquired, firing!\r\n");
         		_fire_dart();
+        		servo_do(X_SET_NEUTRAL);
+                servo_do(Y_SET_NEUTRAL);
         		active = 0;
         	}
         }
