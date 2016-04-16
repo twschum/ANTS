@@ -31,6 +31,13 @@ void disp_init(){
 	LCD_printStr(MODE_STR);
 }
 
+static upd_disp_arg_t u_arg;
+static circle_t targ;
+static circle_t lasttarg;
+static upd_targ_arg_t t_arg;
+static upd_dist_arg_t d_arg;
+static upd_shots_arg_t s_arg;
+static upd_mode_arg_t m_arg;
 
 void disp_update(void *u_arg_v){
 	upd_disp_arg_t *u_arg_global = (upd_disp_arg_t*) u_arg_v;
@@ -39,6 +46,7 @@ void disp_update(void *u_arg_v){
 		//if(u_arg_global->last_state)
 		//	free(u_arg_global->last_state);
 		DBG("screen is already updating, current update dropped");
+	//	free(u_arg_v);
 		return; //add frees
 	}
 	g_disp_update_lock = 1;
@@ -46,15 +54,15 @@ void disp_update(void *u_arg_v){
 	DBG("beginning update");
 	//This is a pointer to a global in main: copy state to prevent
 	//changes in the middle of the update pipeline
-	upd_disp_arg_t *u_arg = malloc(sizeof(upd_disp_arg_t));
-	*u_arg = *u_arg_global;
+	//upd_disp_arg_t *u_arg = malloc(sizeof(upd_disp_arg_t));
+	u_arg = *u_arg_global;
 
-	lcd_screen_state_t* lcd_state = u_arg->lcd_state;
-	lcd_screen_state_t* last_state = u_arg->last_state;
+	lcd_screen_state_t* lcd_state = u_arg.lcd_state;
+	lcd_screen_state_t* last_state = u_arg.last_state;
 	//n64_state_t* ctrlr_state = u_arg->ctrlr_state;
 	//circle_t *targ = lcd_state->target_pos;
 	//circle_t *lasttarg = last_state->target_pos;
-	circle_t *targ = malloc(sizeof(circle_t));
+	//circle_t *targ = malloc(sizeof(circle_t));
 	circle_t *lasttarg = NULL;
 
 	uint8_t dist 		= lcd_state->distance;
@@ -66,16 +74,16 @@ void disp_update(void *u_arg_v){
 	uint8_t lastshots;
 	uint8_t lastmode;
 
-	upd_targ_arg_t* t_arg = NULL;
-	upd_dist_arg_t* d_arg = NULL;
-	upd_shots_arg_t* s_arg = NULL;
-	upd_mode_arg_t* m_arg = NULL;
+	//upd_targ_arg_t* t_arg = NULL;
+	//upd_dist_arg_t* d_arg = NULL;
+	//upd_shots_arg_t* s_arg = NULL;
+	//upd_mode_arg_t* m_arg = NULL;
 
-	*targ = *(lcd_state->target_pos);
+	targ = *(lcd_state->target_pos);
 	
 	if(last_state){
-		lasttarg = malloc(sizeof(circle_t));
-		*lasttarg = *(last_state->target_pos);
+		//lasttarg = malloc(sizeof(circle_t));
+		lasttarg = *(last_state->target_pos);
 
 		lastdist= last_state->distance;
  		lastshots= last_state->shots;
@@ -89,7 +97,7 @@ void disp_update(void *u_arg_v){
 	//Don't need a timer for our first UART xfer
 	//Need to delay subsequent requests to LCD
 	//May need to change this depending on how often this function is being called
-	t_arg = malloc(sizeof(upd_targ_arg_t));
+	//t_arg = malloc(sizeof(upd_targ_arg_t));
 	if(last_state){
 		if(targ->x != lasttarg->x || targ->y != lasttarg->y){
 			t_arg->targ = targ;
@@ -111,30 +119,30 @@ void disp_update(void *u_arg_v){
 	uint8_t upd_dur = TRG_DELAY_MS;
 	if(dist != lastdist){ //Add to timer queue
 		DBG("adding distance update to fire in %u ms", upd_dur);
-		d_arg = malloc(sizeof(upd_dist_arg_t));
+		//d_arg = malloc(sizeof(upd_dist_arg_t));
 		d_arg->dist = dist;
-		add_timer_single((handler_t)disp_write_dist, d_arg, to_ticks(upd_dur));
+		add_timer_single((handler_t)disp_write_dist, &d_arg, to_ticks(upd_dur));
 		//disp_write_dist(d_arg);
 		upd_dur += DIST_DELAY_MS;
 	}
 	if(shots != lastshots){
 		DBG("adding shots update to fire in %u ms", upd_dur);
-		s_arg = malloc(sizeof(upd_shots_arg_t));
+		//s_arg = malloc(sizeof(upd_shots_arg_t));
 		s_arg->shots = shots;
-		add_timer_single((handler_t)disp_write_shots, s_arg, to_ticks(upd_dur));
+		add_timer_single((handler_t)disp_write_shots, &s_arg, to_ticks(upd_dur));
 		//disp_write_shots(shots);
 		upd_dur += SHOTS_DELAY_MS;
 	}
 	if(mode != lastmode){
 		DBG("adding mode update to fire in %u ms", upd_dur);
-		m_arg = malloc(sizeof(upd_mode_arg_t));
+		//m_arg = malloc(sizeof(upd_mode_arg_t));
 		m_arg->mode = mode;
-		add_timer_single((handler_t)disp_write_mode, m_arg, to_ticks(upd_dur));
+		add_timer_single((handler_t)disp_write_mode, &m_arg, to_ticks(upd_dur));
 		//disp_write_mode(mode);
 		upd_dur += MODE_DELAY_MS;
 	}
 	DBG("adding cleanup to fire in %u ms", upd_dur);
-	add_timer_single((handler_t)disp_upd_finish, u_arg, upd_dur);
+	add_timer_single((handler_t)disp_upd_finish, &u_arg, upd_dur);
 	//Refrain from updating n64 debug box b/c of latency issues
 	//disp_write_N64(ctrlr_state);
 }
@@ -181,7 +189,7 @@ void disp_write_target(void *t_v){
 	LCD_drawCircle(tx + TARGET_BOX_X1 +TARGET_RAD +1 ,ty + TARGET_BOX_Y1 + TARGET_RAD +1, TARGET_RAD, LCD_SET);
 	DBG("drawing target (%u,%u)", tx, ty);
 	//Argument is assumed to have been malloc'd
-	free(t);
+//	free(t_v);
 }
 
 //This can be made more efficient:
@@ -200,7 +208,7 @@ void disp_write_shots(void *s_v){
 	DBG("writing shots %u", shots);
 
 	//Argument is assumed to have been malloc'd
-	free(s);
+//	free(s_v);
 }
 
 
@@ -219,7 +227,7 @@ void disp_write_dist(void *d_v){
 	LCD_printStr(num);
 	DBG("writing distance %u", distance);
 	//Argument is assumed to have been malloc'd
-	free(d);
+//	free(d_v);
 }
 
 void disp_write_mode(void *m_v){
@@ -240,7 +248,7 @@ void disp_write_mode(void *m_v){
 	}
 	DBG("writing mode %u", mode);
 	//Argument is assumed to have been malloc'd
-	free(m);
+//	free(m_v);
 }
 
 //Clear the way for subsequent calls to update
@@ -251,7 +259,7 @@ void disp_upd_finish(void* u_arg_v){
 	//upd_disp_arg_t* u_arg = (upd_dist_arg_t*) u_arg_v;
 	//free(u_arg->lcd_state);
 	//free(u_arg->last_state);
-	free(u_arg_v);
+//	free(u_arg_v);
 }
 
 //It'd be a pain in the ass to do selective clearing,
