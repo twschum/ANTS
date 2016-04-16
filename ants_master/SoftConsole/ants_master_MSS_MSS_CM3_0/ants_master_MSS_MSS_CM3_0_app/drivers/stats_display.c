@@ -24,8 +24,8 @@ void disp_init(){
 	LCD_setPos(DIST_POS_X, DIST_POS_Y);
 	LCD_printStr(DIST_STR);
 	//Draw shots left
-	LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
-	LCD_printStr(SHOTS_STR);
+	//LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
+	//LCD_printStr(SHOTS_STR);
 	//Draw mode indicator
 	LCD_setPos(MODE_POS_X, MODE_POS_Y);
 	LCD_printStr(MODE_STR);
@@ -125,14 +125,14 @@ void disp_update(void *u_arg_v){
 		//disp_write_dist(d_arg);
 		upd_dur += DIST_DELAY_MS;
 	}
-	if(shots != lastshots){
+	/*if(shots != lastshots){
 		DBG("adding shots update to fire in %u ms", upd_dur);
 		//s_arg = malloc(sizeof(upd_shots_arg_t));
 		s_arg->shots = shots;
 		add_timer_single((handler_t)disp_write_shots, &s_arg, to_ticks(upd_dur));
 		//disp_write_shots(shots);
 		upd_dur += SHOTS_DELAY_MS;
-	}
+	}*/
 	if(mode != lastmode){
 		DBG("adding mode update to fire in %u ms", upd_dur);
 		//m_arg = malloc(sizeof(upd_mode_arg_t));

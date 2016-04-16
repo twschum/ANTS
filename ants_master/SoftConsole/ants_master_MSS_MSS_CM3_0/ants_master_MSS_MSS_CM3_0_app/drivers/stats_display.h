@@ -177,7 +177,7 @@ void disp_write_shots(void*);
 
 void disp_write_mode(void*);
 
-void disp_upd_finish(void* u_arg_v);
+void disp_upd_finish(void*);
 
 //void disp_write_N64();
 
