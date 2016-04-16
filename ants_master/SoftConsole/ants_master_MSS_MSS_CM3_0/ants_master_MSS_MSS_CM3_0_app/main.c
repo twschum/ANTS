@@ -91,7 +91,7 @@ int main() {
 	*/
 
     // to center y
-    _reload_motion();
+    //_reload_motion();
 
     printf("A.N.T.S. 3000, ready for action!\r\n");
 
@@ -117,7 +117,6 @@ int main() {
 
         do_manual_reload( &n64_buttons, &last_buttons );
 
-        //print_distance();
 
         if (PRINT_N64_STATE) {
             n64_print_state( &n64_buttons );

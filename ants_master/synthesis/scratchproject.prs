@@ -1,29 +1,29 @@
 #--  Synopsys, Inc.
 #--  Version I-2014.03M-SP1
-#--  Project file C:\Users\twschum\373\ants_master\synthesis\scratchproject.prs
+#--  Project file C:\Users\collmae\Documents\GitHub\373\ants_master\synthesis\scratchproject.prs
 
 #project files
-add_file -verilog "C:/Users/twschum/373/ants_master/component/work/ants_master_MSS/mss_tshell.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/component/Actel/SmartFusionMSS/MSS/2.5.200/mss_comps.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/component/work/ants_master_MSS/MSS_CCC_0/ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/component/work/ants_master_MSS/ants_master_MSS.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/hdl/distance_sensor_hdl.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/hdl/n64_apb_interface.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/hdl/n64_write_command.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/hdl/n64_read_module.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/hdl/n64_serial_interface.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/component/work/n64_magic_box/n64_magic_box.v"
-add_file -verilog -lib COREAPB3_LIB "C:/Users/twschum/373/ants_master/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v"
-add_file -verilog -lib COREAPB3_LIB "C:/Users/twschum/373/ants_master/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v"
-add_file -verilog -lib COREAPB3_LIB "C:/Users/twschum/373/ants_master/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/hdl/servo_hdl.v"
-add_file -verilog "C:/Users/twschum/373/ants_master/component/work/ants_master/ants_master.v"
-add_file -constraint "C:/Users/twschum/373/ants_master/component/work/ants_master_MSS/mss_tshell_syn.sdc"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/component/work/ants_master_MSS/mss_tshell.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/component/Actel/SmartFusionMSS/MSS/2.5.200/mss_comps.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/component/work/ants_master_MSS/MSS_CCC_0/ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/component/work/ants_master_MSS/ants_master_MSS.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/hdl/n64_apb_interface.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/hdl/n64_write_command.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/hdl/n64_read_module.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/hdl/n64_serial_interface.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/component/work/n64_magic_box/n64_magic_box.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/hdl/servo_hdl.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/collmae/Documents/GitHub/373/ants_master/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_muxptob3.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/collmae/Documents/GitHub/373/ants_master/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3_iaddr_reg.v"
+add_file -verilog -lib COREAPB3_LIB "C:/Users/collmae/Documents/GitHub/373/ants_master/component/Actel/DirectCore/CoreAPB3/4.1.100/rtl/vlog/core/coreapb3.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/hdl/distance_sensor_hdl.v"
+add_file -verilog "C:/Users/collmae/Documents/GitHub/373/ants_master/component/work/ants_master/ants_master.v"
+add_file -constraint "C:/Users/collmae/Documents/GitHub/373/ants_master/component/work/ants_master_MSS/mss_tshell_syn.sdc"
 
 
 
 #implementation: "synthesis"
-impl -add C:\Users\twschum\373\ants_master\synthesis -type fpga
+impl -add C:\Users\collmae\Documents\GitHub\373\ants_master\synthesis -type fpga
 
 #
 #implementation attributes
@@ -77,5 +77,5 @@ set_option -auto_infer_blackbox 0
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "C:/Users/twschum/373/ants_master/synthesis/ants_master.edn"
+project -result_file "C:/Users/collmae/Documents/GitHub/373/ants_master/synthesis/ants_master.edn"
 impl -active "synthesis"
