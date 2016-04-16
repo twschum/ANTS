@@ -8,7 +8,7 @@
 #include "drivers/servo_control.h"
 #include "drivers/dsensor_driver.h"
 #include "drivers/Pixy_SPI.h"
-#include "drivers/speaker_driver.h"
+#include "drivers/sound/speaker_driver.h"
 #include "drivers/timer_t.h"
 #include "drivers/stats_display.h"
 
