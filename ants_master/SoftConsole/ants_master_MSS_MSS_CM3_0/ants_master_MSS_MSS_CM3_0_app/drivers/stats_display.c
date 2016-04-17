@@ -1,4 +1,4 @@
-/*/*
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -266,6 +266,7 @@ void disp_upd_finish(void* u_arg_v){
 //It'd be a pain in the ass to do selective clearing,
 //so instead I opted to just blow away the debug box
 //every time we decide to write to it
+/*
 void disp_write_N64(n64_state_t* state){
 	char n64dbg[27];
 	uint8_t i = 0;
@@ -351,8 +352,9 @@ void disp_write_N64(n64_state_t* state){
     );
 
 
+*/
 
 void testBarebones(){
 
 }
-*/
+

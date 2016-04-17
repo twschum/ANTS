@@ -77,21 +77,8 @@ int main() {
      * Initialize display and refresh timer
      */
 
-    //disp_init();
+    disp_init();
     set_clk(CLK_SPEED); // Only for scaling
-/*
-    trg.r = 0;
-    lcd_state.target_pos = &trg;
-    lcd_state.distance = 0;
-    lcd_state.shots = 0;
-    lcd_state.target_mode = MANUAL_MODE;
-    //g_disp_update_argument.lcd_state=NULL;
-    //g_disp_update_argument.last_state=NULL;
-    g_disp_update_argument.lcd_state = &lcd_state;
-    g_disp_update_argument.last_state = &lcd_last_state;
-    //disp_update(&g_disp_update_argument);
-    //add_timer_periodic(disp_update, (void*) &g_disp_update_argument, to_ticks(DISPLAY_UPDATE_MS));
-*/
 
     // to center y
     //_reload_motion();
@@ -281,7 +268,6 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
  *
  */
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
-    /*lcd_state.target_mode = MANUAL_MODE;*/
     // Digital Pitch control
     if (n64_pressed(Down)) {
         servo_do(Y_SET_FORWARD);
@@ -323,8 +309,6 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 		set_x_servo_analog_pw(analog_pwm_vals.x_pwm);
 		set_y_servo_analog_pw(analog_pwm_vals.y_pwm);
     }
-  /*  disp_update((void*)&g_disp_update_argument);*/
-    start_hardware_timer();
 }
 
 /*
@@ -375,6 +359,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     uint8_t y_on_target = 0;
     uint32_t junk_frame_count = 0;
 
+    lcd_state.target_mode = MANUAL_MODE;
+    
     while (active) {
 
         if ( Pixy_get_target_location(&target) == -1 ) {
@@ -456,7 +442,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	// set the servos
         	set_x_servo_analog_pw(x_pw);
         	set_y_servo_analog_pw(y_pw);
-/*
+
         	// Update the display
         	//start_hardware_timer();
         	trg.x = target.x;
@@ -467,7 +453,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	start_hardware_timer();
         	// spin lock until screen finishes updating
         	while (g_disp_update_lock) {}
-*/
+
         	// fire a dart, then exit the loop after getting n64 state
         	if ((x_on_target > ON_TARGET_FRAMES) && (y_on_target > ON_TARGET_FRAMES)) {
         		printf("Target acquired, firing!\r\n");
@@ -490,7 +476,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         *last_state = *state;
         n64_get_state( state );
     }
-
+    lcd_state.target_mode = MANUAL_MODE;
+    
     // shut off the laser
     //MSS_GPIO_set_output(MSS_GPIO_0, 0);
 }
