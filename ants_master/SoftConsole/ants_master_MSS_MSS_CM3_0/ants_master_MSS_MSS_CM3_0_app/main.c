@@ -346,8 +346,8 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
  */
 
 // SCALE_PW translates a numeric value to clock cycles for PW
-#define X_SCALE_PW 400
-#define Y_SCALE_PW 500
+#define X_SCALE_PW_DEF 400
+#define Y_SCALE_PW_DEF 500
 
 // amount of frames on target required before firing
 #define ON_TARGET_FRAMES 10
@@ -382,24 +382,62 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     uint8_t y_on_target = 0;
     uint32_t junk_frame_count = 0;
 
+    // Tuning factors -can be modified
+    // reset with Start
+    static uint16_t X_SCALE_PW = X_SCALE_PW_DEF;
+    static uint16_t Y_SCALE_PW = Y_SCALE_PW_DEF;
+    static uint16_t PIXY_X_DEADZONE = PIXY_X_DEADZONE_DEF;
+    static uint16_t PIXY_Y_DEADZONE = PIXY_Y_DEADZONE_DEF;
+    uint16_t scaling_modifier = 20;
+
     lcd_state.target_mode = MANUAL_MODE;
     
     speaker_play(BEGIN_AUTO);
     while (active) {
 
-        if ( Pixy_get_target_location(&target) == -1 ) {
-        	// This seems to be resetting the servos immeadiately after setting them
-        	// so we might have a problem with reading too fast from the pixy...
+       	// on the fly tuning for the scaling factors
+        if (state->R && n64_pressed(C_Right)) {
+        	X_SCALE_PW += scaling_modifier;
+        }
+        if (state->R && n64_pressed(C_Left)) {
+        	X_SCALE_PW -= scaling_modifier;
+        }
+        if (state->R && n64_pressed(C_Up)) {
+        	Y_SCALE_PW += scaling_modifier;
+        }
+        if (state->R && n64_pressed(C_Down)) {
+        	Y_SCALE_PW -= scaling_modifier;
+        }
 
-    		//set_x_servo_analog_pw(SERVO_NEUTRAL);
-    		//set_y_servo_analog_pw(SERVO_NEUTRAL);
-        	//printf("x: %d\ty: %d\r\n", -1, -1);
+        // on the fly tuning for the deadzone
+        if (state->Z && n64_pressed(C_Right)) {
+        	PIXY_X_DEADZONE += 1;
+        }
+        if (state->Z && n64_pressed(C_Left)) {
+        	PIXY_X_DEADZONE -= 1;
+        }
+        if (state->Z && n64_pressed(C_Up)) {
+        	PIXY_Y_DEADZONE += 1;
+        }
+        if (state->Z && n64_pressed(C_Down)) {
+        	PIXY_Y_DEADZONE -= 1;
+        }
+
+        // reset on the fly tuning
+        if (n64_pressed(Start)) {
+        	X_SCALE_PW = X_SCALE_PW_DEF;
+        	Y_SCALE_PW = Y_SCALE_PW_DEF;
+        	PIXY_X_DEADZONE = PIXY_X_DEADZONE_DEF;
+        	PIXY_Y_DEADZONE = PIXY_Y_DEADZONE_DEF;
+        }
+
+        if ( Pixy_get_target_location(&target) == -1 ) {
 
         	// TODO use a defined value
-        	use_me_carefully_ms_delay_timer(5);
+        	//use_me_carefully_ms_delay_timer(5);
         	junk_frame_count++;
 
-        	if (junk_frame_count == 20) {
+        	if (junk_frame_count == 30) {
         		//servo_do(X_SET_NEUTRAL);
         		//servo_do(Y_SET_NEUTRAL);
             	set_x_servo_analog_pw(SERVO_NEUTRAL);
