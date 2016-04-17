@@ -81,12 +81,11 @@
 #define TARGET_RAD			3 					//
 												//
 //UPDATE DELAYS///////////////////////////////////
-#define TRG_DELAY_MS 		5					//
-#define DIST_DELAY_MS		5					//
-#define SHOTS_DELAY_MS		5					//
-#define MODE_DELAY_MS		5					//
+#define TRG_DELAY_MS 		10					//
+#define DIST_DELAY_MS		10					//
+#define SHOTS_DELAY_MS		10					//
+#define MODE_DELAY_MS		10					//
 //////////////////////////////////////////////////
-//#define
 
 
 typedef struct{

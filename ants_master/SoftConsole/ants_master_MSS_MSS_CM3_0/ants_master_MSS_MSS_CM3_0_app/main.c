@@ -99,6 +99,7 @@ int main() {
     * Initialize the lcd screen
     */
     lcd_init();
+
     /*
      * Top-level control loop
      */
@@ -511,7 +512,7 @@ void lcd_init(){
     disp_init();
     set_clk(CLK_SPEED); // Only for scaling
     lcd_state.target_mode = MANUAL_MODE;
-    lcd_state.dist = (uint8_t)get_distance();
+    lcd_state.distance = (uint8_t)get_distance();
     lcd_state.target_pos = &trg;
     g_disp_update_argument.lcd_state = &lcd_state;
     lcd_last_state.target_pos = &trg;
