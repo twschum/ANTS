@@ -6,16 +6,16 @@
 //#include "n64_driver.h"
 
 //POSITIONING MACROS//////////////////////////////
-#define	TARGET_BOX_X1 		69					//
-#define TARGET_BOX_Y1		37					//
+#define	TARGET_BOX_X1 		50					//
+#define TARGET_BOX_Y1		30					//
 #define TARGET_BOX_X2		159					//
 #define	TARGET_BOX_Y2		127					//
 												//
 #define TARGET_HORZ_POS_X	78					//
-#define TARGET_HORZ_POS_Y	31					//
+#define TARGET_HORZ_POS_Y	15					//
 												//
 #define TARGET_VERT_POS_X	118					//
-#define TARGET_VERT_POS_Y	31					//
+#define TARGET_VERT_POS_Y	15					//
 												//
 //These are here to clear the positioning 		//
 //data from the screen on refresh				//
@@ -29,16 +29,16 @@
 #define N64_DBG_BOX_X2		159					//
 #define N64_DBG_BOX_Y2		0					//
 												//
-#define SHOTS_LEFT_POS_X	3					//
+#define SHOTS_LEFT_POS_X	1					//
 #define SHOTS_LEFT_POS_Y	110					//
 												//
-#define MODE_POS_X			3					//
+#define MODE_POS_X			1					//
 #define MODE_POS_Y			80					//
 												//
 #define PRESSURE_POS_X		0					//
 #define PRESSURE_POS_Y		0					//
 												//	
-#define DIST_POS_X			3					//
+#define DIST_POS_X			1					//
 #define DIST_POS_Y			50					//
 												//
 #define SET 				1 					//
@@ -56,8 +56,8 @@
 #define MANUAL_STR			"NORMAL"			//
 #define MANUAL_STR_SZ		7					//
 												//
-#define DIST_STR			"Distance:"			//
-#define DIST_STR_SZ			10					//
+#define DIST_STR			"Dist:"				//
+#define DIST_STR_SZ			6					//
 												//
 #define TARGET_HORZ_STR 	"X:"				//
 #define TARGET_HORZ_STR_SZ	3 					//
@@ -65,8 +65,15 @@
 #define TARGET_VERT_STR		"Y:"				//
 #define TARGET_VERT_STR_SZ	3 					//
 												//
-#define SHOTS_STR			"Shots:"			//
-#define SHOTS_STR_SZ		7 					//
+#define SHOTS_STR			"Chamber:"			//
+#define SHOTS_STR_SZ		9 					//
+#define SHOTS_EMPTY_STR		"CLEAR "			//
+#define SHOTS_EMPTY_STR_SZ	7					//
+#define SHOTS_LOADED_STR	"LOADED"			//
+#define SHOTS_LOADED_STR_SZ	7					//
+												//
+#define CHAMBER_LOADED		1					//
+#define CHAMBER_EMPTY		0					//
 												//
 #define CHAR_WIDTH			6 					//
 #define CHAR_HEIGHT			8 					//	
@@ -113,7 +120,7 @@ typedef struct {
 	//Pointer to the shape representing the position of the laser pointer
 	circle_t*	target_pos;
 	uint8_t 	distance;
-	uint8_t 	shots;
+	uint8_t 	chamber_status;
 	uint8_t		target_mode; 		
 } lcd_screen_state_t;
 
@@ -134,7 +141,7 @@ typedef struct{
 } upd_dist_arg_t;
 
 typedef struct{
-	uint8_t shots;
+	uint8_t chamber_status;
 } upd_shots_arg_t;
 
 typedef struct{
@@ -178,6 +185,10 @@ void disp_write_shots(void*);
 void disp_write_mode(void*);
 
 void disp_upd_finish(void*);
+
+uint8_t disp_scale_x(uint16_t);
+
+uint8_t disp_scale_y(uint16_t);
 
 //void disp_write_N64();
 

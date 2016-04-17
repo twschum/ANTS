@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -6,6 +5,7 @@
 #include "LCD.h"
 #include "timer_t.h"
 #include "debug_macros.h"
+#include "Pixy_SPI.h"
 
 void disp_init(){
 	LCD_init();
@@ -25,8 +25,8 @@ void disp_init(){
 	LCD_setPos(DIST_POS_X, DIST_POS_Y);
 	LCD_printStr(DIST_STR);
 	//Draw shots left
-	//LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
-	//LCD_printStr(SHOTS_STR);
+	LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
+	LCD_printStr(SHOTS_STR);
 	//Draw mode indicator
 	LCD_setPos(MODE_POS_X, MODE_POS_Y);
 	LCD_printStr(MODE_STR);
@@ -64,15 +64,15 @@ void disp_update(void *u_arg_v){
 	//circle_t *targ = lcd_state->target_pos;
 	//circle_t *lasttarg = last_state->target_pos;
 	//circle_t *targ = malloc(sizeof(circle_t));
-	circle_t *lasttarg = NULL;
+	//circle_t *lasttarg = NULL;
 
 	uint8_t dist 		= lcd_state->distance;
-	uint8_t shots 		= lcd_state->shots;
+	uint8_t chamber_status = lcd_state->chamber_status;
 	uint8_t mode 		= lcd_state->target_mode;
-	DBG("dist:%u, shots:%u, mode:%u", dist, shots, mode);
+	DBG("dist:%u, shots:%u, mode:%u", dist, chamber_status, mode);
 	//Guarantees a refresh without rechecking
 	uint8_t lastdist;
-	uint8_t lastshots;
+	uint8_t lastchamber;
 	uint8_t lastmode;
 
 	//upd_targ_arg_t* t_arg = NULL;
@@ -87,11 +87,11 @@ void disp_update(void *u_arg_v){
 		lasttarg = *(last_state->target_pos);
 
 		lastdist= last_state->distance;
- 		lastshots= last_state->shots;
+ 		lastchamber = last_state->chamber_status;
  		lastmode= last_state->target_mode;
 	} else { //force update
 		lastdist = dist+1;
-		lastshots = shots+1;
+		lastchamber = (chamber_status ? 0 : 1);
 		lastmode = mode+1;
 	}
 
@@ -100,16 +100,16 @@ void disp_update(void *u_arg_v){
 	//May need to change this depending on how often this function is being called
 	//t_arg = malloc(sizeof(upd_targ_arg_t));
 	if(last_state){
-		if(targ->x != lasttarg->x || targ->y != lasttarg->y){
-			t_arg->targ = targ;
-			t_arg->lasttarg = lasttarg;
-			disp_write_target(t_arg);
+		if(targ.x != lasttarg.x || targ.y != lasttarg.y){
+			t_arg.targ = &targ;
+			t_arg.lasttarg = &lasttarg;
+			disp_write_target(&t_arg);
 		}
 	}
 	else{
-		t_arg->targ = targ;
-		t_arg->lasttarg = NULL;
-		disp_write_target(t_arg);
+		t_arg.targ = &targ;
+		t_arg.lasttarg = NULL;
+		disp_write_target(&t_arg);
 	}
 	//The following functions exit as soon as the handler is added to the 
 	//list, and therefore this function may go out of scope before the LCD
@@ -121,23 +121,23 @@ void disp_update(void *u_arg_v){
 	if(dist != lastdist){ //Add to timer queue
 		DBG("adding distance update to fire in %u ms", upd_dur);
 		//d_arg = malloc(sizeof(upd_dist_arg_t));
-		d_arg->dist = dist;
+		d_arg.dist = dist;
 		add_timer_single((handler_t)disp_write_dist, &d_arg, to_ticks(upd_dur));
 		//disp_write_dist(d_arg);
 		upd_dur += DIST_DELAY_MS;
 	}
-	/\*if(shots != lastshots){
+	if(chamber_status != lastchamber){
 		DBG("adding shots update to fire in %u ms", upd_dur);
 		//s_arg = malloc(sizeof(upd_shots_arg_t));
-		s_arg->shots = shots;
+		s_arg.chamber_status = chamber_status;
 		add_timer_single((handler_t)disp_write_shots, &s_arg, to_ticks(upd_dur));
 		//disp_write_shots(shots);
 		upd_dur += SHOTS_DELAY_MS;
-	}\*\/
+	}
 	if(mode != lastmode){
 		DBG("adding mode update to fire in %u ms", upd_dur);
 		//m_arg = malloc(sizeof(upd_mode_arg_t));
-		m_arg->mode = mode;
+		m_arg.mode = mode;
 		add_timer_single((handler_t)disp_write_mode, &m_arg, to_ticks(upd_dur));
 		//disp_write_mode(mode);
 		upd_dur += MODE_DELAY_MS;
@@ -180,7 +180,7 @@ void disp_write_target(void *t_v){
 	LCD_setPos(TARGET_HORZ_POS_X + TARGET_HORZ_STR_SZ*CHAR_WIDTH, TARGET_HORZ_POS_Y);
 	//LCD_printStr(TARGET_HORZ_STR);
 	LCD_printStr(horz);
-	///Y:
+	//Y:
 	LCD_setPos(TARGET_VERT_POS_X + TARGET_VERT_STR_SZ*CHAR_WIDTH, TARGET_VERT_POS_Y);
 	//LCD_printStr(TARGET_VERT_STR);
 	LCD_printStr(vert);
@@ -189,8 +189,7 @@ void disp_write_target(void *t_v){
 	//add radius + 1 to prevent clipping with edges of target box
 	LCD_drawCircle(tx + TARGET_BOX_X1 +TARGET_RAD +1 ,ty + TARGET_BOX_Y1 + TARGET_RAD +1, TARGET_RAD, LCD_SET);
 	DBG("drawing target (%u,%u)", tx, ty);
-	//Argument is assumed to have been malloc'd
-//	free(t_v);
+
 }
 
 //This can be made more efficient:
@@ -198,18 +197,18 @@ void disp_write_target(void *t_v){
 //	for clearing the previous count
 void disp_write_shots(void *s_v){
 	upd_shots_arg_t* s = (upd_shots_arg_t*) s_v;
-
-	uint8_t shots = s->shots;
-	char num[3];
+	uint8_t status = s->chamber_status;
 	//LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
-	LCD_setPos(SHOTS_LEFT_POS_X + SHOTS_STR_SZ * CHAR_WIDTH, SHOTS_LEFT_POS_Y);
-	sprintf(num, "%02d", shots);
-	LCD_printStr(num);
-
-	DBG("writing shots %u", shots);
-
-	//Argument is assumed to have been malloc'd
-//free(s_v);
+	//Write on the next line
+	LCD_setPos(SHOTS_LEFT_POS_X + CHAR_WIDTH, SHOTS_LEFT_POS_Y - CHAR_HEIGHT);
+	if(status == CHAMBER_LOADED){
+		LCD_printStr(SHOTS_LOADED_STR);
+		//DBG("writing chamber status as %s", SHOTS_LOADED_STR);
+	}
+	else /*CHAMBER_EMPTY*/ {
+		LCD_printStr(SHOTS_EMPTY_STR);
+		//DBG("writing chamber status as %s", SHOTS_EMPTY_STR);
+	}
 }
 
 
@@ -223,12 +222,10 @@ void disp_write_dist(void *d_v){
 	uint8_t distance = d->dist;
 	char num[4];
 	//LCD_setPos(DIST_POS_X, DIST_POS_Y);
-	LCD_setPos(DIST_POS_X, DIST_POS_Y);
+	LCD_setPos(DIST_POS_X + CHAR_WIDTH, DIST_POS_Y - CHAR_HEIGHT);
 	sprintf(num, "%03d", distance);
 	LCD_printStr(num);
-	DBG("writing distance %u", distance);
-	//Argument is assumed to have been malloc'd
-//	free(d_v);
+	//DBG("writing distance %u", distance);
 }
 
 void disp_write_mode(void *m_v){
@@ -237,19 +234,13 @@ void disp_write_mode(void *m_v){
 	//redundant, for clarity
 	uint8_t mode = m->mode;
 	if(mode == AUTO_MODE){
-		//New mode is auto, erase manual
-		//LCD_eraseBlock(MODE_POS_X, MODE_POS_Y, MODE_POS_X + MANUAL_STR_SZ * CHAR_WIDTH, MODE_POS_Y - CHAR_HEIGHT);
-		LCD_setPos(MODE_POS_X +(MODE_STR_SZ-1)*CHAR_WIDTH, MODE_POS_Y);
+		LCD_setPos(MODE_POS_X + CHAR_WIDTH, MODE_POS_Y - CHAR_HEIGHT);
 		LCD_printStr(AUTO_STR);
 	} else {
-		//New mode is manual, erase auto
-		//LCD_eraseBlock(MODE_POS_X, MODE_POS_Y, MODE_POS_X + AUTO_STR_SZ * CHAR_WIDTH, MODE_POS_Y - CHAR_HEIGHT);
-		LCD_setPos(MODE_POS_X +(MODE_STR_SZ-1)*CHAR_WIDTH, MODE_POS_Y);
+		LCD_setPos(MODE_POS_X + CHAR_WIDTH, MODE_POS_Y - CHAR_HEIGHT);
 		LCD_printStr(MANUAL_STR);
 	}
 	DBG("writing mode %u", mode);
-	//Argument is assumed to have been malloc'd
-//	free(m_v);
 }
 
 //Clear the way for subsequent calls to update
@@ -258,16 +249,13 @@ void disp_upd_finish(void* u_arg_v){
 	g_disp_update_lock = 0;
 	DBG("cleaning up update");
 	//upd_disp_arg_t* u_arg = (upd_dist_arg_t*) u_arg_v;
-	//free(u_arg->lcd_state);
-	//free(u_arg->last_state);
-//	free(u_arg_v);
+
 }
 
 //It'd be a pain in the ass to do selective clearing,
 //so instead I opted to just blow away the debug box
 //every time we decide to write to it
-/*
-void disp_write_N64(n64_state_t* state){
+/*void disp_write_N64(n64_state_t* state){
 	char n64dbg[27];
 	uint8_t i = 0;
 	const char *sp = " ";
@@ -328,10 +316,10 @@ void disp_write_N64(n64_state_t* state){
     LCD_setPos(N64_DBG_BOX_X1 + 2, N64_DBG_BOX_Y1 - 3);
     LCD_printStr(n64dbg);
 
-}
+}*/
 
 
-
+/*
 	printf("A: %d  B: %d  Z: %d  Start: %d  Up: %d  Down: %d  Left: %d  Right: %d  L: %d  R: %d  C_Up: %d  C_Down: %d  C_Left: %d  C_Right: %d  X_axis: %3d  Y_axis: %3d\r\n",
         state->A,
         state->B,
@@ -350,11 +338,32 @@ void disp_write_N64(n64_state_t* state){
         state->X_axis,
         state->Y_axis
     );
-
-
 */
+
+/*
+* pixy_x will be between 0 and 319
+*/
+uint8_t disp_scale_x(uint16_t pixy_x){
+	uint8_t TARGET_X_MAX = (TARGET_BOX_X2 - TARGET_RAD - 1) - (TARGET_BOX_X1 + TARGET_RAD + 1);
+	float pixy_to_lcd = (float) TARGET_X_MAX/ (float) PIXY_X_MAX;
+	float scaled_value = (float) pixy_x * pixy_to_lcd;
+
+	//DBG("scaled x val: %d, original: %d", (uint8_t) scaled_value, pixy_x);
+	return (uint8_t) scaled_value;
+}
+
+/*
+ * pixy_t will be between 0 and 199
+ */
+uint8_t disp_scale_y(uint16_t pixy_y){
+	uint8_t TARGET_Y_MAX = (TARGET_BOX_Y2 - TARGET_RAD - 1) - (TARGET_BOX_Y1 + TARGET_RAD + 1);
+	float pixy_to_lcd = (float) TARGET_Y_MAX/ (float) PIXY_Y_MAX;
+	float scaled_value = (float) pixy_y * pixy_to_lcd;
+
+	//DBG("scaled y val: %d, original: %d", (uint8_t) scaled_value, pixy_y);
+	return (uint8_t) scaled_value;
+}
 
 void testBarebones(){
 
 }
-

@@ -29,6 +29,12 @@
 #define PIXY_X_DEADZONE 18
 #define PIXY_Y_DEADZONE 16
 
+//Min and max values for PIXY x and y coordinates
+#define PIXY_X_MAX 		319
+#define PIXY_Y_MAX 		199
+#define PIXY_X_MIN		0
+#define PIXY_X_MIN		0
+
 // data types
 typedef enum {
     NORMAL_BLOCK,
