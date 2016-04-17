@@ -32,8 +32,9 @@ void lights_init() {
 void lights_set(uint8_t pattern) {
 
 	printf("Lights set: 0x%x\r\n", pattern);
+	printf("bit0:%d\tbit1:%d\tbit2:%d\t\r\n",0x01 & pattern,((0x02 & pattern)>>1),((0x04 & pattern)>>2));
     MSS_GPIO_set_output(MSS_GPIO_4, (0x01 & pattern)); // lsb
-    MSS_GPIO_set_output(MSS_GPIO_5, (0x02 & pattern));
-    MSS_GPIO_set_output(MSS_GPIO_6, (0x04 & pattern)); // msp
+    MSS_GPIO_set_output(MSS_GPIO_5, (((0x02 & pattern)>>1)));
+    MSS_GPIO_set_output(MSS_GPIO_6, (((0x04 & pattern)>>2))); // msp
 }
 

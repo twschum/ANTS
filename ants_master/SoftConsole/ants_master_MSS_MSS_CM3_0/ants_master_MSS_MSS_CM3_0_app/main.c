@@ -103,8 +103,8 @@ int main() {
     lcd_state.target_mode = MANUAL_MODE;
     g_disp_update_argument.lcd_state = &lcd_state;
     g_disp_update_argument.last_state = NULL;
-    disp_update((void*)&g_disp_update_argument);
-    start_hardware_timer();
+//    disp_update((void*)&g_disp_update_argument);
+//    start_hardware_timer();
     while (1) {
 
         n64_get_state( &n64_buttons );
@@ -232,7 +232,6 @@ void _fire_dart() {
 
 	lights_set(LIGHTS_FIRING);
 	trigger_solenoid_activate(TRIGGER_DURATION);
-	lights_set(LIGHTS_RELOADING);
     _reload_motion();
 
     // Safer single-shot mode
@@ -262,7 +261,7 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
     if (g_live_fire_enabled && n64_pressed(Z)) {
         printf("Z pressed, activating trigger solenoid\r\n");
 		_fire_dart();
-		speaker_play(SHOT_FIRED_MANUAL);
+		//speaker_play(SHOT_FIRED_MANUAL);
     }
 
     /* DISABLED FOR EXPO
@@ -384,7 +383,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     lcd_state.target_mode = MANUAL_MODE;
     
-    speaker_play(BEGIN_AUTO);
+    //speaker_play(BEGIN_AUTO);
     while (active) {
 
         if ( Pixy_get_target_location(&target) == -1 ) {
@@ -476,7 +475,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	disp_update((void*)&g_disp_update_argument);
         	start_hardware_timer();
         	// spin lock until screen finishes updating
-        	while (g_disp_update_lock) {}
+        	//while (g_disp_update_lock) {}
 
         	// fire a dart, then exit the loop after getting n64 state
         	if ((x_on_target > ON_TARGET_FRAMES) && (y_on_target > ON_TARGET_FRAMES)) {
@@ -502,7 +501,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     }
     lcd_state.target_mode = MANUAL_MODE;
     
-    speaker_play(END_AUTO);
+    //speaker_play(END_AUTO);
 
     // shut off the laser
     //MSS_GPIO_set_output(MSS_GPIO_0, 0);

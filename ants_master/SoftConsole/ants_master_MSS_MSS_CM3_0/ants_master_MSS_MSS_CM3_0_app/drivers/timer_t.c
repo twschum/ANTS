@@ -164,7 +164,7 @@ struct Handler* update_timers(void) {
 }
 
 // dumb delay timer callback lock
-uint8_t delay_timer_lock;
+volatile uint8_t delay_timer_lock;
 void _end_delay_timer(void* null_arg) {
 	DBG("unlocking");
 	delay_timer_lock = 0;
