@@ -42,11 +42,12 @@ static upd_mode_arg_t m_arg;
 
 void disp_update(void *u_arg_v){
 	upd_disp_arg_t *u_arg_global = (upd_disp_arg_t*) u_arg_v;
-	if(g_disp_update_lock || u_arg_v == NULL){//This will probably drop some updates, and idgaf
+	if(g_disp_update_lock || u_arg_v == NULL 
+		||u_arg_global->lcd_state == NULL || u_arg_global->last_state == NULL){//This will probably drop some updates, and idgaf
 		//free(u_arg_global->lcd_state);
 		//if(u_arg_global->last_state)
 		//	free(u_arg_global->last_state);
-		DBG("screen is already updating, current update dropped");
+		DBG("upd in progress or arg is NULL");
 	//	free(u_arg_v);
 		return; //add frees
 	}

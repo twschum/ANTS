@@ -41,6 +41,8 @@ void do_manual_reload(n64_state_t* state, n64_state_t* last_state);
 void _reload_motion();
 void _fire_dart();
 
+void update_last_screen_state();
+
 static uint8_t g_live_fire_enabled = 0;
 
 static lcd_screen_state_t lcd_state;
@@ -94,17 +96,13 @@ int main() {
     speaker_init();
 
     /*
+    * Initialize the lcd screen
+    */
+    lcd_init();
+    /*
      * Top-level control loop
      */
     printf("A.N.T.S. 3000, ready for action!\r\n");
-
-    disp_init();
-    set_clk(CLK_SPEED); // Only for scaling
-    lcd_state.target_mode = MANUAL_MODE;
-    g_disp_update_argument.lcd_state = &lcd_state;
-    g_disp_update_argument.last_state = NULL;
-    disp_update((void*)&g_disp_update_argument);
-    start_hardware_timer();
     while (1) {
 
         n64_get_state( &n64_buttons );
@@ -119,6 +117,8 @@ int main() {
 
         do_manual_reload( &n64_buttons, &last_buttons );
 
+        update_last_screen_state();
+        disp_update(&g_disp_update_argument);
 
         if (PRINT_N64_STATE) {
             n64_print_state( &n64_buttons );
@@ -471,10 +471,10 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	trg.x = disp_scale_x(target.x);
         	trg.y = disp_scale_y(target.y);
         	lcd_state.target_pos = &trg;
-        	lcd_last_state.target_pos = &lasttrg;
         	disp_update((void*)&g_disp_update_argument);
         	start_hardware_timer();
-        	// spin lock until screen finishes updating
+        	update_last_screen_state();
+            // spin lock until screen finishes updating
         	//while (g_disp_update_lock) {}
 
         	// fire a dart, then exit the loop after getting n64 state
@@ -505,4 +505,23 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     // shut off the laser
     //MSS_GPIO_set_output(MSS_GPIO_0, 0);
+}
+
+void lcd_init(){
+    disp_init();
+    set_clk(CLK_SPEED); // Only for scaling
+    lcd_state.target_mode = MANUAL_MODE;
+    lcd_state.dist = (uint8_t)get_distance();
+    lcd_state.target_pos = &trg;
+    g_disp_update_argument.lcd_state = &lcd_state;
+    lcd_last_state.target_pos = &trg;
+    g_disp_update_argument.last_state = &lcd_last_state;
+    disp_update((void*)&g_disp_update_argument);
+    start_hardware_timer();
+}
+
+void update_last_screen_state(){
+    lcd_last_state = lcd_state;
+    lcd_last_state.target_pos = &lasttrg;
+    lasttrg=trg;
 }
