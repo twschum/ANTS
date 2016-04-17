@@ -17,7 +17,8 @@ main.d main.o: ../main.c \
  C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform/drivers/mss_ace/../../drivers_config/mss_ace/ace_config.h \
  ../drivers/sound/target_aquired.h ../drivers/sound/on_fire.h \
  ../drivers/sound/provoked.h ../drivers/sound/good_shot.h \
- ../drivers/sound/well_done.h ../drivers/timer_t.h
+ ../drivers/sound/well_done.h ../drivers/timer_t.h \
+ ../drivers/led_interface.h
 
 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform/drivers/mss_gpio/mss_gpio.h:
 
@@ -66,3 +67,5 @@ C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\an
 ../drivers/sound/well_done.h:
 
 ../drivers/timer_t.h:
+
+../drivers/led_interface.h:

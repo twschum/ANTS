@@ -10,6 +10,7 @@
 #include "drivers/Pixy_SPI.h"
 #include "drivers/sound/speaker_driver.h"
 #include "drivers/timer_t.h"
+#include "drivers/led_interface.h"
 //#include "drivers/stats_display.h"
 
 #define PRINT_N64_STATE 0
@@ -95,7 +96,11 @@ int main() {
     // to center y
     //_reload_motion();
 
-    printf("A.N.T.S. 3000, ready for action!\r\n");
+    /*
+     * Lights initialization
+     */
+    lights_init();
+    lights_set(LIGHTS_IDLE);
 
     /*
      * Pixy initalization
@@ -105,6 +110,7 @@ int main() {
     /*
      * Top-level control loop
      */
+    printf("A.N.T.S. 3000, ready for action!\r\n");
     while (1) {
 
         n64_get_state( &n64_buttons );
@@ -136,10 +142,12 @@ void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state) {
 	// This global only gets set here, read anywhere, cleared after firing (not repeat mode)
 	if ( !g_live_fire_enabled && n64_released(Start)) {
 		g_live_fire_enabled = 1;
+		lights_set(LIGHTS_SAFETY_OFF);
 		printf("DANGER ZONE: Live-fire enabled.\r\n");
 	}
 	else if (g_live_fire_enabled && n64_released(Start)) {
 		g_live_fire_enabled = 0;
+		lights_set(LIGHTS_IDLE);
 		printf("Live-fire disabled.\r\n");
 	}
 }
@@ -166,9 +174,11 @@ void do_manual_reload(n64_state_t* state, n64_state_t* last_state) {
 			use_me_carefully_ms_delay_timer(x_return_time - y_return_time);
 			servo_do(X_SET_NEUTRAL);
 			in_reload_position = 0;
+			lights_set(LIGHTS_IDLE);
 		}
 		else {
 			in_reload_position = 1;
+			lights_set(LIGHTS_RELOADING);
 			// go to down left limit
 			set_x_servo_analog_pw(185000);
 			set_y_servo_analog_pw(SERVO_HALF_FORWARD);
@@ -211,13 +221,19 @@ void _fire_dart() {
 		return;
 	}
 
+	lights_set(LIGHTS_FIRING);
 	trigger_solenoid_activate(TRIGGER_DURATION);
+	lights_set(LIGHTS_RELOADING);
     _reload_motion();
 
     // Safer single-shot mode
     if ( ! REPEATED_FIRING_MODE) {
     	g_live_fire_enabled = 0;
+    	lights_set(LIGHTS_IDLE);
     	printf("Live-fire disabled.\r\n");
+    }
+    else {
+    	lights_set(LIGHTS_SAFETY_OFF);
     }
 }
 
@@ -307,7 +323,7 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 		set_x_servo_analog_pw(analog_pwm_vals.x_pwm);
 		set_y_servo_analog_pw(analog_pwm_vals.y_pwm);
     }
-  /*  disp_update((void*)&g_disp_update_argument); */
+  /*  disp_update((void*)&g_disp_update_argument);*/
     start_hardware_timer();
 }
 
@@ -340,6 +356,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     /*lcd_state.target_mode = AUTO_MODE;*/
 
     printf("Beginning automated seek-and-destroy!\r\n");
+    lights_set(LIGHTS_AUTO_MODE);
 
     // just a good idea
     servo_do(X_SET_NEUTRAL);
@@ -467,6 +484,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
             servo_do(Y_SET_NEUTRAL);
             g_live_fire_enabled = 0;
             printf("Aborting seek-and-destroy & disabling live-fire\r\n");
+            lights_set(LIGHTS_IDLE);
         }
 
         *last_state = *state;
