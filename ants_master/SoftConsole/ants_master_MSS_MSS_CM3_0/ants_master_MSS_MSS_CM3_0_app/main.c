@@ -11,13 +11,14 @@
 #include "drivers/sound/speaker_driver.h"
 #include "drivers/timer_t.h"
 #include "drivers/led_interface.h"
-//#include "drivers/stats_display.h"
+#include "drivers/stats_display.h"
 
 #define PRINT_N64_STATE 0
 
 // Use these to distinguish between rapid-fire and
 // the safer single fire mode
-#define REPEATED_FIRING_MODE 0
+//#define REPEATED_FIRING_MODE 0
+uint8_t REPEATED_FIRING_MODE = 0;
 
 #define DISPLAY_UPDATE_MS 30//ms
 #define CLK_SPEED 100000000//hz
@@ -28,9 +29,9 @@
 #define N64_LAST_STATE_PTR last_state
 #define n64_pressed(BUTTON)  (N64_STATE_PTR->BUTTON && !N64_LAST_STATE_PTR->BUTTON)
 #define n64_released(BUTTON)  (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->BUTTON)
-/*
+
 upd_disp_arg_t g_disp_update_argument;
-*/
+
 // make all do_ functions take the n64 args as defined to use the button macro!
 void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state);
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
@@ -41,12 +42,11 @@ void _reload_motion();
 void _fire_dart();
 
 static uint8_t g_live_fire_enabled = 0;
-/*
+
 static lcd_screen_state_t lcd_state;
 static lcd_screen_state_t lcd_last_state;
 static circle_t trg;
 static circle_t lasttrg;
-*/
 
 int main() {
 
@@ -77,8 +77,6 @@ int main() {
      * Initialize display and refresh timer
      */
 
-    disp_init();
-    set_clk(CLK_SPEED); // Only for scaling
 
     // to center y
     //_reload_motion();
@@ -93,11 +91,20 @@ int main() {
      * Pixy initalization
      */
     Pixy_init();
+    speaker_init();
 
     /*
      * Top-level control loop
      */
     printf("A.N.T.S. 3000, ready for action!\r\n");
+
+    disp_init();
+    set_clk(CLK_SPEED); // Only for scaling
+    lcd_state.target_mode = MANUAL_MODE;
+    g_disp_update_argument.lcd_state = &lcd_state;
+    g_disp_update_argument.last_state = NULL;
+    disp_update((void*)&g_disp_update_argument);
+    start_hardware_timer();
     while (1) {
 
         n64_get_state( &n64_buttons );
@@ -137,6 +144,16 @@ void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state) {
 		lights_set(LIGHTS_IDLE);
 		printf("Live-fire disabled.\r\n");
 	}
+
+	// FOR VIDEO ONLY
+	if (n64_pressed(C_Left)) {
+		if (REPEATED_FIRING_MODE) {
+			REPEATED_FIRING_MODE = 0;
+		}
+		else {
+			REPEATED_FIRING_MODE = 1;
+		}
+	}
 }
 
 /*
@@ -149,11 +166,12 @@ void do_manual_reload(n64_state_t* state, n64_state_t* last_state) {
 
 	// From testing
 	static uint32_t x_return_time = 360;
-	static uint32_t y_return_time = 255;
+	static uint32_t y_return_time = 250;
 
 	if (n64_pressed(A)) {
 
 		if (in_reload_position) {
+			lcd_state.chamber_status = CHAMBER_LOADED;
 		    set_y_servo_analog_pw(SERVO_HALF_REVERSE);
 		    set_x_servo_analog_pw(SERVO_HALF_REVERSE);
 		    use_me_carefully_ms_delay_timer(y_return_time);
@@ -208,6 +226,10 @@ void _fire_dart() {
 		return;
 	}
 
+	lcd_state.chamber_status = CHAMBER_EMPTY;
+	disp_update((void*)&g_disp_update_argument);
+	start_hardware_timer();
+
 	lights_set(LIGHTS_FIRING);
 	trigger_solenoid_activate(TRIGGER_DURATION);
 	lights_set(LIGHTS_RELOADING);
@@ -240,6 +262,7 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
     if (g_live_fire_enabled && n64_pressed(Z)) {
         printf("Z pressed, activating trigger solenoid\r\n");
 		_fire_dart();
+		speaker_play(SHOT_FIRED_MANUAL);
     }
 
     /* DISABLED FOR EXPO
@@ -361,6 +384,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     lcd_state.target_mode = MANUAL_MODE;
     
+    speaker_play(BEGIN_AUTO);
     while (active) {
 
         if ( Pixy_get_target_location(&target) == -1 ) {
@@ -445,10 +469,10 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
         	// Update the display
         	//start_hardware_timer();
-        	trg.x = target.x;
-        	trg.y = target.y;
+        	trg.x = disp_scale_x(target.x);
+        	trg.y = disp_scale_y(target.y);
         	lcd_state.target_pos = &trg;
-        	
+        	lcd_last_state.target_pos = &lasttrg;
         	disp_update((void*)&g_disp_update_argument);
         	start_hardware_timer();
         	// spin lock until screen finishes updating
@@ -463,7 +487,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         		active = 0;
         	}
         }
-
+		lasttrg = trg;
         if (n64_pressed(B)) {
             active = 0;
             servo_do(X_SET_NEUTRAL);
@@ -478,6 +502,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     }
     lcd_state.target_mode = MANUAL_MODE;
     
+    speaker_play(END_AUTO);
+
     // shut off the laser
     //MSS_GPIO_set_output(MSS_GPIO_0, 0);
 }

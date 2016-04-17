@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Apr 14 00:39:43 2016
+// Created by SmartDesign Sun Apr 17 16:51:57 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -20,6 +20,9 @@ module ants_master_MSS(
     FAB_CLK,
     GPIO_0_OUT,
     GPIO_1_OUT,
+    GPIO_4_OUT,
+    GPIO_5_OUT,
+    GPIO_6_OUT,
     M2F_RESET_N,
     MSSPADDR,
     MSSPENABLE,
@@ -52,6 +55,9 @@ input         VAREF0;
 output        FAB_CLK;
 output        GPIO_0_OUT;
 output        GPIO_1_OUT;
+output        GPIO_4_OUT;
+output        GPIO_5_OUT;
+output        GPIO_6_OUT;
 output        M2F_RESET_N;
 output [19:0] MSSPADDR;
 output        MSSPENABLE;
@@ -72,6 +78,9 @@ inout         SPI_1_SS;
 //--------------------------------------------------------------------
 wire          GPIO_0_OUT_net_0;
 wire          GPIO_1_OUT_net_0;
+wire          GPIO_4_OUT_net_0;
+wire          GPIO_5_OUT_net_0;
+wire          GPIO_6_OUT_net_0;
 wire          MSS_ACE_0_SDD0_D;
 wire          MSS_ACE_0_VAREF0_Y;
 wire          MSS_ADLIB_INST_EMCCLK;
@@ -82,6 +91,9 @@ wire          MSS_ADLIB_INST_PLLLOCK;
 wire          MSS_ADLIB_INST_SYNCCLKFDBK;
 wire   [0:0]  MSS_GPIO_0_GPIO_0_OUT_D;
 wire   [1:1]  MSS_GPIO_0_GPIO_1_OUT_D;
+wire   [4:4]  MSS_GPIO_0_GPIO_4_OUT_D;
+wire   [5:5]  MSS_GPIO_0_GPIO_5_OUT_D;
+wire   [6:6]  MSS_GPIO_0_GPIO_6_OUT_D;
 wire          MSS_RESET_0_MSS_RESET_N_Y;
 wire          MSS_RESET_N;
 wire          MSS_SPI_1_CLK_D;
@@ -126,6 +138,9 @@ wire          UART_0_TXD_net_1;
 wire          UART_1_TXD_net_1;
 wire          SPI_1_DO_net_1;
 wire          SDD_0_net_1;
+wire          GPIO_6_OUT_net_1;
+wire          GPIO_5_OUT_net_1;
+wire          GPIO_4_OUT_net_1;
 wire          GPIO_1_OUT_net_1;
 wire          GPIO_0_OUT_net_1;
 wire   [31:0] GPO_net_0;
@@ -179,6 +194,12 @@ assign SPI_1_DO_net_1                   = SPI_1_DO_net_0;
 assign SPI_1_DO                         = SPI_1_DO_net_1;
 assign SDD_0_net_1                      = SDD_0_net_0;
 assign SDD_0                            = SDD_0_net_1;
+assign GPIO_6_OUT_net_1                 = GPIO_6_OUT_net_0;
+assign GPIO_6_OUT                       = GPIO_6_OUT_net_1;
+assign GPIO_5_OUT_net_1                 = GPIO_5_OUT_net_0;
+assign GPIO_5_OUT                       = GPIO_5_OUT_net_1;
+assign GPIO_4_OUT_net_1                 = GPIO_4_OUT_net_0;
+assign GPIO_4_OUT                       = GPIO_4_OUT_net_1;
 assign GPIO_1_OUT_net_1                 = GPIO_1_OUT_net_0;
 assign GPIO_1_OUT                       = GPIO_1_OUT_net_1;
 assign GPIO_0_OUT_net_1                 = GPIO_0_OUT_net_0;
@@ -188,6 +209,9 @@ assign GPIO_0_OUT                       = GPIO_0_OUT_net_1;
 //--------------------------------------------------------------------
 assign MSS_GPIO_0_GPIO_0_OUT_D[0] = GPO_net_0[0:0];
 assign MSS_GPIO_0_GPIO_1_OUT_D[1] = GPO_net_0[1:1];
+assign MSS_GPIO_0_GPIO_4_OUT_D[4] = GPO_net_0[4:4];
+assign MSS_GPIO_0_GPIO_5_OUT_D[5] = GPO_net_0[5:5];
+assign MSS_GPIO_0_GPIO_6_OUT_D[6] = GPO_net_0[6:6];
 assign MSS_SPI_1_SS_D[0]          = SPI1SSO_net_0[0:0];
 //--------------------------------------------------------------------
 // Component instances
@@ -488,6 +512,39 @@ MSS_GPIO_0_GPIO_1_OUT(
         .D   ( MSS_GPIO_0_GPIO_1_OUT_D ),
         // Outputs
         .PAD ( GPIO_1_OUT_net_0 ) 
+        );
+
+//--------OUTBUF_MSS
+OUTBUF_MSS #( 
+        .ACT_CONFIG ( 0 ),
+        .ACT_PIN    ( "AA1" ) )
+MSS_GPIO_0_GPIO_4_OUT(
+        // Inputs
+        .D   ( MSS_GPIO_0_GPIO_4_OUT_D ),
+        // Outputs
+        .PAD ( GPIO_4_OUT_net_0 ) 
+        );
+
+//--------OUTBUF_MSS
+OUTBUF_MSS #( 
+        .ACT_CONFIG ( 0 ),
+        .ACT_PIN    ( "U2" ) )
+MSS_GPIO_0_GPIO_5_OUT(
+        // Inputs
+        .D   ( MSS_GPIO_0_GPIO_5_OUT_D ),
+        // Outputs
+        .PAD ( GPIO_5_OUT_net_0 ) 
+        );
+
+//--------OUTBUF_MSS
+OUTBUF_MSS #( 
+        .ACT_CONFIG ( 0 ),
+        .ACT_PIN    ( "V2" ) )
+MSS_GPIO_0_GPIO_6_OUT(
+        // Inputs
+        .D   ( MSS_GPIO_0_GPIO_6_OUT_D ),
+        // Outputs
+        .PAD ( GPIO_6_OUT_net_0 ) 
         );
 
 //--------INBUF_MSS

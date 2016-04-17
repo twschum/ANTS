@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timeStamp 2016 4 17 12 14 42)
+      (timeStamp 2016 4 17 16 52 27)
       (author "Synopsys, Inc.")
       (program "Synplify Pro" (version "I-2014.03M-SP1, mapper mapact, Build 1346R"))
      )
@@ -16370,6 +16370,9 @@
            (port SPI_1_DI (direction INPUT))
            (port SPI_1_CLK (direction INOUT))
            (port MSS_RESET_N (direction INPUT))
+           (port GPIO_6_OUT (direction OUTPUT))
+           (port GPIO_5_OUT (direction OUTPUT))
+           (port GPIO_4_OUT (direction OUTPUT))
            (port GPIO_1_OUT (direction OUTPUT))
            (port GPIO_0_OUT (direction OUTPUT))
            (port FAB_CLK (direction OUTPUT))
@@ -16457,6 +16460,21 @@
            (property is_instantiated (integer 1))
            (property ACT_CONFIG (integer 0))
            (property ACT_PIN (string "R1"))
+          )
+          (instance MSS_GPIO_0_GPIO_6_OUT (viewRef prim (cellRef OUTBUF_MSS (libraryRef smartfusion)))
+           (property is_instantiated (integer 1))
+           (property ACT_CONFIG (integer 0))
+           (property ACT_PIN (string "V2"))
+          )
+          (instance MSS_GPIO_0_GPIO_5_OUT (viewRef prim (cellRef OUTBUF_MSS (libraryRef smartfusion)))
+           (property is_instantiated (integer 1))
+           (property ACT_CONFIG (integer 0))
+           (property ACT_PIN (string "U2"))
+          )
+          (instance MSS_GPIO_0_GPIO_4_OUT (viewRef prim (cellRef OUTBUF_MSS (libraryRef smartfusion)))
+           (property is_instantiated (integer 1))
+           (property ACT_CONFIG (integer 0))
+           (property ACT_PIN (string "AA1"))
           )
           (instance MSS_GPIO_0_GPIO_1_OUT (viewRef prim (cellRef OUTBUF_MSS (libraryRef smartfusion)))
            (property is_instantiated (integer 1))
@@ -16598,6 +16616,30 @@
           (net MSS_RESET_N (joined
            (portRef MSS_RESET_N)
            (portRef PAD (instanceRef MSS_RESET_0_MSS_RESET_N))
+          ))
+          (net GPIO_6_OUT (joined
+           (portRef PAD (instanceRef MSS_GPIO_0_GPIO_6_OUT))
+           (portRef GPIO_6_OUT)
+          ))
+          (net (rename GPO_net_0_6 "GPO_net_0[6]") (joined
+           (portRef (member gpo 25) (instanceRef MSS_ADLIB_INST))
+           (portRef D (instanceRef MSS_GPIO_0_GPIO_6_OUT))
+          ))
+          (net GPIO_5_OUT (joined
+           (portRef PAD (instanceRef MSS_GPIO_0_GPIO_5_OUT))
+           (portRef GPIO_5_OUT)
+          ))
+          (net (rename GPO_net_0_5 "GPO_net_0[5]") (joined
+           (portRef (member gpo 26) (instanceRef MSS_ADLIB_INST))
+           (portRef D (instanceRef MSS_GPIO_0_GPIO_5_OUT))
+          ))
+          (net GPIO_4_OUT (joined
+           (portRef PAD (instanceRef MSS_GPIO_0_GPIO_4_OUT))
+           (portRef GPIO_4_OUT)
+          ))
+          (net (rename GPO_net_0_4 "GPO_net_0[4]") (joined
+           (portRef (member gpo 27) (instanceRef MSS_ADLIB_INST))
+           (portRef D (instanceRef MSS_GPIO_0_GPIO_4_OUT))
           ))
           (net GPIO_1_OUT (joined
            (portRef PAD (instanceRef MSS_GPIO_0_GPIO_1_OUT))
@@ -17316,15 +17358,6 @@
           (net (rename GPO_net_0_3 "GPO_net_0[3]") (joined
            (portRef (member gpo 28) (instanceRef MSS_ADLIB_INST))
           ))
-          (net (rename GPO_net_0_4 "GPO_net_0[4]") (joined
-           (portRef (member gpo 27) (instanceRef MSS_ADLIB_INST))
-          ))
-          (net (rename GPO_net_0_5 "GPO_net_0[5]") (joined
-           (portRef (member gpo 26) (instanceRef MSS_ADLIB_INST))
-          ))
-          (net (rename GPO_net_0_6 "GPO_net_0[6]") (joined
-           (portRef (member gpo 25) (instanceRef MSS_ADLIB_INST))
-          ))
           (net (rename GPO_net_0_7 "GPO_net_0[7]") (joined
            (portRef (member gpo 24) (instanceRef MSS_ADLIB_INST))
           ))
@@ -18013,6 +18046,9 @@
            (port (array (rename stop_y "stop_y[1:0]") 2) (direction INPUT))
            (port GPIO_0_OUT (direction OUTPUT))
            (port GPIO_1_OUT (direction OUTPUT))
+           (port GPIO_4_OUT (direction OUTPUT))
+           (port GPIO_5_OUT (direction OUTPUT))
+           (port GPIO_6_OUT (direction OUTPUT))
            (port SDD_0 (direction OUTPUT))
            (port SPI_1_DO (direction OUTPUT))
            (port UART_0_TXD (direction OUTPUT))
@@ -18117,6 +18153,18 @@
           (net GPIO_1_OUT (joined
            (portRef GPIO_1_OUT (instanceRef ants_master_MSS_0))
            (portRef GPIO_1_OUT)
+          ))
+          (net GPIO_4_OUT (joined
+           (portRef GPIO_4_OUT (instanceRef ants_master_MSS_0))
+           (portRef GPIO_4_OUT)
+          ))
+          (net GPIO_5_OUT (joined
+           (portRef GPIO_5_OUT (instanceRef ants_master_MSS_0))
+           (portRef GPIO_5_OUT)
+          ))
+          (net GPIO_6_OUT (joined
+           (portRef GPIO_6_OUT (instanceRef ants_master_MSS_0))
+           (portRef GPIO_6_OUT)
           ))
           (net SDD_0 (joined
            (portRef SDD_0 (instanceRef ants_master_MSS_0))

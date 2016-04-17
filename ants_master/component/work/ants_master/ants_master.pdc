@@ -3,7 +3,7 @@
 
 # Version: v11.5 SP3 11.5.3.10
 # Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
-# Date generated: Sat Apr 16 09:56:24 2016 
+# Date generated: Sun Apr 17 16:52:00 2016 
 
 
 # 
@@ -38,73 +38,34 @@ define_group -name SPI_1_PADs
 # Dedicated Peripheral I/O Settings
 # 
 
+# User Group SPI_1_PADs
+
+set_io SPI_1_CLK            \
+    -GROUP_NAME SPI_1_PADs  \
+    -DIRECTION INOUT
+
+
+set_io SPI_1_DI             \
+    -GROUP_NAME SPI_1_PADs  \
+    -DIRECTION INPUT
+
+
+set_io SPI_1_DO             \
+    -GROUP_NAME SPI_1_PADs  \
+    -DIRECTION OUTPUT
+
+
+set_io SPI_1_SS             \
+    -GROUP_NAME SPI_1_PADs  \
+    -DIRECTION INOUT
+
+
 
 # 
 # Unlocked I/O settings
 # The I/Os in this section are unplaced or placed but are not locked
 # the other listed attributes have been applied
 # 
-
-set_io GPIO_0_OUT      \
-    -iostd LVTTL       \
-    -DIRECTION OUTPUT
-
-
-set_io GPIO_1_OUT      \
-    -iostd LVTTL       \
-    -DIRECTION OUTPUT
-
-
-set_io MSS_RESET_N    \
-    -iostd LVTTL      \
-    -DIRECTION INPUT
-
-
-set_io UART_0_RXD     \
-    -iostd LVTTL      \
-    -DIRECTION INPUT
-
-
-set_io UART_0_TXD      \
-    -iostd LVTTL       \
-    -DIRECTION OUTPUT
-
-
-set_io UART_1_RXD     \
-    -iostd LVTTL      \
-    -DIRECTION INPUT
-
-
-set_io UART_1_TXD      \
-    -iostd LVTTL       \
-    -DIRECTION OUTPUT
-
-
-# User Group SPI_1_PADs
-
-set_io SPI_1_CLK            \
-    -iostd LVTTL            \
-    -GROUP_NAME SPI_1_PADs  \
-    -DIRECTION INOUT
-
-
-set_io SPI_1_DI             \
-    -iostd LVTTL            \
-    -GROUP_NAME SPI_1_PADs  \
-    -DIRECTION INPUT
-
-
-set_io SPI_1_DO             \
-    -iostd LVTTL            \
-    -GROUP_NAME SPI_1_PADs  \
-    -DIRECTION OUTPUT
-
-
-set_io SPI_1_SS             \
-    -iostd LVTTL            \
-    -GROUP_NAME SPI_1_PADs  \
-    -DIRECTION INOUT
-
 
 
 #
@@ -127,3 +88,7 @@ set_io SPI_1_SS             \
 # set_io SPI_1_DI -iostd LVTTL -GROUP_NAME SPI_1_PADs -DIRECTION INPUT 
 # set_io SPI_1_DO -iostd LVTTL -GROUP_NAME SPI_1_PADs -DIRECTION OUTPUT 
 # set_io SPI_1_SS -iostd LVTTL -GROUP_NAME SPI_1_PADs -DIRECTION INOUT 
+# set_io SPI_1_CLK -GROUP_NAME SPI_1_PADs -DIRECTION INOUT 
+# set_io SPI_1_DI -GROUP_NAME SPI_1_PADs -DIRECTION INPUT 
+# set_io SPI_1_DO -GROUP_NAME SPI_1_PADs -DIRECTION OUTPUT 
+# set_io SPI_1_SS -GROUP_NAME SPI_1_PADs -DIRECTION INOUT 
