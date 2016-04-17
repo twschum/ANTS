@@ -19,7 +19,7 @@
 
 void lights_init() {
 
-    MSS_GPIO_init();
+    //MSS_GPIO_init();
     MSS_GPIO_config(MSS_GPIO_4, MSS_GPIO_OUTPUT_MODE);
     MSS_GPIO_config(MSS_GPIO_5, MSS_GPIO_OUTPUT_MODE);
     MSS_GPIO_config(MSS_GPIO_6, MSS_GPIO_OUTPUT_MODE);

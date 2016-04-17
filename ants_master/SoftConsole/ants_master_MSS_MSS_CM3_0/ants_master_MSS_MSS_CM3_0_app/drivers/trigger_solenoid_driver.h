@@ -12,7 +12,7 @@
 #define AFTER_FIRING_DELAY 500
 
 void trigger_solenoid_pin_init() {
-    MSS_GPIO_init();
+    //MSS_GPIO_init();
     MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE);
     MSS_GPIO_set_output(MSS_GPIO_1, 0);
 }
