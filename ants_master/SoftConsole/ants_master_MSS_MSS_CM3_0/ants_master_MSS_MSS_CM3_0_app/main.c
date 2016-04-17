@@ -10,7 +10,7 @@
 #include "drivers/Pixy_SPI.h"
 #include "drivers/sound/speaker_driver.h"
 #include "drivers/timer_t.h"
-#include "drivers/stats_display.h"
+//#include "drivers/stats_display.h"
 
 #define PRINT_N64_STATE 0
 
@@ -27,9 +27,9 @@
 #define N64_LAST_STATE_PTR last_state
 #define n64_pressed(BUTTON)  (N64_STATE_PTR->BUTTON && !N64_LAST_STATE_PTR->BUTTON)
 #define n64_released(BUTTON)  (!N64_STATE_PTR->BUTTON && N64_LAST_STATE_PTR->BUTTON)
-
+/*
 upd_disp_arg_t g_disp_update_argument;
-
+*/
 // make all do_ functions take the n64 args as defined to use the button macro!
 void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state);
 void do_solenoid(n64_state_t* state, n64_state_t* last_state);
@@ -40,10 +40,13 @@ void _reload_motion();
 void _fire_dart();
 
 static uint8_t g_live_fire_enabled = 0;
+/*
 static lcd_screen_state_t lcd_state;
 static lcd_screen_state_t lcd_last_state;
 static circle_t trg;
 static circle_t lasttrg;
+*/
+
 int main() {
 
     /*
@@ -73,9 +76,9 @@ int main() {
      * Initialize display and refresh timer
      */
 
-    disp_init();
+    //disp_init();
     set_clk(CLK_SPEED); // Only for scaling
-    
+/*
     trg.r = 0;
     lcd_state.target_pos = &trg;
     lcd_state.distance = 0;
@@ -87,7 +90,7 @@ int main() {
     g_disp_update_argument.last_state = &lcd_last_state;
     //disp_update(&g_disp_update_argument);
     //add_timer_periodic(disp_update, (void*) &g_disp_update_argument, to_ticks(DISPLAY_UPDATE_MS));
-	
+*/
 
     // to center y
     //_reload_motion();
@@ -149,20 +152,37 @@ void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state) {
 void do_manual_reload(n64_state_t* state, n64_state_t* last_state) {
 	static uint8_t in_reload_position = 0;
 
-	// LCD hook to get the ammo loaded
+	// From testing
+	static uint32_t x_return_time = 360;
+	static uint32_t y_return_time = 255;
 
-	if (!n64_pressed(A)) {
-		return;
-	}
+	if (n64_pressed(A)) {
 
-	if (in_reload_position) {
-		_reload_motion();
-		in_reload_position = 0;
-	}
-	else {
-	    set_y_servo_analog_pw(SERVO_HALF_FORWARD);
-	    while (servo_r(READ_LOWER_STOP)) { }
-	    servo_do(Y_SET_NEUTRAL);
+		if (in_reload_position) {
+		    set_y_servo_analog_pw(SERVO_HALF_REVERSE);
+		    set_x_servo_analog_pw(SERVO_HALF_REVERSE);
+		    use_me_carefully_ms_delay_timer(y_return_time);
+		    servo_do(Y_SET_NEUTRAL);
+			use_me_carefully_ms_delay_timer(x_return_time - y_return_time);
+			servo_do(X_SET_NEUTRAL);
+			in_reload_position = 0;
+		}
+		else {
+			in_reload_position = 1;
+			// go to down left limit
+			set_x_servo_analog_pw(185000);
+			set_y_servo_analog_pw(SERVO_HALF_FORWARD);
+			while (servo_r(READ_LOWER_STOP) || servo_r(READ_FORWARD_STOP)) {
+				if (!servo_r(READ_LOWER_STOP)) {
+					servo_do(Y_SET_NEUTRAL);
+				}
+				if (!servo_r(READ_FORWARD_STOP)) {
+					servo_do(X_SET_NEUTRAL);
+				}
+			}
+			servo_do(X_SET_NEUTRAL);
+			servo_do(Y_SET_NEUTRAL);
+		}
 	}
 }
 
@@ -245,7 +265,7 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
  *
  */
 void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
-    lcd_state.target_mode = MANUAL_MODE; 
+    /*lcd_state.target_mode = MANUAL_MODE;*/
     // Digital Pitch control
     if (n64_pressed(Down)) {
         servo_do(Y_SET_FORWARD);
@@ -258,24 +278,24 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
     }
     else if (n64_released(Up) || n64_released(Down)) {
         servo_do(Y_SET_NEUTRAL);
-        printf("servo_do Y_SET_NEUTRAL\r\n");
+        //printf("servo_do Y_SET_NEUTRAL\r\n");
     }
 
     // Digital Yaw control
     if (n64_pressed(Left)) {
         servo_do(X_SET_FORWARD);
         //set_x_servo_analog_pw(SERVO_FULL_FORWARD);
-        printf("servo_do X_SET_FORWARD\r\n");
+        //printf("servo_do X_SET_FORWARD\r\n");
     }
     else if (n64_pressed(Right)) {
         servo_do(X_SET_REVERSE);
         //set_x_servo_analog_pw(SERVO_FULL_REVERSE);
-        printf("servo_do X_SET_REVERSE\r\n");
+        //printf("servo_do X_SET_REVERSE\r\n");
     }
     else if (n64_released(Left) || n64_released(Right)) {
         servo_do(X_SET_NEUTRAL);
         //set_x_servo_analog_pw(SERVO_NEUTRAL);
-        printf("servo_do X_SET_NEUTRAL\r\n");
+        //printf("servo_do X_SET_NEUTRAL\r\n");
     }
 
     // Analog Pitch and Yaw
@@ -287,7 +307,7 @@ void do_servos_manual(n64_state_t* state, n64_state_t* last_state) {
 		set_x_servo_analog_pw(analog_pwm_vals.x_pwm);
 		set_y_servo_analog_pw(analog_pwm_vals.y_pwm);
     }
-    disp_update((void*)&g_disp_update_argument);
+  /*  disp_update((void*)&g_disp_update_argument); */
     start_hardware_timer();
 }
 
@@ -317,7 +337,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     if ( ! g_live_fire_enabled || ! n64_pressed(R)) {
         return;
     }
-    lcd_state.target_mode = AUTO_MODE;
+    /*lcd_state.target_mode = AUTO_MODE;*/
 
     printf("Beginning automated seek-and-destroy!\r\n");
 
@@ -419,7 +439,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	// set the servos
         	set_x_servo_analog_pw(x_pw);
         	set_y_servo_analog_pw(y_pw);
-
+/*
         	// Update the display
         	//start_hardware_timer();
         	trg.x = target.x;
@@ -430,7 +450,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	start_hardware_timer();
         	// spin lock until screen finishes updating
         	while (g_disp_update_lock) {}
-			
+*/
         	// fire a dart, then exit the loop after getting n64 state
         	if ((x_on_target > ON_TARGET_FRAMES) && (y_on_target > ON_TARGET_FRAMES)) {
         		printf("Target acquired, firing!\r\n");

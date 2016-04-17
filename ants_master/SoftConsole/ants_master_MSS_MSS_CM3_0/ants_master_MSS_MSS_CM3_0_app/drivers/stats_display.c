@@ -1,3 +1,4 @@
+/*/*
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -125,14 +126,14 @@ void disp_update(void *u_arg_v){
 		//disp_write_dist(d_arg);
 		upd_dur += DIST_DELAY_MS;
 	}
-	/*if(shots != lastshots){
+	/\*if(shots != lastshots){
 		DBG("adding shots update to fire in %u ms", upd_dur);
 		//s_arg = malloc(sizeof(upd_shots_arg_t));
 		s_arg->shots = shots;
 		add_timer_single((handler_t)disp_write_shots, &s_arg, to_ticks(upd_dur));
 		//disp_write_shots(shots);
 		upd_dur += SHOTS_DELAY_MS;
-	}*/
+	}\*\/
 	if(mode != lastmode){
 		DBG("adding mode update to fire in %u ms", upd_dur);
 		//m_arg = malloc(sizeof(upd_mode_arg_t));
@@ -179,7 +180,7 @@ void disp_write_target(void *t_v){
 	LCD_setPos(TARGET_HORZ_POS_X + TARGET_HORZ_STR_SZ*CHAR_WIDTH, TARGET_HORZ_POS_Y);
 	//LCD_printStr(TARGET_HORZ_STR);
 	LCD_printStr(horz);
-	//Y:
+	///Y:
 	LCD_setPos(TARGET_VERT_POS_X + TARGET_VERT_STR_SZ*CHAR_WIDTH, TARGET_VERT_POS_Y);
 	//LCD_printStr(TARGET_VERT_STR);
 	LCD_printStr(vert);
@@ -208,7 +209,7 @@ void disp_write_shots(void *s_v){
 	DBG("writing shots %u", shots);
 
 	//Argument is assumed to have been malloc'd
-//	free(s_v);
+//free(s_v);
 }
 
 
@@ -265,7 +266,7 @@ void disp_upd_finish(void* u_arg_v){
 //It'd be a pain in the ass to do selective clearing,
 //so instead I opted to just blow away the debug box
 //every time we decide to write to it
-/*void disp_write_N64(n64_state_t* state){
+void disp_write_N64(n64_state_t* state){
 	char n64dbg[27];
 	uint8_t i = 0;
 	const char *sp = " ";
@@ -326,10 +327,10 @@ void disp_upd_finish(void* u_arg_v){
     LCD_setPos(N64_DBG_BOX_X1 + 2, N64_DBG_BOX_Y1 - 3);
     LCD_printStr(n64dbg);
 
-}*/
+}
 
 
-/*
+
 	printf("A: %d  B: %d  Z: %d  Start: %d  Up: %d  Down: %d  Left: %d  Right: %d  L: %d  R: %d  C_Up: %d  C_Down: %d  C_Left: %d  C_Right: %d  X_axis: %3d  Y_axis: %3d\r\n",
         state->A,
         state->B,
@@ -348,9 +349,10 @@ void disp_upd_finish(void* u_arg_v){
         state->X_axis,
         state->Y_axis
     );
-*/
+
 
 
 void testBarebones(){
 
 }
+*/

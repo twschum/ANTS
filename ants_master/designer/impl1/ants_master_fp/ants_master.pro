@@ -1,6 +1,6 @@
 <project name="ants_master" version="1.1">
     <ProjectDirectory>
-        C:/Users/jknudson/Desktop/373/ants_master/designer/impl1/ants_master_fp
+        C:/Users/rpokeefe/repos/373/ants_master/designer/impl1/ants_master_fp
     </ProjectDirectory>
     <View>
         SingleSTAPLView
@@ -9,17 +9,17 @@
         
     </LiberoTargetDevice>
     <LogFile>
-        C:/Users/jknudson/Desktop/373/ants_master/designer/impl1/ants_master_fp/ants_master.log
+        C:/Users/rpokeefe/repos/373/ants_master/designer/impl1/ants_master_fp/ants_master.log
     </LogFile>
     <SerializationOption>
         Skip
     </SerializationOption>
     <programmer status="enable" type="FlashPro3" revision="UndefRev" connection="usb2.0">
         <name>
-            78372
+            78819
         </name>
         <id>
-            78372
+            78819
         </id>
     </programmer>
     <configuration>
@@ -83,7 +83,7 @@
         </Hardware>
         <Algo type="PDB">
             <filename>
-                C:\Users\jknudson\Desktop\373\ants_master\designer\impl1\ants_master_fp\ants_master.pdb
+                C:\Users\rpokeefe\repos\373\ants_master\designer\impl1\ants_master_fp\ants_master.pdb
             </filename>
             <local>
                 projectData\ants_master.pdb

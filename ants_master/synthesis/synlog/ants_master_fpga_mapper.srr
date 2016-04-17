@@ -16,9 +16,9 @@ Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0
 
 Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 111MB)
 
-@W: MO111 :"c:\users\collmae\documents\github\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":64:7:64:18|Tristate driver LPXIN_CLKOUT on net LPXIN_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
-@W: MO111 :"c:\users\collmae\documents\github\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":63:7:63:20|Tristate driver MAINXIN_CLKOUT on net MAINXIN_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
-@W: MO111 :"c:\users\collmae\documents\github\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":62:7:62:18|Tristate driver RCOSC_CLKOUT on net RCOSC_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
+@W: MO111 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":64:7:64:18|Tristate driver LPXIN_CLKOUT on net LPXIN_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
+@W: MO111 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":63:7:63:20|Tristate driver MAINXIN_CLKOUT on net MAINXIN_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
+@W: MO111 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\mss_ccc_0\ants_master_mss_tmp_mss_ccc_0_mss_ccc.v":62:7:62:18|Tristate driver RCOSC_CLKOUT on net RCOSC_CLKOUT has its enable tied to GND (module ants_master_MSS_tmp_MSS_CCC_0_MSS_CCC) 
 
 Available hyper_sources - for debug and ip models
 	None Found
@@ -26,20 +26,20 @@ Available hyper_sources - for debug and ip models
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 113MB)
 
-@N:"c:\users\collmae\documents\github\373\ants_master\hdl\distance_sensor_hdl.v":72:0:72:5|Found counter in view:work._get_distance(verilog) inst next_distance_count[31:0]
-@N:"c:\users\collmae\documents\github\373\ants_master\hdl\distance_sensor_hdl.v":72:0:72:5|Found counter in view:work._get_distance(verilog) inst clk_count[31:0]
-@N: MF238 :"c:\users\collmae\documents\github\373\ants_master\hdl\n64_serial_interface.v":92:22:92:36|Found 17-bit incrementor, 'long_count_2[16:0]'
-@N:"c:\users\collmae\documents\github\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Found counter in view:work.n64_write_command(verilog) inst index[3:0]
-@W: MO161 :"c:\users\collmae\documents\github\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Register bit command_byte[0] is always 1, optimizing ...
-@N:"c:\users\collmae\documents\github\373\ants_master\hdl\n64_read_module.v":37:0:37:5|Found counter in view:work.n64_read_module(verilog) inst index[5:0]
-@N:"c:\users\collmae\documents\github\373\ants_master\hdl\n64_read_module.v":80:0:80:5|Found counter in view:work._read_bit(verilog) inst count[8:0]
-@N:"c:\users\collmae\documents\github\373\ants_master\hdl\servo_hdl.v":181:0:181:5|Found counter in view:work._tracking_servo(verilog) inst time_count[20:0]
-@N: MF179 :"c:\users\collmae\documents\github\373\ants_master\hdl\servo_hdl.v":206:13:206:28|Found 32 bit by 32 bit '<' comparator, 'un1_pw'
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\distance_sensor_hdl.v":72:0:72:5|Found counter in view:work._get_distance(verilog) inst next_distance_count[31:0]
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\distance_sensor_hdl.v":72:0:72:5|Found counter in view:work._get_distance(verilog) inst clk_count[31:0]
+@N: MF238 :"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_serial_interface.v":92:22:92:36|Found 17-bit incrementor, 'long_count_2[16:0]'
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Found counter in view:work.n64_write_command(verilog) inst index[3:0]
+@W: MO161 :"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_write_command.v":22:0:22:5|Register bit command_byte[0] is always 1, optimizing ...
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v":37:0:37:5|Found counter in view:work.n64_read_module(verilog) inst index[5:0]
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\n64_read_module.v":80:0:80:5|Found counter in view:work._read_bit(verilog) inst count[8:0]
+@N:"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":181:0:181:5|Found counter in view:work._tracking_servo(verilog) inst time_count[20:0]
+@N: MF179 :"c:\users\rpokeefe\repos\373\ants_master\hdl\servo_hdl.v":206:13:206:28|Found 32 bit by 32 bit '<' comparator, 'un1_pw'
 
-Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 118MB peak: 119MB)
+Finished factoring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 118MB peak: 119MB)
 
 
-Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 117MB peak: 119MB)
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 117MB peak: 119MB)
 
 
 Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 119MB peak: 120MB)
@@ -136,26 +136,26 @@ Clock Tree ID     Driving Element       Drive Element Type                Fanout
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######]
 
-Writing Analyst data base C:\Users\collmae\Documents\GitHub\373\ants_master\synthesis\ants_master.srm
+Writing Analyst data base C:\Users\rpokeefe\repos\373\ants_master\synthesis\ants_master.srm
 
 Finished Writing Netlist Databases (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 126MB peak: 129MB)
 
-Writing Analyst data base C:\Users\collmae\Documents\GitHub\373\ants_master\synthesis\synwork\ants_master_m.srm
+Writing Analyst data base C:\Users\rpokeefe\repos\373\ants_master\synthesis\synwork\ants_master_m.srm
 
 Finished Writing Netlist Databases (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 126MB peak: 129MB)
 
 Writing EDIF Netlist and constraint files
 I-2014.03M-SP1
 
-Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 127MB peak: 129MB)
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:03s; Memory used current: 127MB peak: 129MB)
 
-@W: MT246 :"c:\users\collmae\documents\github\373\ants_master\component\work\ants_master_mss\ants_master_mss.v":533:0:533:11|Blackbox TRIBUFF_MSS is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
+@W: MT246 :"c:\users\rpokeefe\repos\373\ants_master\component\work\ants_master_mss\ants_master_mss.v":533:0:533:11|Blackbox TRIBUFF_MSS is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
 Found clock FAB_CLK with period 10.00ns 
 Found clock FCLK with period 10.00ns 
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Sat Apr 16 10:04:27 2016
+# Timing Report written on Sun Apr 17 12:14:42 2016
 #
 
 
@@ -166,7 +166,7 @@ Requested Frequency:    100.0 MHz
 Wire load mode:         top
 Wire load model:        smartfusion
 Paths requested:        5
-Constraint File(s):    C:\Users\collmae\Documents\GitHub\373\ants_master\component\work\ants_master_MSS\mss_tshell_syn.sdc
+Constraint File(s):    C:\Users\rpokeefe\repos\373\ants_master\component\work\ants_master_MSS\mss_tshell_syn.sdc
                        
 @N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
 
@@ -979,9 +979,9 @@ Block Rams : 0 of 8 (0%)
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 51MB peak: 129MB)
+At Mapper Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:03s; Memory used current: 51MB peak: 129MB)
 
-Process took 0h:00m:05s realtime, 0h:00m:04s cputime
-# Sat Apr 16 10:04:27 2016
+Process took 0h:00m:05s realtime, 0h:00m:03s cputime
+# Sun Apr 17 12:14:42 2016
 
 ###########################################################]
