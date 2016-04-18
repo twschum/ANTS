@@ -42,6 +42,7 @@ void _reload_motion();
 void _fire_dart();
 
 void update_last_screen_state();
+void lcd_init();
 
 static uint8_t g_live_fire_enabled = 0;
 
@@ -93,7 +94,7 @@ int main() {
      * Pixy initalization
      */
     Pixy_init();
-    speaker_init();
+    //speaker_init();
 
     /*
     * Initialize the lcd screen
@@ -169,7 +170,7 @@ void do_manual_reload(n64_state_t* state, n64_state_t* last_state) {
 	static uint32_t x_return_time = 360;
 	static uint32_t y_return_time = 250;
 
-	if (n64_pressed(B)) {
+	if (n64_pressed(B) && !g_live_fire_enabled) {
 
 		if (in_reload_position) {
 			lcd_state.chamber_status = CHAMBER_LOADED;
@@ -262,7 +263,7 @@ void do_solenoid(n64_state_t* state, n64_state_t* last_state) {
     if (g_live_fire_enabled && n64_pressed(Z)) {
         printf("Z pressed, activating trigger solenoid\r\n");
 		_fire_dart();
-		speaker_play(SHOT_FIRED_MANUAL);
+		//speaker_play(SHOT_FIRED_MANUAL);
     }
 
     /* DISABLED FOR EXPO
@@ -394,7 +395,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
 
     lcd_state.target_mode = MANUAL_MODE;
     
-    speaker_play(BEGIN_AUTO);
+    //speaker_play(BEGIN_AUTO);
     while (active) {
 
        	// on the fly tuning for the scaling factors
@@ -554,7 +555,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     }
     lcd_state.target_mode = MANUAL_MODE;
     
-    speaker_play(END_AUTO);
+    //speaker_play(END_AUTO);
 
     // shut off the laser
     //MSS_GPIO_set_output(MSS_GPIO_0, 0);

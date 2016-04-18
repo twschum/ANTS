@@ -81,10 +81,13 @@
 #define TARGET_RAD			3 					//
 												//
 //UPDATE DELAYS///////////////////////////////////
-#define TRG_DELAY_MS 		10					//
-#define DIST_DELAY_MS		10					//
-#define SHOTS_DELAY_MS		10					//
-#define MODE_DELAY_MS		10					//
+//#define TRG_DELAY_MS 		50					//
+#define DIST_DELAY_MS		50					//
+#define SHOTS_DELAY_MS		50					//
+#define MODE_DELAY_MS		50					//
+#define	TRG_ERASE_DELAY_MS 	50					//
+#define TRG_WRITE_DELAY_MS	50					//
+#define TRG_VAL_DELAY_MS	50					//
 //////////////////////////////////////////////////
 
 
@@ -175,7 +178,13 @@ uint8_t g_disp_update_lock;
 void disp_update(void*);
 
 //Clears X: Y: and graphic on screen, writes new values
-void disp_write_target(void*);
+//void disp_write_target(void*);
+
+void disp_erase_old_targ_circle(void*);
+
+void disp_write_targ_circle(void*);
+
+void disp_write_targ_vals(void*);
 
 void disp_write_dist(void*);
 

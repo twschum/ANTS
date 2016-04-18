@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Sun Apr 17 16:52:02 2016
+// Created by SmartDesign Sun Apr 17 18:36:07 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -19,6 +19,7 @@ module ants_master(
     // Outputs
     GPIO_0_OUT,
     GPIO_1_OUT,
+    GPIO_3_OUT,
     GPIO_4_OUT,
     GPIO_5_OUT,
     GPIO_6_OUT,
@@ -50,6 +51,7 @@ input  [1:0] stop_y;
 //--------------------------------------------------------------------
 output       GPIO_0_OUT;
 output       GPIO_1_OUT;
+output       GPIO_3_OUT;
 output       GPIO_4_OUT;
 output       GPIO_5_OUT;
 output       GPIO_6_OUT;
@@ -96,6 +98,7 @@ wire          CoreAPB3_0_APBmslave2_PSLVERR;
 wire          fab_pin;
 wire          GPIO_0_OUT_net_0;
 wire          GPIO_1_OUT_net_0;
+wire          GPIO_3_OUT_net_0;
 wire          GPIO_4_OUT_net_0;
 wire          GPIO_5_OUT_net_0;
 wire          GPIO_6_OUT_net_0;
@@ -104,7 +107,7 @@ wire          SDD_0_net_0;
 wire          sensor_pwm;
 wire          SPI_1_CLK;
 wire          SPI_1_DI;
-wire          SPI_1_DO_1;
+wire          SPI_1_DO_0;
 wire          SPI_1_SS;
 wire   [1:0]  stop_x;
 wire   [1:0]  stop_y;
@@ -122,10 +125,11 @@ wire          GPIO_0_OUT_net_1;
 wire          x_servo_pwm_net_1;
 wire          y_servo_pwm_net_1;
 wire          SDD_0_net_1;
-wire          SPI_1_DO_1_net_0;
+wire          SPI_1_DO_0_net_0;
 wire          GPIO_6_OUT_net_1;
 wire          GPIO_5_OUT_net_1;
 wire          GPIO_4_OUT_net_1;
+wire          GPIO_3_OUT_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -190,14 +194,16 @@ assign y_servo_pwm_net_1 = y_servo_pwm_net_0;
 assign y_servo_pwm       = y_servo_pwm_net_1;
 assign SDD_0_net_1       = SDD_0_net_0;
 assign SDD_0             = SDD_0_net_1;
-assign SPI_1_DO_1_net_0  = SPI_1_DO_1;
-assign SPI_1_DO          = SPI_1_DO_1_net_0;
+assign SPI_1_DO_0_net_0  = SPI_1_DO_0;
+assign SPI_1_DO          = SPI_1_DO_0_net_0;
 assign GPIO_6_OUT_net_1  = GPIO_6_OUT_net_0;
 assign GPIO_6_OUT        = GPIO_6_OUT_net_1;
 assign GPIO_5_OUT_net_1  = GPIO_5_OUT_net_0;
 assign GPIO_5_OUT        = GPIO_5_OUT_net_1;
 assign GPIO_4_OUT_net_1  = GPIO_4_OUT_net_0;
 assign GPIO_4_OUT        = GPIO_4_OUT_net_1;
+assign GPIO_3_OUT_net_1  = GPIO_3_OUT_net_0;
+assign GPIO_3_OUT        = GPIO_3_OUT_net_1;
 //--------------------------------------------------------------------
 // Bus Interface Nets Assignments - Unequal Pin Widths
 //--------------------------------------------------------------------
@@ -230,12 +236,13 @@ ants_master_MSS ants_master_MSS_0(
         .MSSPWRITE   ( ants_master_MSS_0_MSS_MASTER_APB_PWRITE ),
         .FAB_CLK     ( ants_master_MSS_0_FAB_CLK ),
         .SDD_0       ( SDD_0_net_0 ),
-        .SPI_1_DO    ( SPI_1_DO_1 ),
+        .SPI_1_DO    ( SPI_1_DO_0 ),
         .MSSPADDR    ( ants_master_MSS_0_MSS_MASTER_APB_PADDR ),
         .MSSPWDATA   ( ants_master_MSS_0_MSS_MASTER_APB_PWDATA ),
         .GPIO_6_OUT  ( GPIO_6_OUT_net_0 ),
         .GPIO_5_OUT  ( GPIO_5_OUT_net_0 ),
         .GPIO_4_OUT  ( GPIO_4_OUT_net_0 ),
+        .GPIO_3_OUT  ( GPIO_3_OUT_net_0 ),
         // Inouts
         .SPI_1_CLK   ( SPI_1_CLK ),
         .SPI_1_SS    ( SPI_1_SS ) 

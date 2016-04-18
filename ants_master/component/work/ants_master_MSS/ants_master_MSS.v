@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Sun Apr 17 16:51:57 2016
+// Created by SmartDesign Sun Apr 17 18:36:02 2016
 // Version: v11.5 SP3 11.5.3.10
 //////////////////////////////////////////////////////////////////////
 
@@ -20,6 +20,7 @@ module ants_master_MSS(
     FAB_CLK,
     GPIO_0_OUT,
     GPIO_1_OUT,
+    GPIO_3_OUT,
     GPIO_4_OUT,
     GPIO_5_OUT,
     GPIO_6_OUT,
@@ -55,6 +56,7 @@ input         VAREF0;
 output        FAB_CLK;
 output        GPIO_0_OUT;
 output        GPIO_1_OUT;
+output        GPIO_3_OUT;
 output        GPIO_4_OUT;
 output        GPIO_5_OUT;
 output        GPIO_6_OUT;
@@ -78,6 +80,7 @@ inout         SPI_1_SS;
 //--------------------------------------------------------------------
 wire          GPIO_0_OUT_net_0;
 wire          GPIO_1_OUT_net_0;
+wire          GPIO_3_OUT_net_0;
 wire          GPIO_4_OUT_net_0;
 wire          GPIO_5_OUT_net_0;
 wire          GPIO_6_OUT_net_0;
@@ -91,6 +94,7 @@ wire          MSS_ADLIB_INST_PLLLOCK;
 wire          MSS_ADLIB_INST_SYNCCLKFDBK;
 wire   [0:0]  MSS_GPIO_0_GPIO_0_OUT_D;
 wire   [1:1]  MSS_GPIO_0_GPIO_1_OUT_D;
+wire   [3:3]  MSS_GPIO_0_GPIO_3_OUT_D;
 wire   [4:4]  MSS_GPIO_0_GPIO_4_OUT_D;
 wire   [5:5]  MSS_GPIO_0_GPIO_5_OUT_D;
 wire   [6:6]  MSS_GPIO_0_GPIO_6_OUT_D;
@@ -141,6 +145,7 @@ wire          SDD_0_net_1;
 wire          GPIO_6_OUT_net_1;
 wire          GPIO_5_OUT_net_1;
 wire          GPIO_4_OUT_net_1;
+wire          GPIO_3_OUT_net_1;
 wire          GPIO_1_OUT_net_1;
 wire          GPIO_0_OUT_net_1;
 wire   [31:0] GPO_net_0;
@@ -200,6 +205,8 @@ assign GPIO_5_OUT_net_1                 = GPIO_5_OUT_net_0;
 assign GPIO_5_OUT                       = GPIO_5_OUT_net_1;
 assign GPIO_4_OUT_net_1                 = GPIO_4_OUT_net_0;
 assign GPIO_4_OUT                       = GPIO_4_OUT_net_1;
+assign GPIO_3_OUT_net_1                 = GPIO_3_OUT_net_0;
+assign GPIO_3_OUT                       = GPIO_3_OUT_net_1;
 assign GPIO_1_OUT_net_1                 = GPIO_1_OUT_net_0;
 assign GPIO_1_OUT                       = GPIO_1_OUT_net_1;
 assign GPIO_0_OUT_net_1                 = GPIO_0_OUT_net_0;
@@ -209,6 +216,7 @@ assign GPIO_0_OUT                       = GPIO_0_OUT_net_1;
 //--------------------------------------------------------------------
 assign MSS_GPIO_0_GPIO_0_OUT_D[0] = GPO_net_0[0:0];
 assign MSS_GPIO_0_GPIO_1_OUT_D[1] = GPO_net_0[1:1];
+assign MSS_GPIO_0_GPIO_3_OUT_D[3] = GPO_net_0[3:3];
 assign MSS_GPIO_0_GPIO_4_OUT_D[4] = GPO_net_0[4:4];
 assign MSS_GPIO_0_GPIO_5_OUT_D[5] = GPO_net_0[5:5];
 assign MSS_GPIO_0_GPIO_6_OUT_D[6] = GPO_net_0[6:6];
@@ -512,6 +520,17 @@ MSS_GPIO_0_GPIO_1_OUT(
         .D   ( MSS_GPIO_0_GPIO_1_OUT_D ),
         // Outputs
         .PAD ( GPIO_1_OUT_net_0 ) 
+        );
+
+//--------OUTBUF_MSS
+OUTBUF_MSS #( 
+        .ACT_CONFIG ( 0 ),
+        .ACT_PIN    ( "Y1" ) )
+MSS_GPIO_0_GPIO_3_OUT(
+        // Inputs
+        .D   ( MSS_GPIO_0_GPIO_3_OUT_D ),
+        // Outputs
+        .PAD ( GPIO_3_OUT_net_0 ) 
         );
 
 //--------OUTBUF_MSS

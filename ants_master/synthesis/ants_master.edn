@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timeStamp 2016 4 17 16 52 27)
+      (timeStamp 2016 4 17 18 36 25)
       (author "Synopsys, Inc.")
       (program "Synplify Pro" (version "I-2014.03M-SP1, mapper mapact, Build 1346R"))
      )
@@ -16373,6 +16373,7 @@
            (port GPIO_6_OUT (direction OUTPUT))
            (port GPIO_5_OUT (direction OUTPUT))
            (port GPIO_4_OUT (direction OUTPUT))
+           (port GPIO_3_OUT (direction OUTPUT))
            (port GPIO_1_OUT (direction OUTPUT))
            (port GPIO_0_OUT (direction OUTPUT))
            (port FAB_CLK (direction OUTPUT))
@@ -16475,6 +16476,11 @@
            (property is_instantiated (integer 1))
            (property ACT_CONFIG (integer 0))
            (property ACT_PIN (string "AA1"))
+          )
+          (instance MSS_GPIO_0_GPIO_3_OUT (viewRef prim (cellRef OUTBUF_MSS (libraryRef smartfusion)))
+           (property is_instantiated (integer 1))
+           (property ACT_CONFIG (integer 0))
+           (property ACT_PIN (string "Y1"))
           )
           (instance MSS_GPIO_0_GPIO_1_OUT (viewRef prim (cellRef OUTBUF_MSS (libraryRef smartfusion)))
            (property is_instantiated (integer 1))
@@ -16640,6 +16646,14 @@
           (net (rename GPO_net_0_4 "GPO_net_0[4]") (joined
            (portRef (member gpo 27) (instanceRef MSS_ADLIB_INST))
            (portRef D (instanceRef MSS_GPIO_0_GPIO_4_OUT))
+          ))
+          (net GPIO_3_OUT (joined
+           (portRef PAD (instanceRef MSS_GPIO_0_GPIO_3_OUT))
+           (portRef GPIO_3_OUT)
+          ))
+          (net (rename GPO_net_0_3 "GPO_net_0[3]") (joined
+           (portRef (member gpo 28) (instanceRef MSS_ADLIB_INST))
+           (portRef D (instanceRef MSS_GPIO_0_GPIO_3_OUT))
           ))
           (net GPIO_1_OUT (joined
            (portRef PAD (instanceRef MSS_GPIO_0_GPIO_1_OUT))
@@ -17355,9 +17369,6 @@
           (net (rename GPO_net_0_2 "GPO_net_0[2]") (joined
            (portRef (member gpo 29) (instanceRef MSS_ADLIB_INST))
           ))
-          (net (rename GPO_net_0_3 "GPO_net_0[3]") (joined
-           (portRef (member gpo 28) (instanceRef MSS_ADLIB_INST))
-          ))
           (net (rename GPO_net_0_7 "GPO_net_0[7]") (joined
            (portRef (member gpo 24) (instanceRef MSS_ADLIB_INST))
           ))
@@ -18046,6 +18057,7 @@
            (port (array (rename stop_y "stop_y[1:0]") 2) (direction INPUT))
            (port GPIO_0_OUT (direction OUTPUT))
            (port GPIO_1_OUT (direction OUTPUT))
+           (port GPIO_3_OUT (direction OUTPUT))
            (port GPIO_4_OUT (direction OUTPUT))
            (port GPIO_5_OUT (direction OUTPUT))
            (port GPIO_6_OUT (direction OUTPUT))
@@ -18153,6 +18165,10 @@
           (net GPIO_1_OUT (joined
            (portRef GPIO_1_OUT (instanceRef ants_master_MSS_0))
            (portRef GPIO_1_OUT)
+          ))
+          (net GPIO_3_OUT (joined
+           (portRef GPIO_3_OUT (instanceRef ants_master_MSS_0))
+           (portRef GPIO_3_OUT)
           ))
           (net GPIO_4_OUT (joined
            (portRef GPIO_4_OUT (instanceRef ants_master_MSS_0))
