@@ -10,7 +10,7 @@
 void disp_init(){
 	LCD_init();
 	LCD_clearScreen();
-
+	LCD_toggleReverseMode();
 	//LCD_setPixel(10, 10, 1);
 	//Draws targeting box
 	LCD_drawBox(TARGET_BOX_X1, TARGET_BOX_Y1, TARGET_BOX_X2, TARGET_BOX_Y2, SET);
@@ -30,6 +30,7 @@ void disp_init(){
 	//Draw mode indicator
 	LCD_setPos(MODE_POS_X, MODE_POS_Y);
 	LCD_printStr(MODE_STR);
+
 
 	g_disp_update_lock = 0;
 }

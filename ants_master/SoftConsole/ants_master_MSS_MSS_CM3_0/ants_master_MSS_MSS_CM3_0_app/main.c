@@ -141,11 +141,19 @@ void do_ready_live_fire(n64_state_t* state, n64_state_t* last_state) {
 	if ( !g_live_fire_enabled && n64_released(Start)) {
 		g_live_fire_enabled = 1;
 		lights_set(LIGHTS_SAFETY_OFF);
+		disp_init(); //toggle white-back
+		g_disp_update_argument.last_state = NULL;
+		disp_update(&g_disp_update_argument); //refresh chamber, mode, dist
+		g_disp_update_argument.last_state = &lcd_last_state;
 		printf("DANGER ZONE: Live-fire enabled.\r\n");
 	}
 	else if (g_live_fire_enabled && n64_released(Start)) {
 		g_live_fire_enabled = 0;
 		lights_set(LIGHTS_IDLE);
+		disp_init();
+		g_disp_update_argument.last_state = NULL;
+		disp_update(&g_disp_update_argument); //refresh power,mode,dist
+		g_disp_update_argument.last_state = &lcd_last_state;
 		printf("Live-fire disabled.\r\n");
 	}
 
@@ -241,6 +249,10 @@ void _fire_dart() {
     if ( ! REPEATED_FIRING_MODE) {
     	g_live_fire_enabled = 0;
     	lights_set(LIGHTS_IDLE);
+    	disp_init();
+    	g_disp_update_argument.last_state = NULL;
+    	disp_update(&g_disp_update_argument); //refresh power,mode,dist
+    	g_disp_update_argument.last_state = &lcd_last_state;
     	printf("Live-fire disabled.\r\n");
     }
     else {
@@ -539,6 +551,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	// fire a dart, then exit the loop after getting n64 state
         	if ((x_on_target > ON_TARGET_FRAMES) && (y_on_target > ON_TARGET_FRAMES)) {
         		printf("Target acquired, firing!\r\n");
+        		lcd_state.target_mode = MANUAL_MODE;
         		_fire_dart();
         		servo_do(X_SET_NEUTRAL);
                 servo_do(Y_SET_NEUTRAL);
@@ -551,6 +564,13 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
             servo_do(X_SET_NEUTRAL);
             servo_do(Y_SET_NEUTRAL);
             g_live_fire_enabled = 0;
+
+            disp_init();
+            lcd_state.target_mode = MANUAL_MODE;
+            g_disp_update_argument.last_state = NULL;
+            disp_update(&g_disp_update_argument); //refresh power,mode,dist
+            g_disp_update_argument.last_state = &lcd_last_state;
+
             printf("Aborting seek-and-destroy & disabling live-fire\r\n");
             lights_set(LIGHTS_IDLE);
         }
