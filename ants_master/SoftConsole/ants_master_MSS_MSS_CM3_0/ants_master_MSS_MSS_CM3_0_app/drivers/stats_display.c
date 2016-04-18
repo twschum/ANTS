@@ -188,7 +188,7 @@ void disp_erase_old_targ_circle(void *t_v){
 		lx = lasttarg->x;
 		ly = lasttarg->y;
 		printf("erasing old target circle (%d,%d)\r\n", lx, ly);
-		LCD_drawCircle(lx + TARGET_BOX_X1 + TARGET_RAD +1 , ly + TARGET_BOX_Y1 + TARGET_RAD +1, TARGET_RAD, LCD_UNSET); //Clear the old circle
+		LCD_drawCircle(lx + TARGET_BOX_X1 + TARGET_RAD +1 , TARGET_BOX_Y2 + TARGET_RAD +1 - ly, TARGET_RAD, LCD_UNSET); //Clear the old circle
 	}
 }
 
@@ -200,7 +200,7 @@ void disp_write_targ_circle(void *t_v){
 	uint8_t tx = targ->x;
 	uint8_t ty = targ->y;
 	printf("writing new target circle(%d,%d)\r\n", tx, ty);
-	LCD_drawCircle(tx + TARGET_BOX_X1 +TARGET_RAD +1 ,ty + TARGET_BOX_Y1 + TARGET_RAD +1, TARGET_RAD, LCD_SET);
+	LCD_drawCircle(tx + TARGET_BOX_X1 +TARGET_RAD +1 , TARGET_BOX_Y2 + TARGET_RAD +1 - ty, TARGET_RAD, LCD_SET);
 }
 
 void disp_write_targ_vals(void *t_v){
