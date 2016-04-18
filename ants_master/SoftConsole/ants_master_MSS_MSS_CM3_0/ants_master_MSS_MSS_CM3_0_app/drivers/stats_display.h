@@ -82,12 +82,12 @@
 												//
 //UPDATE DELAYS///////////////////////////////////
 //#define TRG_DELAY_MS 		50					//
-#define DIST_DELAY_MS		10					//
-#define SHOTS_DELAY_MS		10					//
-#define MODE_DELAY_MS		10					//
-#define	TRG_ERASE_DELAY_MS 	10					//
-#define TRG_WRITE_DELAY_MS	10					//
-#define TRG_VAL_DELAY_MS	10					//
+#define DIST_DELAY_MS		50					//
+#define SHOTS_DELAY_MS		50					//
+#define MODE_DELAY_MS		50					//
+#define	TRG_ERASE_DELAY_MS 	50					//
+#define TRG_WRITE_DELAY_MS	50					//
+#define TRG_VAL_DELAY_MS	50					//
 //////////////////////////////////////////////////
 
 

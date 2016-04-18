@@ -79,7 +79,7 @@ void disp_update(void *u_arg_v){
 
 	uint8_t update_target=0;
 	if(last_state){
-		lasttarg = *(last_state->target_pos);
+		//lasttarg = *(last_state->target_pos);
 		lastdist= last_state->distance;
  		lastchamber = last_state->chamber_status;
  		lastmode= last_state->target_mode;
@@ -98,17 +98,17 @@ void disp_update(void *u_arg_v){
 	//May need to change this depending on how often this function is being called
 	uint8_t upd_dur = 0;
 	if(update_target){
-		DBG("Erasing previous target");
 		t_arg.lasttarg = &lasttarg;
-		add_timer_single((handler_t) disp_erase_old_targ_circle, &t_arg, to_ticks(upd_dur));
+		//add_timer_single((handler_t) disp_erase_old_targ_circle, &t_arg, to_ticks(upd_dur));
+		disp_erase_old_targ_circle(&t_arg);
 		upd_dur += TRG_ERASE_DELAY_MS;
-	//} if(update_target){
-		DBG("Writing new target");
+
 		t_arg.targ = &targ;
 		add_timer_single((handler_t) disp_write_targ_circle, &t_arg, to_ticks(upd_dur));
 		upd_dur += TRG_WRITE_DELAY_MS;
 		add_timer_single((handler_t) disp_write_targ_vals, &t_arg, to_ticks(upd_dur));
 		upd_dur += TRG_VAL_DELAY_MS;
+		lasttarg = targ;
 	} if(chamber_status != lastchamber){
 		DBG("adding shots update to fire in %u ms, ", upd_dur);
 		s_arg.chamber_status = chamber_status;
@@ -177,7 +177,7 @@ void disp_update(void *u_arg_v){
 //}
 
 void disp_erase_old_targ_circle(void *t_v){
-	DBG("erasing old target circle");
+
 	upd_targ_arg_t* t = (upd_targ_arg_t*) t_v;
 	circle_t* lasttarg = t->lasttarg;
 
@@ -187,23 +187,24 @@ void disp_erase_old_targ_circle(void *t_v){
 	if(lasttarg != NULL){
 		lx = lasttarg->x;
 		ly = lasttarg->y;
+		printf("erasing old target circle (%d,%d)\r\n", lx, ly);
 		LCD_drawCircle(lx + TARGET_BOX_X1 + TARGET_RAD +1 , ly + TARGET_BOX_Y1 + TARGET_RAD +1, TARGET_RAD, LCD_UNSET); //Clear the old circle
 	}
 }
 
 void disp_write_targ_circle(void *t_v){
-	DBG("writing target circle");
+	printf("writing target circle\r\n");
 	upd_targ_arg_t* t = (upd_targ_arg_t*) t_v;
 
 	circle_t* targ = t->targ;
 	uint8_t tx = targ->x;
 	uint8_t ty = targ->y;
-
+	printf("writing new target circle(%d,%d)\r\n", tx, ty);
 	LCD_drawCircle(tx + TARGET_BOX_X1 +TARGET_RAD +1 ,ty + TARGET_BOX_Y1 + TARGET_RAD +1, TARGET_RAD, LCD_SET);
 }
 
 void disp_write_targ_vals(void *t_v){
-	DBG("writing target values");
+	DBG("writing target values\r\n");
 	upd_targ_arg_t* t = (upd_targ_arg_t*) t_v;
 
 	circle_t* targ = t->targ;

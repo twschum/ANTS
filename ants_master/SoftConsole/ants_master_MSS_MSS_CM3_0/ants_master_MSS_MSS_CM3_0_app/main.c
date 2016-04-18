@@ -583,8 +583,7 @@ void lcd_init(){
     disp_update((void*)&g_disp_update_argument);
 
     //spin for first update
-    while (g_disp_update_lock) {}
-
+    //while (g_disp_update_lock) {}
     //DO NOT force subsequent updates
     g_disp_update_argument.last_state = &lcd_last_state;
     update_last_screen_state();
