@@ -44,10 +44,11 @@ static upd_mode_arg_t m_arg;
 
 void disp_update(void *u_arg_v){
 	upd_disp_arg_t *u_arg_global = (upd_disp_arg_t*) u_arg_v;
-	if(g_disp_update_lock ){//This will probably drop some updates, and idgaf
+	if(g_disp_update_lock==1){//This will probably drop some updates, and idgaf
 		//free(u_arg_global->lcd_state);
 		//if(u_arg_global->last_state)
 		//	free(u_arg_global->last_state);
+		//printf("Update in progress!\r\n");
 		DBG("upd in progress");
 	//	free(u_arg_v);
 		return; //add frees
@@ -71,19 +72,14 @@ void disp_update(void *u_arg_v){
 	//circle_t *targ = malloc(sizeof(circle_t));
 	//circle_t *lasttarg = NULL;
 
-	uint8_t dist 		= lcd_state->distance;
+	uint16_t dist 		= lcd_state->distance;
 	uint8_t chamber_status = lcd_state->chamber_status;
 	uint8_t mode 		= lcd_state->target_mode;
 	//DBG("dist:%u, shots:%u, mode:%u", dist, chamber_status, mode);
 	//Guarantees a refresh without rechecking
-	uint8_t lastdist;
+	uint16_t lastdist;
 	uint8_t lastchamber;
 	uint8_t lastmode;
-
-	//upd_targ_arg_t* t_arg = NULL;
-	//upd_dist_arg_t* d_arg = NULL;
-	//upd_shots_arg_t* s_arg = NULL;
-	//upd_mode_arg_t* m_arg = NULL;
 
 	targ = *(lcd_state->target_pos);
 	
@@ -116,13 +112,8 @@ void disp_update(void *u_arg_v){
 		upd_dur += TRG_WRITE_DELAY_MS;
 		add_timer_single((handler_t) disp_write_targ_vals, &t_arg, to_ticks(upd_dur));
 		upd_dur += TRG_VAL_DELAY_MS;
-	} if(dist != lastdist){
-		DBG("adding distance update to fire in %u ms", upd_dur);
-		d_arg.dist = dist;
-		add_timer_single((handler_t)disp_write_dist, &d_arg, to_ticks(upd_dur));
-		upd_dur += DIST_DELAY_MS;
 	} if(chamber_status != lastchamber){
-		DBG("adding shots update to fire in %u ms", upd_dur);
+		DBG("adding shots update to fire in %u ms, ", upd_dur);
 		s_arg.chamber_status = chamber_status;
 		add_timer_single((handler_t)disp_write_shots, &s_arg, to_ticks(upd_dur));
 		upd_dur += SHOTS_DELAY_MS;
@@ -131,9 +122,15 @@ void disp_update(void *u_arg_v){
 		m_arg.mode = mode;
 		add_timer_single((handler_t)disp_write_mode, &m_arg, to_ticks(upd_dur));
 		upd_dur += MODE_DELAY_MS;
+	} if(dist != lastdist){
+		DBG("adding distance update to fire in %u ms", upd_dur);
+		d_arg.dist = dist;
+		add_timer_single((handler_t)disp_write_dist, &d_arg, to_ticks(upd_dur));
+		upd_dur += DIST_DELAY_MS;
 	}
-	DBG("adding cleanup to fire in %u ms", upd_dur);
-	add_timer_single((handler_t)disp_upd_finish, &u_arg, upd_dur);
+	//DBG("adding cleanup to fire in %u ms", upd_dur);
+	add_timer_single((handler_t)disp_upd_finish, &u_arg, to_ticks(upd_dur));
+	start_hardware_timer();
 	//Refrain from updating n64 debug box b/c of latency issues
 	//disp_write_N64(ctrlr_state);
 }
@@ -183,6 +180,7 @@ void disp_update(void *u_arg_v){
 //}
 
 void disp_erase_old_targ_circle(void *t_v){
+	DBG("erasing old target circle");
 	upd_targ_arg_t* t = (upd_targ_arg_t*) t_v;
 	circle_t* lasttarg = t->lasttarg;
 
@@ -197,6 +195,7 @@ void disp_erase_old_targ_circle(void *t_v){
 }
 
 void disp_write_targ_circle(void *t_v){
+	DBG("writing target circle");
 	upd_targ_arg_t* t = (upd_targ_arg_t*) t_v;
 
 	circle_t* targ = t->targ;
@@ -207,6 +206,7 @@ void disp_write_targ_circle(void *t_v){
 }
 
 void disp_write_targ_vals(void *t_v){
+	DBG("writing target values");
 	upd_targ_arg_t* t = (upd_targ_arg_t*) t_v;
 
 	circle_t* targ = t->targ;
@@ -234,6 +234,7 @@ void disp_write_targ_vals(void *t_v){
 //	use sprintf to print a number of three digits; this eliminates the need
 //	for clearing the previous count
 void disp_write_shots(void *s_v){
+	DBG("writing chamber status");
 	upd_shots_arg_t* s = (upd_shots_arg_t*) s_v;
 	uint8_t status = s->chamber_status;
 	//LCD_setPos(SHOTS_LEFT_POS_X, SHOTS_LEFT_POS_Y);
@@ -255,18 +256,20 @@ void disp_write_shots(void *s_v){
 //	for clearing the previous count
 //Argument is assumed to have already been scaled
 void disp_write_dist(void *d_v){
+	DBG("writing distance");
 	upd_dist_arg_t* d = (upd_dist_arg_t*) d_v;
 
-	uint8_t distance = d->dist;
+	uint16_t distance = d->dist;
 	char num[4];
 	//LCD_setPos(DIST_POS_X, DIST_POS_Y);
 	LCD_setPos(DIST_POS_X + CHAR_WIDTH, DIST_POS_Y - CHAR_HEIGHT);
-	sprintf(num, "%03d", distance);
+	sprintf(num, "%05d", distance);
 	LCD_printStr(num);
 	//DBG("writing distance %u", distance);
 }
 
 void disp_write_mode(void *m_v){
+	DBG("writing mode");
 	upd_mode_arg_t* m = (upd_mode_arg_t*) m_v;
 
 	//redundant, for clarity
@@ -285,98 +288,10 @@ void disp_write_mode(void *m_v){
 //This guy should free the initial argument
 void disp_upd_finish(void* u_arg_v){
 	g_disp_update_lock = 0;
-	DBG("cleaning up update");
+	//DBG("cleaning up update");
 	//upd_disp_arg_t* u_arg = (upd_dist_arg_t*) u_arg_v;
 
 }
-
-//It'd be a pain in the ass to do selective clearing,
-//so instead I opted to just blow away the debug box
-//every time we decide to write to it
-/*void disp_write_N64(n64_state_t* state){
-	char n64dbg[27];
-	uint8_t i = 0;
-	const char *sp = " ";
-	const char *sp2 = "  ";
-	if(state->A){
-		sprintf(n64dbg + i++, "A");
-	} else sprintf(n64dbg + i++, sp);
-    if(state->B){
-    	sprintf(n64dbg + i++, "B");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->Z){
-    	sprintf(n64dbg + i++, "Z");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->Start){
-    	sprintf(n64dbg + i++, "S");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->Up){
-    	sprintf(n64dbg + i++, "^");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->Down){
-    	sprintf(n64dbg + i++, "v");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->Left){
-    	sprintf(n64dbg + i++, "<");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->Right){
-    	sprintf(n64dbg + i++, ">");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->L){
-    	sprintf(n64dbg + i++, "L");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->R){
-    	sprintf(n64dbg + i++, "R");
-    } else sprintf(n64dbg + i++, sp);
-    if(state->C_Up){
-    	sprintf(n64dbg + i, "C^");
-    } else sprintf(n64dbg + i, sp2);
-    i+=2; //++ won't work since we use two spaces
-    if(state->C_Down){
-    	sprintf(n64dbg + i, "Cv");
-    } else sprintf(n64dbg + i, sp2);
-    i+=2;
-    if(state->C_Left){
-    	sprintf(n64dbg + i, "C<");
-    } else sprintf(n64dbg + i, sp2);
-    i+=2;
-    if(state->C_Right){
-    	sprintf(n64dbg + i, "C>");
-    } else sprintf(n64dbg + i, sp2);
-    i+=2;
-
-    sprintf(n64dbg + i++, "X");
-    sprintf(n64dbg + i, "%03d", state->X_axis);
-    i+=3;
-    sprintf(n64dbg + i++, "Y");
-    sprintf(n64dbg + i, "%03d", state->Y_axis);
-    //Change to upper left, not lower left
-    LCD_setPos(N64_DBG_BOX_X1 + 2, N64_DBG_BOX_Y1 - 3);
-    LCD_printStr(n64dbg);
-
-}*/
-
-
-/*
-	printf("A: %d  B: %d  Z: %d  Start: %d  Up: %d  Down: %d  Left: %d  Right: %d  L: %d  R: %d  C_Up: %d  C_Down: %d  C_Left: %d  C_Right: %d  X_axis: %3d  Y_axis: %3d\r\n",
-        state->A,
-        state->B,
-        state->Z,
-        state->Start,
-        state->Up,
-        state->Down,
-        state->Left,
-        state->Right,
-        state->L,
-        state->R,
-        state->C_Up,
-        state->C_Down,
-        state->C_Left,
-        state->C_Right,
-        state->X_axis,
-        state->Y_axis
-    );
-*/
 
 /*
 * pixy_x will be between 0 and 319

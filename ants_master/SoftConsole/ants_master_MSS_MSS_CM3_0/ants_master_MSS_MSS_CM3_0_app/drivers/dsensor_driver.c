@@ -8,7 +8,7 @@
 float get_distance()
 {
 	volatile uint32_t* distance_count = (volatile uint32_t*)DSNSR_ADDR;
-	float distance = (*distance_count) * MULTIPLIER;
+	float distance = (*distance_count) * (CENTIMETER * MULTIPLIER);
 	return distance;
 }
 

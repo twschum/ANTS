@@ -9,6 +9,7 @@
 
 #define DSNSR_ADDR		0x40050200
 #define MULTIPLIER		0.00000172789115
+#define CENTIMETER		100
 
 float get_distance();
 void print_distance();

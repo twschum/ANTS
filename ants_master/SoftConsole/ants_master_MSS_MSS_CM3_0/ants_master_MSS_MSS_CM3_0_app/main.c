@@ -230,7 +230,6 @@ void _fire_dart() {
 
 	lcd_state.chamber_status = CHAMBER_EMPTY;
 	disp_update((void*)&g_disp_update_argument);
-	start_hardware_timer();
 
 	lights_set(LIGHTS_FIRING);
 	trigger_solenoid_activate(TRIGGER_DURATION);
@@ -393,7 +392,9 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     static uint16_t PIXY_Y_CENTER = PIXY_Y_CENTER_DEF;
     uint16_t scaling_modifier = 20;
 
-    lcd_state.target_mode = MANUAL_MODE;
+    lcd_state.target_mode = AUTO_MODE;
+    disp_update((void*)&g_disp_update_argument);
+    update_last_screen_state();
     
     //speaker_play(BEGIN_AUTO);
     while (active) {
@@ -526,7 +527,6 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	trg.y = disp_scale_y(target.y);
         	lcd_state.target_pos = &trg;
         	disp_update((void*)&g_disp_update_argument);
-        	start_hardware_timer();
         	update_last_screen_state();
             // spin lock until screen finishes updating
         	//while (g_disp_update_lock) {}
@@ -554,7 +554,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         n64_get_state( state );
     }
     lcd_state.target_mode = MANUAL_MODE;
-    
+    disp_update((void*)&g_disp_update_argument);
+    update_last_screen_state();
     //speaker_play(END_AUTO);
 
     // shut off the laser
@@ -565,13 +566,22 @@ void lcd_init(){
     disp_init();
     set_clk(CLK_SPEED); // Only for scaling
     lcd_state.target_mode = MANUAL_MODE;
-    lcd_state.distance = (uint8_t)get_distance();
+    lcd_state.distance = (uint16_t)get_distance();
     lcd_state.target_pos = &trg;
+    lcd_state.chamber_status = CHAMBER_LOADED;
     g_disp_update_argument.lcd_state = &lcd_state;
     lcd_last_state.target_pos = &trg;
-    g_disp_update_argument.last_state = &lcd_last_state;
+
+    //should force an update on initialization
+    g_disp_update_argument.last_state = NULL;
     disp_update((void*)&g_disp_update_argument);
-    start_hardware_timer();
+
+    //spin for first update
+    while (g_disp_update_lock) {}
+
+    //DO NOT force subsequent updates
+    g_disp_update_argument.last_state = &lcd_last_state;
+    update_last_screen_state();
 }
 
 void update_last_screen_state(){

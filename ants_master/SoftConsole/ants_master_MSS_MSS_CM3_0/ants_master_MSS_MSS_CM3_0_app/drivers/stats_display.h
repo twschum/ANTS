@@ -47,7 +47,7 @@
 #define AUTO_MODE			1 					//
 #define MANUAL_MODE 		0 					//
 												//
-#define MODE_STR 			"Mode:"				//
+#define MODE_STR 			"Mode"				//
 #define MODE_STR_SZ			6 					//
 												//
 #define AUTO_STR			"AUTO  "			//
@@ -56,8 +56,8 @@
 #define MANUAL_STR			"NORMAL"			//
 #define MANUAL_STR_SZ		7					//
 												//
-#define DIST_STR			"Dist:"				//
-#define DIST_STR_SZ			6					//
+#define DIST_STR			"Dist(cm)"			//
+#define DIST_STR_SZ			9					//
 												//
 #define TARGET_HORZ_STR 	"X:"				//
 #define TARGET_HORZ_STR_SZ	3 					//
@@ -65,7 +65,7 @@
 #define TARGET_VERT_STR		"Y:"				//
 #define TARGET_VERT_STR_SZ	3 					//
 												//
-#define SHOTS_STR			"Chamber:"			//
+#define SHOTS_STR			"Chamber"			//
 #define SHOTS_STR_SZ		9 					//
 #define SHOTS_EMPTY_STR		"CLEAR "			//
 #define SHOTS_EMPTY_STR_SZ	7					//
@@ -82,12 +82,12 @@
 												//
 //UPDATE DELAYS///////////////////////////////////
 //#define TRG_DELAY_MS 		50					//
-#define DIST_DELAY_MS		50					//
-#define SHOTS_DELAY_MS		50					//
-#define MODE_DELAY_MS		50					//
-#define	TRG_ERASE_DELAY_MS 	50					//
-#define TRG_WRITE_DELAY_MS	50					//
-#define TRG_VAL_DELAY_MS	50					//
+#define DIST_DELAY_MS		10					//
+#define SHOTS_DELAY_MS		10					//
+#define MODE_DELAY_MS		10					//
+#define	TRG_ERASE_DELAY_MS 	10					//
+#define TRG_WRITE_DELAY_MS	10					//
+#define TRG_VAL_DELAY_MS	10					//
 //////////////////////////////////////////////////
 
 
@@ -121,7 +121,7 @@ typedef pixel_t point_t;
 typedef struct {
 	//Pointer to the shape representing the position of the laser pointer
 	circle_t*	target_pos;
-	uint8_t 	distance;
+	uint16_t 	distance; //cm
 	uint8_t 	chamber_status;
 	uint8_t		target_mode; 		
 } lcd_screen_state_t;
