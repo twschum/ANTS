@@ -61,17 +61,13 @@ void disp_update(void *u_arg_v){
 	//DBG("beginning update");
 	//This is a pointer to a global in main: copy state to prevent
 	//changes in the middle of the update pipeline
-	//upd_disp_arg_t *u_arg = malloc(sizeof(upd_disp_arg_t));
 	u_arg = *u_arg_global;
 
 	lcd_screen_state_t* lcd_state = u_arg.lcd_state;
 	lcd_screen_state_t* last_state = u_arg.last_state;
-	//n64_state_t* ctrlr_state = u_arg->ctrlr_state;
-	//circle_t *targ = lcd_state->target_pos;
-	//circle_t *lasttarg = last_state->target_pos;
-	//circle_t *targ = malloc(sizeof(circle_t));
-	//circle_t *lasttarg = NULL;
 
+
+	targ = *(lcd_state->target_pos);
 	uint16_t dist 		= lcd_state->distance;
 	uint8_t chamber_status = lcd_state->chamber_status;
 	uint8_t mode 		= lcd_state->target_mode;
@@ -81,31 +77,32 @@ void disp_update(void *u_arg_v){
 	uint8_t lastchamber;
 	uint8_t lastmode;
 
-	targ = *(lcd_state->target_pos);
-	
+	uint8_t update_target=0;
 	if(last_state){
-		//lasttarg = malloc(sizeof(circle_t));
 		lasttarg = *(last_state->target_pos);
-
 		lastdist= last_state->distance;
  		lastchamber = last_state->chamber_status;
  		lastmode= last_state->target_mode;
+ 		update_target = (targ.x != lasttarg.x || targ.y != lasttarg.y);
 	} else { //force update
+		//lasttarg
+
 		lastdist = dist+1;
 		lastchamber = (chamber_status ? 0 : 1);
 		lastmode = mode+1;
+		update_target=0;
 	}
 
 	//Don't need a timer for our first UART xfer
 	//Need to delay subsequent requests to LCD
 	//May need to change this depending on how often this function is being called
 	uint8_t upd_dur = 0;
-	if(t_arg.lasttarg){
+	if(update_target){
 		DBG("Erasing previous target");
 		t_arg.lasttarg = &lasttarg;
 		add_timer_single((handler_t) disp_erase_old_targ_circle, &t_arg, to_ticks(upd_dur));
 		upd_dur += TRG_ERASE_DELAY_MS;
-	} if(t_arg.targ){
+	//} if(update_target){
 		DBG("Writing new target");
 		t_arg.targ = &targ;
 		add_timer_single((handler_t) disp_write_targ_circle, &t_arg, to_ticks(upd_dur));

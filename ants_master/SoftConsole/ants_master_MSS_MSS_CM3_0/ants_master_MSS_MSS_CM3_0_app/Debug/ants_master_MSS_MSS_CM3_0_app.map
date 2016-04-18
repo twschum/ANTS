@@ -48,6 +48,8 @@ c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1
                               c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o) (__malloc_lock)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-printf.o)
                               ./main.o (printf)
+c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putchar.o)
+                              ./main.o (putchar)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
                               ./main.o (puts)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sbrkr.o)
@@ -86,6 +88,8 @@ c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1
                               c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o) (memmove)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
                               c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o) (__hi0bits)
+c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putc.o)
+                              c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putchar.o) (_putc_r)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
                               c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o) (_realloc_r)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
@@ -98,6 +102,8 @@ c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1
                               c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o) (__sclose)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
                               c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o) (strcmp)
+c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wbuf.o)
+                              c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putc.o) (__swbuf_r)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
                               c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o) (_calloc_r)
 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-closer.o)
@@ -161,9 +167,9 @@ Discarded input sections
                 0x00000000      0x19c ./main.o
  .text.speaker_init
                 0x00000000       0x1c ./main.o
- .data.well     0x00000000     0x1f58 ./main.o
  .data.good_shot
                 0x00000000     0x21a0 ./main.o
+ .data.well     0x00000000     0x1f58 ./main.o
  .data.provoked
                 0x00000000     0x2bd0 ./main.o
  .data.target   0x00000000     0x394c ./main.o
@@ -567,6 +573,8 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mlock.o)
  .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-printf.o)
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-printf.o)
+ .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putchar.o)
+ .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putchar.o)
  .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
  .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sbrkr.o)
@@ -606,6 +614,8 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memmove.o)
  .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
+ .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putc.o)
+ .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putc.o)
  .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
  .text          0x00000000      0x10c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
@@ -619,6 +629,8 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-stdio.o)
  .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
+ .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wbuf.o)
+ .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wbuf.o)
  .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
  .bss           0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
  .data          0x00000000        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-closer.o)
@@ -701,7 +713,7 @@ END GROUP
                 0x20010000                PROVIDE (_estack, __main_stack_start)
                 0x00000000                PROVIDE (__mirrored_nvm, 0x0)
 
-.text           0x20000000     0xc500
+.text           0x20000000     0xc838
  CREATE_OBJECT_SYMBOLS
                 0x20000000                __text_load = LOADADDR (.text)
                 0x20000000                __text_start = .
@@ -857,535 +869,544 @@ END GROUP
                 0x200008a4                _fire_dart
  *fill*         0x2000091c        0x4 00
  .text.do_automatic
-                0x20000920      0x588 ./main.o
+                0x20000920      0x5e0 ./main.o
                 0x20000920                do_automatic
  .text.do_solenoid
-                0x20000ea8       0x38 ./main.o
-                0x20000ea8                do_solenoid
+                0x20000f00       0x38 ./main.o
+                0x20000f00                do_solenoid
  .text.trigger_solenoid_pin_init
-                0x20000ee0       0x18 ./main.o
-                0x20000ee0                trigger_solenoid_pin_init
- .text.main     0x20000ef8       0xc8 ./main.o
-                0x20000ef8                main
+                0x20000f38       0x18 ./main.o
+                0x20000f38                trigger_solenoid_pin_init
+ .text.main     0x20000f50       0xd4 ./main.o
+                0x20000f50                main
  .text.LCD_drawCircle
-                0x20000fc0       0x68 ./drivers/LCD.o
-                0x20000fc0                LCD_drawCircle
+                0x20001024       0x68 ./drivers/LCD.o
+                0x20001024                LCD_drawCircle
  .text.LCD_drawLine
-                0x20001028       0x78 ./drivers/LCD.o
-                0x20001028                LCD_drawLine
+                0x2000108c       0x78 ./drivers/LCD.o
+                0x2000108c                LCD_drawLine
  .text.LCD_drawBox
-                0x200010a0       0xc8 ./drivers/LCD.o
-                0x200010a0                LCD_drawBox
+                0x20001104       0xc8 ./drivers/LCD.o
+                0x20001104                LCD_drawBox
  .text.LCD_setY
-                0x20001168       0x40 ./drivers/LCD.o
-                0x20001168                LCD_setY
+                0x200011cc       0x40 ./drivers/LCD.o
+                0x200011cc                LCD_setY
  .text.LCD_setX
-                0x200011a8       0x40 ./drivers/LCD.o
-                0x200011a8                LCD_setX
+                0x2000120c       0x40 ./drivers/LCD.o
+                0x2000120c                LCD_setX
  .text.LCD_setPos
-                0x200011e8       0x14 ./drivers/LCD.o
-                0x200011e8                LCD_setPos
+                0x2000124c       0x14 ./drivers/LCD.o
+                0x2000124c                LCD_setPos
  .text.LCD_clearScreen
-                0x200011fc       0x30 ./drivers/LCD.o
-                0x200011fc                LCD_clearScreen
+                0x20001260       0x30 ./drivers/LCD.o
+                0x20001260                LCD_clearScreen
  .text.LCD_printStr
-                0x2000122c       0x10 ./drivers/LCD.o
-                0x2000122c                LCD_printStr
+                0x20001290       0x10 ./drivers/LCD.o
+                0x20001290                LCD_printStr
  .text.LCD_init
-                0x2000123c       0x14 ./drivers/LCD.o
-                0x2000123c                LCD_init
+                0x200012a0       0x14 ./drivers/LCD.o
+                0x200012a0                LCD_init
  .text.Pixy_init
-                0x20001250       0x38 ./drivers/Pixy_SPI.o
-                0x20001250                Pixy_init
- .text.getByte  0x20001288       0x2c ./drivers/Pixy_SPI.o
-                0x20001288                getByte
- .text.getWord  0x200012b4       0x7c ./drivers/Pixy_SPI.o
+                0x200012b4       0x38 ./drivers/Pixy_SPI.o
+                0x200012b4                Pixy_init
+ .text.getByte  0x200012ec       0x2c ./drivers/Pixy_SPI.o
+                0x200012ec                getByte
+ .text.getWord  0x20001318       0x7c ./drivers/Pixy_SPI.o
  .text.Pixy_get_start
-                0x20001330       0x84 ./drivers/Pixy_SPI.o
-                0x20001330                Pixy_get_start
+                0x20001394       0x84 ./drivers/Pixy_SPI.o
+                0x20001394                Pixy_get_start
  .text.Pixy_get_blocks
-                0x200013b4      0x130 ./drivers/Pixy_SPI.o
-                0x200013b4                Pixy_get_blocks
+                0x20001418      0x130 ./drivers/Pixy_SPI.o
+                0x20001418                Pixy_get_blocks
  .text.Pixy_get_target_location
-                0x200014e4       0x28 ./drivers/Pixy_SPI.o
-                0x200014e4                Pixy_get_target_location
- *fill*         0x2000150c        0x4 00
+                0x20001548       0x28 ./drivers/Pixy_SPI.o
+                0x20001548                Pixy_get_target_location
  .text.get_distance
-                0x20001510       0x28 ./drivers/dsensor_driver.o
-                0x20001510                get_distance
+                0x20001570       0x28 ./drivers/dsensor_driver.o
+                0x20001570                get_distance
  .text.n64_get_state
-                0x20001538       0x14 ./drivers/n64_driver.o
-                0x20001538                n64_get_state
+                0x20001598       0x14 ./drivers/n64_driver.o
+                0x20001598                n64_get_state
  .text.n64_reset
-                0x2000154c       0x10 ./drivers/n64_driver.o
-                0x2000154c                n64_reset
+                0x200015ac       0x10 ./drivers/n64_driver.o
+                0x200015ac                n64_reset
  .text.n64_enable
-                0x2000155c       0x10 ./drivers/n64_driver.o
-                0x2000155c                n64_enable
+                0x200015bc       0x10 ./drivers/n64_driver.o
+                0x200015bc                n64_enable
  .text.map_n64_analog_to_servo_pwm
-                0x2000156c       0x80 ./drivers/n64_driver.o
-                0x2000156c                map_n64_analog_to_servo_pwm
+                0x200015cc       0x80 ./drivers/n64_driver.o
+                0x200015cc                map_n64_analog_to_servo_pwm
  .text.set_x_servo_analog_pw
-                0x200015ec       0x1c ./drivers/servo_control.o
-                0x200015ec                set_x_servo_analog_pw
+                0x2000164c       0x1c ./drivers/servo_control.o
+                0x2000164c                set_x_servo_analog_pw
  .text.set_y_servo_analog_pw
-                0x20001608       0x1c ./drivers/servo_control.o
-                0x20001608                set_y_servo_analog_pw
+                0x20001668       0x1c ./drivers/servo_control.o
+                0x20001668                set_y_servo_analog_pw
  .text.disp_upd_finish
-                0x20001624       0x10 ./drivers/stats_display.o
-                0x20001624                disp_upd_finish
+                0x20001684       0x10 ./drivers/stats_display.o
+                0x20001684                disp_upd_finish
  .text.disp_scale_x
-                0x20001634       0x1c ./drivers/stats_display.o
-                0x20001634                disp_scale_x
+                0x20001694       0x1c ./drivers/stats_display.o
+                0x20001694                disp_scale_x
  .text.disp_scale_y
-                0x20001650       0x1c ./drivers/stats_display.o
-                0x20001650                disp_scale_y
+                0x200016b0       0x1c ./drivers/stats_display.o
+                0x200016b0                disp_scale_y
  .text.disp_write_mode
-                0x2000166c       0x8c ./drivers/stats_display.o
-                0x2000166c                disp_write_mode
+                0x200016cc       0x8c ./drivers/stats_display.o
+                0x200016cc                disp_write_mode
  .text.disp_write_shots
-                0x200016f8       0x80 ./drivers/stats_display.o
-                0x200016f8                disp_write_shots
+                0x20001758       0x80 ./drivers/stats_display.o
+                0x20001758                disp_write_shots
  .text.disp_write_dist
-                0x20001778       0x7c ./drivers/stats_display.o
-                0x20001778                disp_write_dist
+                0x200017d8       0x7c ./drivers/stats_display.o
+                0x200017d8                disp_write_dist
  .text.disp_write_targ_vals
-                0x200017f4       0x98 ./drivers/stats_display.o
-                0x200017f4                disp_write_targ_vals
+                0x20001854       0x98 ./drivers/stats_display.o
+                0x20001854                disp_write_targ_vals
  .text.disp_write_targ_circle
-                0x2000188c       0x6c ./drivers/stats_display.o
-                0x2000188c                disp_write_targ_circle
+                0x200018ec       0x6c ./drivers/stats_display.o
+                0x200018ec                disp_write_targ_circle
  .text.disp_erase_old_targ_circle
-                0x200018f8       0x70 ./drivers/stats_display.o
-                0x200018f8                disp_erase_old_targ_circle
+                0x20001958       0x70 ./drivers/stats_display.o
+                0x20001958                disp_erase_old_targ_circle
  .text.disp_update
-                0x20001968      0x3e0 ./drivers/stats_display.o
-                0x20001968                disp_update
+                0x200019c8      0x3e0 ./drivers/stats_display.o
+                0x200019c8                disp_update
  .text.disp_init
-                0x20001d48       0x90 ./drivers/stats_display.o
-                0x20001d48                disp_init
+                0x20001da8       0x90 ./drivers/stats_display.o
+                0x20001da8                disp_init
  .text.start_hardware_timer
-                0x20001dd8       0x88 ./drivers/timer_t.o
-                0x20001dd8                start_hardware_timer
- .text.set_clk  0x20001e60        0xc ./drivers/timer_t.o
-                0x20001e60                set_clk
+                0x20001e38       0x88 ./drivers/timer_t.o
+                0x20001e38                start_hardware_timer
+ .text.set_clk  0x20001ec0        0xc ./drivers/timer_t.o
+                0x20001ec0                set_clk
  .text.to_ticks
-                0x20001e6c       0x18 ./drivers/timer_t.o
-                0x20001e6c                to_ticks
+                0x20001ecc       0x18 ./drivers/timer_t.o
+                0x20001ecc                to_ticks
  .text._end_delay_timer
-                0x20001e84       0x60 ./drivers/timer_t.o
-                0x20001e84                _end_delay_timer
+                0x20001ee4       0x60 ./drivers/timer_t.o
+                0x20001ee4                _end_delay_timer
  .text.add_timer
-                0x20001ee4       0x50 ./drivers/timer_t.o
-                0x20001ee4                add_timer
+                0x20001f44       0x50 ./drivers/timer_t.o
+                0x20001f44                add_timer
  .text.add_timer_single
-                0x20001f34        0x8 ./drivers/timer_t.o
-                0x20001f34                add_timer_single
+                0x20001f94        0x8 ./drivers/timer_t.o
+                0x20001f94                add_timer_single
  .text.use_me_carefully_ms_delay_timer
-                0x20001f3c       0x84 ./drivers/timer_t.o
-                0x20001f3c                use_me_carefully_ms_delay_timer
+                0x20001f9c       0x84 ./drivers/timer_t.o
+                0x20001f9c                use_me_carefully_ms_delay_timer
  .text.update_timers
-                0x20001fc0       0xa0 ./drivers/timer_t.o
-                0x20001fc0                update_timers
+                0x20002020       0xa0 ./drivers/timer_t.o
+                0x20002020                update_timers
  .text.Timer1_IRQHandler
-                0x20002060       0x50 ./drivers/timer_t.o
-                0x20002060                Timer1_IRQHandler
- .text._close   0x200020b0       0x18 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
-                0x200020b0                _close
- .text._exit    0x200020c8        0xc C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
-                0x200020c8                _exit
- .text._fstat   0x200020d4       0x24 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
-                0x200020d4                _fstat
- .text._isatty  0x200020f8       0x18 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
-                0x200020f8                _isatty
- .text._lseek   0x20002110       0x1c C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
-                0x20002110                _lseek
- .text._read    0x2000212c       0x1c C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
-                0x2000212c                _read
+                0x200020c0       0x50 ./drivers/timer_t.o
+                0x200020c0                Timer1_IRQHandler
+ .text._close   0x20002110       0x18 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x20002110                _close
+ .text._exit    0x20002128        0xc C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x20002128                _exit
+ .text._fstat   0x20002134       0x24 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x20002134                _fstat
+ .text._isatty  0x20002158       0x18 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x20002158                _isatty
+ .text._lseek   0x20002170       0x1c C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x20002170                _lseek
+ .text._read    0x2000218c       0x1c C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x2000218c                _read
  .text._write_r
-                0x20002148       0x5c C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
-                0x20002148                _write_r
- .text._sbrk    0x200021a4       0x94 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
-                0x200021a4                _sbrk
+                0x200021a8       0x5c C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x200021a8                _write_r
+ .text._sbrk    0x20002204       0x94 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x20002204                _sbrk
  .text.NVIC_ClearPendingIRQ
-                0x20002238       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x20002298       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
  .text.MSS_UART_init
-                0x20002274      0x204 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
-                0x20002274                MSS_UART_init
+                0x200022d4      0x204 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x200022d4                MSS_UART_init
  .text.MSS_UART_polled_tx
-                0x20002478       0xe4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
-                0x20002478                MSS_UART_polled_tx
+                0x200024d8       0xe4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x200024d8                MSS_UART_polled_tx
  .text.MSS_UART_polled_tx_string
-                0x2000255c       0xd0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
-                0x2000255c                MSS_UART_polled_tx_string
+                0x200025bc       0xd0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x200025bc                MSS_UART_polled_tx_string
  .text.MSS_UART_isr
-                0x2000262c      0x11c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x2000268c      0x11c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
  .text.default_tx_handler
-                0x20002748      0x108 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x200027a8      0x108 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
  .text.UART0_IRQHandler
-                0x20002850       0x2c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
-                0x20002850                UART0_IRQHandler
+                0x200028b0       0x2c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x200028b0                UART0_IRQHandler
  .text.UART1_IRQHandler
-                0x2000287c       0x2c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
-                0x2000287c                UART1_IRQHandler
+                0x200028dc       0x2c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x200028dc                UART1_IRQHandler
  .text.NVIC_EnableIRQ
-                0x200028a8       0x38 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20002908       0x38 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
  .text.NVIC_DisableIRQ
-                0x200028e0       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20002940       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
  .text.NVIC_ClearPendingIRQ
-                0x2000291c       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x2000297c       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
  .text.MSS_SPI_init
-                0x20002958      0x134 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
-                0x20002958                MSS_SPI_init
+                0x200029b8      0x134 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x200029b8                MSS_SPI_init
  .text.recover_from_rx_overflow
-                0x20002a8c      0x160 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20002aec      0x160 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
  .text.MSS_SPI_configure_master_mode
-                0x20002bec      0x120 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
-                0x20002bec                MSS_SPI_configure_master_mode
+                0x20002c4c      0x120 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20002c4c                MSS_SPI_configure_master_mode
  .text.MSS_SPI_set_slave_select
-                0x20002d0c      0x108 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
-                0x20002d0c                MSS_SPI_set_slave_select
+                0x20002d6c      0x108 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20002d6c                MSS_SPI_set_slave_select
  .text.MSS_SPI_clear_slave_select
-                0x20002e14       0x90 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
-                0x20002e14                MSS_SPI_clear_slave_select
+                0x20002e74       0x90 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20002e74                MSS_SPI_clear_slave_select
  .text.MSS_SPI_transfer_frame
-                0x20002ea4       0xec C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
-                0x20002ea4                MSS_SPI_transfer_frame
+                0x20002f04       0xec C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20002f04                MSS_SPI_transfer_frame
  .text.fill_slave_tx_fifo
-                0x20002f90       0xe0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20002ff0       0xe0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
  .text.read_slave_rx_fifo
-                0x20003070       0xac C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x200030d0       0xac C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
  .text.mss_spi_isr
-                0x2000311c      0x2b0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x2000317c      0x2b0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
  .text.SPI0_IRQHandler
-                0x200033cc       0x2c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
-                0x200033cc                SPI0_IRQHandler
+                0x2000342c       0x2c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x2000342c                SPI0_IRQHandler
  .text.SPI1_IRQHandler
-                0x200033f8       0x2c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
-                0x200033f8                SPI1_IRQHandler
+                0x20003458       0x2c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x20003458                SPI1_IRQHandler
  .text.NVIC_ClearPendingIRQ
-                0x20003424       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+                0x20003484       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
  .text.MSS_GPIO_init
-                0x20003460       0x6c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
-                0x20003460                MSS_GPIO_init
+                0x200034c0       0x6c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+                0x200034c0                MSS_GPIO_init
  .text.MSS_GPIO_config
-                0x200034cc       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
-                0x200034cc                MSS_GPIO_config
+                0x2000352c       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+                0x2000352c                MSS_GPIO_config
  .text.MSS_GPIO_set_output
-                0x20003508       0x40 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
-                0x20003508                MSS_GPIO_set_output
+                0x20003568       0x40 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+                0x20003568                MSS_GPIO_set_output
  .text.SystemInit
-                0x20003548        0xc C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
-                0x20003548                SystemInit
+                0x200035a8        0xc C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x200035a8                SystemInit
  .text.SystemCoreClockUpdate
-                0x20003554      0x150 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
-                0x20003554                SystemCoreClockUpdate
+                0x200035b4      0x150 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x200035b4                SystemCoreClockUpdate
  .text.GetSystemClock
-                0x200036a4       0xe8 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x20003704       0xe8 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
  .text.NVIC_ClearPendingIRQ
-                0x2000378c       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x200037ec       0x3c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
  .text.process_flag_irq
-                0x200037c8       0x14 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003828       0x14 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
  .text.ACE_PPE_Flag0_IRQHandler
-                0x200037dc       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x200037dc                ACE_PPE_Flag0_IRQHandler
+                0x2000383c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x2000383c                ACE_PPE_Flag0_IRQHandler
  .text.ACE_PPE_Flag1_IRQHandler
-                0x20003804       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003804                ACE_PPE_Flag1_IRQHandler
+                0x20003864       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003864                ACE_PPE_Flag1_IRQHandler
  .text.ACE_PPE_Flag2_IRQHandler
-                0x2000382c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x2000382c                ACE_PPE_Flag2_IRQHandler
+                0x2000388c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x2000388c                ACE_PPE_Flag2_IRQHandler
  .text.ACE_PPE_Flag3_IRQHandler
-                0x20003854       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003854                ACE_PPE_Flag3_IRQHandler
+                0x200038b4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x200038b4                ACE_PPE_Flag3_IRQHandler
  .text.ACE_PPE_Flag4_IRQHandler
-                0x2000387c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x2000387c                ACE_PPE_Flag4_IRQHandler
+                0x200038dc       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x200038dc                ACE_PPE_Flag4_IRQHandler
  .text.ACE_PPE_Flag5_IRQHandler
-                0x200038a4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x200038a4                ACE_PPE_Flag5_IRQHandler
+                0x20003904       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003904                ACE_PPE_Flag5_IRQHandler
  .text.ACE_PPE_Flag6_IRQHandler
-                0x200038cc       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x200038cc                ACE_PPE_Flag6_IRQHandler
+                0x2000392c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x2000392c                ACE_PPE_Flag6_IRQHandler
  .text.ACE_PPE_Flag7_IRQHandler
-                0x200038f4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x200038f4                ACE_PPE_Flag7_IRQHandler
+                0x20003954       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003954                ACE_PPE_Flag7_IRQHandler
  .text.ACE_PPE_Flag8_IRQHandler
-                0x2000391c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x2000391c                ACE_PPE_Flag8_IRQHandler
+                0x2000397c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x2000397c                ACE_PPE_Flag8_IRQHandler
  .text.ACE_PPE_Flag9_IRQHandler
-                0x20003944       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003944                ACE_PPE_Flag9_IRQHandler
+                0x200039a4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x200039a4                ACE_PPE_Flag9_IRQHandler
  .text.ACE_PPE_Flag10_IRQHandler
-                0x2000396c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x2000396c                ACE_PPE_Flag10_IRQHandler
+                0x200039cc       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x200039cc                ACE_PPE_Flag10_IRQHandler
  .text.ACE_PPE_Flag11_IRQHandler
-                0x20003994       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003994                ACE_PPE_Flag11_IRQHandler
+                0x200039f4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x200039f4                ACE_PPE_Flag11_IRQHandler
  .text.ACE_PPE_Flag12_IRQHandler
-                0x200039bc       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x200039bc                ACE_PPE_Flag12_IRQHandler
+                0x20003a1c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003a1c                ACE_PPE_Flag12_IRQHandler
  .text.ACE_PPE_Flag13_IRQHandler
-                0x200039e4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x200039e4                ACE_PPE_Flag13_IRQHandler
+                0x20003a44       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003a44                ACE_PPE_Flag13_IRQHandler
  .text.ACE_PPE_Flag14_IRQHandler
-                0x20003a0c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003a0c                ACE_PPE_Flag14_IRQHandler
+                0x20003a6c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003a6c                ACE_PPE_Flag14_IRQHandler
  .text.ACE_PPE_Flag15_IRQHandler
-                0x20003a34       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003a34                ACE_PPE_Flag15_IRQHandler
+                0x20003a94       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003a94                ACE_PPE_Flag15_IRQHandler
  .text.ACE_PPE_Flag16_IRQHandler
-                0x20003a5c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003a5c                ACE_PPE_Flag16_IRQHandler
+                0x20003abc       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003abc                ACE_PPE_Flag16_IRQHandler
  .text.ACE_PPE_Flag17_IRQHandler
-                0x20003a84       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003a84                ACE_PPE_Flag17_IRQHandler
+                0x20003ae4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003ae4                ACE_PPE_Flag17_IRQHandler
  .text.ACE_PPE_Flag18_IRQHandler
-                0x20003aac       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003aac                ACE_PPE_Flag18_IRQHandler
+                0x20003b0c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003b0c                ACE_PPE_Flag18_IRQHandler
  .text.ACE_PPE_Flag19_IRQHandler
-                0x20003ad4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003ad4                ACE_PPE_Flag19_IRQHandler
+                0x20003b34       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003b34                ACE_PPE_Flag19_IRQHandler
  .text.ACE_PPE_Flag20_IRQHandler
-                0x20003afc       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003afc                ACE_PPE_Flag20_IRQHandler
+                0x20003b5c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003b5c                ACE_PPE_Flag20_IRQHandler
  .text.ACE_PPE_Flag21_IRQHandler
-                0x20003b24       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003b24                ACE_PPE_Flag21_IRQHandler
+                0x20003b84       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003b84                ACE_PPE_Flag21_IRQHandler
  .text.ACE_PPE_Flag22_IRQHandler
-                0x20003b4c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003b4c                ACE_PPE_Flag22_IRQHandler
+                0x20003bac       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003bac                ACE_PPE_Flag22_IRQHandler
  .text.ACE_PPE_Flag23_IRQHandler
-                0x20003b74       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003b74                ACE_PPE_Flag23_IRQHandler
+                0x20003bd4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003bd4                ACE_PPE_Flag23_IRQHandler
  .text.ACE_PPE_Flag24_IRQHandler
-                0x20003b9c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003b9c                ACE_PPE_Flag24_IRQHandler
+                0x20003bfc       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003bfc                ACE_PPE_Flag24_IRQHandler
  .text.ACE_PPE_Flag25_IRQHandler
-                0x20003bc4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003bc4                ACE_PPE_Flag25_IRQHandler
+                0x20003c24       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003c24                ACE_PPE_Flag25_IRQHandler
  .text.ACE_PPE_Flag26_IRQHandler
-                0x20003bec       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003bec                ACE_PPE_Flag26_IRQHandler
+                0x20003c4c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003c4c                ACE_PPE_Flag26_IRQHandler
  .text.ACE_PPE_Flag27_IRQHandler
-                0x20003c14       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003c14                ACE_PPE_Flag27_IRQHandler
+                0x20003c74       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003c74                ACE_PPE_Flag27_IRQHandler
  .text.ACE_PPE_Flag28_IRQHandler
-                0x20003c3c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003c3c                ACE_PPE_Flag28_IRQHandler
+                0x20003c9c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003c9c                ACE_PPE_Flag28_IRQHandler
  .text.ACE_PPE_Flag29_IRQHandler
-                0x20003c64       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003c64                ACE_PPE_Flag29_IRQHandler
+                0x20003cc4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003cc4                ACE_PPE_Flag29_IRQHandler
  .text.ACE_PPE_Flag30_IRQHandler
-                0x20003c8c       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003c8c                ACE_PPE_Flag30_IRQHandler
+                0x20003cec       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003cec                ACE_PPE_Flag30_IRQHandler
  .text.ACE_PPE_Flag31_IRQHandler
-                0x20003cb4       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
-                0x20003cb4                ACE_PPE_Flag31_IRQHandler
- .text          0x20003cdc      0x370 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_addsubdf3.o)
-                0x20003cdc                __aeabi_drsub
-                0x20003ce4                __aeabi_dsub
-                0x20003ce4                __subdf3
-                0x20003ce8                __aeabi_dadd
-                0x20003ce8                __adddf3
-                0x20003f60                __floatunsidf
-                0x20003f60                __aeabi_ui2d
-                0x20003f80                __floatsidf
-                0x20003f80                __aeabi_i2d
-                0x20003fa4                __aeabi_f2d
-                0x20003fa4                __extendsfdf2
-                0x20003fe0                __floatundidf
-                0x20003fe0                __aeabi_ul2d
-                0x20003ff0                __floatdidf
-                0x20003ff0                __aeabi_l2d
- .text          0x2000404c      0x424 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_muldivdf3.o)
-                0x2000404c                __aeabi_dmul
-                0x2000404c                __muldf3
-                0x200042a0                __divdf3
-                0x200042a0                __aeabi_ddiv
- .text          0x20004470       0x40 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
-                0x20004470                __aeabi_d2uiz
-                0x20004470                __fixunsdfsi
- .text          0x200044b0       0xa0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
-                0x200044b0                __truncdfsf2
-                0x200044b0                __aeabi_d2f
- .text          0x20004550      0x21c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_addsubsf3.o)
-                0x20004550                __aeabi_frsub
-                0x20004558                __subsf3
-                0x20004558                __aeabi_fsub
-                0x2000455c                __aeabi_fadd
-                0x2000455c                __addsf3
-                0x200046bc                __aeabi_ui2f
-                0x200046bc                __floatunsisf
-                0x200046c4                __aeabi_i2f
-                0x200046c4                __floatsisf
-                0x200046e0                __aeabi_ul2f
-                0x200046e0                __floatundisf
-                0x200046f0                __aeabi_l2f
-                0x200046f0                __floatdisf
- .text          0x2000476c      0x2a0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_muldivsf3.o)
-                0x2000476c                __mulsf3
-                0x2000476c                __aeabi_fmul
-                0x200048d4                __aeabi_fdiv
-                0x200048d4                __divsf3
- .text          0x20004a0c       0x40 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_fixunssfsi.o)
-                0x20004a0c                __fixunssfsi
-                0x20004a0c                __aeabi_f2uiz
- .text          0x20004a4c       0x50 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-init.o)
-                0x20004a4c                __libc_init_array
- .text          0x20004a9c       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-malloc.o)
-                0x20004a9c                free
-                0x20004aac                malloc
- .text          0x20004abc      0x5a4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o)
-                0x20004abc                _malloc_r
- .text          0x20005060      0x190 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memcpy.o)
-                0x20005060                memcpy
- .text          0x200051f0       0xd4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memset.o)
-                0x200051f0                memset
- .text          0x200052c4        0x8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mlock.o)
-                0x200052c4                __malloc_lock
-                0x200052c8                __malloc_unlock
- .text          0x200052cc       0x64 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-printf.o)
-                0x200052cc                printf
-                0x20005304                _printf_r
- .text          0x20005330       0x88 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
-                0x20005330                _puts_r
-                0x200053a8                puts
- .text          0x200053b8       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sbrkr.o)
-                0x200053b8                _sbrk_r
- .text          0x200053e0       0x94 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sprintf.o)
-                0x200053e0                sprintf
-                0x20005430                _sprintf_r
- .text          0x20005474       0x60 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strlen.o)
-                0x20005474                strlen
- .text          0x200054d4     0x15a8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
-                0x200055f0                _svfprintf_r
- .text          0x20006a7c     0x1940 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
-                0x20006a98                _vfprintf_r
-                0x200083a0                vfprintf
- .text          0x200083bc      0x104 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wsetup.o)
-                0x200083bc                __swsetup_r
- .text          0x200084c0      0xfb8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o)
-                0x200085e0                _dtoa_r
- .text          0x20009478      0x178 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fflush.o)
-                0x20009478                _fflush_r
-                0x200095c8                fflush
- .text          0x200095f0      0x1c8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
-                0x200095f0                __sfp_lock_acquire
-                0x200095f4                __sfp_lock_release
-                0x200095f8                __sinit_lock_acquire
-                0x200095fc                __sinit_lock_release
-                0x20009608                __fp_unlock_all
-                0x20009620                __fp_lock_all
-                0x20009638                _cleanup_r
-                0x20009644                _cleanup
-                0x200096a0                __sfmoreglue
-                0x200096d0                __sfp
-                0x20009758                __sinit
- .text          0x200097b8      0x268 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-freer.o)
-                0x200097b8                _malloc_trim_r
-                0x20009860                _free_r
- .text          0x20009a20      0x334 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fvwrite.o)
-                0x20009a20                __sfvwrite_r
- .text          0x20009d54       0xa0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fwalk.o)
-                0x20009d54                _fwalk_reent
-                0x20009da8                _fwalk
- .text          0x20009df4       0x74 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
-                0x20009df4                __locale_charset
-                0x20009e00                _localeconv_r
-                0x20009e08                localeconv
-                0x20009e10                _setlocale_r
-                0x20009e58                setlocale
- .text          0x20009e68       0xdc c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-makebuf.o)
-                0x20009e68                __smakebuf_r
- .text          0x20009f44       0x74 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memchr.o)
-                0x20009f44                memchr
- .text          0x20009fb8       0xb8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memmove.o)
-                0x20009fb8                memmove
- .text          0x2000a070      0x958 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
-                0x2000a070                __hi0bits
-                0x2000a0b0                __lo0bits
-                0x2000a114                __mcmp
-                0x2000a154                __ulp
-                0x2000a1a0                __b2d
-                0x2000a248                __ratio
-                0x2000a2a8                _mprec_log10
-                0x2000a2e0                __copybits
-                0x2000a330                __any_on
-                0x2000a388                _Bfree
-                0x2000a3c0                _Balloc
-                0x2000a42c                __d2b
-                0x2000a4fc                __mdiff
-                0x2000a5f4                __lshift
-                0x2000a6b0                __multiply
-                0x2000a7e4                __i2b
-                0x2000a7f8                __multadd
-                0x2000a880                __pow5mult
-                0x2000a92c                __s2b
- .text          0x2000a9c8      0x3b4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
-                0x2000a9c8                _realloc_r
- .text          0x2000ad7c       0x24 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isinfd.o)
-                0x2000ad7c                __isinfd
- .text          0x2000ada0       0x1c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isnand.o)
-                0x2000ada0                __isnand
- .text          0x2000adbc       0x90 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-stdio.o)
-                0x2000adbc                __sclose
-                0x2000adc4                __sseek
-                0x2000adec                __swrite
-                0x2000ae28                __sread
- .text          0x2000ae4c      0x1dc c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
-                0x2000ae4c                strcmp
- .text          0x2000b028       0x5c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
-                0x2000b028                _calloc_r
- .text          0x2000b084       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-closer.o)
-                0x2000b084                _close_r
- .text          0x2000b0ac       0xcc c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fclose.o)
-                0x2000b0ac                _fclose_r
-                0x2000b168                fclose
- .text          0x2000b178       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fstatr.o)
-                0x2000b178                _fstat_r
- .text          0x2000b1a4       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-isattyr.o)
-                0x2000b1a4                _isatty_r
- .text          0x2000b1cc       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-lseekr.o)
-                0x2000b1cc                _lseek_r
- .text          0x2000b1f8       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-readr.o)
-                0x2000b1f8                _read_r
- *fill*         0x2000b224        0x4 00
- .text          0x2000b228      0x278 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivsi3.o)
-                0x2000b228                __aeabi_uidiv
-                0x2000b228                __udivsi3
-                0x2000b484                __aeabi_uidivmod
- .text          0x2000b4a0        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_dvmd_tls.o)
-                0x2000b4a0                __aeabi_idiv0
-                0x2000b4a0                __aeabi_ldiv0
- .text          0x2000b4a4      0x110 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_cmpdf2.o)
-                0x2000b4a4                __gtdf2
-                0x2000b4a4                __gedf2
-                0x2000b4ac                __ltdf2
-                0x2000b4ac                __ledf2
-                0x2000b4b4                __nedf2
-                0x2000b4b4                __eqdf2
-                0x2000b4b4                __cmpdf2
-                0x2000b530                __aeabi_cdrcmple
-                0x2000b540                __aeabi_cdcmpeq
-                0x2000b540                __aeabi_cdcmple
-                0x2000b550                __aeabi_dcmpeq
-                0x2000b564                __aeabi_dcmplt
-                0x2000b578                __aeabi_dcmple
-                0x2000b58c                __aeabi_dcmpge
-                0x2000b5a0                __aeabi_dcmpgt
- .text          0x2000b5b4       0x50 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_fixdfsi.o)
-                0x2000b5b4                __aeabi_d2iz
-                0x2000b5b4                __fixdfsi
- .text          0x2000b604       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_aeabi_uldivmod.o)
-                0x2000b604                __aeabi_uldivmod
- .text          0x2000b630       0x58 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(bpabi.o)
-                0x2000b630                __gnu_uldivmod_helper
-                0x2000b65c                __gnu_ldivmod_helper
- .text          0x2000b688      0x364 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_divdi3.o)
-                0x2000b688                __divdi3
- .text          0x2000b9ec      0x300 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivdi3.o)
-                0x2000b9ec                __udivdi3
+                0x20003d14       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x20003d14                ACE_PPE_Flag31_IRQHandler
+ .text          0x20003d3c      0x370 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_addsubdf3.o)
+                0x20003d3c                __aeabi_drsub
+                0x20003d44                __aeabi_dsub
+                0x20003d44                __subdf3
+                0x20003d48                __aeabi_dadd
+                0x20003d48                __adddf3
+                0x20003fc0                __floatunsidf
+                0x20003fc0                __aeabi_ui2d
+                0x20003fe0                __floatsidf
+                0x20003fe0                __aeabi_i2d
+                0x20004004                __aeabi_f2d
+                0x20004004                __extendsfdf2
+                0x20004040                __floatundidf
+                0x20004040                __aeabi_ul2d
+                0x20004050                __floatdidf
+                0x20004050                __aeabi_l2d
+ .text          0x200040ac      0x424 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_muldivdf3.o)
+                0x200040ac                __aeabi_dmul
+                0x200040ac                __muldf3
+                0x20004300                __divdf3
+                0x20004300                __aeabi_ddiv
+ .text          0x200044d0       0x40 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
+                0x200044d0                __aeabi_d2uiz
+                0x200044d0                __fixunsdfsi
+ .text          0x20004510       0xa0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
+                0x20004510                __truncdfsf2
+                0x20004510                __aeabi_d2f
+ .text          0x200045b0      0x21c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_addsubsf3.o)
+                0x200045b0                __aeabi_frsub
+                0x200045b8                __subsf3
+                0x200045b8                __aeabi_fsub
+                0x200045bc                __aeabi_fadd
+                0x200045bc                __addsf3
+                0x2000471c                __aeabi_ui2f
+                0x2000471c                __floatunsisf
+                0x20004724                __aeabi_i2f
+                0x20004724                __floatsisf
+                0x20004740                __aeabi_ul2f
+                0x20004740                __floatundisf
+                0x20004750                __aeabi_l2f
+                0x20004750                __floatdisf
+ .text          0x200047cc      0x2a0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_muldivsf3.o)
+                0x200047cc                __mulsf3
+                0x200047cc                __aeabi_fmul
+                0x20004934                __aeabi_fdiv
+                0x20004934                __divsf3
+ .text          0x20004a6c       0x40 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_fixunssfsi.o)
+                0x20004a6c                __fixunssfsi
+                0x20004a6c                __aeabi_f2uiz
+ .text          0x20004aac       0x50 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-init.o)
+                0x20004aac                __libc_init_array
+ .text          0x20004afc       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-malloc.o)
+                0x20004afc                free
+                0x20004b0c                malloc
+ .text          0x20004b1c      0x5a4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o)
+                0x20004b1c                _malloc_r
+ .text          0x200050c0      0x190 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memcpy.o)
+                0x200050c0                memcpy
+ .text          0x20005250       0xd4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memset.o)
+                0x20005250                memset
+ .text          0x20005324        0x8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mlock.o)
+                0x20005324                __malloc_lock
+                0x20005328                __malloc_unlock
+ .text          0x2000532c       0x64 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-printf.o)
+                0x2000532c                printf
+                0x20005364                _printf_r
+ .text          0x20005390       0x4c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putchar.o)
+                0x20005390                putchar
+                0x200053b8                _putchar_r
+ .text          0x200053dc       0x88 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
+                0x200053dc                _puts_r
+                0x20005454                puts
+ .text          0x20005464       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sbrkr.o)
+                0x20005464                _sbrk_r
+ .text          0x2000548c       0x94 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sprintf.o)
+                0x2000548c                sprintf
+                0x200054dc                _sprintf_r
+ .text          0x20005520       0x60 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strlen.o)
+                0x20005520                strlen
+ .text          0x20005580     0x15a8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
+                0x2000569c                _svfprintf_r
+ .text          0x20006b28     0x1940 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
+                0x20006b44                _vfprintf_r
+                0x2000844c                vfprintf
+ .text          0x20008468      0x104 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wsetup.o)
+                0x20008468                __swsetup_r
+ *fill*         0x2000856c        0x4 00
+ .text          0x20008570      0xfb8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o)
+                0x20008690                _dtoa_r
+ .text          0x20009528      0x178 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fflush.o)
+                0x20009528                _fflush_r
+                0x20009678                fflush
+ .text          0x200096a0      0x1c8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
+                0x200096a0                __sfp_lock_acquire
+                0x200096a4                __sfp_lock_release
+                0x200096a8                __sinit_lock_acquire
+                0x200096ac                __sinit_lock_release
+                0x200096b8                __fp_unlock_all
+                0x200096d0                __fp_lock_all
+                0x200096e8                _cleanup_r
+                0x200096f4                _cleanup
+                0x20009750                __sfmoreglue
+                0x20009780                __sfp
+                0x20009808                __sinit
+ .text          0x20009868      0x268 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-freer.o)
+                0x20009868                _malloc_trim_r
+                0x20009910                _free_r
+ .text          0x20009ad0      0x334 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fvwrite.o)
+                0x20009ad0                __sfvwrite_r
+ .text          0x20009e04       0xa0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fwalk.o)
+                0x20009e04                _fwalk_reent
+                0x20009e58                _fwalk
+ .text          0x20009ea4       0x74 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
+                0x20009ea4                __locale_charset
+                0x20009eb0                _localeconv_r
+                0x20009eb8                localeconv
+                0x20009ec0                _setlocale_r
+                0x20009f08                setlocale
+ .text          0x20009f18       0xdc c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-makebuf.o)
+                0x20009f18                __smakebuf_r
+ .text          0x20009ff4       0x74 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memchr.o)
+                0x20009ff4                memchr
+ .text          0x2000a068       0xb8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memmove.o)
+                0x2000a068                memmove
+ .text          0x2000a120      0x958 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
+                0x2000a120                __hi0bits
+                0x2000a160                __lo0bits
+                0x2000a1c4                __mcmp
+                0x2000a204                __ulp
+                0x2000a250                __b2d
+                0x2000a2f8                __ratio
+                0x2000a358                _mprec_log10
+                0x2000a390                __copybits
+                0x2000a3e0                __any_on
+                0x2000a438                _Bfree
+                0x2000a470                _Balloc
+                0x2000a4dc                __d2b
+                0x2000a5ac                __mdiff
+                0x2000a6a4                __lshift
+                0x2000a760                __multiply
+                0x2000a894                __i2b
+                0x2000a8a8                __multadd
+                0x2000a930                __pow5mult
+                0x2000a9dc                __s2b
+ .text          0x2000aa78      0x138 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putc.o)
+                0x2000aa78                putc
+                0x2000ab20                _putc_r
+ .text          0x2000abb0      0x3b4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
+                0x2000abb0                _realloc_r
+ .text          0x2000af64       0x24 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isinfd.o)
+                0x2000af64                __isinfd
+ .text          0x2000af88       0x1c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isnand.o)
+                0x2000af88                __isnand
+ .text          0x2000afa4       0x90 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-stdio.o)
+                0x2000afa4                __sclose
+                0x2000afac                __sseek
+                0x2000afd4                __swrite
+                0x2000b010                __sread
+ .text          0x2000b034      0x1dc c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
+                0x2000b034                strcmp
+ .text          0x2000b210       0xf8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wbuf.o)
+                0x2000b210                __swbuf_r
+                0x2000b2f8                __swbuf
+ .text          0x2000b308       0x5c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
+                0x2000b308                _calloc_r
+ .text          0x2000b364       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-closer.o)
+                0x2000b364                _close_r
+ .text          0x2000b38c       0xcc c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fclose.o)
+                0x2000b38c                _fclose_r
+                0x2000b448                fclose
+ .text          0x2000b458       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fstatr.o)
+                0x2000b458                _fstat_r
+ .text          0x2000b484       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-isattyr.o)
+                0x2000b484                _isatty_r
+ .text          0x2000b4ac       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-lseekr.o)
+                0x2000b4ac                _lseek_r
+ .text          0x2000b4d8       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-readr.o)
+                0x2000b4d8                _read_r
+ *fill*         0x2000b504        0x4 00
+ .text          0x2000b508      0x278 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivsi3.o)
+                0x2000b508                __aeabi_uidiv
+                0x2000b508                __udivsi3
+                0x2000b764                __aeabi_uidivmod
+ .text          0x2000b780        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_dvmd_tls.o)
+                0x2000b780                __aeabi_idiv0
+                0x2000b780                __aeabi_ldiv0
+ .text          0x2000b784      0x110 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_cmpdf2.o)
+                0x2000b784                __gtdf2
+                0x2000b784                __gedf2
+                0x2000b78c                __ltdf2
+                0x2000b78c                __ledf2
+                0x2000b794                __nedf2
+                0x2000b794                __eqdf2
+                0x2000b794                __cmpdf2
+                0x2000b810                __aeabi_cdrcmple
+                0x2000b820                __aeabi_cdcmpeq
+                0x2000b820                __aeabi_cdcmple
+                0x2000b830                __aeabi_dcmpeq
+                0x2000b844                __aeabi_dcmplt
+                0x2000b858                __aeabi_dcmple
+                0x2000b86c                __aeabi_dcmpge
+                0x2000b880                __aeabi_dcmpgt
+ .text          0x2000b894       0x50 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_fixdfsi.o)
+                0x2000b894                __aeabi_d2iz
+                0x2000b894                __fixdfsi
+ .text          0x2000b8e4       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_aeabi_uldivmod.o)
+                0x2000b8e4                __aeabi_uldivmod
+ .text          0x2000b910       0x58 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(bpabi.o)
+                0x2000b910                __gnu_uldivmod_helper
+                0x2000b93c                __gnu_ldivmod_helper
+ .text          0x2000b968      0x364 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_divdi3.o)
+                0x2000b968                __divdi3
+ .text          0x2000bccc      0x300 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivdi3.o)
+                0x2000bccc                __udivdi3
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
@@ -1394,7 +1415,7 @@ END GROUP
  .glue_7        0x00000000        0x0 linker stubs
  *(.vfp11_veneer)
  .vfp11_veneer  0x00000000        0x0 linker stubs
-                0x2000bcec                . = ALIGN (0x4)
+                0x2000bfcc                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
@@ -1405,251 +1426,255 @@ END GROUP
  *crtend.o(.dtors)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x2000bcec      0x196 ./main.o
-                                0x198 (size before relaxing)
- *fill*         0x2000be82        0x2 00
+                0x2000bfcc      0x1f2 ./main.o
+                                0x1f4 (size before relaxing)
+ *fill*         0x2000c1be        0x2 00
+ .rodata.__func__.5331
+                0x2000c1c0       0x10 ./main.o
  .rodata.str1.4
-                0x2000be84       0x44 ./drivers/Pixy_SPI.o
- .rodata.__func__.4441
-                0x2000bec8       0x18 ./drivers/stats_display.o
- .rodata.__func__.4454
-                0x2000bee0       0x14 ./drivers/stats_display.o
- .rodata.__func__.4463
-                0x2000bef4       0x10 ./drivers/stats_display.o
- .rodata.str1.4
-                0x2000bf04      0x1cd ./drivers/stats_display.o
-                                0x1d4 (size before relaxing)
- *fill*         0x2000c0d1        0x3 00
- .rodata.__func__.4472
-                0x2000c0d4       0x10 ./drivers/stats_display.o
+                0x2000c1d0       0x44 ./drivers/Pixy_SPI.o
+ .rodata.__func__.4437
+                0x2000c214       0x18 ./drivers/stats_display.o
  .rodata.__func__.4372
-                0x2000c0e4        0xc ./drivers/stats_display.o
- .rodata.__func__.4419
-                0x2000c0f0       0x1c ./drivers/stats_display.o
- .rodata.__func__.4431
-                0x2000c10c       0x18 ./drivers/stats_display.o
+                0x2000c22c        0xc ./drivers/stats_display.o
+ .rodata.__func__.4447
+                0x2000c238       0x18 ./drivers/stats_display.o
+ .rodata.__func__.4460
+                0x2000c250       0x14 ./drivers/stats_display.o
  .rodata.str1.4
-                0x2000c124       0x34 ./drivers/timer_t.o
+                0x2000c264      0x1b5 ./drivers/stats_display.o
+                                0x1d4 (size before relaxing)
+ *fill*         0x2000c419        0x3 00
+ .rodata.__func__.4469
+                0x2000c41c       0x10 ./drivers/stats_display.o
+ .rodata.__func__.4478
+                0x2000c42c       0x10 ./drivers/stats_display.o
+ .rodata.__func__.4425
+                0x2000c43c       0x1c ./drivers/stats_display.o
+ .rodata.str1.4
+                0x2000c458       0x34 ./drivers/timer_t.o
                                  0x50 (size before relaxing)
  .rodata.__func__.4093
-                0x2000c158       0x14 ./drivers/timer_t.o
+                0x2000c48c       0x14 ./drivers/timer_t.o
  .rodata.__func__.4097
-                0x2000c16c       0x20 ./drivers/timer_t.o
- .rodata        0x2000c18c       0x1c C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x2000c4a0       0x20 ./drivers/timer_t.o
+ .rodata        0x2000c4c0       0x1c C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
  .rodata.g_config_reg_lut
-                0x2000c1a8       0x80 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+                0x2000c4dc       0x80 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
  .rodata.g_gpio_irqn_lut
-                0x2000c228       0x40 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+                0x2000c55c       0x40 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
  .rodata.C.18.2576
-                0x2000c268       0x10 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
- .rodata        0x2000c278        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-impure.o)
-                0x2000c278                _global_impure_ptr
+                0x2000c59c       0x10 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+ .rodata        0x2000c5ac        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-impure.o)
+                0x2000c5ac                _global_impure_ptr
  .rodata.str1.4
-                0x2000c27c        0x2 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-impure.o)
+                0x2000c5b0        0x2 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-impure.o)
                                   0x4 (size before relaxing)
  .rodata.str1.4
                 0x00000000        0x2 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
                                   0x4 (size before relaxing)
- *fill*         0x2000c27e        0x2 00
- .rodata        0x2000c280       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
+ *fill*         0x2000c5b2        0x2 00
+ .rodata        0x2000c5b4       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
  .rodata.str1.4
-                0x2000c2a0       0x42 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
+                0x2000c5d4       0x42 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
                                  0x44 (size before relaxing)
- *fill*         0x2000c2e2        0x2 00
- .rodata        0x2000c2e4       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
+ *fill*         0x2000c616        0x2 00
+ .rodata        0x2000c618       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
  .rodata.str1.4
                 0x00000000       0x44 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
  .rodata.str1.4
-                0x2000c304       0x10 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o)
+                0x2000c638       0x10 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o)
                                  0x14 (size before relaxing)
- .rodata        0x2000c314       0x60 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
-                0x2000c314                __sf_fake_stdin
-                0x2000c334                __sf_fake_stdout
-                0x2000c354                __sf_fake_stderr
- .rodata        0x2000c374       0x34 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
+ .rodata        0x2000c648       0x60 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
+                0x2000c648                __sf_fake_stdin
+                0x2000c668                __sf_fake_stdout
+                0x2000c688                __sf_fake_stderr
+ .rodata        0x2000c6a8       0x34 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
  .rodata.str1.4
-                0x2000c3a8       0x10 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
+                0x2000c6dc       0x10 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
                                  0x18 (size before relaxing)
- .rodata        0x2000c3b8      0x128 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
-                0x2000c3b8                __mprec_tens
-                0x2000c490                __mprec_bigtens
-                0x2000c4b8                __mprec_tinytens
+ *fill*         0x2000c6ec        0x4 00
+ .rodata        0x2000c6f0      0x128 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
+                0x2000c6f0                __mprec_tens
+                0x2000c7c8                __mprec_bigtens
+                0x2000c7f0                __mprec_tinytens
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
  *(.eh_frame_hdr)
  *(.eh_frame)
  *(.init)
- .init          0x2000c4e0        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
-                0x2000c4e0                _init
- .init          0x2000c4e4        0x8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .init          0x2000c818        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
+                0x2000c818                _init
+ .init          0x2000c81c        0x8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
  *(.fini)
- .fini          0x2000c4ec        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
-                0x2000c4ec                _fini
- .fini          0x2000c4f0        0x8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
-                0x2000c4f8                PROVIDE (__preinit_array_start, .)
+ .fini          0x2000c824        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
+                0x2000c824                _fini
+ .fini          0x2000c828        0x8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+                0x2000c830                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x2000c4f8                PROVIDE (__preinit_array_end, .)
-                0x2000c4f8                PROVIDE (__init_array_start, .)
+                0x2000c830                PROVIDE (__preinit_array_end, .)
+                0x2000c830                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x2000c4f8        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
-                0x2000c4fc                PROVIDE (__init_array_end, .)
-                0x2000c4fc                PROVIDE (__fini_array_start, .)
+ .init_array    0x2000c830        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
+                0x2000c834                PROVIDE (__init_array_end, .)
+                0x2000c834                PROVIDE (__fini_array_start, .)
  *(.fini_array)
- .fini_array    0x2000c4fc        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
+ .fini_array    0x2000c834        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
  *(SORT(.fini_array.*))
-                0x2000c500                PROVIDE (__fini_array_end, .)
-                0x2000c500                __exidx_start = .
+                0x2000c838                PROVIDE (__fini_array_end, .)
+                0x2000c838                __exidx_start = .
 
-.v4_bx          0x2000c500        0x0
+.v4_bx          0x2000c838        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.ARM.exidx      0x2000c500        0x8
+.ARM.exidx      0x2000c838        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x2000c500        0x8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_divdi3.o)
- .ARM.exidx     0x2000c508        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivdi3.o)
+ .ARM.exidx     0x2000c838        0x8 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_divdi3.o)
+ .ARM.exidx     0x2000c840        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivdi3.o)
                                   0x8 (size before relaxing)
-                0x2000c508                __exidx_end = .
-                0x2000c508                _etext = .
-                0x2000c508                PROVIDE (__text_end, .)
+                0x2000c840                __exidx_end = .
+                0x2000c840                _etext = .
+                0x2000c840                PROVIDE (__text_end, .)
 
-.data           0x2000c508      0x534
-                0x2000c508                __data_load = LOADADDR (.data)
-                0x2000c508                _sidata = LOADADDR (.data)
-                0x2000c508                __data_start = .
-                0x2000c508                _sdata = .
+.data           0x2000c840      0x534
+                0x2000c840                __data_load = LOADADDR (.data)
+                0x2000c840                _sidata = LOADADDR (.data)
+                0x2000c840                __data_start = .
+                0x2000c840                _sdata = .
  *(.jcr)
- .jcr           0x2000c508        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
- .jcr           0x2000c508        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
+ .jcr           0x2000c840        0x0 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
+ .jcr           0x2000c840        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
  *(.got.plt)
  *(.got)
  *(.shdata)
  *(.data .data.* .gnu.linkonce.d.*)
- .data.X_SCALE_PW.5322
-                0x2000c50c        0x2 ./main.o
- .data.PIXY_X_DEADZONE.5324
-                0x2000c50e        0x2 ./main.o
- .data.PIXY_Y_DEADZONE.5325
-                0x2000c510        0x2 ./main.o
- .data.PIXY_X_CENTER.5326
-                0x2000c512        0x2 ./main.o
- .data.Y_SCALE_PW.5323
-                0x2000c514        0x2 ./main.o
- .data.PIXY_Y_CENTER.5327
-                0x2000c516        0x2 ./main.o
+ .data.X_SCALE_PW.5324
+                0x2000c844        0x2 ./main.o
+ .data.PIXY_Y_DEADZONE.5327
+                0x2000c846        0x2 ./main.o
+ .data.PIXY_X_DEADZONE.5326
+                0x2000c848        0x2 ./main.o
+ .data.Y_SCALE_PW.5325
+                0x2000c84a        0x2 ./main.o
+ .data.PIXY_Y_CENTER.5329
+                0x2000c84c        0x2 ./main.o
+ .data.PIXY_X_CENTER.5328
+                0x2000c84e        0x2 ./main.o
  .data.current_pw.2218
-                0x2000c518        0x4 ./drivers/servo_control.o
+                0x2000c850        0x4 ./drivers/servo_control.o
  .data.current_pw.2228
-                0x2000c51c        0x4 ./drivers/servo_control.o
+                0x2000c854        0x4 ./drivers/servo_control.o
  .data.SystemFrequency
-                0x2000c520        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
-                0x2000c520                SystemFrequency
+                0x2000c858        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x2000c858                SystemFrequency
  .data.SystemCoreClock
-                0x2000c524        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
-                0x2000c524                SystemCoreClock
+                0x2000c85c        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x2000c85c                SystemCoreClock
  .data.g_FrequencyPCLK0
-                0x2000c528        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
-                0x2000c528                g_FrequencyPCLK0
+                0x2000c860        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x2000c860                g_FrequencyPCLK0
  .data.g_FrequencyPCLK1
-                0x2000c52c        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
-                0x2000c52c                g_FrequencyPCLK1
+                0x2000c864        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x2000c864                g_FrequencyPCLK1
  .data.g_FrequencyACE
-                0x2000c530        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
-                0x2000c530                g_FrequencyACE
+                0x2000c868        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x2000c868                g_FrequencyACE
  .data.g_FrequencyFPGA
-                0x2000c534        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
-                0x2000c534                g_FrequencyFPGA
- .data          0x2000c538       0xf4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-impure.o)
-                0x2000c538                _impure_ptr
- .data          0x2000c62c      0x410 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o)
-                0x2000c62c                __malloc_av_
-                0x2000ca34                __malloc_sbrk_base
-                0x2000ca38                __malloc_trim_threshold
-                0x2000ca3c                . = ALIGN (0x4)
-                0x2000ca3c                _edata = .
+                0x2000c86c        0x4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x2000c86c                g_FrequencyFPGA
+ .data          0x2000c870       0xf4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-impure.o)
+                0x2000c870                _impure_ptr
+ .data          0x2000c964      0x410 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o)
+                0x2000c964                __malloc_av_
+                0x2000cd6c                __malloc_sbrk_base
+                0x2000cd70                __malloc_trim_threshold
+                0x2000cd74                . = ALIGN (0x4)
+                0x2000cd74                _edata = .
 
-.bss            0x2000ca3c      0x24c
-                0x2000ca3c                __bss_start__ = .
-                0x2000ca3c                _sbss = .
+.bss            0x2000cd74      0x24c
+                0x2000cd74                __bss_start__ = .
+                0x2000cd74                _sbss = .
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x2000ca3c        0x1 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
- *fill*         0x2000ca3d        0x3 00
- .bss.analog_pwm_vals.5257
-                0x2000ca40        0x8 ./main.o
+ .bss           0x2000cd74        0x1 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
+ .bss.in_reload_position.5187
+                0x2000cd75        0x1 ./main.o
+ *fill*         0x2000cd76        0x2 00
  .bss.lcd_state
-                0x2000ca48        0x8 ./main.o
+                0x2000cd78        0x8 ./main.o
+ .bss.analog_pwm_vals.5259
+                0x2000cd80        0x8 ./main.o
  .bss.g_live_fire_enabled
-                0x2000ca50        0x1 ./main.o
- *fill*         0x2000ca51        0x3 00
+                0x2000cd88        0x1 ./main.o
+ *fill*         0x2000cd89        0x3 00
  .bss.lcd_last_state
-                0x2000ca54        0x8 ./main.o
- .bss.lasttrg   0x2000ca5c        0x4 ./main.o
- .bss.trg       0x2000ca60        0x4 ./main.o
+                0x2000cd8c        0x8 ./main.o
+ .bss.lasttrg   0x2000cd94        0x4 ./main.o
+ .bss.trg       0x2000cd98        0x4 ./main.o
  .bss.REPEATED_FIRING_MODE
-                0x2000ca64        0x1 ./main.o
-                0x2000ca64                REPEATED_FIRING_MODE
- .bss.in_reload_position.5185
-                0x2000ca65        0x1 ./main.o
+                0x2000cd9c        0x1 ./main.o
+                0x2000cd9c                REPEATED_FIRING_MODE
  .bss.g_outReadIndex
-                0x2000ca66        0x1 ./drivers/Pixy_SPI.o
- .bss.g_outLen  0x2000ca67        0x1 ./drivers/Pixy_SPI.o
+                0x2000cd9d        0x1 ./drivers/Pixy_SPI.o
+ .bss.g_outLen  0x2000cd9e        0x1 ./drivers/Pixy_SPI.o
+ *fill*         0x2000cd9f        0x1 00
  .bss.g_skipStart
-                0x2000ca68        0x4 ./drivers/Pixy_SPI.o
- .bss.g_outBuf  0x2000ca6c       0x40 ./drivers/Pixy_SPI.o
- .bss.targ      0x2000caac        0x4 ./drivers/stats_display.o
- .bss.d_arg     0x2000cab0        0x4 ./drivers/stats_display.o
- .bss.m_arg     0x2000cab4        0x4 ./drivers/stats_display.o
- .bss.lasttarg  0x2000cab8        0x4 ./drivers/stats_display.o
- .bss.s_arg     0x2000cabc        0x4 ./drivers/stats_display.o
- .bss.t_arg     0x2000cac0        0x8 ./drivers/stats_display.o
- .bss.u_arg     0x2000cac8        0x8 ./drivers/stats_display.o
- .bss.root      0x2000cad0        0x4 ./drivers/timer_t.o
-                0x2000cad0                root
- .bss.g_clk_hz  0x2000cad4        0x4 ./drivers/timer_t.o
+                0x2000cda0        0x4 ./drivers/Pixy_SPI.o
+ .bss.g_outBuf  0x2000cda4       0x40 ./drivers/Pixy_SPI.o
+ .bss.targ      0x2000cde4        0x4 ./drivers/stats_display.o
+ .bss.d_arg     0x2000cde8        0x4 ./drivers/stats_display.o
+ .bss.lasttarg  0x2000cdec        0x4 ./drivers/stats_display.o
+ .bss.s_arg     0x2000cdf0        0x4 ./drivers/stats_display.o
+ .bss.t_arg     0x2000cdf4        0x8 ./drivers/stats_display.o
+ .bss.u_arg     0x2000cdfc        0x8 ./drivers/stats_display.o
+ .bss.m_arg     0x2000ce04        0x4 ./drivers/stats_display.o
+ .bss.root      0x2000ce08        0x4 ./drivers/timer_t.o
+                0x2000ce08                root
+ .bss.g_clk_hz  0x2000ce0c        0x4 ./drivers/timer_t.o
  .bss.g_stdio_uart_init_done
-                0x2000cad8        0x4 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x2000ce10        0x4 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
  .bss.heap_end.3594
-                0x2000cadc        0x4 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
- .bss           0x2000cae0       0x34 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o)
-                0x2000cae0                __malloc_top_pad
-                0x2000cae4                __malloc_current_mallinfo
-                0x2000cb0c                __malloc_max_sbrked_mem
-                0x2000cb10                __malloc_max_total_mem
+                0x2000ce14        0x4 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+ .bss           0x2000ce18       0x34 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o)
+                0x2000ce18                __malloc_top_pad
+                0x2000ce1c                __malloc_current_mallinfo
+                0x2000ce44                __malloc_max_sbrked_mem
+                0x2000ce48                __malloc_max_total_mem
  *(COMMON)
- COMMON         0x2000cb14        0xc ./main.o
-                0x2000cb14                g_disp_update_lock
-                0x2000cb18                g_disp_update_argument
- COMMON         0x2000cb20        0x5 ./drivers/Pixy_SPI.o
-                0x2000cb20                g_blocks
-                0x2000cb24                g_blockType
- COMMON         0x2000cb25        0x1 ./drivers/timer_t.o
-                0x2000cb25                delay_timer_lock
- *fill*         0x2000cb26        0x2 00
- COMMON         0x2000cb28       0x50 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
-                0x2000cb28                g_mss_uart1
-                0x2000cb50                g_mss_uart0
- COMMON         0x2000cb78      0x108 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
-                0x2000cb78                g_mss_spi1
-                0x2000cbfc                g_mss_spi0
- COMMON         0x2000cc80        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
-                0x2000cc80                errno
-                0x2000cc88                . = ALIGN (0x8)
- *fill*         0x2000cc84        0x4 00
-                0x2000cc88                __bss_end__ = .
-                0x2000cc88                _end = .
-                0x2000cc88                __end = _end
-                0x2000cc88                _ebss = .
-                0x2000cc88                PROVIDE (end, .)
+ COMMON         0x2000ce4c        0xc ./main.o
+                0x2000ce4c                g_disp_update_lock
+                0x2000ce50                g_disp_update_argument
+ COMMON         0x2000ce58        0x5 ./drivers/Pixy_SPI.o
+                0x2000ce58                g_blocks
+                0x2000ce5c                g_blockType
+ COMMON         0x2000ce5d        0x1 ./drivers/timer_t.o
+                0x2000ce5d                delay_timer_lock
+ *fill*         0x2000ce5e        0x2 00
+ COMMON         0x2000ce60       0x50 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x2000ce60                g_mss_uart1
+                0x2000ce88                g_mss_uart0
+ COMMON         0x2000ceb0      0x108 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x2000ceb0                g_mss_spi1
+                0x2000cf34                g_mss_spi0
+ COMMON         0x2000cfb8        0x4 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
+                0x2000cfb8                errno
+                0x2000cfc0                . = ALIGN (0x8)
+ *fill*         0x2000cfbc        0x4 00
+                0x2000cfc0                __bss_end__ = .
+                0x2000cfc0                _end = .
+                0x2000cfc0                __end = _end
+                0x2000cfc0                _ebss = .
+                0x2000cfc0                PROVIDE (end, .)
 
-.stack          0x2000cc88     0x3000
-                0x2000cc88                . = ALIGN (0x4)
-                0x2000dc88                . = (. + PROCESS_STACK_SIZE)
- *fill*         0x2000cc88     0x1000 00
-                0x2000dc88                . = ALIGN (0x4)
-                0x2000fc88                . = (. + MAIN_STACK_SIZE)
- *fill*         0x2000dc88     0x2000 00
-                0x2000fc88                . = ALIGN (0x4)
+.stack          0x2000cfc0     0x3000
+                0x2000cfc0                . = ALIGN (0x4)
+                0x2000dfc0                . = (. + PROCESS_STACK_SIZE)
+ *fill*         0x2000cfc0     0x1000 00
+                0x2000dfc0                . = ALIGN (0x4)
+                0x2000ffc0                . = (. + MAIN_STACK_SIZE)
+ *fill*         0x2000dfc0     0x2000 00
+                0x2000ffc0                . = ALIGN (0x4)
 
 .stab
  *(.stab)
@@ -1762,70 +1787,70 @@ END GROUP
  .debug_pubnames
                 0x00001385      0x65f C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
 
-.debug_info     0x00000000     0xe1f7
+.debug_info     0x00000000     0xe226
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xa05 ./main.o
- .debug_info    0x00000a05       0x29 ./main_lcd.o
- .debug_info    0x00000a2e     0x10ef ./drivers/LCD.o
- .debug_info    0x00001b1d      0xd14 ./drivers/Pixy_SPI.o
- .debug_info    0x00002831       0xf9 ./drivers/dsensor_driver.o
- .debug_info    0x0000292a      0x399 ./drivers/n64_driver.o
- .debug_info    0x00002cc3       0xf1 ./drivers/servo_control.o
- .debug_info    0x00002db4      0x763 ./drivers/stats_display.o
- .debug_info    0x00003517     0x12b6 ./drivers/timer_t.o
- .debug_info    0x000047cd     0x10f0 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
- .debug_info    0x000058bd     0x15a4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
- .debug_info    0x00006e61     0x1472 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
- .debug_info    0x000082d3     0x1114 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
- .debug_info    0x000093e7     0x1afb C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
- .debug_info    0x0000aee2      0x53c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
- .debug_info    0x0000b41e      0x480 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
- .debug_info    0x0000b89e     0x1aa2 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
- .debug_info    0x0000d340      0xeb7 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+ .debug_info    0x00000000      0xa2a ./main.o
+ .debug_info    0x00000a2a       0x29 ./main_lcd.o
+ .debug_info    0x00000a53     0x10ef ./drivers/LCD.o
+ .debug_info    0x00001b42      0xd14 ./drivers/Pixy_SPI.o
+ .debug_info    0x00002856       0xf9 ./drivers/dsensor_driver.o
+ .debug_info    0x0000294f      0x399 ./drivers/n64_driver.o
+ .debug_info    0x00002ce8       0xf1 ./drivers/servo_control.o
+ .debug_info    0x00002dd9      0x76d ./drivers/stats_display.o
+ .debug_info    0x00003546     0x12b6 ./drivers/timer_t.o
+ .debug_info    0x000047fc     0x10f0 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+ .debug_info    0x000058ec     0x15a4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+ .debug_info    0x00006e90     0x1472 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+ .debug_info    0x00008302     0x1114 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+ .debug_info    0x00009416     0x1afb C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
+ .debug_info    0x0000af11      0x53c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+ .debug_info    0x0000b44d      0x480 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
+ .debug_info    0x0000b8cd     0x1aa2 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
+ .debug_info    0x0000d36f      0xeb7 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
 
-.debug_abbrev   0x00000000     0x1dc1
+.debug_abbrev   0x00000000     0x1dd7
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x291 ./main.o
- .debug_abbrev  0x00000291       0x16 ./main_lcd.o
- .debug_abbrev  0x000002a7      0x207 ./drivers/LCD.o
- .debug_abbrev  0x000004ae      0x275 ./drivers/Pixy_SPI.o
- .debug_abbrev  0x00000723       0x8b ./drivers/dsensor_driver.o
- .debug_abbrev  0x000007ae      0x185 ./drivers/n64_driver.o
- .debug_abbrev  0x00000933       0x8e ./drivers/servo_control.o
- .debug_abbrev  0x000009c1      0x22c ./drivers/stats_display.o
- .debug_abbrev  0x00000bed      0x311 ./drivers/timer_t.o
- .debug_abbrev  0x00000efe      0x1f4 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
- .debug_abbrev  0x000010f2      0x245 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
- .debug_abbrev  0x00001337      0x219 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
- .debug_abbrev  0x00001550      0x181 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
- .debug_abbrev  0x000016d1      0x225 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
- .debug_abbrev  0x000018f6      0x111 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
- .debug_abbrev  0x00001a07       0xbd C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
- .debug_abbrev  0x00001ac4      0x191 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
- .debug_abbrev  0x00001c55      0x16c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+ .debug_abbrev  0x00000000      0x2a7 ./main.o
+ .debug_abbrev  0x000002a7       0x16 ./main_lcd.o
+ .debug_abbrev  0x000002bd      0x207 ./drivers/LCD.o
+ .debug_abbrev  0x000004c4      0x275 ./drivers/Pixy_SPI.o
+ .debug_abbrev  0x00000739       0x8b ./drivers/dsensor_driver.o
+ .debug_abbrev  0x000007c4      0x185 ./drivers/n64_driver.o
+ .debug_abbrev  0x00000949       0x8e ./drivers/servo_control.o
+ .debug_abbrev  0x000009d7      0x22c ./drivers/stats_display.o
+ .debug_abbrev  0x00000c03      0x311 ./drivers/timer_t.o
+ .debug_abbrev  0x00000f14      0x1f4 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+ .debug_abbrev  0x00001108      0x245 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+ .debug_abbrev  0x0000134d      0x219 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+ .debug_abbrev  0x00001566      0x181 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+ .debug_abbrev  0x000016e7      0x225 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
+ .debug_abbrev  0x0000190c      0x111 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+ .debug_abbrev  0x00001a1d       0xbd C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
+ .debug_abbrev  0x00001ada      0x191 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
+ .debug_abbrev  0x00001c6b      0x16c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
 
-.debug_line     0x00000000     0x5d58
+.debug_line     0x00000000     0x5d76
  *(.debug_line)
- .debug_line    0x00000000      0xe05 ./main.o
- .debug_line    0x00000e05       0x2e ./main_lcd.o
- .debug_line    0x00000e33      0x471 ./drivers/LCD.o
- .debug_line    0x000012a4      0x63d ./drivers/Pixy_SPI.o
- .debug_line    0x000018e1      0x30f ./drivers/dsensor_driver.o
- .debug_line    0x00001bf0      0x36b ./drivers/n64_driver.o
- .debug_line    0x00001f5b      0x30a ./drivers/servo_control.o
- .debug_line    0x00002265      0x8b7 ./drivers/stats_display.o
- .debug_line    0x00002b1c      0x67b ./drivers/timer_t.o
- .debug_line    0x00003197      0x515 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
- .debug_line    0x000036ac      0x581 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
- .debug_line    0x00003c2d      0x70a C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
- .debug_line    0x00004337      0x32f C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
- .debug_line    0x00004666      0x605 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
- .debug_line    0x00004c6b      0x284 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
- .debug_line    0x00004eef      0x1ac C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
- .debug_line    0x0000509b      0x4de C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
- .debug_line    0x00005579      0x7df C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+ .debug_line    0x00000000      0xe34 ./main.o
+ .debug_line    0x00000e34       0x2e ./main_lcd.o
+ .debug_line    0x00000e62      0x471 ./drivers/LCD.o
+ .debug_line    0x000012d3      0x63d ./drivers/Pixy_SPI.o
+ .debug_line    0x00001910      0x30f ./drivers/dsensor_driver.o
+ .debug_line    0x00001c1f      0x36b ./drivers/n64_driver.o
+ .debug_line    0x00001f8a      0x30a ./drivers/servo_control.o
+ .debug_line    0x00002294      0x8a6 ./drivers/stats_display.o
+ .debug_line    0x00002b3a      0x67b ./drivers/timer_t.o
+ .debug_line    0x000031b5      0x515 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+ .debug_line    0x000036ca      0x581 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+ .debug_line    0x00003c4b      0x70a C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+ .debug_line    0x00004355      0x32f C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+ .debug_line    0x00004684      0x605 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
+ .debug_line    0x00004c89      0x284 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+ .debug_line    0x00004f0d      0x1ac C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
+ .debug_line    0x000050b9      0x4de C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
+ .debug_line    0x00005597      0x7df C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
 
-.debug_frame    0x00000000     0x2bb8
+.debug_frame    0x00000000     0x2c84
  *(.debug_frame)
  .debug_frame   0x00000000      0x1e0 ./main.o
  .debug_frame   0x000001e0      0x1e8 ./drivers/LCD.o
@@ -1851,138 +1876,141 @@ END GROUP
  .debug_frame   0x00001f70       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memset.o)
  .debug_frame   0x00001f98       0x30 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mlock.o)
  .debug_frame   0x00001fc8       0x5c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-printf.o)
- .debug_frame   0x00002024       0x40 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
- .debug_frame   0x00002064       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sbrkr.o)
- .debug_frame   0x00002090       0x5c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sprintf.o)
- .debug_frame   0x000020ec       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strlen.o)
- .debug_frame   0x0000210c       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strncmp.o)
- .debug_frame   0x00002134       0x68 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
- .debug_frame   0x0000219c       0x70 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
- .debug_frame   0x0000220c       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wsetup.o)
- .debug_frame   0x00002238       0x64 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o)
- .debug_frame   0x0000229c       0x40 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fflush.o)
- .debug_frame   0x000022dc      0x11c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
- .debug_frame   0x000023f8       0x50 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-freer.o)
- .debug_frame   0x00002448       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fvwrite.o)
- .debug_frame   0x00002484       0x54 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fwalk.o)
- .debug_frame   0x000024d8       0x6c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
- .debug_frame   0x00002544       0x34 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-makebuf.o)
- .debug_frame   0x00002578       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memchr.o)
- .debug_frame   0x000025a0       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memmove.o)
- .debug_frame   0x000025cc      0x240 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
- .debug_frame   0x0000280c       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
- .debug_frame   0x00002848       0x64 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
- .debug_frame   0x000028ac       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isinfd.o)
- .debug_frame   0x000028cc       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isnand.o)
- .debug_frame   0x000028ec       0x70 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-stdio.o)
- .debug_frame   0x0000295c       0x30 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
- .debug_frame   0x0000298c       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
- .debug_frame   0x000029b8       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-closer.o)
- .debug_frame   0x000029e4       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fclose.o)
- .debug_frame   0x00002a20       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fstatr.o)
- .debug_frame   0x00002a4c       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-isattyr.o)
- .debug_frame   0x00002a78       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-lseekr.o)
- .debug_frame   0x00002aa4       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-readr.o)
- .debug_frame   0x00002ad0       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivsi3.o)
- .debug_frame   0x00002af0       0x50 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(bpabi.o)
- .debug_frame   0x00002b40       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_divdi3.o)
- .debug_frame   0x00002b7c       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivdi3.o)
+ .debug_frame   0x00002024       0x48 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putchar.o)
+ .debug_frame   0x0000206c       0x40 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
+ .debug_frame   0x000020ac       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sbrkr.o)
+ .debug_frame   0x000020d8       0x5c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sprintf.o)
+ .debug_frame   0x00002134       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strlen.o)
+ .debug_frame   0x00002154       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strncmp.o)
+ .debug_frame   0x0000217c       0x68 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
+ .debug_frame   0x000021e4       0x70 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
+ .debug_frame   0x00002254       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wsetup.o)
+ .debug_frame   0x00002280       0x64 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o)
+ .debug_frame   0x000022e4       0x40 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fflush.o)
+ .debug_frame   0x00002324      0x11c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
+ .debug_frame   0x00002440       0x50 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-freer.o)
+ .debug_frame   0x00002490       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fvwrite.o)
+ .debug_frame   0x000024cc       0x54 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fwalk.o)
+ .debug_frame   0x00002520       0x6c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
+ .debug_frame   0x0000258c       0x34 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-makebuf.o)
+ .debug_frame   0x000025c0       0x28 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memchr.o)
+ .debug_frame   0x000025e8       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memmove.o)
+ .debug_frame   0x00002614      0x240 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
+ .debug_frame   0x00002854       0x48 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putc.o)
+ .debug_frame   0x0000289c       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
+ .debug_frame   0x000028d8       0x64 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
+ .debug_frame   0x0000293c       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isinfd.o)
+ .debug_frame   0x0000295c       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isnand.o)
+ .debug_frame   0x0000297c       0x70 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-stdio.o)
+ .debug_frame   0x000029ec       0x30 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
+ .debug_frame   0x00002a1c       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wbuf.o)
+ .debug_frame   0x00002a58       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
+ .debug_frame   0x00002a84       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-closer.o)
+ .debug_frame   0x00002ab0       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fclose.o)
+ .debug_frame   0x00002aec       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fstatr.o)
+ .debug_frame   0x00002b18       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-isattyr.o)
+ .debug_frame   0x00002b44       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-lseekr.o)
+ .debug_frame   0x00002b70       0x2c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-readr.o)
+ .debug_frame   0x00002b9c       0x20 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00002bbc       0x50 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(bpabi.o)
+ .debug_frame   0x00002c0c       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_divdi3.o)
+ .debug_frame   0x00002c48       0x3c c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivdi3.o)
 
-.debug_str      0x00000000     0x4d01
+.debug_str      0x00000000     0x4d0f
  *(.debug_str)
- .debug_str     0x00000000      0x6ad ./main.o
-                                0x745 (size before relaxing)
- .debug_str     0x000006ad        0xe ./main_lcd.o
+ .debug_str     0x00000000      0x6b6 ./main.o
+                                0x74e (size before relaxing)
+ .debug_str     0x000006b6        0xe ./main_lcd.o
                                  0x8c (size before relaxing)
- .debug_str     0x000006bb      0xe4e ./drivers/LCD.o
+ .debug_str     0x000006c4      0xe4e ./drivers/LCD.o
                                 0xfc3 (size before relaxing)
- .debug_str     0x00001509      0x5a3 ./drivers/Pixy_SPI.o
+ .debug_str     0x00001512      0x5a3 ./drivers/Pixy_SPI.o
                                0x11de (size before relaxing)
- .debug_str     0x00001aac       0x4d ./drivers/dsensor_driver.o
+ .debug_str     0x00001ab5       0x4d ./drivers/dsensor_driver.o
                                 0x166 (size before relaxing)
- .debug_str     0x00001af9       0x92 ./drivers/n64_driver.o
+ .debug_str     0x00001b02       0x92 ./drivers/n64_driver.o
                                 0x242 (size before relaxing)
- .debug_str     0x00001b8b       0x59 ./drivers/servo_control.o
+ .debug_str     0x00001b94       0x59 ./drivers/servo_control.o
                                 0x169 (size before relaxing)
- .debug_str     0x00001be4      0x1cf ./drivers/stats_display.o
-                                0x397 (size before relaxing)
- .debug_str     0x00001db3      0x64b ./drivers/timer_t.o
+ .debug_str     0x00001bed      0x1d4 ./drivers/stats_display.o
+                                0x3a5 (size before relaxing)
+ .debug_str     0x00001dc1      0x64b ./drivers/timer_t.o
                                0x1266 (size before relaxing)
- .debug_str     0x000023fe      0x26e C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+ .debug_str     0x0000240c      0x26e C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
                                0x10ba (size before relaxing)
- .debug_str     0x0000266c      0x3a9 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+ .debug_str     0x0000267a      0x3a9 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
                                0x14cb (size before relaxing)
- .debug_str     0x00002a15      0x351 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+ .debug_str     0x00002a23      0x351 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
                                0x16dc (size before relaxing)
- .debug_str     0x00002d66      0x2df C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+ .debug_str     0x00002d74      0x2df C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
                                0x12a3 (size before relaxing)
- .debug_str     0x00003045     0x1023 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
+ .debug_str     0x00003053     0x1023 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
                                0x12e9 (size before relaxing)
- .debug_str     0x00004068       0xf7 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+ .debug_str     0x00004076       0xf7 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
                                 0x46e (size before relaxing)
- .debug_str     0x0000415f      0x1ec C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
+ .debug_str     0x0000416d      0x1ec C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
                                 0x454 (size before relaxing)
- .debug_str     0x0000434b      0x32c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
+ .debug_str     0x00004359      0x32c C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
                                 0xfbb (size before relaxing)
- .debug_str     0x00004677      0x68a C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+ .debug_str     0x00004685      0x68a C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
                                0x1309 (size before relaxing)
 
-.debug_loc      0x00000000     0x3e71
+.debug_loc      0x00000000     0x3ec6
  *(.debug_loc)
  .debug_loc     0x00000000      0x7b9 ./main.o
  .debug_loc     0x000007b9      0x4d3 ./drivers/LCD.o
  .debug_loc     0x00000c8c      0x41d ./drivers/Pixy_SPI.o
  .debug_loc     0x000010a9       0x3e ./drivers/dsensor_driver.o
  .debug_loc     0x000010e7      0x10a ./drivers/n64_driver.o
- .debug_loc     0x000011f1      0x3b6 ./drivers/stats_display.o
- .debug_loc     0x000015a7      0x3e9 ./drivers/timer_t.o
- .debug_loc     0x00001990      0x3c6 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
- .debug_loc     0x00001d56      0x510 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
- .debug_loc     0x00002266      0x549 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
- .debug_loc     0x000027af      0x1ef C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
- .debug_loc     0x0000299e      0x53b C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
- .debug_loc     0x00002ed9       0x99 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
- .debug_loc     0x00002f72      0x415 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
- .debug_loc     0x00003387      0xaea C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+ .debug_loc     0x000011f1      0x40b ./drivers/stats_display.o
+ .debug_loc     0x000015fc      0x3e9 ./drivers/timer_t.o
+ .debug_loc     0x000019e5      0x3c6 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+ .debug_loc     0x00001dab      0x510 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+ .debug_loc     0x000022bb      0x549 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+ .debug_loc     0x00002804      0x1ef C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+ .debug_loc     0x000029f3      0x53b C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
+ .debug_loc     0x00002f2e       0x99 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+ .debug_loc     0x00002fc7      0x415 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
+ .debug_loc     0x000033dc      0xaea C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
 
-.debug_macinfo  0x00000000    0x7620f
+.debug_macinfo  0x00000000    0x762a4
  *(.debug_macinfo)
  .debug_macinfo
-                0x00000000     0xbb20 ./main.o
+                0x00000000     0xbbb5 ./main.o
  .debug_macinfo
-                0x0000bb20      0xc9a ./main_lcd.o
+                0x0000bbb5      0xc9a ./main_lcd.o
  .debug_macinfo
-                0x0000c7ba     0x5d61 ./drivers/LCD.o
+                0x0000c84f     0x5d61 ./drivers/LCD.o
  .debug_macinfo
-                0x0001251b     0x9053 ./drivers/Pixy_SPI.o
+                0x000125b0     0x9053 ./drivers/Pixy_SPI.o
  .debug_macinfo
-                0x0001b56e     0x4f5a ./drivers/dsensor_driver.o
+                0x0001b603     0x4f5a ./drivers/dsensor_driver.o
  .debug_macinfo
-                0x000204c8     0x5025 ./drivers/n64_driver.o
+                0x0002055d     0x5025 ./drivers/n64_driver.o
  .debug_macinfo
-                0x000254ed     0x5238 ./drivers/servo_control.o
+                0x00025582     0x5238 ./drivers/servo_control.o
  .debug_macinfo
-                0x0002a725     0x9cf3 ./drivers/stats_display.o
+                0x0002a7ba     0x9cf3 ./drivers/stats_display.o
  .debug_macinfo
-                0x00034418     0x8efd ./drivers/timer_t.o
+                0x000344ad     0x8efd ./drivers/timer_t.o
  .debug_macinfo
-                0x0003d315     0x9965 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+                0x0003d3aa     0x9965 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
  .debug_macinfo
-                0x00046c7a     0x63e4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+                0x00046d0f     0x63e4 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
  .debug_macinfo
-                0x0004d05e     0x755a C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+                0x0004d0f3     0x755a C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
  .debug_macinfo
-                0x000545b8     0x5cfb C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+                0x0005464d     0x5cfb C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
  .debug_macinfo
-                0x0005a2b3     0x77f7 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
+                0x0005a348     0x77f7 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
  .debug_macinfo
-                0x00061aaa     0x5a99 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+                0x00061b3f     0x5a99 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
  .debug_macinfo
-                0x00067543     0x18c9 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
+                0x000675d8     0x18c9 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_config.o)
  .debug_macinfo
-                0x00068e0c     0x5b95 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
+                0x00068ea1     0x5b95 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
  .debug_macinfo
-                0x0006e9a1     0x786e C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+                0x0006ea36     0x786e C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
 
 .debug_weaknames
  *(.debug_weaknames)
@@ -2077,109 +2105,115 @@ END GROUP
  .ARM.attributes
                 0x000005da       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-printf.o)
  .ARM.attributes
-                0x00000603       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
+                0x00000603       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putchar.o)
  .ARM.attributes
-                0x0000062c       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sbrkr.o)
+                0x0000062c       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-puts.o)
  .ARM.attributes
-                0x00000655       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sprintf.o)
+                0x00000655       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x0000067e       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strlen.o)
+                0x0000067e       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-sprintf.o)
  .ARM.attributes
-                0x000006a7       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strncmp.o)
+                0x000006a7       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strlen.o)
  .ARM.attributes
-                0x000006d0       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
+                0x000006d0       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strncmp.o)
  .ARM.attributes
-                0x000006f9       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
+                0x000006f9       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o)
  .ARM.attributes
-                0x00000722       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wsetup.o)
+                0x00000722       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-vfprintf.o)
  .ARM.attributes
-                0x0000074b       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o)
+                0x0000074b       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wsetup.o)
  .ARM.attributes
-                0x00000774       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fflush.o)
+                0x00000774       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dtoa.o)
  .ARM.attributes
-                0x0000079d       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
+                0x0000079d       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fflush.o)
  .ARM.attributes
-                0x000007c6       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-freer.o)
+                0x000007c6       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
  .ARM.attributes
-                0x000007ef       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fvwrite.o)
+                0x000007ef       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-freer.o)
  .ARM.attributes
-                0x00000818       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fwalk.o)
+                0x00000818       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fvwrite.o)
  .ARM.attributes
-                0x00000841       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
+                0x00000841       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fwalk.o)
  .ARM.attributes
-                0x0000086a       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-makebuf.o)
+                0x0000086a       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-locale.o)
  .ARM.attributes
-                0x00000893       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memchr.o)
+                0x00000893       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-makebuf.o)
  .ARM.attributes
-                0x000008bc       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memmove.o)
+                0x000008bc       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memchr.o)
  .ARM.attributes
-                0x000008e5       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
+                0x000008e5       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memmove.o)
  .ARM.attributes
-                0x0000090e       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
+                0x0000090e       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mprec.o)
  .ARM.attributes
-                0x00000937       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
+                0x00000937       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-putc.o)
  .ARM.attributes
-                0x00000960       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isinfd.o)
+                0x00000960       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reallocr.o)
  .ARM.attributes
-                0x00000989       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isnand.o)
+                0x00000989       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
  .ARM.attributes
-                0x000009b2       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-stdio.o)
+                0x000009b2       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isinfd.o)
  .ARM.attributes
-                0x000009db       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
+                0x000009db       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_isnand.o)
  .ARM.attributes
-                0x00000a04       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
+                0x00000a04       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-stdio.o)
  .ARM.attributes
-                0x00000a2d       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-closer.o)
+                0x00000a2d       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-strcmp.o)
  .ARM.attributes
-                0x00000a56       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fclose.o)
+                0x00000a56       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-wbuf.o)
  .ARM.attributes
-                0x00000a7f       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fstatr.o)
+                0x00000a7f       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-callocr.o)
  .ARM.attributes
-                0x00000aa8       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-isattyr.o)
+                0x00000aa8       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-closer.o)
  .ARM.attributes
-                0x00000ad1       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-lseekr.o)
+                0x00000ad1       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fclose.o)
  .ARM.attributes
-                0x00000afa       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-readr.o)
+                0x00000afa       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-fstatr.o)
  .ARM.attributes
-                0x00000b23       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivsi3.o)
+                0x00000b23       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-isattyr.o)
  .ARM.attributes
-                0x00000b3e       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_dvmd_tls.o)
+                0x00000b4c       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-lseekr.o)
  .ARM.attributes
-                0x00000b59       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_cmpdf2.o)
+                0x00000b75       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-readr.o)
  .ARM.attributes
-                0x00000b74       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_fixdfsi.o)
+                0x00000b9e       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x00000b8f       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_aeabi_uldivmod.o)
+                0x00000bb9       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x00000baa       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(bpabi.o)
+                0x00000bd4       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x00000bd3       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_divdi3.o)
+                0x00000bef       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_arm_fixdfsi.o)
  .ARM.attributes
-                0x00000bfc       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivdi3.o)
+                0x00000c0a       0x1b c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x00000c25       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
+                0x00000c25       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(bpabi.o)
  .ARM.attributes
-                0x00000c4e       0x19 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+                0x00000c4e       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_divdi3.o)
+ .ARM.attributes
+                0x00000c77       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2\libgcc.a(_udivdi3.o)
+ .ARM.attributes
+                0x00000ca0       0x29 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
+ .ARM.attributes
+                0x00000cc9       0x19 c:/actel/libero_v9.1/softconsole/sourcery-g++/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
 /DISCARD/
  *(.note.GNU-stack)
  *(.isr_vector)
 OUTPUT(ants_master_MSS_MSS_CM3_0_app elf32-littlearm)
 
-.debug_ranges   0x00000000      0xbe0
- .debug_ranges  0x00000000      0x100 ./main.o
- .debug_ranges  0x00000100       0xa0 ./drivers/LCD.o
- .debug_ranges  0x000001a0      0x100 ./drivers/Pixy_SPI.o
- .debug_ranges  0x000002a0       0x20 ./drivers/dsensor_driver.o
- .debug_ranges  0x000002c0       0xa0 ./drivers/n64_driver.o
- .debug_ranges  0x00000360       0x20 ./drivers/servo_control.o
- .debug_ranges  0x00000380       0x70 ./drivers/stats_display.o
- .debug_ranges  0x000003f0      0x1c8 ./drivers/timer_t.o
- .debug_ranges  0x000005b8       0xa0 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
- .debug_ranges  0x00000658       0xd0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
- .debug_ranges  0x00000728       0xd8 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
- .debug_ranges  0x00000800       0x58 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
- .debug_ranges  0x00000858       0xd8 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
- .debug_ranges  0x00000930       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
- .debug_ranges  0x00000958       0xa8 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
- .debug_ranges  0x00000a00      0x1e0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)
+.debug_ranges   0x00000000      0xc00
+ .debug_ranges  0x00000000      0x120 ./main.o
+ .debug_ranges  0x00000120       0xa0 ./drivers/LCD.o
+ .debug_ranges  0x000001c0      0x100 ./drivers/Pixy_SPI.o
+ .debug_ranges  0x000002c0       0x20 ./drivers/dsensor_driver.o
+ .debug_ranges  0x000002e0       0xa0 ./drivers/n64_driver.o
+ .debug_ranges  0x00000380       0x20 ./drivers/servo_control.o
+ .debug_ranges  0x000003a0       0x70 ./drivers/stats_display.o
+ .debug_ranges  0x00000410      0x1c8 ./drivers/timer_t.o
+ .debug_ranges  0x000005d8       0xa0 C:/Users/rpokeefe/repos/373/ants_master/SoftConsole/ants_master_MSS_MSS_CM3_0/ants_master_MSS_MSS_CM3_0_hw_platform/Debug/CMSIS/startup_gcc/newlib_stubs.o
+ .debug_ranges  0x00000678       0xd0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_uart.o)
+ .debug_ranges  0x00000748       0xd8 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_spi.o)
+ .debug_ranges  0x00000820       0x58 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_gpio.o)
+ .debug_ranges  0x00000878       0xd8 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(mss_ace.o)
+ .debug_ranges  0x00000950       0x28 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(system_a2fxxxm3.o)
+ .debug_ranges  0x00000978       0xa8 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_convert.o)
+ .debug_ranges  0x00000a20      0x1e0 C:\Users\rpokeefe\repos\373\ants_master\SoftConsole\ants_master_MSS_MSS_CM3_0\ants_master_MSS_MSS_CM3_0_hw_platform\Debug\libants_master_MSS_MSS_CM3_0_hw_platform.a(ace_flags.o)

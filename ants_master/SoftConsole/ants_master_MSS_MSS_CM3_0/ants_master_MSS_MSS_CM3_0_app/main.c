@@ -12,6 +12,7 @@
 #include "drivers/timer_t.h"
 #include "drivers/led_interface.h"
 #include "drivers/stats_display.h"
+#include "debug_macros.h"
 
 #define PRINT_N64_STATE 0
 
@@ -119,8 +120,9 @@ int main() {
 
         do_manual_reload( &n64_buttons, &last_buttons );
 
-        update_last_screen_state();
+        lcd_state.distance = get_distance();
         disp_update(&g_disp_update_argument);
+        update_last_screen_state();
 
         if (PRINT_N64_STATE) {
             n64_print_state( &n64_buttons );
@@ -393,6 +395,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     uint16_t scaling_modifier = 20;
 
     lcd_state.target_mode = AUTO_MODE;
+    //This will start updating
+    lcd_last_state.target_pos = &lasttrg;
     disp_update((void*)&g_disp_update_argument);
     update_last_screen_state();
     
@@ -525,7 +529,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         	//start_hardware_timer();
         	trg.x = disp_scale_x(target.x);
         	trg.y = disp_scale_y(target.y);
-        	lcd_state.target_pos = &trg;
+        	DBG("scaled x target value: %d, scaled y target value: %d", trg.x, trg.y);
+        	//lcd_state.target_pos = &trg;
         	disp_update((void*)&g_disp_update_argument);
         	update_last_screen_state();
             // spin lock until screen finishes updating
@@ -554,6 +559,7 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         n64_get_state( state );
     }
     lcd_state.target_mode = MANUAL_MODE;
+    lcd_last_state.target_pos = &trg;//stop updates of target while in manual
     disp_update((void*)&g_disp_update_argument);
     update_last_screen_state();
     //speaker_play(END_AUTO);
