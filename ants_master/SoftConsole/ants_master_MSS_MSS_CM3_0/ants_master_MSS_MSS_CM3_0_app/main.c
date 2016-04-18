@@ -169,7 +169,7 @@ void do_manual_reload(n64_state_t* state, n64_state_t* last_state) {
 	static uint32_t x_return_time = 360;
 	static uint32_t y_return_time = 250;
 
-	if (n64_pressed(A)) {
+	if (n64_pressed(B)) {
 
 		if (in_reload_position) {
 			lcd_state.chamber_status = CHAMBER_LOADED;
@@ -388,6 +388,8 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
     static uint16_t Y_SCALE_PW = Y_SCALE_PW_DEF;
     static uint16_t PIXY_X_DEADZONE = PIXY_X_DEADZONE_DEF;
     static uint16_t PIXY_Y_DEADZONE = PIXY_Y_DEADZONE_DEF;
+    static uint16_t PIXY_X_CENTER = PIXY_X_CENTER_DEF;
+    static uint16_t PIXY_Y_CENTER = PIXY_Y_CENTER_DEF;
     uint16_t scaling_modifier = 20;
 
     lcd_state.target_mode = MANUAL_MODE;
@@ -408,7 +410,6 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         if (state->R && n64_pressed(C_Down)) {
         	Y_SCALE_PW -= scaling_modifier;
         }
-
         // on the fly tuning for the deadzone
         if (state->Z && n64_pressed(C_Right)) {
         	PIXY_X_DEADZONE += 1;
@@ -421,6 +422,19 @@ void do_automatic(n64_state_t* state, n64_state_t* last_state) {
         }
         if (state->Z && n64_pressed(C_Down)) {
         	PIXY_Y_DEADZONE -= 1;
+		}
+        // on the fly tuning for the target center
+        if (state->R && state->Z && n64_pressed(C_Right)) {
+        	PIXY_X_CENTER += 1;
+        }
+        if (state->R && state->Z && n64_pressed(C_Left)) {
+        	PIXY_X_CENTER -= 1;
+        }
+        if (state->R && state->Z && n64_pressed(C_Up)) {
+        	PIXY_Y_CENTER += 1;
+        }
+        if (state->R && state->Z && n64_pressed(C_Down)) {
+        	PIXY_Y_CENTER -= 1;
         }
 
         // reset on the fly tuning
